@@ -1474,7 +1474,7 @@ footer {
     body { padding-top: 100px; }
     nav { padding: 12px 8px; }
     
-    .grid-productos { grid-template-columns: 1fr; padding: 10px; gap: 14px; }
+    .grid-productos { grid-template-columns: repeat(2, 1fr); padding: 10px; gap: 14px; }
     .img-wrapper { height: 220px; }
     
     .nav-content { gap: 8px; padding: 0 6px; }
