@@ -1489,8 +1489,12 @@ footer {
     body { padding-top: 100px; }
     nav { padding: 12px 8px; }
     
-    .grid-productos { grid-template-columns: 1fr; padding: 10px; gap: 14px; }
-    .img-wrapper { height: 220px; }
+    .grid-productos { grid-template-columns: repeat(2, 1fr); padding: 8px; gap: 8px; }
+    .img-wrapper { height: 180px; }
+    .tarjeta-producto { border-radius: 14px; }
+    .info-card { padding: 10px; height: auto; }
+    .info-card h3 { font-size: 0.85rem; }
+    .precio-card { font-size: 1.1rem; }
     
     .nav-content { gap: 8px; padding: 0 6px; }
     .nav-buttons { gap: 8px; }
@@ -1569,8 +1573,9 @@ footer {
     .icono-lupa { font-size: 1rem; right: 7px; }
     
     .grid-productos { padding: 8px; gap: 12px; }
-    .img-wrapper { height: 200px; }
-    
+    .img-wrapper { height: 160px; }
+    .tarjeta-producto { border-radius: 12px; }
+    .info-card { padding: 8px; height: auto; }
     .info-card h3 { font-size: 0.98rem; }
     .precio-card { font-size: 1.2rem; }
     .btn-agregar-card { padding: 7px 12px; font-size: 0.85rem; }
@@ -1653,8 +1658,12 @@ footer {
     #input-busqueda { padding: 8px 26px 8px 8px; font-size: 0.8rem; }
     .icono-lupa { font-size: 0.9rem; right: 6px; }
     
-    .grid-productos { padding: 6px; gap: 10px; }
-    .img-wrapper { height: 180px; }
+    .grid-productos { grid-template-columns: repeat(2, 1fr); padding: 6px; gap: 6px; }
+    .img-wrapper { height: 140px; }
+    .tarjeta-producto { border-radius: 10px; }
+    .info-card { padding: 6px; height: auto; }
+    .info-card h3 { font-size: 0.75rem; }
+    .precio-card { font-size: 0.95rem; }
     
     /* Modal responsive 320px */
     .modal-content { 
@@ -2535,13 +2544,4 @@ footer {
 }
 @keyframes wpPulse {
     0% { transform: scale(1); box-shadow: 0 0 0 rgba(212,175,55,0); }
-    50% { transform: scale(1.35); box-shadow: 0 6px 18px rgba(212,175,55,0.28); }
-    100% { transform: scale(1); box-shadow: 0 0 0 rgba(212,175,55,0); }
-}
-
-/* Safe-area support for modern phones (notch, dynamic island) */
-@supports (padding: env(safe-area-inset-bottom)) {
-    body { padding-bottom: env(safe-area-inset-bottom); }
-    .btn-whatsapp { bottom: calc(18px + env(safe-area-inset-bottom)); }
-    .floating-cart-panel { bottom: calc(90px + env(safe-area-inset-bottom)); }
-}
+ 
