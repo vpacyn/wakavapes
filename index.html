@@ -12,113 +12,8 @@
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     
-    <!-- Vinculación de Estilos (embebido: tema blanco y dorado) -->
-    <style>
-    /* =====================
-       THEME: Blanco & Dorado
-       CSS embebido (derivado de style.css, adaptado a esquema claro)
-       ===================== */
-
-    :root {
-        --gold-primary: #D4AF37;
-        --gold-light: #F9E79F;
-        --gold-dark: #AA771C;
-        --gold-gradient: linear-gradient(135deg, #AA771C 0%, #D4AF37 50%, #F9E79F 100%);
-
-        /* Fondos claros */
-        --black-bg: #ffffff;
-        --card-bg: #ffffff;
-
-        /* Estados */
-        --rojo-oferta: #c0392b;
-        --rojo-brillo: #e74c3c;
-        --verde-stock: #27ae60;
-
-        --transicion-lenta: 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-        --transicion-rapida: 0.2s ease-in-out;
-
-        /* Glass effect claro */
-        --glass-bg: rgba(255,255,255,0.85);
-        --glass-border: 1px solid rgba(212, 175, 55, 0.12);
-        --glass-border-hover: 1px solid rgba(212, 175, 55, 0.32);
-        --glass-blur: blur(8px);
-        --glass-shadow: 0 8px 24px rgba(0,0,0,0.06);
-    }
-
-    /* Reset y tipografías */
-    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Lato', sans-serif; -webkit-tap-highlight-color:transparent; }
-    html,body { height:100%; }
-
-    /* Scrollbar claro */
-    ::-webkit-scrollbar { width:10px; height:10px; }
-    ::-webkit-scrollbar-track { background: #f3f3f3; }
-    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #d4af37, #f9e79f); border-radius:6px; border:2px solid #ffffff; }
-    ::-webkit-scrollbar-thumb:hover { background: #ffd700; }
-
-    body {
-        background: linear-gradient(180deg, #ffffff 0%, #fbfaf8 100%);
-        color: #111111;
-        padding-top:90px;
-        -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-        overflow-x:hidden; min-height:100vh;
-    }
-
-    body.modal-open { overflow:hidden; }
-
-    /* Top ticker */
-    .top-ticker { position:fixed; top:0; left:0; width:100%; height:36px; background: rgba(255,255,255,0.9); backdrop-filter: blur(6px); border-bottom:1px solid rgba(212,175,55,0.06); z-index:800; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 10px rgba(0,0,0,0.04); }
-    .ticker-wrapper { width:100%; max-width:900px; padding:0 14px; display:flex; align-items:center; justify-content:space-between; }
-    .ticker-text { color: var(--gold-dark); font-weight:700; font-size:0.78rem; letter-spacing:1px; text-transform:uppercase; }
-    .ticker-phone { color: var(--gold-primary); font-weight:900; text-decoration:none; background:transparent; }
-    .ticker-control { background:none; border:none; color:#666; cursor:pointer; }
-
-    /* Nav */
-    nav { position:fixed; top:36px; left:0; width:100%; background: rgba(255,255,255,0.95); border-bottom:1px solid rgba(212,175,55,0.06); z-index:2200; padding:12px 22px; backdrop-filter: blur(8px); box-shadow:0 6px 18px rgba(0,0,0,0.04); }
-    .nav-content { display:flex; justify-content:space-between; align-items:center; gap:18px; max-width:1400px; margin:0 auto; }
-
-    /* Buscador */
-    .buscador-container { position:relative; flex-grow:1; max-width:640px; margin:0 auto; }
-    #input-busqueda { width:100%; padding:10px 44px 10px 18px; background: #fff; border:1px solid rgba(0,0,0,0.06); border-radius:999px; color:#222; box-shadow: 0 4px 10px rgba(0,0,0,0.04); }
-    #input-busqueda:focus { outline:none; border-color: rgba(212,175,55,0.35); box-shadow:0 6px 18px rgba(212,175,55,0.06); }
-
-    .icono-lupa { position:absolute; right:16px; top:50%; transform:translateY(-50%); color: #888; }
-
-    /* Badges y botones */
-    .btn-icon-nav { background: linear-gradient(180deg, rgba(212,175,55,0.06), rgba(212,175,55,0.02)); border:1px solid rgba(212,175,55,0.12); color:var(--gold-dark); width:44px; height:44px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; }
-    .btn-inicio { background:transparent; border:1px solid rgba(0,0,0,0.06); color:#222; padding:8px; border-radius:8px; }
-
-    /* Portadas / tarjetas de categoría */
-    .tarjeta-categoria { margin:18px auto; max-width:1200px; border-radius:12px; overflow:hidden; background:var(--card-bg); border:1px solid rgba(212,175,55,0.06); box-shadow: var(--glass-shadow); display:flex; align-items:center; gap:18px; padding:18px; }
-    .tarjeta-categoria h2 { font-family: 'Cinzel', serif; color:var(--gold-dark); font-size:1.8rem; }
-    .tarjeta-categoria p { color:#444; }
-
-    /* Grid de productos */
-    .grid-productos { display:grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap:18px; max-width:1200px; margin:20px auto; padding:0 18px; }
-    .tarjeta-producto { background:#fff; border:1px solid rgba(0,0,0,0.06); border-radius:10px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,0.04); cursor:pointer; }
-    .tarjeta-producto img { width:100%; height:160px; object-fit:cover; display:block; }
-    .info-card { padding:12px; text-align:center; }
-    .precio-card { color:var(--gold-dark); font-weight:700; margin-top:8px; }
-
-    /* Modal */
-    .modal { position:fixed; inset:0; display:none; align-items:center; justify-content:center; background: rgba(0,0,0,0.12); z-index:4000; }
-    .modal-content { background:#fff; border-radius:12px; width:92%; max-width:840px; padding:18px; box-shadow:0 30px 80px rgba(0,0,0,0.06); }
-
-    /* Floating WhatsApp */
-    .btn-whatsapp { position:fixed; right:18px; bottom:18px; background: linear-gradient(180deg,#2ac05f,#25d366); color:#fff; border-radius:50%; width:56px; height:56px; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 30px rgba(37,211,102,0.12); }
-
-    /* Toast */
-    .toast { position:fixed; left:16px; bottom:18px; background:linear-gradient(90deg,#fff,#fff); color:#111; border:1px solid rgba(212,175,55,0.08); padding:10px 14px; border-radius:10px; box-shadow:0 8px 24px rgba(0,0,0,0.06); z-index:6000; }
-
-    /* Footer */
-    footer { padding:28px 18px; text-align:center; color:#666; background:transparent; }
-
-    /* Responsive tweaks */
-    @media (max-width:768px) {
-        .tarjeta-producto img { height:140px; }
-        .nav-content { gap:8px; }
-    }
-
-    </style>
+    <!-- Vinculación de Estilos -->
+    <link rel="stylesheet" href="style.css">
     
     <!-- Librerías Externas -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -562,7 +457,7 @@
             { id: 212, categoria: 'vapes', activo: true, orden: 12, nombre: "Stlth", modelo: "Device", precio: 300, precioOriginal: 0, enPromocion: false, img: "https://images.unsplash.com/photo-1563821010-859a53855a84?q=80&w=800", sabores: SABORES_VAPES },
 
             // --- SOBRE PEDIDO (12 Items) ---
-            { id: 501, categoria: 'sobrepedido', activo: true, orden: 1, nombre: "Luigi + Preroll", modelo: "2g", precio: 850, precioOriginal: 1500, enPromocion: true, img: "Imagenes/luigi.jpeg" },
+            { id: 501, categoria: 'sobrepedido', activo: true, orden: 1, nombre: "Luigi + Preroll", modelo: "2g", precio: 850, precioOriginal: 1500, enPromocion: true, img: "Imagenes/Luigi.jpeg" },
             { id: 502, categoria: 'sobrepedido', activo: false, orden: 2, nombre: "LA Dodgers", modelo: "Azul Real", precio: 600, precioOriginal: 0, enPromocion: false, img: "https://images.unsplash.com/photo-1622445275463-afa2ab738c34?q=80&w=800" },
             { id: 503, categoria: 'sobrepedido', activo: false, orden: 3, nombre: "Red Sox", modelo: "Azul Marino", precio: 600, precioOriginal: 0, enPromocion: false, img: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=800" },
             { id: 504, categoria: 'sobrepedido', activo: false, orden: 4, nombre: "White Sox", modelo: "Negra/Blanca", precio: 600, precioOriginal: 0, enPromocion: false, img: "https://images.unsplash.com/photo-1582748153413-0975193992b8?q=80&w=800" },
