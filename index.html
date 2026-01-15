@@ -1698,12 +1698,21 @@
                     ${esSobrePedido ? `<div style="margin-bottom:12px;"><h4 style="margin:0 0 6px 0;">Sobre pedido</h4><ul style="padding-left:18px;"><li><strong>${productoActual.nombre}</strong> (${variante}) x${cantidad}: ${formatearDinero(total)}</li></ul><p style="margin:4px 0;">Anticipo 50%: <strong>${formatearDinero(anticipo)}</strong></p><p style="margin:4px 0;">Entrega estimada: ~7 días</p></div>` : ''}
                     <hr style="border:none; border-top:1px solid #ddd; margin:12px 0;">
                     <p style="margin:0; font-size:1.05rem;">Total: <strong>${formatearDinero(total)}</strong></p>
-                    <div style="background:#f0f9ff; border:2px solid #0284c7; border-radius:8px; padding:16px; margin-top:20px;">
-                        <h3 style="margin:0 0 10px 0; color:#0369a1; font-size:1.1rem;">🏦 Datos para Transferencia</h3>
-                        <p style="margin:6px 0; font-size:0.95rem;"><strong>Banco:</strong> Santander</p>
-                        <p style="margin:6px 0; font-size:0.95rem;"><strong>Tarjeta:</strong> 5579 0790 0594 2705</p>
-                        <p style="margin:6px 0; font-size:0.95rem;"><strong>Concepto:</strong> Tu nombre + pago</p>
-                        <p style="margin:6px 0; font-size:0.9rem; color:#666; font-style:italic;">Ejemplo: Carlos, pago</p>
+                    <div style="background:#fff3cd; border:2px solid #ffc107; border-radius:8px; padding:16px; margin-top:20px;">
+                        <h3 style="margin:0 0 10px 0; color:#856404; font-size:1.1rem;">🏦 Cuenta para Transferencia</h3>
+                        <div style="background:#fff8e1; border-radius:6px; padding:12px; margin-bottom:12px;">
+                            <p style="margin:0 0 8px 0; color:#d32f2f; font-weight:bold; font-size:0.95rem;">⚠️ IMPORTANTE:</p>
+                            <ul style="margin:0; padding-left:18px; font-size:0.9rem; color:#555;">
+                                <li>Únicamente TRANSFERENCIA</li>
+                                <li>Concepto: solo <strong>PAGO</strong></li>
+                                <li>NO poner nombres</li>
+                                <li>Si pones otra cosa NO será válido el pago</li>
+                                <li style="color:#d32f2f;">Depósito en efectivo NO SE HARÁ VÁLIDO</li>
+                            </ul>
+                        </div>
+                        <p style="margin:6px 0; font-size:1rem;"><strong>🏦 BANAMEX</strong></p>
+                        <p style="margin:6px 0; font-size:0.95rem;"><strong>Titular:</strong> DIEGO JEDIAEL ARRIAGA GUTIERREZ</p>
+                        <p style="margin:6px 0; font-size:0.95rem;"><strong>CLABE:</strong> <span style="font-family:monospace; background:#f5f5f5; padding:2px 6px; border-radius:4px;">002180701940824181</span></p>
                     </div>
                 </div>`;
 
@@ -1739,12 +1748,21 @@
                     ${productosSobrePedido.length ? `<div style="margin-bottom:12px;"><h4 style="margin:0 0 6px 0;">Sobre pedido</h4><ul style="padding-left:18px;">${productosSobrePedido.join('')}</ul><p style="margin:4px 0;">Anticipo 50%: <strong>${formatearDinero(anticipo)}</strong></p><p style="margin:4px 0;">Entrega estimada: ~7 días</p></div>` : ''}
                     <hr style="border:none; border-top:1px solid #ddd; margin:12px 0;">
                     <p style="margin:0; font-size:1.05rem;">Total: <strong>${formatearDinero(total)}</strong></p>
-                    <div style="background:#f0f9ff; border:2px solid #0284c7; border-radius:8px; padding:16px; margin-top:20px;">
-                        <h3 style="margin:0 0 10px 0; color:#0369a1; font-size:1.1rem;">🏦 Datos para Transferencia</h3>
-                        <p style="margin:6px 0; font-size:0.95rem;"><strong>Banco:</strong> Santander</p>
-                        <p style="margin:6px 0; font-size:0.95rem;"><strong>Tarjeta:</strong> 5579 0790 0594 2705</p>
-                        <p style="margin:6px 0; font-size:0.95rem;"><strong>Concepto:</strong> Tu nombre + pago</p>
-                        <p style="margin:6px 0; font-size:0.9rem; color:#666; font-style:italic;">Ejemplo: Carlos, pago</p>
+                    <div style="background:#fff3cd; border:2px solid #ffc107; border-radius:8px; padding:16px; margin-top:20px;">
+                        <h3 style="margin:0 0 10px 0; color:#856404; font-size:1.1rem;">🏦 Cuenta para Transferencia</h3>
+                        <div style="background:#fff8e1; border-radius:6px; padding:12px; margin-bottom:12px;">
+                            <p style="margin:0 0 8px 0; color:#d32f2f; font-weight:bold; font-size:0.95rem;">⚠️ IMPORTANTE:</p>
+                            <ul style="margin:0; padding-left:18px; font-size:0.9rem; color:#555;">
+                                <li>Únicamente TRANSFERENCIA</li>
+                                <li>Concepto: solo <strong>PAGO</strong></li>
+                                <li>NO poner nombres</li>
+                                <li>Si pones otra cosa NO será válido el pago</li>
+                                <li style="color:#d32f2f;">Depósito en efectivo NO SE HARÁ VÁLIDO</li>
+                            </ul>
+                        </div>
+                        <p style="margin:6px 0; font-size:1rem;"><strong>🏦 BANAMEX</strong></p>
+                        <p style="margin:6px 0; font-size:0.95rem;"><strong>Titular:</strong> DIEGO JEDIAEL ARRIAGA GUTIERREZ</p>
+                        <p style="margin:6px 0; font-size:0.95rem;"><strong>CLABE:</strong> <span style="font-family:monospace; background:#f5f5f5; padding:2px 6px; border-radius:4px;">002180701940824181</span></p>
                     </div>
                 </div>`;
 
