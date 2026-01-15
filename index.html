@@ -291,7 +291,7 @@
             'Los proveedores No.1',
             'Precios de remate ',
             '⚡ Aprovecha ya compra ahora ⚡',
-            'Pedidos al <span class="ticker-phone">924 127 7313</span> 📞',
+            'Pedidos al <span class="ticker-phone">+52 1 56 3167 6303</span> 📞',
             ' Waka Vapes 👑'
         ];
         const TIEMPO_ROTACION = 4000; // ms
@@ -309,9 +309,9 @@
         };
 
         // Endpoint de correo (Apps Script) y copia a tienda
-        const WHATSAPP_PHONE = '529241277313';
-        const EMAIL_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyz0vTqyKhETM0aXIc_GkR3Djk63NDEqqpPDxwwWVzkzEjW6ZhLNI6TroYi2Vmxyvc/exec';
-        const EMAIL_CC = 'vpacayucan@gmail.com'; // Copia para la tienda
+        const WHATSAPP_PHONE = '5215631676303';
+        const EMAIL_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyJJYKVVlv34boAX_e--sLTOkRIOJAKNcpZLJuero8t9CsHQF1pK-pLZ9FnkCrnJh6s/exec';
+        const EMAIL_CC = 'josuearriaga98@gmail.com'; // Copia para la tienda
         const EMAIL_COOLDOWN_MS = 30000; // 30s entre envíos
         let _emailCooldownUntil = 0;
         let _pendingAction = null; // 'carrito' o 'modal'
@@ -1606,11 +1606,18 @@
             lines.push(`💰 *TOTAL: ${formatearDinero(total)}*`);
             lines.push('');
             lines.push('━━━━━━━━━━━━━━━━━━━━━');
-            lines.push('🏦 *DATOS PARA TRANSFERENCIA:*');
-            lines.push('Banco: *Santander*');
-            lines.push('Tarjeta: *5579 0790 0594 2705*');
-            lines.push('Concepto: *Tu nombre + pago*');
-            lines.push('Ejemplo: _Carlos, pago_');
+            lines.push('🏦 *CUENTA PARA TRANSFERENCIA*');
+            lines.push('');
+            lines.push('⚠️ *IMPORTANTE*');
+            lines.push('• Únicamente TRANSFERENCIA');
+            lines.push('• Concepto: solo *PAGO*');
+            lines.push('• NO poner nombres');
+            lines.push('• Si pones otra cosa NO será válido');
+            lines.push('• Depósito en efectivo NO válido');
+            lines.push('');
+            lines.push('🏦 *BANAMEX*');
+            lines.push('DIEGO JEDIAEL ARRIAGA GUTIERREZ');
+            lines.push('CLABE: *002180701940824181*');
             lines.push('━━━━━━━━━━━━━━━━━━━━━');
 
             return { mensaje: lines.join('\n'), folio };
@@ -1651,11 +1658,16 @@
             // Si es transferencia, agregar datos bancarios
             if (pago === 'Transferencia') {
                 mensaje += `\n━━━━━━━━━━━━━━━━━━━━━`;
-                mensaje += `\n🏦 *DATOS PARA TRANSFERENCIA:*\n`;
-                mensaje += `Banco: *Santander*\n`;
-                mensaje += `Tarjeta: *5579 0790 0594 2705*\n`;
-                mensaje += `Concepto: *Tu nombre + pago*\n`;
-                mensaje += `Ejemplo: _Carlos, pago_\n`;
+                mensaje += `\n🏦 *CUENTA PARA TRANSFERENCIA*\n`;
+                mensaje += `\n⚠️ *IMPORTANTE*\n`;
+                mensaje += `• Únicamente TRANSFERENCIA\n`;
+                mensaje += `• Concepto: solo *PAGO*\n`;
+                mensaje += `• NO poner nombres\n`;
+                mensaje += `• Si pones otra cosa NO será válido\n`;
+                mensaje += `• Depósito en efectivo NO válido\n`;
+                mensaje += `\n🏦 *BANAMEX*\n`;
+                mensaje += `DIEGO JEDIAEL ARRIAGA GUTIERREZ\n`;
+                mensaje += `CLABE: *002180701940824181*\n`;
                 mensaje += `━━━━━━━━━━━━━━━━━━━━━`;
             }
             
@@ -1751,8 +1763,8 @@
             const payload = {
                 to: correoCliente,
                 cc: EMAIL_CC,
-                asunto: `Factura pedido #${folio}`,
-                mensaje: html
+                subject: `Factura pedido #${folio}`,
+                body: html
             };
 
             console.log('📧 Enviando factura al endpoint:', EMAIL_ENDPOINT);
@@ -1820,4 +1832,3 @@
     </script>
 </body>
 </html>
-
