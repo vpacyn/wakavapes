@@ -581,9 +581,9 @@
 
             // Buscar por producto + variante para permitir múltiples variantes como items separados
             const existeIndex = carrito.findIndex(item => item.id === productoActual.id && item.variante === variante);
-            const botonAgregar = document.getElementById('btn-agregar-carrito-modal');
 
             if (existeIndex === -1) {
+                // Agregar nuevo item al carrito
                 carrito.push({
                     id: productoActual.id,
                     cantidad: cantidad || 1,
@@ -593,89 +593,55 @@
                     img: productoActual.img
                 });
 
-                // Actualizar botón a "Quitar"
-                botonAgregar.innerHTML = '<i class="ph ph-trash"></i> Quitar del Carrito';
-                botonAgregar.classList.remove('boton-pedir');
-                botonAgregar.classList.add('btn-quitar-carrito');
-
                 if (mostrarConfirmacion) {
                     mostrarToast('¡Agregado al carrito!');
-                    // Desde modal: mostrar también la confirmación animada verde para que sea visible
                     mostrarConfirmacionAgregado('Agregado exitosamente');
                 }
 
             } else {
-                if (!mostrarConfirmacion) {
-                    // Al quitar desde el modal, eliminamos todos los items del mismo producto
-                    carrito = carrito.filter(item => item.id !== productoActual.id);
-                    // Actualizar botón a "Agregar"
-                    botonAgregar.innerHTML = '<i class="ph ph-shopping-cart"></i> Agregar al carrito';
-                    botonAgregar.classList.remove('btn-quitar-carrito');
-                    botonAgregar.classList.add('boton-pedir');
-                    mostrarToast('Eliminado del carrito');
-                } else {
-                    carrito[existeIndex].cantidad = cantidad || carrito[existeIndex].cantidad;
-                    carrito[existeIndex].variante = variante;
-                    mostrarToast('Carrito actualizado');
+                // Esta variante ya existe, actualizar cantidad
+                carrito[existeIndex].cantidad = (carrito[existeIndex].cantidad || 1) + (cantidad || 1);
+                if (mostrarConfirmacion) {
+                    mostrarToast('Cantidad actualizada');
                 }
             }
             localStorage.setItem('vp_carrito', JSON.stringify(carrito));
             actualizarBadgeCarrito();
             renderFloatingCart();
-            // Mantener la vista del carrito sincronizada si está abierta
             syncCarritoViewIfOpen();
         }
 
         function handleCarritoToggle() {
             if (!productoActual) return;
             
-            // Verificar si el producto ya está en el carrito
-            const enCarrito = carrito.some(item => item.id === productoActual.id);
+            // Obtener la variante seleccionada
+            const hiddenInput = document.getElementById('variante-seleccionada');
+            const inputManual = document.getElementById('input-variante-manual');
+            const varianteActual = hiddenInput ? hiddenInput.value : (inputManual ? inputManual.value : '');
             
-            if (enCarrito) {
-                // Eliminar del carrito
-                carrito = carrito.filter(item => item.id !== productoActual.id);
-                localStorage.setItem('vp_carrito', JSON.stringify(carrito));
-                actualizarBadgeCarrito();
-                renderFloatingCart();
-                syncCarritoViewIfOpen();
-                
-                mostrarToast('Eliminado del carrito');
-                
-                // Cerrar modal automáticamente
-                cerrarModal();
-                
-                // Si el carrito quedó vacío, recargar la página
-                if (carrito.length === 0) {
-                    setTimeout(() => {
-                        location.reload();
-                    }, 500);
-                    return;
-                }
+            // Verificar si esta variante específica ya está en el carrito
+            const existeVariante = carrito.some(item => item.id === productoActual.id && item.variante === varianteActual);
+            
+            if (existeVariante) {
+                // Esta variante ya existe, mostrar mensaje
+                mostrarToast('Este sabor ya está en el carrito');
             } else {
-                // Agregar al carrito (no cerrar modal para seguir viendo productos)
+                // Agregar al carrito
                 guardarEnCarrito();
                 mostrarToast('✓ Agregado al carrito');
             }
         }
 
-        // Función para actualizar el botón del modal basado en el estado del carrito
+        // Función para actualizar el botón del modal - siempre muestra "Agregar al carrito"
         function actualizarBotonModal() {
             if (!productoActual) return;
             const botonAgregar = document.getElementById('btn-agregar-carrito-modal');
             if (!botonAgregar) return;
             
-            const enCarrito = carrito.some(item => item.id === productoActual.id);
-            
-            if (enCarrito) {
-                botonAgregar.innerHTML = '<i class="ph ph-trash"></i> Quitar del Carrito';
-                botonAgregar.classList.remove('boton-pedir');
-                botonAgregar.classList.add('btn-quitar-carrito');
-            } else {
-                botonAgregar.innerHTML = '<i class="ph ph-shopping-cart"></i> Agregar al carrito';
-                botonAgregar.classList.remove('btn-quitar-carrito');
-                botonAgregar.classList.add('boton-pedir');
-            }
+            // Siempre mostrar "Agregar al carrito" para permitir agregar diferentes sabores
+            botonAgregar.innerHTML = '<i class="ph ph-shopping-cart"></i> Agregar al carrito';
+            botonAgregar.classList.remove('btn-quitar-carrito');
+            botonAgregar.classList.add('boton-pedir');
         }
 
         function abrirCarrito() {
@@ -1019,19 +985,12 @@
                 contVariantes.innerHTML = `<input type="text" id="input-variante-manual" value="${val}" readonly class="input-modal-texto">`;
             }
 
-            // Actualizar botón de agregar/quitar según estado en carrito
-            const enCarrito = carrito.some(item => item.id === productoActual.id);
+            // Botón siempre muestra "Agregar al carrito" para permitir múltiples sabores
             const botonAgregar = document.getElementById('btn-agregar-carrito-modal');
             
-            if (enCarrito) {
-                botonAgregar.innerHTML = '<i class="ph ph-trash"></i> Quitar del Carrito';
-                botonAgregar.classList.remove('boton-pedir');
-                botonAgregar.classList.add('btn-quitar-carrito');
-            } else {
-                botonAgregar.innerHTML = '<i class="ph ph-shopping-cart"></i> Agregar al carrito';
-                botonAgregar.classList.remove('btn-quitar-carrito');
-                botonAgregar.classList.add('boton-pedir');
-            }
+            botonAgregar.innerHTML = '<i class="ph ph-shopping-cart"></i> Agregar al carrito';
+            botonAgregar.classList.remove('btn-quitar-carrito');
+            botonAgregar.classList.add('boton-pedir');
 
             // Detectar si el producto es de "sobrepedido" y actualizar botón de WhatsApp
             const esSobrePedido = productoActual.categoria === 'sobrepedido';
