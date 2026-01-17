@@ -669,18 +669,15 @@
                 tarjeta.className = 'tarjeta-producto';
                 tarjeta.innerHTML = `
                     <div class="img-wrapper"><img src="${item.img}" alt="${item.nombre}" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Imagen'"></div>
-                    <div class="info-card">
+                    <div class="info-card carrito-card-info">
                         <h3>${item.nombre}</h3>
-                        <p style="color:#aaa; font-size:0.8rem; margin-bottom:5px;">${item.variante}</p>
-                        <div style="display:flex; align-items:center; gap:12px; margin-top:6px;">
-                            <div style="color:#bbb; font-size:0.9rem;">Precio unitario: ${formatearDinero(item.precio)}</div>
-                            <div style="margin-left:auto; display:flex; gap:8px; align-items:center;">
-                                <button class="btn-cant" type="button" onclick="event.stopPropagation(); updateItemCantidad(${item.id}, '${encodeURIComponent(item.variante)}', -1)"><i class="ph ph-minus"></i></button>
-                                <div style="min-width:28px; text-align:center; color:#fff; font-weight:700;">${item.cantidad}</div>
-                                <button class="btn-cant" type="button" onclick="event.stopPropagation(); updateItemCantidad(${item.id}, '${encodeURIComponent(item.variante)}', 1)"><i class="ph ph-plus"></i></button>
-                            </div>
+                        <p class="variante-text">${item.variante}</p>
+                        <div class="qty-controls-carrito">
+                            <button class="btn-cant" type="button" onclick="event.stopPropagation(); updateItemCantidad(${item.id}, '${encodeURIComponent(item.variante)}', -1)"><i class="ph ph-minus"></i></button>
+                            <span class="qty-number">${item.cantidad}</span>
+                            <button class="btn-cant" type="button" onclick="event.stopPropagation(); updateItemCantidad(${item.id}, '${encodeURIComponent(item.variante)}', 1)"><i class="ph ph-plus"></i></button>
                         </div>
-                        <p class="precio-card" style="margin-top:8px;">Subtotal: ${formatearDinero(item.precio * item.cantidad)}</p>
+                        <p class="subtotal-text">${formatearDinero(item.precio * item.cantidad)}</p>
                     </div>
                 `;
                 tarjeta.onclick = function() { abrirModal(item.id); };
