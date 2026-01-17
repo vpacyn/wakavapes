@@ -921,40 +921,93 @@ header {
 .btn-agregar-card.agregado { background: linear-gradient(135deg, #27ae60, #1e8449); color: white; }
 .btn-agregar-card.agregado:hover { background: linear-gradient(135deg, #2ecc71, #27ae60); box-shadow: 0 10px 26px rgba(39, 174, 96, 0.25); }
 
-/* Controles de cantidad en tarjetas del carrito */
-.controles-carrito-card {
+/* Estilos específicos para tarjetas del carrito */
+.carrito-card-info {
+    height: auto !important;
+    text-align: center !important;
+    padding: 12px 10px !important;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-top: 6px;
+    align-items: center;
+    gap: 4px;
 }
 
-.controles-carrito-card .precio-unitario {
-    color: #bbb;
-    font-size: 0.85rem;
+.carrito-card-info h3 {
+    font-size: 0.95rem;
+    margin-bottom: 2px;
 }
 
-.controles-carrito-card .qty-controls {
+.carrito-card-info .variante-text {
+    color: #aaa;
+    font-size: 0.75rem;
+    margin: 0;
+}
+
+.carrito-card-info .precio-unitario-text {
+    color: #888;
+    font-size: 0.75rem;
+    margin: 4px 0;
+}
+
+.qty-controls-carrito {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 12px;
+    margin: 8px 0;
 }
 
-.controles-carrito-card .btn-cant {
-    width: 32px;
-    height: 32px;
-    font-size: 0.9rem;
-    border-radius: 8px;
+.qty-controls-carrito .btn-cant {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+    border-radius: 10px;
     flex-shrink: 0;
 }
 
-.controles-carrito-card .qty-number {
-    min-width: 28px;
+.qty-controls-carrito .qty-number {
+    min-width: 30px;
     text-align: center;
     color: #fff;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 1.1rem;
+}
+
+.carrito-card-info .subtotal-text {
+    color: #d4d4d4;
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-top: 6px;
+}
+
+/* Responsive para tarjetas del carrito */
+@media (max-width: 420px) {
+    .carrito-card-info { padding: 10px 8px !important; }
+    .carrito-card-info h3 { font-size: 0.85rem; }
+    .qty-controls-carrito { gap: 10px; }
+    .qty-controls-carrito .btn-cant { width: 32px; height: 32px; font-size: 0.9rem; }
+    .qty-controls-carrito .qty-number { font-size: 1rem; min-width: 26px; }
+    .carrito-card-info .subtotal-text { font-size: 1rem; }
+}
+
+@media (max-width: 375px) {
+    .carrito-card-info { padding: 8px 6px !important; }
+    .carrito-card-info h3 { font-size: 0.8rem; }
+    .qty-controls-carrito { gap: 8px; margin: 6px 0; }
+    .qty-controls-carrito .btn-cant { width: 30px; height: 30px; font-size: 0.85rem; border-radius: 8px; }
+    .qty-controls-carrito .qty-number { font-size: 0.95rem; min-width: 24px; }
+    .carrito-card-info .subtotal-text { font-size: 0.95rem; }
+}
+
+@media (max-width: 320px) {
+    .carrito-card-info { padding: 6px 4px !important; gap: 2px; }
+    .carrito-card-info h3 { font-size: 0.75rem; }
+    .carrito-card-info .variante-text { font-size: 0.7rem; }
+    .carrito-card-info .precio-unitario-text { font-size: 0.7rem; }
+    .qty-controls-carrito { gap: 6px; margin: 4px 0; }
+    .qty-controls-carrito .btn-cant { width: 26px; height: 26px; font-size: 0.8rem; border-radius: 6px; }
+    .qty-controls-carrito .qty-number { font-size: 0.9rem; min-width: 20px; }
+    .carrito-card-info .subtotal-text { font-size: 0.85rem; }
 }
 
 
