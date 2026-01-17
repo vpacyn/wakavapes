@@ -871,16 +871,21 @@ header {
 
 .etiqueta-oferta {
     position: absolute;
-    top: 15px; left: 15px;
+    top: 10px; 
+    left: 10px;
     background: linear-gradient(135deg, #e74c3c, #c0392b);
     color: white;
-    padding: 5px 12px;
-    font-size: 0.75rem;
-    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: 0.7rem;
+    border-radius: 6px;
     font-weight: 800;
     z-index: 5;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    letter-spacing: 1px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    max-width: calc(100% - 20px);
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .info-card {
@@ -1282,15 +1287,29 @@ header {
 .total-final #total-precio { font-size: 1.8rem; color: #d4d4d4; font-weight: 900; }
 
 .boton-pedir {
-    background: linear-gradient(135deg, #c9a227 0%, #a8891f 100%);
-    color: #0a0a0a; border: none; padding: 15px 35px; border-radius: 40px;
-    font-weight: 800; font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer;
-    box-shadow: 0 5px 20px rgba(201, 162, 39, 0.25); 
+    background: linear-gradient(145deg, #e8e8e8 0%, #c0c0c0 25%, #d8d8d8 50%, #a8a8a8 75%, #c0c0c0 100%);
+    color: #1a1a1a; 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    padding: 15px 35px; 
+    border-radius: 40px;
+    font-weight: 800; 
+    font-size: 1rem; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 10px; 
+    cursor: pointer;
+    box-shadow: 
+        0 5px 20px rgba(0, 0, 0, 0.3),
+        0 2px 10px rgba(192, 192, 192, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1); 
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     letter-spacing: 0.5px;
     position: relative;
     overflow: hidden;
     -webkit-tap-highlight-color: transparent;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
 }
 
 .boton-pedir::before {
@@ -1301,7 +1320,7 @@ header {
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.5);
     transform: translate(-50%, -50%);
     transition: width 0.6s, height 0.6s;
 }
@@ -1315,14 +1334,20 @@ header {
     
     .boton-pedir:hover { 
         transform: translateY(-3px) scale(1.02); 
-        filter: brightness(1.15); 
-        box-shadow: 0 12px 40px rgba(212, 175, 55, 0.45); 
+        filter: brightness(1.1); 
+        box-shadow: 
+            0 12px 40px rgba(0, 0, 0, 0.35),
+            0 4px 15px rgba(192, 192, 192, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8),
+            0 0 20px rgba(220, 220, 220, 0.3); 
     }
 }
 
 .boton-pedir:active { 
     transform: translateY(0) scale(0.98); 
-    box-shadow: 0 3px 15px rgba(212, 175, 55, 0.3);
+    box-shadow: 
+        0 3px 15px rgba(0, 0, 0, 0.25),
+        inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .advertencia-pago { 
@@ -1495,6 +1520,7 @@ footer {
     .grid-productos { grid-template-columns: repeat(2, 1fr); padding: 8px; gap: 8px; }
     .img-wrapper { height: 180px; }
     .tarjeta-producto { border-radius: 14px; }
+    .etiqueta-oferta { top: 8px; left: 8px; padding: 3px 8px; font-size: 0.65rem; border-radius: 5px; }
     .info-card { padding: 10px; height: auto; }
     .info-card h3 { font-size: 0.85rem; }
     .precio-card { font-size: 1.1rem; }
@@ -1578,6 +1604,7 @@ footer {
     .grid-productos { padding: 8px; gap: 12px; }
     .img-wrapper { height: 160px; }
     .tarjeta-producto { border-radius: 12px; }
+    .etiqueta-oferta { top: 6px; left: 6px; padding: 3px 7px; font-size: 0.6rem; border-radius: 5px; }
     .info-card { padding: 8px; height: auto; }
     .info-card h3 { font-size: 0.98rem; }
     .precio-card { font-size: 1.2rem; }
@@ -1664,6 +1691,7 @@ footer {
     .grid-productos { grid-template-columns: repeat(2, 1fr); padding: 6px; gap: 6px; }
     .img-wrapper { height: 140px; }
     .tarjeta-producto { border-radius: 10px; }
+    .etiqueta-oferta { top: 5px; left: 5px; padding: 2px 6px; font-size: 0.55rem; border-radius: 4px; letter-spacing: 0; }
     .info-card { padding: 6px; height: auto; }
     .info-card h3 { font-size: 0.75rem; }
     .precio-card { font-size: 0.95rem; }
