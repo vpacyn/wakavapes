@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Mayorista Vapes, Envíos a todo México. Los mejores precios en vapes al mayoreo.">
     <title>Waka Vapes|Mayoristas Vapes </title>
     
     <!-- Favicon (Logo en la pestaña del navegador) -->
@@ -536,25 +537,8 @@
                 btn.style.display = "none";
             }
             
-            // Control del botón COMPRAR YA - tope fijo antes del footer
-            const btnOrder = document.getElementById('btn-order-now-floating');
-            if (btnOrder && btnOrder.style.display !== 'none') {
-                const footer = document.querySelector('footer');
-                if (footer) {
-                    const windowHeight = window.innerHeight;
-                    const footerRect = footer.getBoundingClientRect();
-                    const btnBottomMargin = 30;
-                    
-                    // Si el footer está visible, el botón se queda arriba de él (tope fijo)
-                    if (footerRect.top < windowHeight) {
-                        const newBottom = windowHeight - footerRect.top + btnBottomMargin;
-                        btnOrder.style.bottom = newBottom + 'px';
-                    } else {
-                        // Footer no visible, botón en posición normal
-                        btnOrder.style.bottom = '20px';
-                    }
-                }
-            }
+            // Control del botón COMPRAR YA - completamente fijo, sin movimiento
+            // El botón se queda siempre en su lugar para evitar irregularidades
         };
 
         function actualizarBadgeCarrito() {
@@ -657,16 +641,19 @@
             document.getElementById('seccion-categorias').style.display = 'none';
             document.getElementById('seccion-grid').style.display = 'block';
             
-            // Mostrar botón flotante de hacer pedido
+            // Ya no mostrar botón flotante - ahora está en el header del carrito
             const btnOrderNow = document.getElementById('btn-order-now-floating');
             if (btnOrderNow) {
-                btnOrderNow.style.display = 'block';
+                btnOrderNow.style.display = 'none';
             }
             
             const contenedor = document.getElementById('grid-productos');
-            // CORRECCIÓN: grid-column: 1 / -1para que el título ocupe todo el ancho
-            contenedor.innerHTML = `<div class="carrito-header" style="grid-column: 1 / -1;">
-                <h2 class=\"titulo-seccion-grid\">Carrito (${carrito.length})</h2>
+            // Header del carrito con botón COMPRAR YA integrado
+            contenedor.innerHTML = `<div class="carrito-header-sticky" style="grid-column: 1 / -1;">
+                <span class="carrito-titulo">Carrito (${carrito.length})</span>
+                <button class="btn-comprar-carrito" onclick="sendWholeOrderWhatsApp()">
+                    <i class="ph ph-whatsapp-logo"></i> Comprar Ya
+                </button>
             </div>`;
             
             carrito.forEach(item => {
