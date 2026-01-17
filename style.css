@@ -61,7 +61,7 @@ p, label, input, button, span, div, select, textarea, a {
     --card-bg: #111111;       /* Fondo de tarjetas (fallback) */
     
     /* --- ESTADOS Y ALERTAS --- */
-    --rojo-oferta: #c0392b;   /* Rojo elegante para etiquetas de oferta */
+    --rojo-alerta: #c0392b;   /* Rojo para alertas y badges */
     --rojo-brillo: #e74c3c;   /* Rojo brillante para hover */
     --verde-stock: #27ae60;   /* Verde para disponibilidad */
     
@@ -348,19 +348,6 @@ nav:hover {
 }
 .nombre-busqueda { color: #ffffff; font-weight: 700; font-size: 0.95rem; }
 .modelo-busqueda { color: #aaa; font-size: 0.8rem; font-style: italic; }
-
-.tag-oferta-busqueda {
-    background: linear-gradient(45deg, #c0392b, #e74c3c);
-    color: white;
-    font-size: 0.65rem;
-    padding: 4px 8px;
-    border-radius: 6px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-    flex-shrink: 0;
-    margin-left: auto;
-}
 
 /* --- BOTONERA NAV (DERECHA) --- */
 .nav-buttons { display: flex; gap: 20px; align-items: center; }
@@ -771,13 +758,13 @@ header {
     box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
 }
 
-.btn-rojo { background: var(--rojo-oferta); border: none; }
+.btn-rojo { background: var(--rojo-alerta); border: none; }
 .btn-rojo:hover { background: #a93226 !important; color: white !important; }
 
 .badge-cat-promo {
     position: absolute;
     top: 35px; right: -45px;
-    background: var(--rojo-oferta);
+    background: var(--rojo-alerta);
     color: white;
     padding: 8px 60px;
     transform: rotate(45deg);
@@ -876,25 +863,6 @@ header {
 
 .tarjeta-producto:hover .img-wrapper img {
     transform: scale(1.08); /* Zoom suave al hover */
-}
-
-.etiqueta-oferta {
-    position: absolute;
-    top: 10px; 
-    left: 10px;
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
-    color: white;
-    padding: 4px 10px;
-    font-size: 0.7rem;
-    border-radius: 6px;
-    font-weight: 800;
-    z-index: 5;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.4);
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-    max-width: calc(100% - 20px);
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .info-card {
@@ -1106,7 +1074,7 @@ header {
     display: flex; flex-direction: column;
     justify-content: center; align-items: center;
     gap: 2px;
-    min-height: 60px; /* Altura fija para mantener simetría con/sin oferta */
+    min-height: 60px; /* Altura fija para mantener simetría */
 }
 
 .precio-tachado {
@@ -1733,7 +1701,6 @@ footer {
     .grid-productos { grid-template-columns: repeat(2, 1fr); padding: 8px; gap: 8px; }
     .img-wrapper { height: 180px; }
     .tarjeta-producto { border-radius: 14px; }
-    .etiqueta-oferta { top: 8px; left: 8px; padding: 3px 8px; font-size: 0.65rem; border-radius: 5px; }
     .info-card { padding: 10px; height: auto; }
     .info-card h3 { font-size: 0.85rem; }
     .precio-card { font-size: 1.1rem; }
@@ -1817,7 +1784,6 @@ footer {
     .grid-productos { padding: 8px; gap: 12px; }
     .img-wrapper { height: 160px; }
     .tarjeta-producto { border-radius: 12px; }
-    .etiqueta-oferta { top: 6px; left: 6px; padding: 3px 7px; font-size: 0.6rem; border-radius: 5px; }
     .info-card { padding: 8px; height: auto; }
     .info-card h3 { font-size: 0.98rem; }
     .controles-carrito-card .btn-cant { width: 28px; height: 28px; font-size: 0.8rem; }
@@ -1906,7 +1872,6 @@ footer {
     .grid-productos { grid-template-columns: repeat(2, 1fr); padding: 6px; gap: 6px; }
     .img-wrapper { height: 140px; }
     .tarjeta-producto { border-radius: 10px; }
-    .etiqueta-oferta { top: 5px; left: 5px; padding: 2px 6px; font-size: 0.55rem; border-radius: 4px; letter-spacing: 0; }
     .info-card { padding: 6px; height: auto; }
     .info-card h3 { font-size: 0.75rem; }
     .controles-carrito-card .btn-cant { width: 26px; height: 26px; font-size: 0.75rem; border-radius: 6px; }
@@ -2074,7 +2039,7 @@ footer {
     position: absolute;
     top: -4px;
     right: -4px;
-    background: var(--rojo-oferta);
+    background: var(--rojo-alerta);
     color: white;
 
     min-width: 20px;
@@ -2465,33 +2430,6 @@ footer {
     border-radius: 10px;
 }
 
-/* Advertencia de Sobre Pedido */
-.advertencia-sobre-pedido {
-    display: none;
-    flex-shrink: 0;
-    align-items: center;
-    gap: 8px;
-    padding: 10px;
-    margin: 8px 6px;
-    background: rgba(255, 193, 7, 0.1);
-    border: 1px solid rgba(255, 193, 7, 0.3);
-    border-radius: 8px;
-    color: #ffc107;
-    font-size: 0.8rem;
-    line-height: 1.3;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-}
-
-.advertencia-sobre-pedido i {
-    font-size: 1.2rem;
-    flex-shrink: 0;
-}
-
-.advertencia-sobre-pedido strong {
-    color: #ffd54f;
-}
-
 /* Order now button in cart view - FLOTANTE CENTRADO */
 .btn-order-now {
     position: fixed;
@@ -2608,10 +2546,19 @@ footer {
     background: rgba(0,0,0,0.5); border: none; color: #fff;
     width: 42px; height: 42px; border-radius: 50%; display:flex; align-items:center; justify-content:center;
     box-shadow: 0 6px 18px rgba(0,0,0,0.6); cursor: pointer; z-index: 30;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
 }
 .recom-arrow-left { left: 6px; }
 .recom-arrow-right { right: 6px; }
-.recom-arrow:hover { background: var(--gold-primary); color: #050505; }
+.recom-arrow:hover { 
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.7);
+}
+.recom-arrow:active { 
+    transform: translateY(-50%) scale(0.92);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+    opacity: 0.85;
+}
 .grid-recomendados { padding: 12px 40px; }
 
 /* Botón Agregar - Estilo Dorado/Negro */
