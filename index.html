@@ -254,7 +254,7 @@
     <button id="btn-order-now-floating" class="btn-order-now" onclick="sendWholeOrderWhatsApp()" style="display:none;">Comprar ya</button>
 
     <!-- Prompt de correo para factura -->
-    <div id="email-prompt" class="custom-alert-overlay" style="display:none; z-index:3000;">
+    <div id="email-prompt" class="custom-alert-overlay" style="display:none; z-index:9999;">
         <div class="custom-alert-box" style="max-width: 380px;">
             <div class="alert-icon"><i class="ph ph-envelope-simple"></i></div>
             <h3>Correo para factura</h3>
@@ -453,6 +453,11 @@
             if (!prompt || !input) {
                 mostrarAlertaModal('No se pudo abrir el formulario de correo.');
                 return;
+            }
+            // Cerrar el panel del carrito flotante para que no estorbe
+            const floatingPanel = document.getElementById('floating-cart-panel');
+            if (floatingPanel) {
+                floatingPanel.classList.remove('open');
             }
             prompt.style.display = 'flex';
             setTimeout(() => { try { input.focus(); } catch (e) {} }, 80);
