@@ -2267,7 +2267,10 @@ footer {
         0 0 0 3px rgba(37, 211, 102, 0.15);
     cursor: pointer;
     z-index: 3500;
-    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: 
+        transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.35s ease,
+        filter 0.35s ease;
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -2276,6 +2279,7 @@ footer {
     overflow: hidden;
     width: auto;
     max-width: calc(100% - 40px);
+    will-change: transform, bottom;
 }
 
 .btn-order-now::before {
