@@ -916,13 +916,16 @@ header {
 .bloque-precios {
     display: flex; flex-direction: column;
     justify-content: center; align-items: center;
-    gap: 4px;
+    gap: 2px;
+    min-height: 60px; /* Altura fija para mantener simetría con/sin oferta */
 }
 
 .precio-tachado {
     text-decoration: line-through;
     color: #666;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    line-height: 1;
+    margin: 0;
 }
 
 .precio-card {
@@ -930,6 +933,7 @@ header {
     font-size: 1.5rem;
     font-weight: 800;
     text-shadow: none;
+    line-height: 1.1;
 }
 
 .texto-ver-detalles {
