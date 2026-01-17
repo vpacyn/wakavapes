@@ -1580,7 +1580,8 @@
                 await enviarFacturaPorCorreo(correoCliente, folio, action);
                 mostrarToast('Factura enviada. Abriendo WhatsApp...');
                 const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(mensaje)}`;
-                window.open(url, '_blank');
+                // Usar location.href para mejor compatibilidad con móviles
+                setTimeout(() => { window.location.href = url; }, 500);
             } catch (err) {
                 console.error('procesarAccionConCorreo', err);
                 if (err && err.message === 'COOLDOWN') {
@@ -1595,7 +1596,7 @@
                 // Fallback: abrir WhatsApp aunque el correo falle, para no bloquear la compra
                 try {
                     const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(mensaje)}`;
-                    window.open(url, '_blank');
+                    setTimeout(() => { window.location.href = url; }, 500);
                 } catch (openErr) {
                     console.error('No se pudo abrir WhatsApp tras error de factura', openErr);
                     mostrarAlertaModal('No se pudo abrir WhatsApp. Intenta nuevamente.');
