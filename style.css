@@ -327,18 +327,25 @@ nav:hover {
 
 .resultado-item {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding: 15px 20px;
     border-bottom: 1px solid rgba(80, 80, 80, 0.3);
     cursor: pointer;
     transition: background 0.2s;
+    gap: 12px;
 }
 
 .resultado-item:last-child { border-bottom: none; }
 .resultado-item:hover { background: rgba(80, 80, 80, 0.4); }
 
-.info-busqueda { display: flex; flex-direction: column; gap: 2px; }
+.info-busqueda { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 2px; 
+    flex: 1;
+    min-width: 0;
+}
 .nombre-busqueda { color: #ffffff; font-weight: 700; font-size: 0.95rem; }
 .modelo-busqueda { color: #aaa; font-size: 0.8rem; font-style: italic; }
 
@@ -351,6 +358,8 @@ nav:hover {
     font-weight: 800;
     letter-spacing: 1px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    flex-shrink: 0;
+    margin-left: auto;
 }
 
 /* --- BOTONERA NAV (DERECHA) --- */
@@ -911,6 +920,42 @@ header {
 .btn-agregar-card:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(150,150,150,0.25); }
 .btn-agregar-card.agregado { background: linear-gradient(135deg, #27ae60, #1e8449); color: white; }
 .btn-agregar-card.agregado:hover { background: linear-gradient(135deg, #2ecc71, #27ae60); box-shadow: 0 10px 26px rgba(39, 174, 96, 0.25); }
+
+/* Controles de cantidad en tarjetas del carrito */
+.controles-carrito-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.controles-carrito-card .precio-unitario {
+    color: #bbb;
+    font-size: 0.85rem;
+}
+
+.controles-carrito-card .qty-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.controles-carrito-card .btn-cant {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.controles-carrito-card .qty-number {
+    min-width: 28px;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+}
 
 
 .bloque-precios {
@@ -1611,6 +1656,8 @@ footer {
     .etiqueta-oferta { top: 6px; left: 6px; padding: 3px 7px; font-size: 0.6rem; border-radius: 5px; }
     .info-card { padding: 8px; height: auto; }
     .info-card h3 { font-size: 0.98rem; }
+    .controles-carrito-card .btn-cant { width: 28px; height: 28px; font-size: 0.8rem; }
+    .controles-carrito-card .qty-number { font-size: 0.9rem; min-width: 24px; }
     .precio-card { font-size: 1.2rem; }
     .btn-agregar-card { padding: 7px 12px; font-size: 0.85rem; }
     
@@ -1698,6 +1745,9 @@ footer {
     .etiqueta-oferta { top: 5px; left: 5px; padding: 2px 6px; font-size: 0.55rem; border-radius: 4px; letter-spacing: 0; }
     .info-card { padding: 6px; height: auto; }
     .info-card h3 { font-size: 0.75rem; }
+    .controles-carrito-card .btn-cant { width: 26px; height: 26px; font-size: 0.75rem; border-radius: 6px; }
+    .controles-carrito-card .qty-number { font-size: 0.85rem; min-width: 22px; }
+    .controles-carrito-card .qty-controls { gap: 6px; }
     .precio-card { font-size: 0.95rem; }
     
     /* Modal responsive 320px */
