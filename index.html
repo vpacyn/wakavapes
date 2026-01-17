@@ -526,30 +526,22 @@
                 btn.style.display = "none";
             }
             
-            // Control del botón COMPRAR YA - detenerlo antes del footer
+            // Control del botón COMPRAR YA - tope fijo antes del footer
             const btnOrder = document.getElementById('btn-order-now-floating');
             if (btnOrder && btnOrder.style.display !== 'none') {
                 const footer = document.querySelector('footer');
                 if (footer) {
-                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                     const windowHeight = window.innerHeight;
-                    const footerTop = footer.offsetTop;
-                    const btnHeight = btnOrder.offsetHeight;
-                    const btnBottomMargin = 20;
+                    const footerRect = footer.getBoundingClientRect();
+                    const btnBottomMargin = 30;
                     
-                    // Calcular cuándo el botón alcanzaría el footer
-                    const stopPoint = footerTop - windowHeight + btnBottomMargin + btnHeight;
-                    
-                    if (scrollTop >= stopPoint) {
-                        // Cambiar a absolute y posicionarlo justo antes del footer
-                        btnOrder.style.position = 'absolute';
-                        btnOrder.style.bottom = 'auto';
-                        btnOrder.style.top = (footerTop - btnHeight - btnBottomMargin - 80) + 'px';
+                    // Si el footer está visible, el botón se queda arriba de él (tope fijo)
+                    if (footerRect.top < windowHeight) {
+                        const newBottom = windowHeight - footerRect.top + btnBottomMargin;
+                        btnOrder.style.bottom = newBottom + 'px';
                     } else {
-                        // Mantener fixed flotando
-                        btnOrder.style.position = 'fixed';
+                        // Footer no visible, botón en posición normal
                         btnOrder.style.bottom = '20px';
-                        btnOrder.style.top = 'auto';
                     }
                 }
             }
