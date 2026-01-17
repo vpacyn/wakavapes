@@ -195,10 +195,6 @@
                             </button>
                         </div>
                     </div>
-                    <div id="advertencia-sobre-pedido-modal" class="advertencia-pago" style="display:none; background: rgba(255, 193, 7, 0.15); border: 1px solid rgba(255, 193, 7, 0.4); color: #ffc107; padding: 12px; border-radius: 8px; margin-top: 10px;">
-                        <i class="ph ph-warning" style="margin-right: 6px;"></i>
-                        <strong>⚠️ Sobre Pedido:</strong> Requiere anticipo del 50%. El pedido estará listo en aproximadamente 7 días.
-                    </div>
                     <div class="advertencia-pago">Todo precio será verificado por producto</div>
                 </div>
                 <div class="seccion-recomendados">
@@ -234,12 +230,6 @@
             <div>Revisa tu pedido y confirma</div>
         </div>
         <div id="floating-cart-list" class="floating-cart-list"></div>
-        <div id="sobre-pedido-advertencia" class="advertencia-sobre-pedido" style="display:none;">
-            <i class="ph ph-warning"></i>
-            <div>
-                <strong>⚠️ Importante:</strong> Los productos sobre pedido requieren un anticipo del 50% para procesar tu orden. El pedido estará listo aproximadamente 7 días después del pago.
-            </div>
-        </div>
         <div class="floating-cart-footer">
             <div class="floating-total">Total: <span id="floating-total">$0</span></div>
             <div class="floating-actions">
@@ -354,11 +344,38 @@
             const stored = localStorage.getItem('vp_carrito');
             if (stored) {
                 try {
-                    carrito = JSON.parse(stored);
+                    let carritoGuardado = JSON.parse(stored);
+                    
+                    // Validar y completar datos de cada item del carrito
+                    carrito = carritoGuardado.map(item => {
+                        // Buscar el producto original para asegurar datos completos
+                        const productoOriginal = listaProductos.find(p => p.id === item.id);
+                        
+                        if (productoOriginal) {
+                            return {
+                                id: item.id,
+                                cantidad: item.cantidad || 1,
+                                variante: item.variante || 'Estándar',
+                                nombre: item.nombre || productoOriginal.nombre,
+                                precio: item.precio || productoOriginal.precio,
+                                img: item.img || productoOriginal.img
+                            };
+                        }
+                        // Si no se encuentra el producto, devolver el item tal cual
+                        return item;
+                    }).filter(item => {
+                        // Filtrar items que no tienen datos válidos
+                        return item && item.id && item.nombre && item.precio !== undefined;
+                    });
+                    
+                    // Guardar el carrito corregido
+                    localStorage.setItem('vp_carrito', JSON.stringify(carrito));
                     actualizarBadgeCarrito();
                     renderFloatingCart();
                 } catch (e) {
                     console.log('Error cargando carrito:', e);
+                    carrito = [];
+                    localStorage.setItem('vp_carrito', '[]');
                 }
             }
         }
@@ -431,19 +448,28 @@
             mostrarMensajeTicker(mensajeIndex);
         }
 
+        let toastTimeout = null;
+        let toastHideTimeout = null;
+        
         function mostrarToast(mensaje) {
             const toast = document.getElementById('toast-notification');
             const msg = document.getElementById('toast-message');
+            
+            // Limpiar timeouts anteriores para evitar problemas con llamadas rápidas
+            if (toastTimeout) clearTimeout(toastTimeout);
+            if (toastHideTimeout) clearTimeout(toastHideTimeout);
+            
             msg.innerText = mensaje;
             // Asegurar que el estilo inline no impida que la clase muestre el toast
             toast.style.display = '';
             toast.className = "toast show";
-            // Ocultar después de 3s y limpiar display inline
-            setTimeout(() => { 
+            
+            // Ocultar después de 2.5s y limpiar display inline
+            toastTimeout = setTimeout(() => { 
                 toast.className = toast.className.replace("show", ""); 
                 // Espera la animación y luego oculta por completo
-                setTimeout(() => { toast.style.display = 'none'; }, 250);
-            }, 3000);
+                toastHideTimeout = setTimeout(() => { toast.style.display = 'none'; }, 250);
+            }, 2500);
         }
 
         // Prompt sencillo para capturar el correo antes de enviar la factura
@@ -657,19 +683,28 @@
             </div>`;
             
             carrito.forEach(item => {
+                // Validar que el item tenga datos completos
+                if (!item || !item.nombre || item.precio === undefined) {
+                    console.warn('Item inválido en carrito:', item);
+                    return; // Saltar este item
+                }
+                
+                const cantidad = parseInt(item.cantidad, 10) || 1;
+                const precio = parseFloat(item.precio) || 0;
+                
                 const tarjeta = document.createElement('div');
                 tarjeta.className = 'tarjeta-producto';
                 tarjeta.innerHTML = `
-                    <div class="img-wrapper"><img src="${item.img}" alt="${item.nombre}" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Imagen'"></div>
+                    <div class="img-wrapper"><img src="${item.img || 'https://via.placeholder.com/400x300?text=Imagen'}" alt="${item.nombre || 'Producto'}" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Imagen'"></div>
                     <div class="info-card carrito-card-info">
-                        <h3>${item.nombre}</h3>
-                        <p class="variante-text">${item.variante}</p>
+                        <h3>${item.nombre || 'Producto'}</h3>
+                        <p class="variante-text">${item.variante || 'Estándar'}</p>
                         <div class="qty-controls-carrito">
-                            <button class="btn-cant" type="button" onclick="event.stopPropagation(); updateItemCantidad(${item.id}, '${encodeURIComponent(item.variante)}', -1)"><i class="ph ph-minus"></i></button>
-                            <span class="qty-number">${item.cantidad}</span>
-                            <button class="btn-cant" type="button" onclick="event.stopPropagation(); updateItemCantidad(${item.id}, '${encodeURIComponent(item.variante)}', 1)"><i class="ph ph-plus"></i></button>
+                            <button class="btn-cant" type="button" onclick="event.stopPropagation(); updateItemCantidad(${item.id}, '${encodeURIComponent(item.variante || '')}', -1)"><i class="ph ph-minus"></i></button>
+                            <span class="qty-number">${cantidad}</span>
+                            <button class="btn-cant" type="button" onclick="event.stopPropagation(); updateItemCantidad(${item.id}, '${encodeURIComponent(item.variante || '')}', 1)"><i class="ph ph-plus"></i></button>
                         </div>
-                        <p class="subtotal-text">${formatearDinero(item.precio * item.cantidad)}</p>
+                        <p class="subtotal-text">${formatearDinero(precio * cantidad)}</p>
                     </div>
                 `;
                 tarjeta.onclick = function() { abrirModal(item.id); };
@@ -701,8 +736,7 @@
                 coincidencias.forEach(prod => {
                     const item = document.createElement('div');
                     item.className = 'resultado-item';
-                    let ofertaTxt = prod.enPromocion ? '<span class="tag-oferta-busqueda">¡OFERTA!</span>' : '';
-                        item.innerHTML = `<img src="${prod.img}" style="width:40px; height:40px; object-fit:cover; border-radius:5px; margin-right:10px;" onerror="this.onerror=null;this.src='https://via.placeholder.com/80?text=Imagen'"/><div><span class="nombre-busqueda">${prod.nombre}</span><span class="modelo-busqueda" style="display:block; font-size:0.7rem;">${prod.modelo}</span></div>${ofertaTxt}`;
+                    item.innerHTML = `<img src="${prod.img}" style="width:40px; height:40px; object-fit:cover; border-radius:5px; margin-right:10px;" onerror="this.onerror=null;this.src='https://via.placeholder.com/80?text=Imagen'"/><div><span class="nombre-busqueda">${prod.nombre}</span><span class="modelo-busqueda" style="display:block; font-size:0.7rem;">${prod.modelo}</span></div>`;
                     item.onclick = function() {
                         abrirModal(prod.id);
                         input.value = '';
@@ -792,17 +826,7 @@
             // CORRECCIÓN: Asegurar que el título de categoría ocupe todo el ancho
             contenedor.innerHTML = `<h2 style="width:100%; text-align:center; color:#e0e0e0; margin-bottom:20px; font-size:1.5rem; grid-column: 1 / -1;">${filtro.toUpperCase()}</h2>`;
             
-            let prods = [];
-            if(filtro === 'ofertas') {
-                // Filtrar ofertas solo de categorías visibles y disponibles (no próximamente)
-                prods = listaProductos.filter(p => {
-                    if (!p.activo || !p.enPromocion) return false;
-                    const seccionCategoria = CONFIG_SECCIONES.find(s => s.id === p.categoria);
-                    if (!seccionCategoria) return false;
-                    return seccionCategoria.visible === true && seccionCategoria.disponible === true;
-                });
-            }
-            else prods = listaProductos.filter(p => p.activo && p.categoria === filtro);
+            let prods = listaProductos.filter(p => p.activo && p.categoria === filtro);
             
             // ORDENAMIENTO POR PROPIEDAD "orden"
             prods.sort((a,b) => a.orden - b.orden);
@@ -820,8 +844,7 @@
                 tarjeta.setAttribute('data-aos', 'fade-up');
                 tarjeta.setAttribute('data-aos-delay', idx * 50);
                 tarjeta.onclick = () => abrirModal(prod.id);
-                let etiq = prod.enPromocion ? `<div class="etiqueta-oferta">OFERTA</div>` : '';
-                let prec = prod.enPromocion ? `<div class="bloque-precios"><span class="precio-tachado">${formatearDinero(prod.precioOriginal)}</span><span class="precio-card precio-rojo">${formatearDinero(prod.precio)}</span></div>` : `<div class="bloque-precios"><span class="precio-card">${formatearDinero(prod.precio)}</span></div>`;
+                let prec = `<div class="bloque-precios"><span class="precio-card">${formatearDinero(prod.precio)}</span></div>`;
                 // Controles rápidos: siempre mostrar solo el botón de carrito
                 let controlesRapidos = '';
                 const varianteDef = (prod.modelo && prod.modelo.length>0) ? prod.modelo : 'Estándar';
@@ -833,7 +856,7 @@
                     controlesRapidos = `<button class=\"btn-agregar-card\" onclick=\"event.stopPropagation(); agregarAlCarritoRapido(${prod.id})\" title=\"Agregar\"><i class=\"ph ph-shopping-cart\"></i></button>`;
                 }
 
-                tarjeta.innerHTML = `<div class="img-wrapper">${etiq}<img src="${prod.img}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Imagen'"></div><div class="info-card"><h3>${prod.nombre}</h3>${prec}<div style="display:flex; gap:8px; justify-content:center; align-items:center; margin-top:10px;">${controlesRapidos}<span class="texto-ver-detalles">Ver Detalles</span></div></div>`;
+                tarjeta.innerHTML = `<div class="img-wrapper"><img src="${prod.img}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Imagen'"></div><div class="info-card"><h3>${prod.nombre}</h3>${prec}<div style="display:flex; gap:8px; justify-content:center; align-items:center; margin-top:10px;">${controlesRapidos}<span class="texto-ver-detalles">Ver Detalles</span></div></div>`;
                 contenedor.appendChild(tarjeta);
             });
         }
@@ -920,9 +943,7 @@
             document.getElementById('modal-modelo-producto').innerText = productoActual.modelo;
             
             const contPrecio = document.getElementById('contenedor-precio-modal');
-            contPrecio.innerHTML = productoActual.enPromocion ? 
-                `<span class="precio-tachado-modal">${formatearDinero(productoActual.precioOriginal)}</span><span class="precio-modal precio-rojo">${formatearDinero(productoActual.precio)}</span>` : 
-                `<span class="precio-modal">${formatearDinero(productoActual.precio)}</span>`;
+            contPrecio.innerHTML = `<span class="precio-modal">${formatearDinero(productoActual.precio)}</span>`;
 
             document.getElementById('cantidad-seleccionada').value = 1;
             document.getElementById('total-precio').innerText = formatearDinero(productoActual.precio);
@@ -980,21 +1001,6 @@
             botonAgregar.innerHTML = '<i class="ph ph-shopping-cart"></i> Agregar al carrito';
             botonAgregar.classList.remove('btn-quitar-carrito');
             botonAgregar.classList.add('boton-pedir');
-
-            // Detectar si el producto es de "sobrepedido" y actualizar botón de WhatsApp
-            const esSobrePedido = productoActual.categoria === 'sobrepedido';
-            const btnWhatsApp = document.getElementById('btn-whatsapp-modal');
-            const advertenciaSobrePedido = document.getElementById('advertencia-sobre-pedido-modal');
-            
-            if (esSobrePedido) {
-                btnWhatsApp.innerHTML = '<i class="ph ph-whatsapp-logo" style="margin-right:8px;"></i><span>Hacer Sobre Pedido</span>';
-                btnWhatsApp.style.background = 'linear-gradient(135deg, #9ca3af, #6b7280)';
-                advertenciaSobrePedido.style.display = 'block';
-            } else {
-                btnWhatsApp.innerHTML = '<i class="ph ph-whatsapp-logo" style="margin-right:8px;"></i><span>Comprar ya</span>';
-                btnWhatsApp.style.background = 'linear-gradient(180deg, #2ac05f 0%, #25d366 60%)';
-                advertenciaSobrePedido.style.display = 'none';
-            }
 
             // Recomendados
             const recomendados = listaProductos.filter(p => p.categoria === productoActual.categoria && p.id !== productoActual.id).slice(0, 5);
@@ -1167,29 +1173,36 @@
                 if (carrito.length === 0) {
                     list.innerHTML = '<p style="padding:12px; color:#bbb">No hay productos en el carrito.</p>';
                     document.getElementById('floating-total').innerText = formatearDinero(0);
-                    const advertencia = document.getElementById('sobre-pedido-advertencia');
-                    if (advertencia) advertencia.style.display = 'none';
                     return;
                 }
                 let total = 0;
                 carrito.forEach(it => {
-                    total += (parseInt(it.cantidad,10) || 0) * it.precio;
+                    // Validar que el item tenga datos completos
+                    if (!it || !it.nombre || it.precio === undefined) {
+                        console.warn('Item inválido en carrito:', it);
+                        return; // Saltar este item
+                    }
+                    
+                    const cantidad = parseInt(it.cantidad, 10) || 1;
+                    const precio = parseFloat(it.precio) || 0;
+                    total += cantidad * precio;
+                    
                     const row = document.createElement('div');
                     row.className = 'floating-cart-item';
                     row.innerHTML = `
-                        <img src="${it.img}" onerror="this.onerror=null;this.src='https://via.placeholder.com/48?text=VP'" alt="${it.nombre}">
+                        <img src="${it.img || 'https://via.placeholder.com/48?text=VP'}" onerror="this.onerror=null;this.src='https://via.placeholder.com/48?text=VP'" alt="${it.nombre || 'Producto'}">
                         <div class="fci-info">
-                            <div class="fci-name">${it.nombre}</div>
-                            <div class="fci-variant">${it.variante}</div>
+                            <div class="fci-name">${it.nombre || 'Producto'}</div>
+                            <div class="fci-variant">${it.variante || 'Estándar'}</div>
                             <div class="fci-controls">
-                                <button class="btn-cant" type="button" onclick="event.stopPropagation(); updateItemCantidad(${it.id}, '${encodeURIComponent(it.variante)}', -1)"><i class="ph ph-minus"></i></button>
-                                <span class="fci-qty">${it.cantidad}</span>
-                                <button class="btn-cant" type="button" onclick="event.stopPropagation(); updateItemCantidad(${it.id}, '${encodeURIComponent(it.variante)}', 1)"><i class="ph ph-plus"></i></button>
+                                <button class="btn-cant" type="button" onclick="event.stopPropagation(); updateItemCantidad(${it.id}, '${encodeURIComponent(it.variante || '')}', -1)"><i class="ph ph-minus"></i></button>
+                                <span class="fci-qty">${cantidad}</span>
+                                <button class="btn-cant" type="button" onclick="event.stopPropagation(); updateItemCantidad(${it.id}, '${encodeURIComponent(it.variante || '')}', 1)"><i class="ph ph-plus"></i></button>
                             </div>
                         </div>
                         <div class="fci-right">
-                            <div class="fci-price">${formatearDinero(it.precio * it.cantidad)}</div>
-                            <button class="btn-eliminar" onclick="event.stopPropagation(); removeItem(${it.id}, '${encodeURIComponent(it.variante)}')" title="Eliminar">
+                            <div class="fci-price">${formatearDinero(precio * cantidad)}</div>
+                            <button class="btn-eliminar" onclick="event.stopPropagation(); removeItem(${it.id}, '${encodeURIComponent(it.variante || '')}')" title="Eliminar">
                                 <i class="ph ph-trash"></i>
                             </button>
                         </div>
@@ -1197,22 +1210,6 @@
                     list.appendChild(row);
                 });
                 document.getElementById('floating-total').innerText = formatearDinero(total);
-                
-                // Detectar si hay productos de "sobrepedido" en el carrito
-                const tieneSobrePedido = carrito.some(it => {
-                    const prod = listaProductos.find(p => p.id === it.id);
-                    return prod && prod.categoria === 'sobrepedido';
-                });
-                
-                // Mostrar/ocultar la advertencia según productos
-                const advertencia = document.getElementById('sobre-pedido-advertencia');
-                if (advertencia) {
-                    if (tieneSobrePedido) {
-                        advertencia.style.display = 'flex';
-                    } else {
-                        advertencia.style.display = 'none';
-                    }
-                }
                 
                 // If panel was open, ensure it's visible (in case a render caused it to be hidden)
                 const panelEl = document.getElementById('floating-cart-panel');
@@ -1238,19 +1235,31 @@
                 carrito.splice(idx, 1);
                 localStorage.setItem('vp_carrito', JSON.stringify(carrito));
                 actualizarBadgeCarrito();
-                renderFloatingCart();
-                
-                // Actualizar el botón del modal si está abierto con este producto
-                if (productoActual && productoActual.id === id) {
-                    actualizarBotonModal();
-                }
                 
                 // Si el carrito quedó vacío, recargar la página para reiniciar todo
                 if (carrito.length === 0) {
+                    mostrarToast('Producto eliminado');
                     setTimeout(() => {
                         location.reload();
                     }, 500);
                     return;
+                }
+                
+                // Forzar re-render del carrito flotante
+                renderFloatingCart();
+                
+                // Actualizar la vista del carrito en grid si está abierta
+                const gridEl = document.getElementById('seccion-grid');
+                if (gridEl && gridEl.style.display === 'block') {
+                    const contenedor = document.getElementById('grid-productos');
+                    if (contenedor && contenedor.querySelector('.carrito-header-sticky')) {
+                        abrirCarrito(); // Re-renderizar la vista completa del carrito
+                    }
+                }
+                
+                // Actualizar el botón del modal si está abierto con este producto
+                if (productoActual && productoActual.id === id) {
+                    actualizarBotonModal();
                 }
                 
                 mostrarToast('Producto eliminado');
@@ -1259,20 +1268,13 @@
                 localStorage.setItem('vp_carrito', JSON.stringify(carrito));
                 actualizarBadgeCarrito();
                 renderFloatingCart();
-            }
-            
-            // Actualizar la vista si el grid está visible: si el grid muestra el carrito, reabrirlo; si muestra otro filtro, re-renderizar ese filtro sin scroll
-            if (document.getElementById('seccion-grid').style.display === 'block') {
-                const cont = document.getElementById('grid-productos');
-                if (cont && cont.querySelector('.carrito-header')) {
-                    if (carrito.length > 0) {
-                        abrirCarrito(true); // mantener sin scroll
-                    }
-                } else if (cont) {
-                    const tituloEl = cont.querySelector('h2');
-                    if (tituloEl) {
-                        const filtro = tituloEl.innerText.toLowerCase();
-                        cargarCatalogo(filtro, true);
+                
+                // Actualizar la vista del carrito en grid si está abierta
+                const gridEl = document.getElementById('seccion-grid');
+                if (gridEl && gridEl.style.display === 'block') {
+                    const contenedor = document.getElementById('grid-productos');
+                    if (contenedor && contenedor.querySelector('.carrito-header-sticky')) {
+                        abrirCarrito(); // Re-renderizar la vista completa del carrito
                     }
                 }
             }
@@ -1283,6 +1285,18 @@
             carrito = carrito.filter(it => !(it.id === id && it.variante === variante));
             localStorage.setItem('vp_carrito', JSON.stringify(carrito));
             actualizarBadgeCarrito();
+            
+            // Si el carrito quedó vacío
+            if (carrito.length === 0) {
+                mostrarToast('Producto eliminado');
+                renderFloatingCart();
+                // Cerrar panel flotante y volver al inicio
+                closeFloatingCart();
+                irAlInicio();
+                return;
+            }
+            
+            // Forzar re-render del carrito flotante
             renderFloatingCart();
             
             // Actualizar el botón del modal si está abierto con este producto
@@ -1291,16 +1305,15 @@
             }
             
             // Actualizar la vista del carrito en grid si está abierta
-            if (document.getElementById('seccion-grid').style.display === 'block') {
+            const gridEl = document.getElementById('seccion-grid');
+            if (gridEl && gridEl.style.display === 'block') {
                 const contenedor = document.getElementById('grid-productos');
-                if (contenedor && contenedor.querySelector('.carrito-header')) {
-                    if (carrito.length === 0) {
-                        irAlInicio();
-                    } else {
-                        abrirCarrito();
-                    }
+                if (contenedor && contenedor.querySelector('.carrito-header-sticky')) {
+                    abrirCarrito(); // Re-renderizar la vista completa del carrito
                 }
             }
+            
+            mostrarToast('Producto eliminado');
         }
 
         function openFloatingCart() {
@@ -1362,41 +1375,16 @@
             lines.push('');
 
             let total = 0;
-            let totalSobrePedido = 0;
-            let productosSobrePedido = [];
-            let productosNormales = [];
 
             carrito.forEach((it) => {
                 try {
-                    const producto = listaProductos.find(p => p.id === it.id);
-                    const esSobrePedido = producto && producto.categoria === 'sobrepedido';
                     const subtotal = (parseInt(it.cantidad,10) || 0) * it.precio;
                     total += subtotal;
-
-                    const itemText = `• ${it.nombre} (${it.variante})\n  x${it.cantidad} - ${formatearDinero(subtotal)}`;
-
-                    if (esSobrePedido) {
-                        productosSobrePedido.push(itemText);
-                        totalSobrePedido += subtotal;
-                    } else {
-                        productosNormales.push(itemText);
-                    }
+                    lines.push(`• ${it.nombre} (${it.variante})\n  x${it.cantidad} - ${formatearDinero(subtotal)}`);
                 } catch (e) {
                     console.warn('Item inválido en carrito:', e, it);
                 }
             });
-
-            if (productosNormales.length > 0) {
-                productosNormales.forEach(item => lines.push(item));
-            }
-
-            if (productosSobrePedido.length > 0) {
-                if (productosNormales.length > 0) lines.push('');
-                lines.push('⚠️ *SOBRE PEDIDO:*');
-                productosSobrePedido.forEach(item => lines.push(item));
-                lines.push(`💵 Anticipo (50%): *${formatearDinero(totalSobrePedido * 0.5)}*`);
-                lines.push('📅 Entrega: ~9 días');
-            }
 
             lines.push('');
             lines.push('───────────────');
@@ -1436,20 +1424,9 @@
             const pago = document.querySelector('input[name="pago"]:checked').value;
             const total = cantidad * productoActual.precio;
             const folio = Math.floor(1000 + Math.random() * 9000);
-            const esSobrePedido = productoActual.categoria === 'sobrepedido';
 
             let mensaje = `*PEDIDO #${folio}*\n\n`;
-            if (esSobrePedido) {
-                mensaje += '⚠️ *SOBRE PEDIDO:*\n';
-            }
-
             mensaje += `${productoActual.nombre} (${variante}) x${cantidad} - ${formatearDinero(total)}\n`;
-
-            if (esSobrePedido) {
-                mensaje += `Anticipo 50%: ${formatearDinero(total * 0.5)}\n`;
-                mensaje += 'Entrega: 7 días aprox.\n';
-            }
-
             mensaje += `\n💳 Pago: ${pago}\n`;
             
             // Si es transferencia, agregar datos bancarios
@@ -1485,14 +1462,11 @@
 
             const cantidad = parseInt(document.getElementById('cantidad-seleccionada').value, 10) || 1;
             const total = cantidad * productoActual.precio;
-            const esSobrePedido = productoActual.categoria === 'sobrepedido';
-            const anticipo = esSobrePedido ? total * 0.5 : 0;
 
             const html = `
                 <div style="font-family: Arial, sans-serif; color:#222;">
                     <h2 style="margin:0 0 12px 0;">Factura / Pedido #${folio}</h2>
-                    ${!esSobrePedido ? `<div style="margin-bottom:12px;"><h4 style="margin:0 0 6px 0;">Productos</h4><ul style="padding-left:18px;"><li><strong>${productoActual.nombre}</strong> (${variante}) x${cantidad}: ${formatearDinero(total)}</li></ul></div>` : ''}
-                    ${esSobrePedido ? `<div style="margin-bottom:12px;"><h4 style="margin:0 0 6px 0;">Sobre pedido</h4><ul style="padding-left:18px;"><li><strong>${productoActual.nombre}</strong> (${variante}) x${cantidad}: ${formatearDinero(total)}</li></ul><p style="margin:4px 0;">Anticipo 50%: <strong>${formatearDinero(anticipo)}</strong></p><p style="margin:4px 0;">Entrega estimada: ~7 días</p></div>` : ''}
+                    <div style="margin-bottom:12px;"><h4 style="margin:0 0 6px 0;">Productos</h4><ul style="padding-left:18px;"><li><strong>${productoActual.nombre}</strong> (${variante}) x${cantidad}: ${formatearDinero(total)}</li></ul></div>
                     <hr style="border:none; border-top:1px solid #ddd; margin:12px 0;">
                     <p style="margin:0; font-size:1.05rem;">Total: <strong>${formatearDinero(total)}</strong></p>
                     <div style="background:#fff3cd; border:2px solid #ffc107; border-radius:8px; padding:16px; margin-top:20px;">
@@ -1519,30 +1493,18 @@
         // Construye HTML para la factura a enviar por email
         function generarFacturaHTML(folio) {
             let total = 0;
-            let totalSobrePedido = 0;
-            let productosSobrePedido = [];
-            let productosNormales = [];
+            let productosHTML = [];
 
             carrito.forEach((it) => {
-                const prod = listaProductos.find(p => p.id === it.id);
-                const esSobrePedido = prod && prod.categoria === 'sobrepedido';
                 const subtotal = (parseInt(it.cantidad,10) || 0) * it.precio;
                 total += subtotal;
-                const linea = `<li><strong>${it.nombre}</strong> (${it.variante}) x${it.cantidad}: ${formatearDinero(subtotal)}</li>`;
-                if (esSobrePedido) {
-                    productosSobrePedido.push(linea);
-                    totalSobrePedido += subtotal;
-                } else {
-                    productosNormales.push(linea);
-                }
+                productosHTML.push(`<li><strong>${it.nombre}</strong> (${it.variante}) x${it.cantidad}: ${formatearDinero(subtotal)}</li>`);
             });
 
-            const anticipo = totalSobrePedido > 0 ? totalSobrePedido * 0.5 : 0;
             const html = `
                 <div style="font-family: Arial, sans-serif; color:#222;">
                     <h2 style="margin:0 0 12px 0;">Factura / Pedido #${folio}</h2>
-                    ${productosNormales.length ? `<div style="margin-bottom:12px;"><h4 style="margin:0 0 6px 0;">Productos</h4><ul style="padding-left:18px;">${productosNormales.join('')}</ul></div>` : ''}
-                    ${productosSobrePedido.length ? `<div style="margin-bottom:12px;"><h4 style="margin:0 0 6px 0;">Sobre pedido</h4><ul style="padding-left:18px;">${productosSobrePedido.join('')}</ul><p style="margin:4px 0;">Anticipo 50%: <strong>${formatearDinero(anticipo)}</strong></p><p style="margin:4px 0;">Entrega estimada: ~7 días</p></div>` : ''}
+                    <div style="margin-bottom:12px;"><h4 style="margin:0 0 6px 0;">Productos</h4><ul style="padding-left:18px;">${productosHTML.join('')}</ul></div>
                     <hr style="border:none; border-top:1px solid #ddd; margin:12px 0;">
                     <p style="margin:0; font-size:1.05rem;">Total: <strong>${formatearDinero(total)}</strong></p>
                     <div style="background:#fff3cd; border:2px solid #ffc107; border-radius:8px; padding:16px; margin-top:20px;">
