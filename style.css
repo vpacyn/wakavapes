@@ -1010,6 +1010,97 @@ header {
     .carrito-card-info .subtotal-text { font-size: 0.85rem; }
 }
 
+/* Header sticky del carrito con botón COMPRAR YA */
+.carrito-header-sticky {
+    position: sticky;
+    top: 110px; /* Debajo del nav */
+    z-index: 100;
+    background: linear-gradient(180deg, #1a1a1a 0%, #151515 100%);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.carrito-titulo {
+    color: #c9a227;
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-comprar-carrito {
+    background: linear-gradient(145deg, #25d366 0%, #1db954 50%, #128c4a 100%);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.btn-comprar-carrito:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+}
+
+.btn-comprar-carrito:active {
+    transform: translateY(0);
+}
+
+.btn-comprar-carrito i {
+    font-size: 1.1rem;
+}
+
+/* Responsive para header carrito */
+@media (max-width: 420px) {
+    .carrito-header-sticky {
+        padding: 12px 15px;
+        top: 100px;
+    }
+    .carrito-titulo {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+    .btn-comprar-carrito {
+        padding: 10px 16px;
+        font-size: 0.8rem;
+        gap: 6px;
+    }
+    .btn-comprar-carrito i {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .carrito-header-sticky {
+        padding: 10px 12px;
+        top: 95px;
+    }
+    .carrito-titulo {
+        font-size: 0.9rem;
+    }
+    .btn-comprar-carrito {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+    }
+}
+
 
 .bloque-precios {
     display: flex; flex-direction: column;
@@ -1102,9 +1193,9 @@ header {
     position: absolute; 
     top: 12px; 
     right: 12px;
-    background: rgba(231, 76, 60, 0.9);
+    background: rgba(255, 255, 255, 0.1);
     color: white; 
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     font-size: 1.2rem; 
     border-radius: 50%;
     width: 44px; 
@@ -1121,11 +1212,16 @@ header {
     align-items: center;
     flex-shrink: 0;
     aspect-ratio: 1 / 1;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
-.cerrar-modal:hover {
-    background: #c0392b;
+.cerrar-modal:hover,
+.cerrar-modal:active {
+    background: rgba(231, 76, 60, 0.95);
+    border-color: #e74c3c;
     transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
 }
 
 /* Scroll interno limpio */
@@ -1916,14 +2012,14 @@ footer {
 
 /* Alerta personalizada (modal) */
 .custom-alert-overlay {
-    position: fixed; inset: 0; display: none; align-items: center; justify-content: center; z-index: 9000;
+    position: fixed; inset: 0; display: none; align-items: center; justify-content: center; z-index: 99999;
     background: rgba(0,0,0,0.6);
 }
 .custom-alert-box {
     background: linear-gradient(180deg, #2a2a2a 0%, #1e1e1e 100%);
     border: 1px solid rgba(100, 100, 100, 0.4);
     padding: 24px; width: 90%; max-width: 420px; border-radius: 16px; display: flex; gap:14px; flex-direction: column; align-items: center;
-    z-index: 9001;
+    z-index: 100000;
     box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
 .custom-alert-box .alert-icon { background: rgba(180,180,180,0.12); color: #b0b0b0; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.8rem; border: 1px solid rgba(180,180,180,0.25); }
@@ -2418,9 +2514,8 @@ footer {
     cursor: pointer;
     z-index: 3500;
     transition: 
-        transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-        box-shadow 0.35s ease,
-        filter 0.35s ease;
+        box-shadow 0.3s ease,
+        filter 0.3s ease;
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -2429,7 +2524,6 @@ footer {
     overflow: hidden;
     width: auto;
     max-width: calc(100% - 40px);
-    will-change: transform, bottom;
 }
 
 .btn-order-now::before {
