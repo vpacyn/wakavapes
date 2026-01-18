@@ -148,6 +148,7 @@
                     <div class="producto-info-base">
                         <h2 id="modal-titulo-producto">Nombre</h2>
                         <p id="modal-modelo-producto" class="modelo-texto">Modelo</p>
+                            <p id="modal-puffs-formateado" class="modelo-texto" style="font-size:0.98em;color:#bdbdbd;margin-top:-6px;"></p>
                         <div class="precio-container">
                              <div id="contenedor-precio-modal"></div>
                              <span class="stock-badge"><i class="ph ph-check-circle"></i> Disponible</span>
@@ -940,7 +941,11 @@
 
             document.getElementById('modal-img').src = productoActual.img;
             document.getElementById('modal-titulo-producto').innerText = productoActual.nombre;
-            document.getElementById('modal-modelo-producto').innerText = productoActual.modelo;
+                // Mostrar puffs con formato con comas si aplica
+                const puffsMatch = /([0-9]{4,6})\s*puffs?/i.exec(productoActual.modelo);
+                const puffsFormateado = puffsMatch ? Number(puffsMatch[1]).toLocaleString('es-MX') + ' puff' + (puffsMatch[1] !== '1' ? 's' : '') : '';
+                document.getElementById('modal-puffs-formateado').innerText = puffsFormateado;
+                document.getElementById('modal-modelo-producto').innerText = '';
             
             const contPrecio = document.getElementById('contenedor-precio-modal');
             contPrecio.innerHTML = `<span class="precio-modal">${formatearDinero(productoActual.precio)}</span>`;
