@@ -738,10 +738,13 @@
                     item.className = 'resultado-item';
                     item.innerHTML = `<img src="${prod.img}" style="width:40px; height:40px; object-fit:cover; border-radius:5px; margin-right:10px;" onerror="this.onerror=null;this.src='img/wakavapes_icono.webp'"/><div><span class="nombre-busqueda">${prod.nombre}</span><span class="modelo-busqueda" style="display:block; font-size:0.7rem;">${prod.modelo}</span></div>`;
                     item.onclick = function() {
-                        abrirModal(prod.id);
-                        input.value = '';
-                        resultadosDiv.style.display = 'none';
+                        if (!prod.agotado) {
+                            abrirModal(prod.id);
+                            input.value = '';
+                            resultadosDiv.style.display = 'none';
+                        }
                     };
+                    if (prod.agotado) item.style.cursor = 'not-allowed';
                     resultadosDiv.appendChild(item);
                 });
             } else {
@@ -850,7 +853,8 @@
                 tarjeta.className = 'tarjeta-producto' + (estaAgotado ? ' producto-agotado' : '');
                 tarjeta.setAttribute('data-aos', 'fade-up');
                 tarjeta.setAttribute('data-aos-delay', idx * 50);
-                tarjeta.onclick = () => abrirModal(prod.id);
+                tarjeta.onclick = () => { if (!estaAgotado) abrirModal(prod.id); };
+                tarjeta.style.cursor = estaAgotado ? 'not-allowed' : 'pointer';
                 let prec = `<div class="bloque-precios"><span class="precio-card">${formatearDinero(prod.precio)}</span></div>`;
                 // Controles rápidos: siempre mostrar solo el botón de carrito
                 let controlesRapidos = '';
@@ -1016,8 +1020,8 @@
             botonAgregar.classList.remove('btn-quitar-carrito');
             botonAgregar.classList.add('boton-pedir');
 
-            // Recomendados
-            const recomendados = listaProductos.filter(p => p.categoria === productoActual.categoria && p.id !== productoActual.id).slice(0, 5);
+            // Recomendados (excluir productos agotados)
+            const recomendados = listaProductos.filter(p => p.categoria === productoActual.categoria && p.id !== productoActual.id && p.activo && !p.agotado).slice(0, 5);
             const gridRecom = document.getElementById('grid-recomendados');
             gridRecom.innerHTML = '';
             recomendados.forEach(rec => {
