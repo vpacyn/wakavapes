@@ -846,6 +846,32 @@ header {
     -webkit-backdrop-filter: blur(20px) saturate(150%);
 }
 
+/* Estilos para productos agotados */
+.tarjeta-producto.producto-agotado {
+    opacity: 0.6;
+    filter: grayscale(100%);
+    pointer-events: auto;
+}
+.tarjeta-producto.producto-agotado:hover {
+    transform: translateY(-3px) scale(1.01);
+    filter: grayscale(80%);
+    opacity: 0.75;
+}
+.tarjeta-producto.producto-agotado .img-wrapper img {
+    filter: grayscale(100%);
+}
+.badge-agotado {
+    background: linear-gradient(145deg, #555 0%, #333 100%);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid rgba(100,100,100,0.4);
+}
+
 .img-wrapper {
     height: 350px; /* Altura generosa para perfumes */
     overflow: hidden;
@@ -995,7 +1021,7 @@ header {
 }
 
 .carrito-titulo {
-    color: #c9a227;
+    color: #ffffff;
     font-family: 'Cinzel', serif;
     font-size: 1.3rem;
     font-weight: 700;
@@ -1338,8 +1364,8 @@ header {
 .control-cantidad-wrapper label, .metodo-pago-wrapper label { display: block; color: #888; font-size: 0.75rem; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
 
 .control-cantidad { 
-    display: flex; align-items: center; justify-content: space-between; 
-    background: linear-gradient(145deg, #2a2a2a 0%, #222222 100%); border-radius: 15px; padding: 5px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(145deg, #2a2a2a 0%, #222222 100%); border-radius: 15px; padding: 5px 8px;
     border: 1px solid rgba(100, 100, 100, 0.3);
 }
 .btn-cant {
@@ -1374,8 +1400,18 @@ header {
     box-shadow: 0 4px 12px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.16);
 }
 #cantidad-seleccionada { 
-    background: none; border: none; color: white; width: 50px; 
-    text-align: center; font-weight: bold; font-size: 1.3rem; 
+    background: transparent; 
+    border: none; 
+    color: white; 
+    width: 60px; 
+    padding: 8px 0;
+    text-align: center; 
+    font-weight: bold; 
+    font-size: 1.3rem;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: none;
+    outline: none;
 }
 
 /* Toggle Pago */
@@ -1581,14 +1617,27 @@ header {
     overflow: hidden; 
     cursor: pointer; 
     border: 1px solid rgba(100, 100, 100, 0.25); 
-    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 }
-.card-recomendada:hover { 
-    border-color: rgba(150, 150, 150, 0.5); 
-    transform: translateY(-6px) scale(1.02); 
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+/* Hover solo para dispositivos con mouse (desktop) */
+@media (hover: hover) and (pointer: fine) {
+    .card-recomendada { 
+        transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .card-recomendada:hover { 
+        border-color: rgba(150, 150, 150, 0.5); 
+        transform: translateY(-6px) scale(1.02); 
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+    }
+}
+/* Efecto de toque activo para móviles */
+@media (hover: none) {
+    .card-recomendada:active {
+        opacity: 0.8;
+        transform: scale(0.98);
+        transition: all 0.1s ease;
+    }
 }
 .card-recomendada img { width: 100%; height: 140px; object-fit: cover; }
 .card-recomendada div { padding: 12px; text-align: center; }
@@ -2763,3 +2812,64 @@ footer {
     gap: 10px;
     -webkit-tap-highlight-color: transparent;
     letter-spacing: 0.5px;
+}
+
+.btn-quitar-carrito::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+/* Hover solo en dispositivos con mouse */
+@media (hover: hover) and (pointer: fine) {
+    .btn-quitar-carrito:hover::before {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .btn-quitar-carrito:hover {
+        transform: translateY(-4px) scale(1.03);
+        filter: brightness(1.12);
+        box-shadow: 
+            0 12px 28px rgba(0, 0, 0, 0.5),
+            0 6px 16px rgba(0, 0, 0, 0.4),
+            0 16px 42px rgba(230, 57, 70, 0.6),
+            inset 0 1px 0 rgba(255,255,255,0.3);
+    }
+}
+
+.btn-quitar-carrito:active {
+    transform: translateY(-1px) scale(0.99);
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.3),
+        0 2px 6px rgba(0, 0, 0, 0.2),
+        0 6px 18px rgba(230, 57, 70, 0.3),
+        inset 0 1px 0 rgba(255,255,255,0.15),
+        inset 0 -1px 4px rgba(0,0,0,0.2);
+}
+
+/* .btn-cant - estilos definidos en línea ~1023 */
+
+/* Pulse animation for feedback when adding items */
+.whatsapp-badge.pulse {
+    animation: wpPulse 0.9s ease-in-out;
+}
+@keyframes wpPulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 rgba(212,175,55,0); }
+    50% { transform: scale(1.35); box-shadow: 0 6px 18px rgba(212,175,55,0.28); }
+    100% { transform: scale(1); box-shadow: 0 0 0 rgba(212,175,55,0); }
+}
+
+/* Safe-area support for modern phones (notch, dynamic island) */
+@supports (padding: env(safe-area-inset-bottom)) {
+    body { padding-bottom: env(safe-area-inset-bottom); }
+    .btn-whatsapp { bottom: calc(18px + env(safe-area-inset-bottom)); }
+    .floating-cart-panel { bottom: calc(90px + env(safe-area-inset-bottom)); }
+}
