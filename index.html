@@ -14,8 +14,7 @@
     
     <!-- Seguridad HTTPS -->
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <!-- Nota: X-Content-Type-Options y X-Frame-Options deben venir desde el servidor como cabeceras HTTP, no via <meta>. -->
     <meta name="referrer" content="strict-origin-when-cross-origin">
     
     <!-- Vinculación de Estilos -->
@@ -116,7 +115,7 @@
         <div class="contenedor-categorias" id="contenedor-categorias-dinamico">
             <div class="tarjeta-vape-principal" onclick="mostrarCatalogoCompleto()">
                 <div class="tarjeta-vape-imagen">
-                    <img src="img/" alt="Catálogo Waka Vapes">
+                    <img src="img/wakavapes_icono.webp" alt="Catálogo Waka Vapes">
                 </div>
                 <div class="tarjeta-vape-titulo">
                     <h2> ¡¡MAYOREO DE VAPES!! <i class="ph ph-arrow-right"></i></h2>
@@ -167,7 +166,7 @@
                             <label>Cantidad</label>
                             <div class="control-cantidad">
                                 <button class="btn-cant" type="button" onclick="cambiarCantidad(-1)"><i class="ph ph-minus"></i></button>
-                                <input type="number" id="cantidad-seleccionada" value="1" min="1" max="10" readonly>
+                                <input type="text" inputmode="numeric" pattern="[0-9]*" id="cantidad-seleccionada" value="1" onfocus="this.select()" oninput="limpiarYValidarCantidad()" onblur="validarCantidadModal()" placeholder="1" autocomplete="off">
                                 <button class="btn-cant" type="button" onclick="cambiarCantidad(1)"><i class="ph ph-plus"></i></button>
                             </div>
                         </div>
@@ -677,7 +676,7 @@
             const contenedor = document.getElementById('grid-productos');
             // Header del carrito con botón COMPRAR YA integrado
             contenedor.innerHTML = `<div class="carrito-header-sticky" style="grid-column: 1 / -1;">
-                <span class="carrito-titulo">Carrito (${carrito.length})</span>
+                <span class="carrito-titulo">Carrito</span>
                 <button class="btn-comprar-carrito" onclick="sendWholeOrderWhatsApp()">
                     <i class="ph ph-whatsapp-logo"></i> Comprar Ya
                 </button>
@@ -696,7 +695,7 @@
                 const tarjeta = document.createElement('div');
                 tarjeta.className = 'tarjeta-producto';
                 tarjeta.innerHTML = `
-                    <div class="img-wrapper"><img src="${item.img || 'https://via.placeholder.com/400x300?text=Imagen'}" alt="${item.nombre || 'Producto'}" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Imagen'"></div>
+                    <div class="img-wrapper"><img src="${item.img || 'img/wakavapes_icono.webp'}" alt="${item.nombre || 'Producto'}" onerror="this.onerror=null;this.src='img/wakavapes_icono.webp'"></div>
                     <div class="info-card carrito-card-info">
                         <h3>${item.nombre || 'Producto'}</h3>
                         <p class="variante-text">${item.variante || 'Estándar'}</p>
@@ -737,7 +736,7 @@
                 coincidencias.forEach(prod => {
                     const item = document.createElement('div');
                     item.className = 'resultado-item';
-                    item.innerHTML = `<img src="${prod.img}" style="width:40px; height:40px; object-fit:cover; border-radius:5px; margin-right:10px;" onerror="this.onerror=null;this.src='https://via.placeholder.com/80?text=Imagen'"/><div><span class="nombre-busqueda">${prod.nombre}</span><span class="modelo-busqueda" style="display:block; font-size:0.7rem;">${prod.modelo}</span></div>`;
+                    item.innerHTML = `<img src="${prod.img}" style="width:40px; height:40px; object-fit:cover; border-radius:5px; margin-right:10px;" onerror="this.onerror=null;this.src='img/wakavapes_icono.webp'"/><div><span class="nombre-busqueda">${prod.nombre}</span><span class="modelo-busqueda" style="display:block; font-size:0.7rem;">${prod.modelo}</span></div>`;
                     item.onclick = function() {
                         abrirModal(prod.id);
                         input.value = '';
@@ -802,7 +801,7 @@
             
             div.innerHTML = `
                 <div class="tarjeta-vape-imagen">
-                    <img src="${imgPortada}" alt="Catálogo Waka Vapes" onerror="this.onerror=null;this.src='https://via.placeholder.com/450x400?text=Vapes'">
+                    <img src="${imgPortada}" alt="Catálogo Waka Vapes" onerror="this.onerror=null;this.src='img/wakavapes_icono.webp'">
                 </div>
                 <div class="tarjeta-vape-titulo">
                     <h2>¡¡MAYOREO VAPES!! <i class="ph ph-arrow-right"></i></h2>
@@ -829,8 +828,14 @@
             
             let prods = listaProductos.filter(p => p.activo && p.categoria === filtro);
             
-            // ORDENAMIENTO POR PROPIEDAD "orden"
-            prods.sort((a,b) => a.orden - b.orden);
+            // ORDENAMIENTO: Primero por agotado (los agotados van al final), luego por orden
+            prods.sort((a,b) => {
+                // Si uno está agotado y el otro no, el agotado va al final
+                if (a.agotado && !b.agotado) return 1;
+                if (!a.agotado && b.agotado) return -1;
+                // Si ambos tienen el mismo estado de agotado, ordenar por 'orden'
+                return a.orden - b.orden;
+            });
             
             renderizarGrid(prods, contenedor, false); // false para no borrar el título
             window.scrollTo(0,0);
@@ -841,7 +846,8 @@
             if (lista.length === 0) { contenedor.innerHTML += `<p style="width:100%; text-align:center; color:#888; margin-top:50px; grid-column: 1 / -1;">No hay productos disponibles.</p>`; return; }
             lista.forEach((prod, idx) => {
                 const tarjeta = document.createElement('div');
-                tarjeta.className = 'tarjeta-producto';
+                const estaAgotado = prod.agotado === true;
+                tarjeta.className = 'tarjeta-producto' + (estaAgotado ? ' producto-agotado' : '');
                 tarjeta.setAttribute('data-aos', 'fade-up');
                 tarjeta.setAttribute('data-aos-delay', idx * 50);
                 tarjeta.onclick = () => abrirModal(prod.id);
@@ -850,14 +856,17 @@
                 let controlesRapidos = '';
                 const varianteDef = (prod.modelo && prod.modelo.length>0) ? prod.modelo : 'Estándar';
                 const enCarritoItem = carrito.find(it => it.id === prod.id && it.variante === varianteDef);
-                // Siempre mostrar icono de carrito (con check si ya está agregado)
-                if (enCarritoItem) {
+                
+                // Si está agotado, no mostrar botón de carrito
+                if (estaAgotado) {
+                    controlesRapidos = `<span class="badge-agotado">AGOTADO</span>`;
+                } else if (enCarritoItem) {
                     controlesRapidos = `<button class=\"btn-agregar-card agregado\" onclick=\"event.stopPropagation(); abrirModal(${prod.id})\" title=\"En carrito\"><i class=\"ph ph-check-circle\"></i></button>`;
                 } else {
                     controlesRapidos = `<button class=\"btn-agregar-card\" onclick=\"event.stopPropagation(); agregarAlCarritoRapido(${prod.id})\" title=\"Agregar\"><i class=\"ph ph-shopping-cart\"></i></button>`;
                 }
 
-                tarjeta.innerHTML = `<div class="img-wrapper"><img src="${prod.img}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Imagen'"></div><div class="info-card"><h3>${prod.nombre}</h3>${prec}<div style="display:flex; gap:8px; justify-content:center; align-items:center; margin-top:10px;">${controlesRapidos}<span class="texto-ver-detalles">Ver Detalles</span></div></div>`;
+                tarjeta.innerHTML = `<div class="img-wrapper"><img src="${prod.img}" loading="lazy" onerror="this.onerror=null;this.src='img/wakavapes_icono.webp'"></div><div class="info-card"><h3>${prod.nombre}</h3>${prec}<div style="display:flex; gap:8px; justify-content:center; align-items:center; margin-top:10px;">${controlesRapidos}${!estaAgotado ? '<span class="texto-ver-detalles">Ver Detalles</span>' : ''}</div></div>`;
                 contenedor.appendChild(tarjeta);
             });
         }
@@ -1015,7 +1024,7 @@
                 const card = document.createElement('div');
                 card.className = 'card-recomendada';
                 card.onclick = function() { window.scrollTo({ top: 0, behavior: 'smooth' }); abrirModal(rec.id); };
-                card.innerHTML = `<img src="${rec.img}" onerror="this.onerror=null;this.src='https://via.placeholder.com/150?text=Imagen'"><div><p class="rec-nombre">${rec.nombre}</p><p class="rec-precio">${formatearDinero(rec.precio)}</p></div>`;
+                card.innerHTML = `<img src="${rec.img}" onerror="this.onerror=null;this.src='img/wakavapes_icono.webp'"><div><p class="rec-nombre">${rec.nombre}</p><p class="rec-precio">${formatearDinero(rec.precio)}</p></div>`;
                 gridRecom.appendChild(card);
             });
             // Añadir flechas flotantes para scroll táctil en recomendaciones
@@ -1112,15 +1121,61 @@
             };
         }
         
+        function limpiarYValidarCantidad() {
+            if(!productoActual) return;
+            let input = document.getElementById('cantidad-seleccionada');
+            // Eliminar cualquier carácter que no sea número
+            input.value = input.value.replace(/[^0-9]/g, '');
+            let val = parseInt(input.value, 10) || 0;
+            
+            // Si está vacío, dejar que el usuario siga escribiendo
+            if (input.value === '') return;
+            
+            // Validar límites
+            if (val < 1) {
+                input.value = 1;
+                val = 1;
+            }
+            if (val > 1000) {
+                input.value = 1000;
+                val = 1000;
+            }
+            document.getElementById('total-precio').innerText = formatearDinero(val * productoActual.precio);
+        }
+        
         function cambiarCantidad(cambio) {
             if(!productoActual) return;
             let input = document.getElementById('cantidad-seleccionada');
-            let val = parseInt(input.value, 10) + cambio;
-            if (isNaN(val)) val = 1;
-            if (val >= 1 && val <= 10) {
-                input.value = val;
-                document.getElementById('total-precio').innerText = formatearDinero(val * productoActual.precio);
+            let val = parseInt(input.value, 10) || 0;
+            val += cambio;
+            if (val < 1) val = 1;
+            if (val > 1000) val = 1000;
+            input.value = val;
+            document.getElementById('total-precio').innerText = formatearDinero(val * productoActual.precio);
+        }
+        
+        function validarCantidadModal() {
+            if(!productoActual) return;
+            let input = document.getElementById('cantidad-seleccionada');
+            let val = parseInt(input.value, 10);
+            if (isNaN(val) || input.value === '' || val < 1) {
+                input.value = 1;
+                val = 1;
             }
+            if (val > 1000) {
+                input.value = 1000;
+                val = 1000;
+            }
+            document.getElementById('total-precio').innerText = formatearDinero(val * productoActual.precio);
+        }
+        
+        function soloNumeros(event) {
+            const char = String.fromCharCode(event.which);
+            if (!/[0-9]/.test(char)) {
+                event.preventDefault();
+                return false;
+            }
+            return true;
         }
         
         function enviarWhatsapp() {
@@ -1195,7 +1250,7 @@
                     const row = document.createElement('div');
                     row.className = 'floating-cart-item';
                     row.innerHTML = `
-                        <img src="${it.img || 'https://via.placeholder.com/48?text=VP'}" onerror="this.onerror=null;this.src='https://via.placeholder.com/48?text=VP'" alt="${it.nombre || 'Producto'}">
+                        <img src="${it.img || 'img/wakavapes_icono.webp'}" onerror="this.onerror=null;this.src='img/wakavapes_icono.webp'" alt="${it.nombre || 'Producto'}">
                         <div class="fci-info">
                             <div class="fci-name">${it.nombre || 'Producto'}</div>
                             <div class="fci-variant">${it.variante || 'Estándar'}</div>
