@@ -15,7 +15,7 @@ const listaProductos = [
         { nombre: "Watermelon Kiwi", disponible: true },
         { nombre: "Mojito Mint", disponible: true }
     ] },
-    { id: 2, categoria: 'vapes', activo: true, orden: 2, agotado: false, nombre: "Waka Go 10K",  modelo: "10000 Puffs", precio: 135, img: "img/waka_slim_12k.webp",   sabores: [
+    { id: 2, categoria: 'vapes', activo: true, orden: 2, agotado: false, nombre: "Waka Slim 12K",  modelo: "12000 Puffs", precio: 145, img: "img/waka_slim_12k.webp",   sabores: [
         { nombre: "Cool Mint", disponible: true },
         { nombre: "Blackberry", disponible: true },
         { nombre: "Strawberry Kiwi", disponible: true },
