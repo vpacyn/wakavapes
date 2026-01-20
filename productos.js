@@ -430,31 +430,55 @@ const listaProductos = [
         { nombre: "Grape Mint", disponible: true },
         { nombre: "Piña Colada", disponible: true }
     ] },
+    // ========== NUEVOS PRODUCTOS ==========
+    { id: 39, categoria: 'vapes', activo: true, orden: 39, agotado: false, nombre: "Fly Jumbo 5K",  modelo: "5000 Puffs", precio: 40, img: "img/Fly_jumbo_5k.webp",   sabores: [
+        { nombre: "Mixed Berries", disponible: true },
+        { nombre: "Lush Ice", disponible: true },
+        { nombre: "Blueberry Ice", disponible: true },
+        { nombre: "Coconut Ice", disponible: true },
+        { nombre: "Grape Ice", disponible: true },
+        { nombre: "Peach Ice", disponible: true },
+        { nombre: "Strawberry Watermelon Bubblegum", disponible: true },
+        { nombre: "Cinnamon Mint", disponible: true },
+        { nombre: "Mango Peach Watermelon", disponible: true }
+    ] },
+    { id: 40, categoria: 'vapes', activo: true, orden: 40, agotado: false, nombre: "Fly 1800",  modelo: "1800 Puffs", precio: 20, img: "img/fly_1.8k.webp",   sabores: [
+        { nombre: "Cinnamon Mint", disponible: true },
+        { nombre: "Strawberry Watermelon Bubblegum", disponible: true },
+        { nombre: "Pineapple Coconut", disponible: true },
+        { nombre: "Grape Ice", disponible: true },
+        { nombre: "Blue Razz Lemonade", disponible: true },
+        { nombre: "Kiwi Strawberry", disponible: true },
+        { nombre: "Apple Mango Pear", disponible: true },
+        { nombre: "Mango Peach Pineapple", disponible: true }
+    ] },
+    { id: 41, categoria: 'vapes', activo: true, orden: 41, agotado: false, nombre: "iPlay Burst 45K",  modelo: "45000 Puffs", precio: 185, img: "img/iplay_burst_45k.webp",   sabores: [
+        { nombre: "Raspberry Watermelon", disponible: true },
+        { nombre: "Cool Mint", disponible: true },
+        { nombre: "Pineapple Mango", disponible: true },
+        { nombre: "Blueberry Mint", disponible: true },
+        { nombre: "Watermelon Bubblegum", disponible: true },
+        { nombre: "Blueberry Ice", disponible: true },
+        { nombre: "Kiwi Guava Passion", disponible: true },
+        { nombre: "Peach Mint", disponible: true },
+        { nombre: "Apple Pear", disponible: true },
+        { nombre: "Grapefruit Berry", disponible: true },
+        { nombre: "Juicy Grape", disponible: true },
+        { nombre: "Strawberry Lychee", disponible: true }
+    ] },
+    { id: 42, categoria: 'vapes', activo: true, orden: 42, agotado: false, nombre: "Fire Boost 12K",  modelo: "12000 Puffs", precio: 45, img: "img/fire_boost_12k.webp",   sabores: [
+        { nombre: "Yummy Bear", disponible: true },
+        { nombre: "Nana Taffy Ice", disponible: true },
+        { nombre: "Prickly Pear Peach", disponible: true },
+        { nombre: "Strawnana Freeze", disponible: true },
+        { nombre: "Fuji Apple Freeze", disponible: true },
+        { nombre: "Soul Mint", disponible: true },
+        { nombre: "Watermelon Bubblegum", disponible: true },
+        { nombre: "Aloe Grape", disponible: true },
+        { nombre: "Melon Berry Ice", disponible: true },
+        { nombre: "Black Ice", disponible: true }
+    ] },
     // ========== BORRADORES (PLANTILLAS SIN DATOS REALES) ==========
-    { id: 39, categoria: 'vapes', activo: false, orden: 39, agotado: false, nombre: "Vape Nuevo 39",  modelo: "10000 Puffs", precio: 300, img: "img/vape_39.webp",   sabores: [
-        { nombre: "Sabor 1", disponible: true },
-        { nombre: "Sabor 2", disponible: true },
-        { nombre: "Sabor 3", disponible: true },
-        { nombre: "Sabor 4", disponible: true }
-    ] },
-    { id: 40, categoria: 'vapes', activo: false, orden: 40, agotado: false, nombre: "Vape Nuevo 40",  modelo: "10000 Puffs", precio: 300, img: "img/vape_40.webp",   sabores: [
-        { nombre: "Sabor 1", disponible: true },
-        { nombre: "Sabor 2", disponible: true },
-        { nombre: "Sabor 3", disponible: true },
-        { nombre: "Sabor 4", disponible: true }
-    ] },
-    { id: 41, categoria: 'vapes', activo: false, orden: 41, agotado: false, nombre: "Vape Nuevo 41",  modelo: "10000 Puffs", precio: 300, img: "img/vape_41.webp",   sabores: [
-        { nombre: "Sabor 1", disponible: true },
-        { nombre: "Sabor 2", disponible: true },
-        { nombre: "Sabor 3", disponible: true },
-        { nombre: "Sabor 4", disponible: true }
-    ] },
-    { id: 42, categoria: 'vapes', activo: false, orden: 42, agotado: false, nombre: "Vape Nuevo 42",  modelo: "10000 Puffs", precio: 300, img: "img/vape_42.webp",   sabores: [
-        { nombre: "Sabor 1", disponible: true },
-        { nombre: "Sabor 2", disponible: true },
-        { nombre: "Sabor 3", disponible: true },
-        { nombre: "Sabor 4", disponible: true }
-    ] },
     { id: 43, categoria: 'vapes', activo: false, orden: 43, agotado: false, nombre: "Vape Nuevo 43",  modelo: "10000 Puffs", precio: 300, img: "img/vape_43.webp",   sabores: [
         { nombre: "Sabor 1", disponible: true },
         { nombre: "Sabor 2", disponible: true },
@@ -504,4 +528,3 @@ const listaProductos = [
         { nombre: "Sabor 4", disponible: true }
     ] }
 ];
-
