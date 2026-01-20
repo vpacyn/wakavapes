@@ -1039,11 +1039,19 @@
             const left = document.createElement('button');
             left.className = 'recom-arrow recom-arrow-left';
             left.innerHTML = '<i class="ph ph-caret-left"></i>';
-            left.onclick = () => gridRecom.scrollBy({ left: -220, behavior: 'smooth' });
+            left.onclick = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                gridRecom.scrollTo({ left: gridRecom.scrollLeft - 220, behavior: 'smooth' });
+            };
             const right = document.createElement('button');
             right.className = 'recom-arrow recom-arrow-right';
             right.innerHTML = '<i class="ph ph-caret-right"></i>';
-            right.onclick = () => gridRecom.scrollBy({ left: 220, behavior: 'smooth' });
+            right.onclick = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                gridRecom.scrollTo({ left: gridRecom.scrollLeft + 220, behavior: 'smooth' });
+            };
             wrapper.appendChild(left); wrapper.appendChild(right);
 
             const modalEl = document.getElementById('modal-pedido');
