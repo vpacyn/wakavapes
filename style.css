@@ -2671,23 +2671,30 @@ footer {
 .recom-arrow {
     position: absolute;
     top: 50%; transform: translateY(-50%);
-    background: rgba(0,0,0,0.5); border: none; color: #fff;
+    background: rgba(0,0,0,0.7); border: none; color: #fff;
     width: 42px; height: 42px; border-radius: 50%; display:flex; align-items:center; justify-content:center;
     box-shadow: 0 6px 18px rgba(0,0,0,0.6); cursor: pointer; z-index: 30;
     transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
 }
 .recom-arrow-left { left: 6px; }
 .recom-arrow-right { right: 6px; }
-.recom-arrow:hover { 
-    transform: translateY(-50%) scale(1.08);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.7);
+@media (hover: hover) and (pointer: fine) {
+    .recom-arrow:hover { 
+        transform: translateY(-50%) scale(1.08);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.7);
+    }
 }
 .recom-arrow:active { 
     transform: translateY(-50%) scale(0.92);
     box-shadow: 0 3px 10px rgba(0,0,0,0.5);
     opacity: 0.85;
 }
-.grid-recomendados { padding: 12px 40px; }
+.grid-recomendados { padding: 12px 40px; scroll-snap-type: x mandatory; }
+.card-recomendada { scroll-snap-align: start; }
 
 /* Botón Agregar - Estilo Dorado/Negro */
 .btn-agregar-simple {
