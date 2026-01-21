@@ -236,7 +236,7 @@ const listaProductos = [
         { nombre: "Cherry Ice", disponible: true },
         { nombre: "Mango Peach Pineapple", disponible: true }
     ] },
-    { id: 25, categoria: 'vapes', activo: true, orden: 25, agotado: false, nombre: "Flonq Max 10K",      modelo: "10000 Puffs", precio: 45, img: "img/flonq_max_10k.webp",   sabores: [
+    { id: 25, categoria: 'vapes', activo: true, orden: 25, agotado: true, nombre: "Flonq Max 10K",      modelo: "10000 Puffs", precio: 45, img: "img/flonq_max_10k.webp",   sabores: [
         { nombre: "Cherry Peach Lemonade", disponible: true },
         { nombre: "Watermelon Ice", disponible: true },
         { nombre: "Blue Lemonade", disponible: true },
@@ -283,7 +283,7 @@ const listaProductos = [
         { nombre: "Caloe Juice", disponible: true },
         { nombre: "Fantasia Fume", disponible: true }
     ] },
-    { id: 29, categoria: 'vapes', activo: true, orden: 29, agotado: false, nombre: "RifBar Astro 7.5K",  modelo: "7500 Puffs", precio: 30, img: "img/rifbar_astro_7.5k.webp",   sabores: [
+    { id: 29, categoria: 'vapes', activo: true, orden: 29, agotado: false, nombre: "RifBar Astro 7.5K",  modelo: "7500 Puffs", precio: 32, img: "img/rifbar_astro_7.5k.webp",   sabores: [
         { nombre: "Mint Ice", disponible: true },
         { nombre: "Strazz", disponible: true },
         { nombre: "Double Apple", disponible: true },
@@ -478,13 +478,22 @@ const listaProductos = [
         { nombre: "Melon Berry Ice", disponible: true },
         { nombre: "Black Ice", disponible: true }
     ] },
-    // ========== BORRADORES (PLANTILLAS SIN DATOS REALES) ==========
-    { id: 43, categoria: 'vapes', activo: false, orden: 43, agotado: false, nombre: "Vape Nuevo 43",  modelo: "10000 Puffs", precio: 300, img: "img/vape_43.webp",   sabores: [
-        { nombre: "Sabor 1", disponible: true },
-        { nombre: "Sabor 2", disponible: true },
-        { nombre: "Sabor 3", disponible: true },
-        { nombre: "Sabor 4", disponible: true }
+    { id: 43, categoria: 'vapes', activo: true, orden: 43, agotado: false, nombre: "Elf Ultra 7K",  modelo: "7000 Puffs", precio: 20, img: "img/elf_ultra_7k.webp",   sabores: [
+        { nombre: "Mixed Berry", disponible: true },
+        { nombre: "Pineapple Strawnana", disponible: true },
+        { nombre: "Tropical Rainbow Blast", disponible: true },
+        { nombre: "Rainbow Candy", disponible: true },
+        { nombre: "Strazz", disponible: true },
+        { nombre: "Triple Berry Ice", disponible: true },
+        { nombre: "Watermelon Cantaloupe Honeydew", disponible: true },
+        { nombre: "Black Ice", disponible: true },
+        { nombre: "Pineapple Coconut", disponible: true },
+        { nombre: "Lemon Mint", disponible: true },
+        { nombre: "Strawberry Ice Cream", disponible: true },
+        { nombre: "Peach Ice", disponible: true },
+        { nombre: "Watermelon Bubblegum", disponible: true }
     ] },
+    // ========== BORRADORES (PLANTILLAS SIN DATOS REALES) ==========
     { id: 44, categoria: 'vapes', activo: false, orden: 44, agotado: false, nombre: "Vape Nuevo 44",  modelo: "10000 Puffs", precio: 300, img: "img/vape_44.webp",   sabores: [
         { nombre: "Sabor 1", disponible: true },
         { nombre: "Sabor 2", disponible: true },
@@ -528,6 +537,3 @@ const listaProductos = [
         { nombre: "Sabor 4", disponible: true }
     ] }
 ];
-
-
-
