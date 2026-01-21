@@ -283,7 +283,7 @@ const listaProductos = [
         { nombre: "Caloe Juice", disponible: true },
         { nombre: "Fantasia Fume", disponible: true }
     ] },
-    { id: 29, categoria: 'vapes', activo: true, orden: 29, agotado: false, nombre: "RifBar Astro 7.5K",  modelo: "7500 Puffs", precio: 27, img: "img/rifbar_astro_7.5k.webp",   sabores: [
+    { id: 29, categoria: 'vapes', activo: true, orden: 29, agotado: false, nombre: "RifBar Astro 7.5K",  modelo: "7500 Puffs", precio: 30, img: "img/rifbar_astro_7.5k.webp",   sabores: [
         { nombre: "Mint Ice", disponible: true },
         { nombre: "Strazz", disponible: true },
         { nombre: "Double Apple", disponible: true },
@@ -528,5 +528,6 @@ const listaProductos = [
         { nombre: "Sabor 4", disponible: true }
     ] }
 ];
+
 
 
