@@ -8,22 +8,28 @@
     <title>Waka Vapes|Mayoristas Vapes </title>
     
     <!-- Favicon (Logo en la pestaña del navegador) -->
-    <link rel="icon" type="image/png" href="img/wakavapes_icono.webp">
-    <link rel="shortcut icon" type="image/png" href="img/wakavapes_icono.webp">
-    <link rel="apple-touch-icon" href="img/wakavapes_icono.webp">
+    <link rel="icon" type="image/png" href="img/iconos/wakavapes_icono.webp">
+    <link rel="shortcut icon" type="image/png" href="img/iconos/wakavapes_icono.webp">
+    <link rel="apple-touch-icon" href="img/iconos/wakavapes_icono.webp">
     
     <!-- Seguridad HTTPS -->
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <!-- Nota: X-Content-Type-Options y X-Frame-Options deben venir desde el servidor como cabeceras HTTP, no via <meta>. -->
     <meta name="referrer" content="strict-origin-when-cross-origin">
     
+    <!-- Preconnect para conexiones tempranas a servidores externos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com">
+    
     <!-- Vinculación de Estilos -->
     <link rel="stylesheet" href="style.css">
     
-    <!-- Librerías Externas -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lato:wght@300;400;700;900&family=Montserrat:wght@300;400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Librerías Externas con optimización -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&family=Nunito:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
 </head>
 <body>
 
@@ -83,7 +89,7 @@
         <div class="nav-content">
             <div class="buscador-container">
                 <div class="input-wrapper">
-                    <input type="text" id="input-busqueda" placeholder="Buscar productos..." onkeyup="filtrarBusqueda()" onkeypress="verificarEnter(event)" autocomplete="off">
+                    <input type="text" id="input-busqueda" placeholder="Buscar productos..." oninput="debounceBusqueda()" onkeypress="verificarEnter(event)" autocomplete="off">
                     <i class="ph ph-magnifying-glass icono-lupa"></i>
                 </div>
                 <div id="resultados-busqueda" class="lista-resultados"></div>
@@ -105,7 +111,7 @@
     <section id="seccion-categorias" class="pantalla-activa">
         <header data-aos="zoom-in" data-aos-duration="1200">
             <div class="header-overlay">
-                <img src="img/wakalogo.png" alt="Logo" class="logo-principal">
+                <img src="img/iconos/wakalogo.png" alt="Logo" class="logo-principal" loading="eager" fetchpriority="high">
                 <h2 class="subtitulo-vip">waka vapes</h2>
                 <div class="separador-dorado"></div>
                 <p class="slogan">CALIDAD & PRECIOS BAJOS</p>
@@ -115,7 +121,7 @@
         <div class="contenedor-categorias" id="contenedor-categorias-dinamico">
             <div class="tarjeta-vape-principal" onclick="mostrarCatalogoCompleto()">
                 <div class="tarjeta-vape-imagen">
-                    <img src="img/wakavapes_icono.webp" alt="Catálogo Waka Vapes">
+                    <img src="img/iconos/wakavapes_icono.webp" alt="Catálogo Waka Vapes" loading="lazy">
                 </div>
                 <div class="tarjeta-vape-titulo">
                     <h2> ¡¡MAYOREO DE VAPES!! <i class="ph ph-arrow-right"></i></h2>
@@ -267,8 +273,16 @@
          LÓGICA JAVASCRIPT
          ================================================================= -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <!-- Productos separados en archivo externo para fácil edición -->
+    <!-- Productos separados en archivos externos para fácil edición -->
     <script src="productos.js"></script>
+    <script src="productos_wax.js"></script>
+    <script>
+        // Combinar las listas de productos (vapes + wax)
+        // Agregar productos wax a la lista principal
+        if (typeof listaProductosWax !== 'undefined') {
+            listaProductosWax.forEach(p => listaProductos.push(p));
+        }
+    </script>
     <script>
         // Inicializar AOS con seguridad
         try {
@@ -324,10 +338,19 @@
                 id: 'vapes',
                 titulo: 'Catálogo Waka Vapes',
                 subtitulo: 'Todas nuestras variedades disponibles',
-                img: 'img/portada_vapes.jpg',
+                img: 'img/vapes/portada_vapes.jpg',
                 disponible: true,
                 visible: true,
                 orden: 1
+            },
+            {
+                id: 'wax',
+                titulo: 'Catálogo Wax',
+                subtitulo: 'Los mejores concentrados',
+                img: 'img/wax/portada_wax.webp',
+                disponible: true,
+                visible: true,
+                orden: 2
             }
         ];
 
@@ -551,21 +574,27 @@
 
         function irArriba() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
         
-        window.onscroll = function() {
-            const btn = document.getElementById('btn-back-to-top');
-            if (!AJUSTES_RAPIDOS.mostrarBackToTop) {
-                if (btn) btn.style.display = 'none';
-                return;
+        // Optimizado: throttle scroll con requestAnimationFrame para mejor INP
+        let _scrollTicking = false;
+        let _cachedBackToTopBtn = null;
+        
+        window.addEventListener('scroll', function() {
+            if (!_scrollTicking) {
+                requestAnimationFrame(function() {
+                    if (!_cachedBackToTopBtn) _cachedBackToTopBtn = document.getElementById('btn-back-to-top');
+                    const btn = _cachedBackToTopBtn;
+                    if (!AJUSTES_RAPIDOS.mostrarBackToTop) {
+                        if (btn) btn.style.display = 'none';
+                        _scrollTicking = false;
+                        return;
+                    }
+                    const scrolled = document.body.scrollTop > 300 || document.documentElement.scrollTop > 300;
+                    if (btn) btn.style.display = scrolled ? "flex" : "none";
+                    _scrollTicking = false;
+                });
+                _scrollTicking = true;
             }
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                btn.style.display = "flex";
-            } else {
-                btn.style.display = "none";
-            }
-            
-            // Control del botón COMPRAR YA - completamente fijo, sin movimiento
-            // El botón se queda siempre en su lugar para evitar irregularidades
-        };
+        }, { passive: true });
 
         function actualizarBadgeCarrito() {
             const badge = document.getElementById('carrito-count');
@@ -689,13 +718,20 @@
                     return; // Saltar este item
                 }
                 
+                // Verificar si es producto wax
+                const productoOriginal = listaProductos.find(p => p.id === item.id);
+                const esWax = productoOriginal && productoOriginal.categoria === 'wax';
+                
                 const cantidad = parseInt(item.cantidad, 10) || 1;
                 const precio = parseFloat(item.precio) || 0;
+                
+                // Wax muestra COTIZAR PRECIO
+                const precioMostrar = esWax ? '<span class="cotizar-precio">COTIZAR PRECIO</span>' : formatearDinero(precio * cantidad);
                 
                 const tarjeta = document.createElement('div');
                 tarjeta.className = 'tarjeta-producto';
                 tarjeta.innerHTML = `
-                    <div class="img-wrapper"><img src="${item.img || 'img/wakavapes_icono.webp'}" alt="${item.nombre || 'Producto'}" onerror="this.onerror=null;this.src='img/wakavapes_icono.webp'"></div>
+                    <div class="img-wrapper"><img src="${item.img || 'img/iconos/wakavapes_icono.webp'}" alt="${item.nombre || 'Producto'}" onerror="this.onerror=null;this.src='img/iconos/wakavapes_icono.webp'"></div>
                     <div class="info-card carrito-card-info">
                         <h3>${item.nombre || 'Producto'}</h3>
                         <p class="variante-text">${item.variante || 'Estándar'}</p>
@@ -704,53 +740,169 @@
                             <span class="qty-number">${cantidad}</span>
                             <button class="btn-cant" type="button" onclick="event.stopPropagation(); updateItemCantidad(${item.id}, '${encodeURIComponent(item.variante || '')}', 1)"><i class="ph ph-plus"></i></button>
                         </div>
-                        <p class="subtotal-text">${formatearDinero(precio * cantidad)}</p>
+                        <p class="subtotal-text">${precioMostrar}</p>
                     </div>
                 `;
-                tarjeta.onclick = function() { abrirModal(item.id); };
+                // Wax no abre modal
+                if (!esWax) {
+                    tarjeta.onclick = function() { abrirModal(item.id); };
+                    tarjeta.style.cursor = 'pointer';
+                } else {
+                    tarjeta.style.cursor = 'default';
+                }
                 contenedor.appendChild(tarjeta);
             });
         }
 
+        // ============ OPTIMIZACIÓN: DEBOUNCE PARA BÚSQUEDA ============
+        let _debounceTimer = null;
+        const DEBOUNCE_DELAY = 150; // ms - espera antes de ejecutar búsqueda
+        const MAX_RESULTADOS_BUSQUEDA = 12; // Limitar resultados para mejor rendimiento
+        
+        function debounceBusqueda() {
+            // Cancelar el timer anterior si existe
+            if (_debounceTimer) clearTimeout(_debounceTimer);
+            // Programar nueva ejecución
+            _debounceTimer = setTimeout(filtrarBusqueda, DEBOUNCE_DELAY);
+        }
+
         function filtrarBusqueda() {
             const input = document.getElementById('input-busqueda');
-            const filtro = input.value.toLowerCase();
+            const filtro = input.value.toLowerCase().trim();
             const resultadosDiv = document.getElementById('resultados-busqueda');
-            resultadosDiv.innerHTML = '';
             
+            // Si está vacío, ocultar y salir rápido
             if (filtro.length < 1) { 
                 resultadosDiv.style.display = 'none';
+                resultadosDiv.innerHTML = '';
                 return;
             }
 
-            const coincidencias = listaProductos.filter(prod => {
-                if (!prod.activo) return false;
-                if (!prod.nombre.toLowerCase().includes(filtro) && !prod.modelo.toLowerCase().includes(filtro)) return false;
-                const seccionCategoria = CONFIG_SECCIONES.find(s => s.id === prod.categoria);
-                if (!seccionCategoria) return false;
-                return seccionCategoria.visible === true && seccionCategoria.disponible === true;
-            });
+            // Pre-calcular secciones válidas una sola vez
+            const seccionesValidas = new Set(
+                CONFIG_SECCIONES
+                    .filter(s => s.visible && s.disponible)
+                    .map(s => s.id)
+            );
+
+            // Filtrar con límite para mejor rendimiento
+            const coincidencias = [];
+            for (let i = 0; i < listaProductos.length && coincidencias.length < MAX_RESULTADOS_BUSQUEDA; i++) {
+                const prod = listaProductos[i];
+                if (!prod.activo) continue;
+                if (!seccionesValidas.has(prod.categoria)) continue;
+                const nombreLower = prod.nombre.toLowerCase();
+                const modeloLower = prod.modelo.toLowerCase();
+                if (nombreLower.includes(filtro) || modeloLower.includes(filtro)) {
+                    coincidencias.push(prod);
+                }
+            }
 
             if (coincidencias.length > 0) {
-                resultadosDiv.style.display = 'block';
+                // Usar DocumentFragment para mejor rendimiento (una sola operación DOM)
+                const fragment = document.createDocumentFragment();
+                
                 coincidencias.forEach(prod => {
                     const item = document.createElement('div');
+                    const esWax = prod.categoria === 'wax';
                     item.className = 'resultado-item' + (prod.agotado ? ' resultado-agotado' : '');
-                    const badgeAgotado = prod.agotado ? '<span class="badge-agotado-busqueda">AGOTADO</span>' : '';
-                    item.innerHTML = `<img src="${prod.img}" style="width:40px; height:40px; object-fit:cover; border-radius:5px; margin-right:10px;${prod.agotado ? ' filter: grayscale(100%); opacity: 0.6;' : ''}" onerror="this.onerror=null;this.src='img/wakavapes_icono.webp'"/><div style="flex:1;"><span class="nombre-busqueda">${prod.nombre}</span><span class="modelo-busqueda" style="display:block; font-size:0.7rem;">${prod.modelo}</span></div>${badgeAgotado}`;
-                    item.onclick = function() {
-                        if (!prod.agotado) {
-                            abrirModal(prod.id);
+                    
+                    // Crear elementos en lugar de usar innerHTML para mejor rendimiento
+                    const img = document.createElement('img');
+                    img.src = prod.img;
+                    img.loading = 'lazy';
+                    img.decoding = 'async';
+                    img.style.cssText = `width:36px;height:36px;object-fit:cover;border-radius:5px;margin-right:8px;${prod.agotado ? 'filter:grayscale(100%);opacity:0.6;' : ''}`;
+                    img.onerror = function() { this.src = 'img/iconos/wakavapes_icono.webp'; };
+                    
+                    const infoDiv = document.createElement('div');
+                    infoDiv.className = 'info-busqueda';
+                    
+                    const nombreSpan = document.createElement('span');
+                    nombreSpan.className = 'nombre-busqueda';
+                    nombreSpan.textContent = prod.nombre;
+                    
+                    const modeloSpan = document.createElement('span');
+                    modeloSpan.className = 'modelo-busqueda';
+                    modeloSpan.textContent = prod.modelo;
+                    
+                    infoDiv.appendChild(nombreSpan);
+                    infoDiv.appendChild(modeloSpan);
+                    
+                    item.appendChild(img);
+                    item.appendChild(infoDiv);
+                    
+                    // Badges
+                    if (esWax && !prod.agotado) {
+                        const badgeCotizar = document.createElement('span');
+                        badgeCotizar.className = 'badge-cotizar-busqueda';
+                        badgeCotizar.textContent = 'COTIZAR';
+                        item.appendChild(badgeCotizar);
+                    }
+                    if (prod.agotado) {
+                        const badgeAgotado = document.createElement('span');
+                        badgeAgotado.className = 'badge-agotado-busqueda';
+                        badgeAgotado.textContent = 'AGOTADO';
+                        item.appendChild(badgeAgotado);
+                        item.style.cursor = 'not-allowed';
+                    }
+                    
+                    // Evento click optimizado
+                    if (!prod.agotado) {
+                        item.onclick = () => {
                             input.value = '';
                             resultadosDiv.style.display = 'none';
-                        }
-                    };
-                    if (prod.agotado) item.style.cursor = 'not-allowed';
-                    resultadosDiv.appendChild(item);
+                            resultadosDiv.innerHTML = '';
+                            irASeccionYResaltar(prod.id, prod.categoria, !esWax);
+                        };
+                    }
+                    
+                    fragment.appendChild(item);
                 });
+                
+                // Una sola operación DOM
+                resultadosDiv.innerHTML = '';
+                resultadosDiv.appendChild(fragment);
+                resultadosDiv.style.display = 'block';
             } else {
                 resultadosDiv.style.display = 'none';
+                resultadosDiv.innerHTML = '';
             }
+        }
+        
+        // Función para ir a una sección y resaltar un producto específico
+        // abrirModalDespues: si es true, abre el modal después de resaltar (para vapes)
+        function irASeccionYResaltar(idProducto, categoria, abrirModalDespues = false) {
+            // Cargar el catálogo de la categoría
+            cargarCatalogo(categoria);
+            
+            // Esperar a que se renderice el grid y luego buscar y resaltar el producto
+            setTimeout(() => {
+                const tarjetas = document.querySelectorAll('.tarjeta-producto');
+                let tarjetaEncontrada = null;
+                
+                tarjetas.forEach(tarjeta => {
+                    // Buscar la tarjeta que corresponde al producto
+                    if (tarjeta.dataset.productId == idProducto) {
+                        tarjetaEncontrada = tarjeta;
+                        // Scroll al producto
+                        tarjeta.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        // Agregar clase de resaltado
+                        tarjeta.classList.add('producto-resaltado');
+                        // Quitar la clase después de la animación
+                        setTimeout(() => {
+                            tarjeta.classList.remove('producto-resaltado');
+                        }, 2000);
+                    }
+                });
+                
+                // Si se debe abrir el modal (para vapes), hacerlo después de un breve delay
+                if (abrirModalDespues && tarjetaEncontrada) {
+                    setTimeout(() => {
+                        abrirModal(idProducto);
+                    }, 600); // Esperar un poco para que se vea el resaltado primero
+                }
+            }, 300);
         }
 
         function verificarEnter(event) {
@@ -795,23 +947,46 @@
             
             // Obtener la configuración de la sección de vapes
             const seccionVapes = CONFIG_SECCIONES.find(s => s.id === 'vapes');
-            const imgPortada = seccionVapes ? seccionVapes.img : 'img/portada_vapes.jpg';
+            const imgPortadaVapes = seccionVapes ? seccionVapes.img : 'img/vapes/portada_vapes.jpg';
             
             // Crear la tarjeta de vapes principal
-            const div = document.createElement('div');
-            div.className = 'tarjeta-vape-principal';
-            div.setAttribute('data-aos', 'fade-up');
-            div.onclick = () => mostrarCatalogoCompleto();
+            const divVapes = document.createElement('div');
+            divVapes.className = 'tarjeta-vape-principal';
+            divVapes.setAttribute('data-aos', 'fade-up');
+            divVapes.onclick = () => mostrarCatalogoCompleto();
             
-            div.innerHTML = `
+            divVapes.innerHTML = `
                 <div class="tarjeta-vape-imagen">
-                    <img src="${imgPortada}" alt="Catálogo Waka Vapes" onerror="this.onerror=null;this.src='img/wakavapes_icono.webp'">
+                    <img src="${imgPortadaVapes}" alt="Catálogo Waka Vapes" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/iconos/wakavapes_icono.webp'">
                 </div>
                 <div class="tarjeta-vape-titulo">
                     <h2>¡¡MAYOREO VAPES!! <i class="ph ph-arrow-right"></i></h2>
                 </div>
             `;
-            cont.appendChild(div);
+            cont.appendChild(divVapes);
+            
+            // Obtener la configuración de la sección de wax
+            const seccionWax = CONFIG_SECCIONES.find(s => s.id === 'wax');
+            if (seccionWax && seccionWax.visible && seccionWax.disponible) {
+                const imgPortadaWax = seccionWax.img || 'img/wax/portada_wax.webp';
+                
+                // Crear la tarjeta de wax
+                const divWax = document.createElement('div');
+                divWax.className = 'tarjeta-vape-principal';
+                divWax.setAttribute('data-aos', 'fade-up');
+                divWax.setAttribute('data-aos-delay', '100');
+                divWax.onclick = () => mostrarCatalogoWax();
+                
+                divWax.innerHTML = `
+                    <div class="tarjeta-vape-imagen">
+                        <img src="${imgPortadaWax}" alt="Catálogo Wax" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/iconos/wakavapes_icono.webp'">
+                    </div>
+                    <div class="tarjeta-vape-titulo">
+                        <h2>¡¡MAYOREO WAX!! <i class="ph ph-arrow-right"></i></h2>
+                    </div>
+                `;
+                cont.appendChild(divWax);
+            }
             
             // FIX CRÍTICO: Refrescar AOS después de crear los elementos para que se vean
             setTimeout(() => AOS.refresh(), 200);
@@ -847,33 +1022,61 @@
 
         function renderizarGrid(lista, contenedor, limpiar = true) {
             if (limpiar) contenedor.innerHTML = "";
-            if (lista.length === 0) { contenedor.innerHTML += `<p style="width:100%; text-align:center; color:#888; margin-top:50px; grid-column: 1 / -1;">No hay productos disponibles.</p>`; return; }
+            if (lista.length === 0) { 
+                contenedor.innerHTML += `<p style="width:100%; text-align:center; color:#888; margin-top:50px; grid-column: 1 / -1;">No hay productos disponibles.</p>`; 
+                return; 
+            }
+            
+            // Usar DocumentFragment para mejor rendimiento
+            const fragment = document.createDocumentFragment();
+            const maxDelay = Math.min(lista.length, 10); // Limitar delays de animación
+            
             lista.forEach((prod, idx) => {
                 const tarjeta = document.createElement('div');
                 const estaAgotado = prod.agotado === true;
+                const esWax = prod.categoria === 'wax';
                 tarjeta.className = 'tarjeta-producto' + (estaAgotado ? ' producto-agotado' : '');
                 tarjeta.setAttribute('data-aos', 'fade-up');
-                tarjeta.setAttribute('data-aos-delay', idx * 50);
-                tarjeta.onclick = () => { if (!estaAgotado) abrirModal(prod.id); };
-                tarjeta.style.cursor = estaAgotado ? 'not-allowed' : 'pointer';
-                let prec = `<div class="bloque-precios"><span class="precio-card">${formatearDinero(prod.precio)}</span></div>`;
-                // Controles rápidos: siempre mostrar solo el botón de carrito
+                tarjeta.setAttribute('data-aos-delay', Math.min(idx, maxDelay) * 50); // Limitar delay máximo
+                tarjeta.setAttribute('data-product-id', prod.id);
+                
+                // Wax no abre modal, solo permite agregar al carrito
+                if (!esWax) {
+                    tarjeta.onclick = () => { if (!estaAgotado) abrirModal(prod.id); };
+                    tarjeta.style.cursor = estaAgotado ? 'not-allowed' : 'pointer';
+                } else {
+                    tarjeta.style.cursor = 'default';
+                }
+                
+                // Wax muestra COTIZAR PRECIO en lugar del precio
+                const prec = esWax 
+                    ? `<div class="bloque-precios"><span class="precio-card cotizar-precio">COTIZAR PRECIO</span></div>`
+                    : `<div class="bloque-precios"><span class="precio-card">${formatearDinero(prod.precio)}</span></div>`;
+                
+                // Controles rápidos
                 let controlesRapidos = '';
-                const varianteDef = (prod.modelo && prod.modelo.length>0) ? prod.modelo : 'Estándar';
+                const varianteDef = (prod.modelo && prod.modelo.length > 0) ? prod.modelo : 'Estándar';
                 const enCarritoItem = carrito.find(it => it.id === prod.id && it.variante === varianteDef);
                 
-                // Si está agotado, no mostrar botón de carrito
                 if (estaAgotado) {
                     controlesRapidos = `<span class="badge-agotado">AGOTADO</span>`;
                 } else if (enCarritoItem) {
-                    controlesRapidos = `<button class=\"btn-agregar-card agregado\" onclick=\"event.stopPropagation(); abrirModal(${prod.id})\" title=\"En carrito\"><i class=\"ph ph-check-circle\"></i></button>`;
+                    controlesRapidos = esWax 
+                        ? `<button class="btn-agregar-card agregado" onclick="event.stopPropagation();" title="En carrito"><i class="ph ph-check-circle"></i></button>`
+                        : `<button class="btn-agregar-card agregado" onclick="event.stopPropagation(); abrirModal(${prod.id})" title="En carrito"><i class="ph ph-check-circle"></i></button>`;
                 } else {
-                    controlesRapidos = `<button class=\"btn-agregar-card\" onclick=\"event.stopPropagation(); agregarAlCarritoRapido(${prod.id})\" title=\"Agregar\"><i class=\"ph ph-shopping-cart\"></i></button>`;
+                    controlesRapidos = `<button class="btn-agregar-card" onclick="event.stopPropagation(); agregarAlCarritoRapido(${prod.id})" title="Agregar"><i class="ph ph-shopping-cart"></i></button>`;
                 }
 
-                tarjeta.innerHTML = `<div class="img-wrapper"><img src="${prod.img}" loading="lazy" onerror="this.onerror=null;this.src='img/wakavapes_icono.webp'"></div><div class="info-card"><h3>${prod.nombre}</h3>${prec}<div style="display:flex; gap:8px; justify-content:center; align-items:center; margin-top:10px;">${controlesRapidos}${!estaAgotado ? '<span class="texto-ver-detalles">Ver Detalles</span>' : ''}</div></div>`;
-                contenedor.appendChild(tarjeta);
+                const verDetalles = (!estaAgotado && !esWax) ? '<span class="texto-ver-detalles">Ver Detalles</span>' : '';
+                
+                tarjeta.innerHTML = `<div class="img-wrapper"><img src="${prod.img}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/iconos/wakavapes_icono.webp'"></div><div class="info-card"><h3>${prod.nombre}</h3>${prec}<div style="display:flex;gap:8px;justify-content:center;align-items:center;margin-top:10px">${controlesRapidos}${verDetalles}</div></div>`;
+                
+                fragment.appendChild(tarjeta);
             });
+            
+            // Una sola operación DOM al final
+            contenedor.appendChild(fragment);
         }
 
         // Pedir directo desde tarjeta de producto: añade al carrito y abre el panel/enlace
@@ -934,6 +1137,11 @@
         // Función para mostrar el catálogo completo de vapes
         function mostrarCatalogoCompleto() {
             cargarCatalogo('vapes');
+        }
+        
+        // Función para mostrar el catálogo completo de wax
+        function mostrarCatalogoWax() {
+            cargarCatalogo('wax');
         }
 
         function irAlInicio() {
@@ -1029,7 +1237,7 @@
                 const card = document.createElement('div');
                 card.className = 'card-recomendada';
                 card.onclick = function() { window.scrollTo({ top: 0, behavior: 'smooth' }); abrirModal(rec.id); };
-                card.innerHTML = `<img src="${rec.img}" onerror="this.onerror=null;this.src='img/wakavapes_icono.webp'"><div><p class="rec-nombre">${rec.nombre}</p><p class="rec-precio">${formatearDinero(rec.precio)}</p></div>`;
+                card.innerHTML = `<img src="${rec.img}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/iconos/wakavapes_icono.webp'"><div><p class="rec-nombre">${rec.nombre}</p><p class="rec-precio">${formatearDinero(rec.precio)}</p></div>`;
                 gridRecom.appendChild(card);
             });
             // Añadir flechas flotantes para scroll táctil en recomendaciones
@@ -1256,14 +1464,24 @@
                         return; // Saltar este item
                     }
                     
+                    // Verificar si es producto wax
+                    const productoOriginal = listaProductos.find(p => p.id === it.id);
+                    const esWax = productoOriginal && productoOriginal.categoria === 'wax';
+                    
                     const cantidad = parseInt(it.cantidad, 10) || 1;
                     const precio = parseFloat(it.precio) || 0;
-                    total += cantidad * precio;
+                    // Wax no suma al total
+                    if (!esWax) {
+                        total += cantidad * precio;
+                    }
+                    
+                    // Wax muestra COTIZAR PRECIO
+                    const precioMostrar = esWax ? '<span class="cotizar-precio">COTIZAR PRECIO</span>' : formatearDinero(precio * cantidad);
                     
                     const row = document.createElement('div');
                     row.className = 'floating-cart-item';
                     row.innerHTML = `
-                        <img src="${it.img || 'img/wakavapes_icono.webp'}" onerror="this.onerror=null;this.src='img/wakavapes_icono.webp'" alt="${it.nombre || 'Producto'}">
+                        <img src="${it.img || 'img/iconos/wakavapes_icono.webp'}" onerror="this.onerror=null;this.src='img/iconos/wakavapes_icono.webp'" alt="${it.nombre || 'Producto'}">
                         <div class="fci-info">
                             <div class="fci-name">${it.nombre || 'Producto'}</div>
                             <div class="fci-variant">${it.variante || 'Estándar'}</div>
@@ -1274,7 +1492,7 @@
                             </div>
                         </div>
                         <div class="fci-right">
-                            <div class="fci-price">${formatearDinero(precio * cantidad)}</div>
+                            <div class="fci-price">${precioMostrar}</div>
                             <button class="btn-eliminar" onclick="event.stopPropagation(); removeItem(${it.id}, '${encodeURIComponent(it.variante || '')}')" title="Eliminar">
                                 <i class="ph ph-trash"></i>
                             </button>
@@ -1451,9 +1669,18 @@
 
             carrito.forEach((it) => {
                 try {
+                    // Verificar si es producto wax
+                    const productoOriginal = listaProductos.find(p => p.id === it.id);
+                    const esWax = productoOriginal && productoOriginal.categoria === 'wax';
+                    
                     const subtotal = (parseInt(it.cantidad,10) || 0) * it.precio;
-                    total += subtotal;
-                    lines.push(`• ${it.nombre} (${it.variante})\n  x${it.cantidad} - ${formatearDinero(subtotal)}`);
+                    // Wax no suma al total
+                    if (!esWax) {
+                        total += subtotal;
+                    }
+                    // Wax muestra COTIZAR PRECIO en WhatsApp
+                    const precioTexto = esWax ? '_COTIZAR PRECIO_' : formatearDinero(subtotal);
+                    lines.push(`• ${it.nombre} (${it.variante})\n  x${it.cantidad} - ${precioTexto}`);
                 } catch (e) {
                     console.warn('Item inválido en carrito:', e, it);
                 }

@@ -14,6 +14,17 @@
     outline: none;
 }
 
+/* Optimización de rendimiento para imágenes */
+img {
+    content-visibility: auto;
+    contain-intrinsic-size: 200px 200px;
+}
+
+/* Optimización táctil para mejor INP en botones y elementos interactivos */
+button, a, input, select, textarea, [role="button"], [onclick] {
+    touch-action: manipulation;
+}
+
 /* Fuente secundaria para lectura cómoda y moderna (Textos largos) */
 p, label, input, button, span, div, select, textarea, a {
     font-family: 'Lato', sans-serif;
@@ -274,7 +285,10 @@ nav:hover {
     color: #ffffff;
     font-size: 0.95rem;
     letter-spacing: 0.5px;
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    /* Optimizaciones INP */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* Evitar selección accidental en áreas decorativas y controles del header */
@@ -284,7 +298,6 @@ nav:hover {
     background: rgba(40, 40, 40, 1);
     border-color: rgba(150, 150, 150, 0.6);
     box-shadow: 0 0 24px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0,0,0,0.2);
-    transform: translateY(-1px);
 }
 
 #input-busqueda::placeholder { color: #888; }
@@ -297,7 +310,7 @@ nav:hover {
     color: #777;
     font-size: 1.2rem;
     pointer-events: none;
-    transition: 0.3s;
+    transition: color 0.2s ease;
 }
 
 #input-busqueda:focus + .icono-lupa { color: #ffffff; }
@@ -318,6 +331,8 @@ nav:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     /* Animación de despliegue */
     animation: slideDown 0.2s ease-out;
+    contain: layout style;
+    will-change: transform, opacity;
 }
 
 @keyframes slideDown {
@@ -329,15 +344,18 @@ nav:hover {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 15px 20px;
+    padding: 12px 15px;
     border-bottom: 1px solid rgba(80, 80, 80, 0.3);
     cursor: pointer;
-    transition: background 0.2s;
-    gap: 12px;
+    transition: background 0.15s ease-out;
+    gap: 10px;
+    contain: layout style;
+    touch-action: manipulation; /* Mejora la respuesta táctil */
 }
 
 .resultado-item:last-child { border-bottom: none; }
 .resultado-item:hover { background: rgba(80, 80, 80, 0.4); }
+.resultado-item:active { background: rgba(100, 100, 100, 0.5); }
 
 /* Resultado de búsqueda agotado */
 .resultado-item.resultado-agotado { opacity: 0.7; }
@@ -345,25 +363,85 @@ nav:hover {
 .badge-agotado-busqueda {
     background: linear-gradient(145deg, #555 0%, #333 100%);
     color: #fff;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 0.6rem;
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-size: 0.55rem;
     font-weight: 700;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     border: 1px solid rgba(100,100,100,0.4);
     white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Badge COTIZAR para WAX en búsqueda */
+.badge-cotizar-busqueda {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
+    color: #D4AF37;
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .info-busqueda { 
     display: flex; 
     flex-direction: column; 
-    gap: 2px; 
+    gap: 1px; 
     flex: 1;
     min-width: 0;
+    overflow: hidden;
+    contain: layout style;
 }
-.nombre-busqueda { color: #ffffff; font-weight: 700; font-size: 0.95rem; }
-.modelo-busqueda { color: #aaa; font-size: 0.8rem; font-style: italic; }
+.nombre-busqueda { 
+    color: #ffffff; 
+    font-weight: 700; 
+    font-size: 0.85rem; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    contain: layout style;
+    pointer-events: none; /* Evita que sea target de clicks, mejora INP */
+}
+.modelo-busqueda { 
+    color: #aaa; 
+    font-size: 0.7rem; 
+    font-style: italic;
+    display: block;
+    contain: layout style;
+    pointer-events: none;
+}
+
+/* Animación de resaltado para producto encontrado */
+.producto-resaltado {
+    animation: resaltarProducto 2s ease-out;
+    position: relative;
+    z-index: 10;
+}
+
+@keyframes resaltarProducto {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+    }
+    20% {
+        transform: scale(1.03);
+        box-shadow: 0 0 30px 10px rgba(212, 175, 55, 0.5), 0 0 60px 20px rgba(212, 175, 55, 0.3);
+    }
+    40% {
+        transform: scale(1.02);
+        box-shadow: 0 0 25px 8px rgba(212, 175, 55, 0.4), 0 0 50px 15px rgba(212, 175, 55, 0.2);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+}
 
 /* --- BOTONERA NAV (DERECHA) --- */
 .nav-buttons { display: flex; gap: 20px; align-items: center; }
@@ -375,7 +453,7 @@ nav:hover {
     font-size: 1.8rem;
     cursor: pointer;
     position: relative;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
     display: flex; align-items: center; justify-content: center;
     backdrop-filter: blur(16px) saturate(140%);
     -webkit-backdrop-filter: blur(16px) saturate(140%);
@@ -393,6 +471,7 @@ nav:hover {
     box-shadow: 0 4px 16px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.1);
     -webkit-tap-highlight-color: transparent;
     overflow: visible;
+    touch-action: manipulation;
 }
 
 .btn-icon-nav:hover { 
@@ -852,6 +931,8 @@ header {
     backdrop-filter: blur(16px) saturate(140%);
     -webkit-backdrop-filter: blur(16px) saturate(140%);
     box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    contain: layout style;
+    will-change: transform;
 }
 
 .tarjeta-producto:hover {
@@ -903,6 +984,7 @@ header {
     height: 100%;
     object-fit: cover;
     transition: transform 0.6s ease;
+    will-change: transform;
 }
 
 .tarjeta-producto:hover .img-wrapper img {
@@ -928,8 +1010,9 @@ header {
 /* Controles rápidos dentro de tarjeta de producto */
 .qty-card { display:flex; align-items:center; gap:8px; padding:6px 8px; border-radius:14px; background: var(--glass-bg); border: var(--glass-border); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
 .qty-card .qty-number { min-width:36px; text-align:center; color:#fff; font-weight:800; font-size:1rem; }
-.btn-agregar-card { background: linear-gradient(135deg, #888888, #6a6a6a); color:white; border:none; padding:8px 12px; border-radius:12px; font-weight:700; cursor:pointer; box-shadow: 0 8px 22px rgba(150,150,150,0.18); transition: all 0.3s ease; }
+.btn-agregar-card { background: linear-gradient(135deg, #888888, #6a6a6a); color:white; border:none; padding:8px 12px; border-radius:12px; font-weight:700; cursor:pointer; box-shadow: 0 8px 22px rgba(150,150,150,0.18); transition: transform 0.15s ease, box-shadow 0.15s ease; }
 .btn-agregar-card:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(150,150,150,0.25); }
+.btn-agregar-card:active { transform: translateY(0); }
 .btn-agregar-card.agregado { background: linear-gradient(135deg, #27ae60, #1e8449); color: white; }
 .btn-agregar-card.agregado:hover { background: linear-gradient(135deg, #2ecc71, #27ae60); box-shadow: 0 10px 26px rgba(39, 174, 96, 0.25); }
 
@@ -1135,6 +1218,20 @@ header {
     font-weight: 800;
     text-shadow: none;
     line-height: 1.1;
+}
+
+/* Estilo para COTIZAR PRECIO en productos wax */
+.precio-card.cotizar-precio,
+.cotizar-precio {
+    color: #D4AF37;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .texto-ver-detalles {
