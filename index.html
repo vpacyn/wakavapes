@@ -1680,7 +1680,12 @@
                     }
                     // Wax muestra COTIZAR PRECIO en WhatsApp
                     const precioTexto = esWax ? '_COTIZAR PRECIO_' : formatearDinero(subtotal);
-                    lines.push(`• ${it.nombre} (${it.variante})\n  x${it.cantidad} - ${precioTexto}`);
+                    lines.push(`┌─────────────────┐`);
+                    lines.push(`│ ${it.nombre}`);
+                    lines.push(`│ Variante: ${it.variante}`);
+                    lines.push(`│ Cantidad: x${it.cantidad}`);
+                    lines.push(`│ Precio: ${precioTexto}`);
+                    lines.push(`└─────────────────┘`);
                 } catch (e) {
                     console.warn('Item inválido en carrito:', e, it);
                 }
