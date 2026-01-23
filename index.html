@@ -274,8 +274,8 @@
          ================================================================= -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <!-- Productos separados en archivos externos para fácil edición -->
-    <script src="productos.js"></script>
-    <script src="productos_wax.js"></script>
+    <script src="vapes.js"></script>
+    <script src="wax.js"></script>
     <script>
         // Combinar las listas de productos (vapes + wax)
         // Agregar productos wax a la lista principal
@@ -354,8 +354,8 @@
             }
         ];
 
-        // listaProductos se carga desde productos.js (archivo externo)
-        // Para editar productos, modifica el archivo: productos.js
+        // listaProductos se carga desde vapes.js (archivo externo)
+        // Para editar productos, modifica el archivo: vapes.js
 
         let productoActual = null;
         let carrito = JSON.parse(localStorage.getItem('vp_carrito')) || [];
