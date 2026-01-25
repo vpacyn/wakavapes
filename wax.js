@@ -4,16 +4,16 @@ const listaProductosWax = [
     // ==================================================================================
     
     // ========== PRODUCTOS WAX ACTIVOS ==========
-    { id: 101, categoria: 'wax', activo: true, orden: 1, agotado: false, nombre: "Ace Ultra 2G",  modelo: "2 Gramos", precio: 150, img: "img/wax/ace_ultra_2g.jpeg", sabores: [] },
-    { id: 102, categoria: 'wax', activo: true, orden: 2, agotado: false, nombre: "Ace Ultra X Packman 2G",  modelo: "2 Gramos", precio: 180, img: "img/wax/ace_ultra_x_packman_2g.jpeg", sabores: [] },
-    { id: 103, categoria: 'wax', activo: true, orden: 3, agotado: false, nombre: "Cookies 2G",  modelo: "2 Gramos", precio: 160, img: "img/wax/cookies_2g.jpeg", sabores: [] },
-    { id: 104, categoria: 'wax', activo: true, orden: 4, agotado: false, nombre: "Luigi 2G",  modelo: "2 Gramos", precio: 170, img: "img/wax/luigi_2g.jpeg", sabores: [] },
-    { id: 105, categoria: 'wax', activo: true, orden: 5, agotado: false, nombre: "Packman 2G",  modelo: "2 Gramos", precio: 200, img: "img/wax/packman_2g.jpeg", sabores: [] },
-    { id: 106, categoria: 'wax', activo: true, orden: 6, agotado: false, nombre: "Packwoods 2G",  modelo: "2 Gramos", precio: 250, img: "img/wax/packwoods_2g.jpeg", sabores: [] },
-    // ========== PRODUCTOS WAX INACTIVOS ==========
-    { id: 107, categoria: 'wax', activo: false, orden: 7, agotado: false, nombre: "Wax Sauce 1G",  modelo: "1 Gramo", precio: 190, img: "img/wax/wax_7.webp", sabores: [] },
-    { id: 108, categoria: 'wax', activo: false, orden: 8, agotado: false, nombre: "Wax Rosin 1G",  modelo: "1 Gramo", precio: 220, img: "img/wax/wax_8.webp", sabores: [] },
-    { id: 109, categoria: 'wax', activo: false, orden: 9, agotado: false, nombre: "Wax Sugar 1G",  modelo: "1 Gramo", precio: 165, img: "img/wax/wax_9.webp", sabores: [] },
+    { id: 101, categoria: 'wax', activo: true, orden: 1, agotado: false, nombre: "Ace Ultra 2G",  modelo: "2 Gramos", precio: 0, img: "img/wax/ace_ultra_2g.jpeg", sabores: [] },
+    { id: 102, categoria: 'wax', activo: true, orden: 2, agotado: false, nombre: "Ace Ultra X Packman 2G",  modelo: "2 Gramos", precio: 0, img: "img/wax/ace_ultra_x_packman_2g.jpeg", sabores: [] },
+    { id: 103, categoria: 'wax', activo: true, orden: 3, agotado: false, nombre: "Cookies 2G",  modelo: "2 Gramos", precio: 0, img: "img/wax/cookies_2g.jpeg", sabores: [] },
+    { id: 104, categoria: 'wax', activo: true, orden: 4, agotado: false, nombre: "Luigi 2G",  modelo: "2 Gramos", precio: 0, img: "img/wax/luigi_2g.jpeg", sabores: [] },
+    { id: 105, categoria: 'wax', activo: true, orden: 5, agotado: false, nombre: "Packman 2G",  modelo: "2 Gramos", precio: 0, img: "img/wax/packman_2g.jpeg", sabores: [] },
+    { id: 106, categoria: 'wax', activo: true, orden: 6, agotado: false, nombre: "Rick and morty 2G",  modelo: "2 Gramos", precio: 0, img: "img/wax/packwoods_2g.jpeg", sabores: [] },
+    { id: 107, categoria: 'wax', activo: true, orden: 7, agotado: false, nombre: "Big Chief",  modelo: "2 Gramos", precio: 0, img: "img/wax/wax_7.webp", sabores: [] },
+    { id: 108, categoria: 'wax', activo: true, orden: 8, agotado: false, nombre: "Muhameds 3.5g",  modelo: "3 Gramos", precio: 0, img: "img/wax/wax_8.webp", sabores: [] },
+    { id: 109, categoria: 'wax', activo: true, orden: 9, agotado: false, nombre: "Wax Sugar 1G",  modelo: "1 Gramo", precio: 0, img: "img/wax/wax_9.webp", sabores: [] },
+   // ========== PRODUCTOS WAX INACTIVOS ==========
     { id: 110, categoria: 'wax', activo: false, orden: 10, agotado: false, nombre: "Wax Badder 1G",  modelo: "1 Gramo", precio: 175, img: "img/wax/wax_10.webp", sabores: [] },
     { id: 111, categoria: 'wax', activo: false, orden: 11, agotado: false, nombre: "Wax Pull & Snap 1G",  modelo: "1 Gramo", precio: 155, img: "img/wax/wax_11.webp", sabores: [] },
     { id: 112, categoria: 'wax', activo: false, orden: 12, agotado: false, nombre: "Wax Honeycomb 1G",  modelo: "1 Gramo", precio: 185, img: "img/wax/wax_12.webp", sabores: [] },
