@@ -199,7 +199,7 @@ let listaProductos = [
         { nombre: "Double Apple", disponible: true },
         { nombre: "Black Ice", disponible: true }
     ] },
-    { id: 20, categoria: 'vapes', activo: true, orden: 20, agotado: false, nombre: "Velocity 45K",      modelo: "45000 Puffs", precio: 35, img: "img/vapes/velocity_45k.webp",   sabores: [
+    { id: 20, categoria: 'vapes', activo: true, orden: 20, agotado: false, nombre: "Velocity 25K",      modelo: "25000 Puffs", precio: 35, img: "img/vapes/velocity_25k.webp",   sabores: [
         { nombre: "Strawberry Kiwi", disponible: true },
         { nombre: "Blue Cotton Candy", disponible: true }
     ] },
