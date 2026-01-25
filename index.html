@@ -109,22 +109,39 @@
          3. PANTALLA PRINCIPAL (PORTADAS)
          ========================================= -->
     <section id="seccion-categorias" class="pantalla-activa">
-        <header data-aos="zoom-in" data-aos-duration="1200">
-            <div class="header-overlay">
-                <img src="img/iconos/wakalogo.png" alt="Logo" class="logo-principal" loading="eager" fetchpriority="high">
-                <h2 class="subtitulo-vip">waka vapes</h2>
-                <div class="separador-dorado"></div>
-                <p class="slogan">CALIDAD & PRECIOS BAJOS</p>
+        <div class="landing-container">
+            <!-- Logo y título -->
+            <div class="landing-header" data-aos="fade-down" data-aos-duration="800">
+                <img src="img/iconos/wakalogo.png" alt="Logo Waka Vapes" class="landing-logo">
+                <h1 class="landing-titulo">waka vapes</h1>
+                <div class="landing-separador"></div>
+                <p class="landing-slogan">CALIDAD & PRECIOS BAJOS</p>
             </div>
-        </header>
 
-        <div class="contenedor-categorias" id="contenedor-categorias-dinamico">
-            <div class="tarjeta-vape-principal" onclick="mostrarCatalogoCompleto()">
-                <div class="tarjeta-vape-imagen">
-                    <img src="img/iconos/wakavapes_icono.webp" alt="Catálogo Waka Vapes" loading="lazy">
+            <!-- Tarjetas de categorías estilo AzLeon -->
+            <div class="landing-grid" id="contenedor-categorias-dinamico">
+                <!-- Tarjeta VAPES -->
+                <div class="landing-card" data-aos="fade-up" data-aos-delay="300" onclick="mostrarCatalogoCompleto()">
+                    <div class="landing-card-image">
+                        <img src="img/vapes/portada_vapes.jpg" alt="Vapes Mayoreo" loading="lazy">
+                        <div class="landing-card-overlay"></div>
+                    </div>
+                    <div class="landing-card-content">
+                        <h3>¡VAPES<br>MAYOREO!</h3>
+                        <span class="landing-card-arrow">→</span>
+                    </div>
                 </div>
-                <div class="tarjeta-vape-titulo">
-                    <h2> ¡¡MAYOREO DE VAPES!! <i class="ph ph-arrow-right"></i></h2>
+
+                <!-- Tarjeta WAX -->
+                <div class="landing-card" data-aos="fade-up" data-aos-delay="400" onclick="mostrarCatalogoWax()">
+                    <div class="landing-card-image">
+                        <img src="img/wax/portada_wax.webp" alt="Wax Mayoreo" loading="lazy">
+                        <div class="landing-card-overlay"></div>
+                    </div>
+                    <div class="landing-card-content">
+                        <h3>¡WAX<br>MAYOREO!</h3>
+                        <span class="landing-card-arrow">→</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -949,18 +966,21 @@
             const seccionVapes = CONFIG_SECCIONES.find(s => s.id === 'vapes');
             const imgPortadaVapes = seccionVapes ? seccionVapes.img : 'img/vapes/portada_vapes.jpg';
             
-            // Crear la tarjeta de vapes principal
+            // Crear la tarjeta de vapes con nuevo estilo
             const divVapes = document.createElement('div');
-            divVapes.className = 'tarjeta-vape-principal';
+            divVapes.className = 'landing-card';
             divVapes.setAttribute('data-aos', 'fade-up');
+            divVapes.setAttribute('data-aos-delay', '300');
             divVapes.onclick = () => mostrarCatalogoCompleto();
             
             divVapes.innerHTML = `
-                <div class="tarjeta-vape-imagen">
-                    <img src="${imgPortadaVapes}" alt="Catálogo Waka Vapes" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/iconos/wakavapes_icono.webp'">
+                <div class="landing-card-image">
+                    <img src="${imgPortadaVapes}" alt="Vapes Mayoreo" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/iconos/wakavapes_icono.webp'">
+                    <div class="landing-card-overlay"></div>
                 </div>
-                <div class="tarjeta-vape-titulo">
-                    <h2>¡¡MAYOREO VAPES!! <i class="ph ph-arrow-right"></i></h2>
+                <div class="landing-card-content">
+                    <h3>¡VAPES<br>MAYOREO!</h3>
+                    <span class="landing-card-arrow">→</span>
                 </div>
             `;
             cont.appendChild(divVapes);
@@ -970,19 +990,21 @@
             if (seccionWax && seccionWax.visible && seccionWax.disponible) {
                 const imgPortadaWax = seccionWax.img || 'img/wax/portada_wax.webp';
                 
-                // Crear la tarjeta de wax
+                // Crear la tarjeta de wax con nuevo estilo
                 const divWax = document.createElement('div');
-                divWax.className = 'tarjeta-vape-principal';
+                divWax.className = 'landing-card';
                 divWax.setAttribute('data-aos', 'fade-up');
-                divWax.setAttribute('data-aos-delay', '100');
+                divWax.setAttribute('data-aos-delay', '400');
                 divWax.onclick = () => mostrarCatalogoWax();
                 
                 divWax.innerHTML = `
-                    <div class="tarjeta-vape-imagen">
-                        <img src="${imgPortadaWax}" alt="Catálogo Wax" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/iconos/wakavapes_icono.webp'">
+                    <div class="landing-card-image">
+                        <img src="${imgPortadaWax}" alt="Wax Mayoreo" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/iconos/wakavapes_icono.webp'">
+                        <div class="landing-card-overlay"></div>
                     </div>
-                    <div class="tarjeta-vape-titulo">
-                        <h2>¡¡MAYOREO WAX!! <i class="ph ph-arrow-right"></i></h2>
+                    <div class="landing-card-content">
+                        <h3>¡WAX<br>MAYOREO!</h3>
+                        <span class="landing-card-arrow">→</span>
                     </div>
                 `;
                 cont.appendChild(divWax);
