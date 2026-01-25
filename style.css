@@ -608,38 +608,38 @@ nav:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
-    padding-top: 100px; /* Espacio para el navbar */
+    padding: 15px;
+    padding-top: 70px; /* Menos espacio arriba para subir todo */
     background: transparent;
 }
 
 /* Header del landing */
 .landing-header {
     text-align: center;
-    padding: 40px 20px 30px;
+    padding: 15px 20px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .landing-logo {
-    width: clamp(100px, 20vw, 160px);
+    width: clamp(90px, 18vw, 140px);
     height: auto;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     filter: drop-shadow(0 5px 20px rgba(0,0,0,0.5));
     animation: floatLogo 3s ease-in-out infinite;
 }
 
 @keyframes floatLogo {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
+    50% { transform: translateY(-6px); }
 }
 
 .landing-titulo {
     font-family: 'Nunito', sans-serif;
     color: #ffffff;
-    font-size: clamp(2rem, 6vw, 3.5rem);
-    letter-spacing: 4px;
+    font-size: clamp(1.6rem, 5vw, 2.8rem);
+    letter-spacing: 3px;
     margin: 0;
     font-weight: 700;
     text-shadow: 0 3px 15px rgba(0,0,0,0.5);
@@ -647,18 +647,18 @@ nav:hover {
 }
 
 .landing-separador {
-    width: 80px;
+    width: 60px;
     height: 2px;
     background: linear-gradient(90deg, transparent, #555, transparent);
-    margin: 20px 0;
+    margin: 12px 0;
     border-radius: 2px;
 }
 
 .landing-slogan {
     font-family: 'Montserrat', sans-serif;
     color: #777;
-    letter-spacing: 3px;
-    font-size: 0.85rem;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
     text-transform: uppercase;
     font-weight: 400;
     margin: 0;
@@ -679,16 +679,17 @@ nav:hover {
 .landing-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 15px;
     width: 100%;
-    max-width: 700px;
+    max-width: 500px;
     padding: 0 10px;
+    margin-top: 10px;
 }
 
 /* Tarjeta estilo AzLeon */
 .landing-card {
     position: relative;
-    border-radius: 20px;
+    border-radius: 18px;
     overflow: hidden;
     cursor: pointer;
     background: #1e1e1e;
@@ -696,6 +697,7 @@ nav:hover {
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
     aspect-ratio: 3/4;
+    min-height: 280px;
 }
 
 .landing-card:hover {
@@ -771,32 +773,42 @@ nav:hover {
 
 /* Responsive para móviles pequeños */
 @media (max-width: 480px) {
+    .landing-container {
+        padding-top: 65px;
+    }
+    
+    .landing-header {
+        padding: 10px 15px 15px;
+    }
+    
     .landing-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
+        gap: 12px;
+        max-width: 100%;
     }
     
     .landing-card {
-        border-radius: 16px;
+        border-radius: 14px;
+        min-height: 240px;
     }
     
     .landing-card-content {
-        padding: 15px 10px;
+        padding: 12px 8px;
     }
     
     .landing-card-content h3 {
-        font-size: 0.85rem;
-    }
-    
-    .landing-container {
-        padding-top: 90px;
+        font-size: 0.8rem;
     }
 }
 
 /* Para pantallas muy pequeñas */
 @media (max-width: 360px) {
     .landing-grid {
-        gap: 10px;
+        gap: 8px;
+    }
+    
+    .landing-card {
+        min-height: 200px;
     }
     
     .landing-card-content h3 {
