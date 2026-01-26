@@ -381,7 +381,7 @@ let listaProductos = [
         { nombre: "Mixed Berries", disponible: true },
         { nombre: "Crazy Berry", disponible: true }
     ] },
-    { id: 36, categoria: 'vapes', activo: true, orden: 36, agotado: true, nombre: "Maskking Turboo 10K",  modelo: "10000 Puffs", precio: 50, img: "img/vapes/masking_turboo_10k.webp",   sabores: [
+    { id: 36, categoria: 'vapes', activo: false, orden: 36, agotado: true, nombre: "Maskking Turboo 10K",  modelo: "10000 Puffs", precio: 50, img: "img/vapes/masking_turboo_10k.webp",   sabores: [
         { nombre: "Sabor 1", disponible: true },
         { nombre: "Sabor 2", disponible: true },
         { nombre: "Sabor 3", disponible: true },
