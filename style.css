@@ -677,26 +677,28 @@ nav:hover {
 
 /* Grid de tarjetas */
 .landing-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 35px;
     width: 100%;
-    max-width: 420px;
-    padding: 0 15px;
-    margin-top: 15px;
+    max-width: 500px;
+    padding: 0 25px;
+    margin-top: 25px;
 }
 
 /* Tarjeta estilo AzLeon */
 .landing-card {
     position: relative;
-    border-radius: 18px;
+    border-radius: 16px;
     overflow: hidden;
     cursor: pointer;
     background: #1e1e1e;
     border: 2px solid rgba(100, 100, 100, 0.3);
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-    aspect-ratio: 4/5;
+    width: 175px;
+    height: 260px;
+    flex-shrink: 0;
 }
 
 .landing-card:hover {
@@ -710,15 +712,20 @@ nav:hover {
     top: 0;
     left: 0;
     width: 100%;
-    height: 70%;
+    height: 65%;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1a1a1a;
 }
 
 .landing-card-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.5s ease;
+    padding: 8px;
 }
 
 .landing-card:hover .landing-card-image img {
@@ -781,29 +788,34 @@ nav:hover {
     }
     
     .landing-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        max-width: 100%;
-        padding: 0 12px;
+        gap: 20px;
+        padding: 0 15px;
     }
     
     .landing-card {
+        width: 155px;
+        height: 230px;
         border-radius: 14px;
     }
     
     .landing-card-content {
-        padding: 12px 8px;
+        padding: 10px 8px;
     }
     
     .landing-card-content h3 {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
 }
 
 /* Para pantallas muy pequeñas */
 @media (max-width: 360px) {
     .landing-grid {
-        gap: 12px;
+        gap: 15px;
+    }
+    
+    .landing-card {
+        width: 140px;
+        height: 210px;
     }
     
     .landing-card-content h3 {
@@ -814,16 +826,35 @@ nav:hover {
 /* Tablets y pantallas grandes */
 @media (min-width: 768px) {
     .landing-grid {
-        gap: 30px;
-        max-width: 800px;
+        gap: 50px;
+        max-width: 900px;
     }
     
     .landing-card {
+        width: 320px;
+        height: 420px;
         border-radius: 24px;
     }
     
     .landing-card-content {
         padding: 25px 20px;
+    }
+    
+    .landing-card-content h3 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Pantallas de escritorio grandes */
+@media (min-width: 1024px) {
+    .landing-grid {
+        gap: 60px;
+        max-width: 1000px;
+    }
+    
+    .landing-card {
+        width: 360px;
+        height: 460px;
     }
 }
 
