@@ -184,7 +184,7 @@ let listaProductos = [
         { nombre: "Grape Ice", disponible: true },
         { nombre: "Strawberry Kiwi", disponible: true }
     ] },
-    { id: 18, categoria: 'vapes', activo: true, orden: 18, agotado: true, nombre: "Solaris 25K",       modelo: "25000 Puffs", precio: 75, img: "img/vapes/solaris_25k.webp",    sabores: [
+    { id: 18, categoria: 'vapes', activo: false, orden: 18, agotado: true, nombre: "Solaris 25K",       modelo: "25000 Puffs", precio: 75, img: "img/vapes/solaris_25k.webp",    sabores: [
         { nombre: "Blue Razz", disponible: true },
         { nombre: "Blue Cotton Candy", disponible: true },
         { nombre: "Watermelon Chill", disponible: true },
