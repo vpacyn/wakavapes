@@ -75,7 +75,7 @@ let listaProductos = [
         { nombre: "Danonino Creamy", disponible: true }
     ] },
     // ========== OTROS PRODUCTOS ACTIVOS CON DATOS COMPLETOS ==========
-    { id: 6, categoria: 'vapes', activo: true, orden: 6, agotado: false, nombre: "Caliburn IronFist 18K", modelo: "18000 Puffs", precio: 30, img: "img/vapes/calibur_18k.webp", sabores: [
+    { id: 6, categoria: 'vapes', activo: false, orden: 6, agotado: false, nombre: "Caliburn IronFist 18K", modelo: "18000 Puffs", precio: 30, img: "img/vapes/calibur_18k.webp", sabores: [
         { nombre: "Grape Ice", disponible: true },
         { nombre: "Miami Mint", disponible: true },
         { nombre: "Double Apple", disponible: true },
@@ -236,7 +236,7 @@ let listaProductos = [
         { nombre: "Cherry Ice", disponible: true },
         { nombre: "Mango Peach Pineapple", disponible: true }
     ] },
-    { id: 25, categoria: 'vapes', activo: true, orden: 25, agotado: true, nombre: "Flonq Max 10K",      modelo: "10000 Puffs", precio: 45, img: "img/vapes/flonq_max_10k.webp",   sabores: [
+    { id: 25, categoria: 'vapes', activo: false, orden: 25, agotado: true, nombre: "Flonq Max 10K",      modelo: "10000 Puffs", precio: 45, img: "img/vapes/flonq_max_10k.webp",   sabores: [
         { nombre: "Cherry Peach Lemonade", disponible: true },
         { nombre: "Watermelon Ice", disponible: true },
         { nombre: "Blue Lemonade", disponible: true },
