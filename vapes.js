@@ -86,7 +86,7 @@ let listaProductos = [
         { nombre: "Blueberry Mint", disponible: true },
         { nombre: "Cool Mint", disponible: true }
     ] },
-    { id: 52, categoria: 'vapes', activo: true, orden: 7, agotado: false, nombre: "Waka 25K",  modelo: "25000 Puffs", precio: 190, img: "img/vapes/waka_25k.webp",   sabores: [
+    { id: 52, categoria: 'vapes', activo: true, orden: 7, agotado: false, nombre: "Waka 25K",  modelo: "25000 Puffs", precio: 185, img: "img/vapes/waka_25k.webp",   sabores: [
         { nombre: "Blue Razz Blackberry", disponible: true },
         { nombre: "Triple Mango", disponible: true },
         { nombre: "Strawberry Banana", disponible: true },
