@@ -211,7 +211,7 @@ let listaProductos = [
     { id: 22, categoria: 'vapes', activo: true, orden: 22, agotado: false, nombre: "Starx 20K",          modelo: "20000 Puffs", precio: 55, img: "img/vapes/starx_20k.webp",      sabores: [
         { nombre: "Triple Berry", disponible: true }
     ] },
-    { id: 23, categoria: 'vapes', activo: true, orden: 23, agotado: false, nombre: "Bugatti 9K",        modelo: "9000 Puffs", precio: 45, img: "img/vapes/buggati_9k.webp",    sabores: [
+    { id: 23, categoria: 'vapes', activo: true, orden: 23, agotado: false, nombre: "Bugatti 6K",        modelo: "6000 Puffs", precio: 45, img: "img/vapes/buggati_6k.webp",    sabores: [
         { nombre: "Mint Ice", disponible: true },
         { nombre: "Black Ice", disponible: true },
         { nombre: "Coffee", disponible: true },
