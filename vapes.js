@@ -74,6 +74,69 @@ let listaProductos = [
         { nombre: "Mexico Mango", disponible: true },
         { nombre: "Danonino Creamy", disponible: true }
     ] },
+    { id: 51, categoria: 'vapes', activo: true, orden: 6, agotado: false, nombre: "Waka Icon 50K",  modelo: "50000 Puffs", precio: 245, img: "img/vapes/waka_50k.webp",   sabores: [
+        { nombre: "Kiwi Dragon Berry", disponible: true },
+        { nombre: "Strawberry Guava", disponible: true },
+        { nombre: "Peach Mango Watermelon", disponible: true },
+        { nombre: "Cherry Watermelon", disponible: true },
+        { nombre: "Fresh Mint", disponible: true },
+        { nombre: "Strawberry Kiwi", disponible: true },
+        { nombre: "Grape Strawberry", disponible: true },
+        { nombre: "Watermelon Ice", disponible: true },
+        { nombre: "Blueberry Mint", disponible: true },
+        { nombre: "Cool Mint", disponible: true }
+    ] },
+    { id: 52, categoria: 'vapes', activo: true, orden: 7, agotado: false, nombre: "Waka 25K",  modelo: "25000 Puffs", precio: 190, img: "img/vapes/waka_25k.webp",   sabores: [
+        { nombre: "Blue Razz Blackberry", disponible: true },
+        { nombre: "Triple Mango", disponible: true },
+        { nombre: "Strawberry Banana", disponible: true },
+        { nombre: "Sea Salt Lemon", disponible: true },
+        { nombre: "Cranberry Grape", disponible: true },
+        { nombre: "Triple Berry", disponible: true },
+        { nombre: "Sour Fruit Gummy", disponible: true },
+        { nombre: "Kiwi Passion Guava", disponible: true },
+        { nombre: "Dark Cherry", disponible: true },
+        { nombre: "Strawberry Kiwi", disponible: true },
+        { nombre: "Fresh Mint", disponible: true },
+        { nombre: "Strawberry Raspberry", disponible: true },
+        { nombre: "Sour Apple", disponible: true },
+        { nombre: "Cappuccino", disponible: true },
+        { nombre: "Blueberry Raspberry", disponible: true },
+        { nombre: "Watermelon Chill", disponible: true }
+    ] },
+    { id: 53, categoria: 'vapes', activo: true, orden: 8, agotado: false, nombre: "NEXA x Wonder 40K",  modelo: "40000 Puffs", precio: 195, img: "img/vapes/nexa_40k.webp",   sabores: [
+        { nombre: "Monster Claw", disponible: true },
+        { nombre: "Strawberry Kiwi", disponible: true },
+        { nombre: "Strawberry Rush", disponible: true },
+        { nombre: "Strawberry Watermelon", disponible: true },
+        { nombre: "Watermelon Shock", disponible: true },
+        { nombre: "Blueberry Burst", disponible: true },
+        { nombre: "Blackberry Storm", disponible: true },
+        { nombre: "Grape Frost", disponible: true },
+        { nombre: "Mango Blaze", disponible: true },
+        { nombre: "Mint Chill", disponible: true }
+    ] },
+    { id: 54, categoria: 'vapes', activo: true, orden: 9, agotado: false, nombre: "Fasta 35K",  modelo: "35000 Puffs", precio: 135, img: "img/vapes/fasta_35k.webp",   sabores: [
+        { nombre: "Fcuking Fab Soda", disponible: true },
+        { nombre: "Matcha Frappuchino", disponible: true },
+        { nombre: "Frozen Mexico Mango", disponible: true },
+        { nombre: "Peach Mango Watermelon", disponible: true },
+        { nombre: "Mexico Mango", disponible: true },
+        { nombre: "Grape Soda", disponible: true },
+        { nombre: "Sour Apple", disponible: true },
+        { nombre: "Meta Moon Soda", disponible: true }
+    ] },
+    { id: 55, categoria: 'vapes', activo: true, orden: 10, agotado: false, nombre: "Lost Mary 35K",  modelo: "35000 Puffs", precio: 155, img: "img/vapes/lost_mary_35k.webp",   sabores: [
+        { nombre: "Tigers Blood", disponible: true },
+        { nombre: "White Gami", disponible: true },
+        { nombre: "Pineapple Lime", disponible: true },
+        { nombre: "Strawberry Watermelon", disponible: true },
+        { nombre: "Pink Lemonade", disponible: true },
+        { nombre: "Scary Berry", disponible: true },
+        { nombre: "Blackberry Blueberry", disponible: true },
+        { nombre: "Strawberry Kiwi", disponible: true },
+        { nombre: "Black Mint", disponible: true }
+    ] },
     // ========== OTROS PRODUCTOS ACTIVOS CON DATOS COMPLETOS ==========
     { id: 6, categoria: 'vapes', activo: false, orden: 6, agotado: false, nombre: "Caliburn IronFist 18K", modelo: "18000 Puffs", precio: 30, img: "img/vapes/calibur_18k.webp", sabores: [
         { nombre: "Grape Ice", disponible: true },
