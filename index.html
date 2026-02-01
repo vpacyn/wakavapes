@@ -26,8 +26,6 @@
     <link rel="stylesheet" href="style.css">
     
     <!-- Librerías Externas con optimización -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"></noscript>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&family=Nunito:wght@600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
 </head>
@@ -85,7 +83,7 @@
     <!-- =========================================
          2. NAVBAR
          ========================================= -->
-    <nav data-aos="fade-down" data-aos-duration="800">
+    <nav>
         <div class="nav-content">
             <div class="buscador-container">
                 <div class="input-wrapper">
@@ -111,7 +109,7 @@
     <section id="seccion-categorias" class="pantalla-activa">
         <div class="landing-container">
             <!-- Logo y título -->
-            <div class="landing-header" data-aos="fade-down" data-aos-duration="800">
+            <div class="landing-header">
                 <img src="img/iconos/wakalogo.png" alt="Logo Waka Vapes" class="landing-logo">
                 <h1 class="landing-titulo">waka vapes</h1>
                 <div class="landing-separador"></div>
@@ -121,7 +119,7 @@
             <!-- Tarjetas de categorías estilo AzLeon -->
             <div class="landing-grid" id="contenedor-categorias-dinamico">
                 <!-- Tarjeta VAPES -->
-                <div class="landing-card" data-aos="fade-up" data-aos-delay="300" onclick="mostrarCatalogoCompleto()">
+                <div class="landing-card" onclick="mostrarCatalogoCompleto()">
                     <div class="landing-card-image">
                         <img src="img/vapes/portada_vapes.jpg" alt="Vapes Mayoreo" loading="lazy">
                         <div class="landing-card-overlay"></div>
@@ -133,7 +131,7 @@
                 </div>
 
                 <!-- Tarjeta WAX -->
-                <div class="landing-card" data-aos="fade-up" data-aos-delay="400" onclick="mostrarCatalogoWax()">
+                <div class="landing-card" onclick="mostrarCatalogoWax()">
                     <div class="landing-card-image">
                         <img src="img/wax/portada_wax.webp" alt="Wax Mayoreo" loading="lazy">
                         <div class="landing-card-overlay"></div>
@@ -301,13 +299,6 @@
         }
     </script>
     <script>
-        // Inicializar AOS con seguridad
-        try {
-            AOS.init({ once: true, offset: 50, duration: 800 });
-        } catch (e) {
-            console.log("Error iniciando animaciones, modo seguro activado");
-        }
-
         const formatearDinero = (cantidad) => {
             return new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(cantidad);
         };
@@ -969,8 +960,7 @@
             // Crear la tarjeta de vapes con nuevo estilo
             const divVapes = document.createElement('div');
             divVapes.className = 'landing-card';
-            divVapes.setAttribute('data-aos', 'fade-up');
-            divVapes.setAttribute('data-aos-delay', '300');
+            divVapes.style.animationDelay = '0.1s';
             divVapes.onclick = () => mostrarCatalogoCompleto();
             
             divVapes.innerHTML = `
@@ -993,8 +983,7 @@
                 // Crear la tarjeta de wax con nuevo estilo
                 const divWax = document.createElement('div');
                 divWax.className = 'landing-card';
-                divWax.setAttribute('data-aos', 'fade-up');
-                divWax.setAttribute('data-aos-delay', '400');
+                divWax.style.animationDelay = '0.2s';
                 divWax.onclick = () => mostrarCatalogoWax();
                 
                 divWax.innerHTML = `
@@ -1009,9 +998,6 @@
                 `;
                 cont.appendChild(divWax);
             }
-            
-            // FIX CRÍTICO: Refrescar AOS después de crear los elementos para que se vean
-            setTimeout(() => AOS.refresh(), 200);
         }
 
         function cargarCatalogo(filtro) {
@@ -1058,9 +1044,11 @@
                 const estaAgotado = prod.agotado === true;
                 const esWax = prod.categoria === 'wax';
                 tarjeta.className = 'tarjeta-producto' + (estaAgotado ? ' producto-agotado' : '');
-                tarjeta.setAttribute('data-aos', 'fade-up');
-                tarjeta.setAttribute('data-aos-delay', Math.min(idx, maxDelay) * 50); // Limitar delay máximo
                 tarjeta.setAttribute('data-product-id', prod.id);
+                // Agregar un delay mínimo escalonado (max 8 productos con delay)
+                if (idx < 8) {
+                    tarjeta.style.animationDelay = `${idx * 0.05}s`;
+                }
                 
                 // Wax no abre modal, solo permite agregar al carrito
                 if (!esWax) {

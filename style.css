@@ -699,6 +699,8 @@ nav:hover {
     width: 175px;
     height: 280px;
     flex-shrink: 0;
+    animation: fadeInUp 0.3s ease-out forwards;
+    opacity: 0;
 }
 
 .landing-card:hover {
@@ -1016,14 +1018,14 @@ header {
     
     box-shadow: 0 8px 32px rgba(0,0,0,0.4);
     transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border 0.4s ease;
-    animation: fadeInUp 0.6s ease-out forwards;
+    animation: fadeInUp 0.4s ease-out forwards;
     opacity: 0;
 }
 
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(15px);
     }
     to {
         opacity: 1;
@@ -1197,6 +1199,8 @@ header {
     box-shadow: 0 8px 24px rgba(0,0,0,0.4);
     contain: layout style;
     will-change: transform;
+    animation: fadeInUp 0.3s ease-out forwards;
+    opacity: 0;
 }
 
 .tarjeta-producto:hover {
