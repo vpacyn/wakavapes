@@ -22,11 +22,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://unpkg.com">
     
+    <!-- Preload recursos críticos para LCP -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="img/iconos/wakalogo.webp" as="image" type="image/webp">
+    
+    <!-- CSS crítico inline para primer render (evita FOUC) -->
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#1f1f1f;color:#f0f0f0;padding-top:90px;overflow-x:hidden;min-height:100vh}
+        .landing-container{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
+        .landing-logo{width:clamp(80px,18vw,140px);height:auto}
+    </style>
+    
     <!-- Vinculación de Estilos -->
     <link rel="stylesheet" href="style.css">
     
-    <!-- Librerías Externas con optimización -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&family=Nunito:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Fuentes de Google con carga no bloqueante -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet"></noscript>
     <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
 </head>
 <body>
@@ -110,7 +123,7 @@
         <div class="landing-container">
             <!-- Logo y título -->
             <div class="landing-header">
-                <img src="img/iconos/wakalogo.webp" alt="Logo Waka Vapes" class="landing-logo">
+                <img src="img/iconos/wakalogo.webp" alt="Logo Waka Vapes" class="landing-logo" fetchpriority="high" decoding="async">
                 <h1 class="landing-titulo">waka vapes</h1>
                 <div class="landing-separador"></div>
                 <p class="landing-slogan">CALIDAD & PRECIOS BAJOS</p>
@@ -121,7 +134,7 @@
                 <!-- Tarjeta VAPES -->
                 <div class="landing-card" onclick="mostrarCatalogoCompleto()">
                     <div class="landing-card-image">
-                        <img src="img/vapes/portada_vapes.jpg" alt="Vapes Mayoreo" loading="lazy">
+                        <img src="img/vapes/portada_vapes.jpg" alt="Vapes Mayoreo" loading="lazy" decoding="async">
                         <div class="landing-card-overlay"></div>
                     </div>
                     <div class="landing-card-content">
@@ -133,7 +146,7 @@
                 <!-- Tarjeta WAX -->
                 <div class="landing-card" onclick="mostrarCatalogoWax()">
                     <div class="landing-card-image">
-                        <img src="img/wax/portada_wax.webp" alt="Wax Mayoreo" loading="lazy">
+                        <img src="img/wax/portada_wax.webp" alt="Wax Mayoreo" loading="lazy" decoding="async">
                         <div class="landing-card-overlay"></div>
                     </div>
                     <div class="landing-card-content">
@@ -287,7 +300,6 @@
     <!-- =================================================================
          LÓGICA JAVASCRIPT
          ================================================================= -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <!-- Productos separados en archivos externos para fácil edición -->
     <script src="vapes.js"></script>
     <script src="wax.js"></script>
