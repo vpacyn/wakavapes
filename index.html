@@ -1823,9 +1823,18 @@
             let productosHTML = [];
 
             carrito.forEach((it) => {
+                // Verificar si es producto wax
+                const productoOriginal = listaProductos.find(p => p.id === it.id);
+                const esWax = productoOriginal && productoOriginal.categoria === 'wax';
+                
                 const subtotal = (parseInt(it.cantidad,10) || 0) * it.precio;
-                total += subtotal;
-                productosHTML.push(`<li><strong>${it.nombre}</strong> (${it.variante}) x${it.cantidad}: ${formatearDinero(subtotal)}</li>`);
+                // Wax no suma al total
+                if (!esWax) {
+                    total += subtotal;
+                }
+                // Mostrar COTIZAR PRECIO para wax, precio normal para otros
+                const precioTexto = esWax ? '<strong style="color:#f57c00;">COTIZAR PRECIO</strong>' : formatearDinero(subtotal);
+                productosHTML.push(`<li><strong>${it.nombre}</strong> (${it.variante}) x${it.cantidad}: ${precioTexto}</li>`);
             });
 
             const html = `
