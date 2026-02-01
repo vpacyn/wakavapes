@@ -604,19 +604,20 @@ nav:hover {
 
 /* Contenedor principal del landing */
 .landing-container {
-    min-height: 100vh;
+    min-height: calc(100vh - 90px);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 15px;
-    padding-top: 70px; /* Menos espacio arriba para subir todo */
+    padding-top: 20px; /* Menos espacio arriba para subir todo */
     background: transparent;
+    justify-content: flex-start; /* Alinear arriba en lugar de centro */
 }
 
 /* Header del landing */
 .landing-header {
     text-align: center;
-    padding: 15px 20px 20px;
+    padding: 10px 20px 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -786,11 +787,11 @@ nav:hover {
 /* Responsive para móviles pequeños */
 @media (max-width: 480px) {
     .landing-container {
-        padding-top: 65px;
+        padding-top: 15px;
     }
     
     .landing-header {
-        padding: 10px 15px 15px;
+        padding: 8px 15px 12px;
     }
     
     .landing-grid {
