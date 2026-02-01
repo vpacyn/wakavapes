@@ -106,6 +106,21 @@ body {
     body {
         background-attachment: scroll;
     }
+    
+    /* Subir contenido del landing en móviles */
+    .landing-container {
+        min-height: auto;
+        padding-top: 10px;
+        justify-content: flex-start;
+    }
+    
+    .landing-header {
+        padding: 8px 20px 12px;
+    }
+    
+    .landing-grid {
+        margin-top: 18px;
+    }
 }
 
 /* Fondo unificado para secciones principales (evita cambios de tono al hacer scroll) */
@@ -651,7 +666,7 @@ nav:hover {
     width: 60px;
     height: 2px;
     background: linear-gradient(90deg, transparent, #555, transparent);
-    margin: 12px 0;
+    margin: 8px 0;
     border-radius: 2px;
 }
 
@@ -787,16 +802,19 @@ nav:hover {
 /* Responsive para móviles pequeños */
 @media (max-width: 480px) {
     .landing-container {
-        padding-top: 15px;
+        padding-top: 5px;
+        min-height: auto;
+        justify-content: flex-start;
     }
     
     .landing-header {
-        padding: 8px 15px 12px;
+        padding: 5px 15px 8px;
     }
     
     .landing-grid {
         gap: 20px;
         padding: 0 15px;
+        margin-top: 15px;
     }
     
     .landing-card {
