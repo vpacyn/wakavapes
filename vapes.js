@@ -478,20 +478,15 @@ let listaProductos = [
     ] },
     { id: 38, categoria: 'vapes', activo: true, orden: 38, agotado: false, nombre: "Waka Go 10K",  modelo: "10000 Puffs", precio: 135, img: "img/vapes/waka_go_10k.webp",   sabores: [
         { nombre: "Cool Mint", disponible: true },
-        { nombre: "Blackberry", disponible: true },
-        { nombre: "Strawberry Kiwi", disponible: true },
-        { nombre: "Cherry Watermelon", disponible: true },
-        { nombre: "Watermelon Ice", disponible: true },
-        { nombre: "Strawberry Coco", disponible: true },
-        { nombre: "Blueberry Mint", disponible: true },
-        { nombre: "Lychee Burst", disponible: true },
-        { nombre: "Fresh Mint", disponible: true },
-        { nombre: "Mr Peach", disponible: true },
-        { nombre: "Peach Blue Raspberry", disponible: true },
-        { nombre: "Mango Lychee", disponible: true },
-        { nombre: "Double Mint", disponible: true },
         { nombre: "Grape Mint", disponible: true },
-        { nombre: "Piña Colada", disponible: true }
+        { nombre: "Peach Ice", disponible: true },
+        { nombre: "Blueberry Mint", disponible: true },
+        { nombre: "Cherry Ice", disponible: true },
+        { nombre: "Fresh Mint", disponible: true },
+        { nombre: "Mango Ice", disponible: true },
+        { nombre: "Mixed Berry Ice", disponible: true },
+        { nombre: "Strawberry Mint", disponible: true },
+        { nombre: "Watermelon Mint", disponible: true }
     ] },
     // ========== NUEVOS PRODUCTOS ==========
     { id: 39, categoria: 'vapes', activo: true, orden: 39, agotado: false, nombre: "Fly Jumbo 5K",  modelo: "5000 Puffs", precio: 40, img: "img/vapes/Fly_jumbo_5k.webp",   sabores: [
