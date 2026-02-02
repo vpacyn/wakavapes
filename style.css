@@ -2086,6 +2086,177 @@ header {
 .rec-nombre { font-size: 0.85rem; color: #ccc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 5px; }
 .rec-precio { font-size: 1rem; color: #d4d4d4; font-weight: bold; }
 
+/* ==========================================================================
+   SECCIÓN PROMOCIONAL ESTILO AZLEON
+   ========================================================================== */
+.promo-section {
+    background: #1f1f1f;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.promo-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    background: linear-gradient(145deg, #2a2a2a 0%, #232323 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(100, 100, 100, 0.35);
+    padding: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.promo-block-reverse {
+    flex-direction: row-reverse;
+}
+
+.promo-image {
+    flex: 0 0 45%;
+    max-width: 400px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.promo-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+}
+
+.promo-content {
+    flex: 1;
+    padding: 30px 35px;
+}
+
+.promo-content h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin: 0 0 12px 0;
+    font-weight: 700;
+}
+
+.promo-content h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1rem;
+    color: #888;
+    margin: 0 0 18px 0;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.promo-content p {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+    color: #aaa;
+    line-height: 1.6;
+    margin: 0 0 12px 0;
+}
+
+.promo-highlight {
+    color: #ccc !important;
+    font-style: italic;
+    margin-top: 18px !important;
+}
+
+.promo-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 45px;
+    background: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    border-radius: 8px;
+}
+
+.promo-btn:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+/* Responsive para tablets */
+@media (max-width: 900px) {
+    .promo-section {
+        max-width: 100%;
+        padding: 50px 15px;
+    }
+    
+    .promo-block {
+        gap: 25px;
+    }
+    
+    .promo-image {
+        flex: 0 0 40%;
+        max-width: 320px;
+    }
+    
+    .promo-content h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .promo-section {
+        gap: 40px;
+        padding: 40px 15px;
+    }
+    
+    .promo-block,
+    .promo-block-reverse {
+        flex-direction: column;
+        border-radius: 16px;
+    }
+    
+    .promo-image {
+        flex: none;
+        max-width: 100%;
+        width: 100%;
+        border-radius: 16px 16px 0 0;
+    }
+    
+    .promo-image img {
+        min-height: 220px;
+        max-height: 260px;
+        border-radius: 16px 16px 0 0;
+    }
+    
+    .promo-content {
+        padding: 25px 20px 30px;
+        text-align: center;
+    }
+    
+    .promo-content h2 {
+        font-size: 1.6rem;
+    }
+    
+    .promo-content p {
+        font-size: 0.9rem;
+    }
+    
+    .promo-btn {
+        padding: 12px 35px;
+        font-size: 0.9rem;
+    }
+}
+
 /* ESPACIO FINAL Y FOOTER GENERAL */
 .espacio-final { height: 100px; }
 footer { 
