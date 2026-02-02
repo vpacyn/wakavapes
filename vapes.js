@@ -17,20 +17,15 @@ let listaProductos = [
     ] },
     { id: 2, categoria: 'vapes', activo: true, orden: 2, agotado: false, nombre: "Waka Slim 12K",  modelo: "12000 Puffs", precio: 145, img: "img/vapes/waka_slim_12k.webp",   sabores: [
         { nombre: "Cool Mint", disponible: true },
-        { nombre: "Blackberry", disponible: true },
-        { nombre: "Strawberry Kiwi", disponible: true },
-        { nombre: "Cherry Watermelon", disponible: true },
-        { nombre: "Watermelon Ice", disponible: true },
-        { nombre: "Strawberry Coco", disponible: true },
-        { nombre: "Blueberry Mint", disponible: true },
-        { nombre: "Lychee Burst", disponible: true },
-        { nombre: "Fresh Mint", disponible: true },
-        { nombre: "Mr Peach", disponible: true },
-        { nombre: "Peach Blue Raspberry", disponible: true },
-        { nombre: "Mango Lychee", disponible: true },
-        { nombre: "Double Mint", disponible: true },
         { nombre: "Grape Mint", disponible: true },
-        { nombre: "Piña Colada", disponible: true }
+        { nombre: "Peach Ice", disponible: true },
+        { nombre: "Blueberry Mint", disponible: true },
+        { nombre: "Cherry Ice", disponible: true },
+        { nombre: "Fresh Mint", disponible: true },
+        { nombre: "Mango Ice", disponible: true },
+        { nombre: "Mixed Berry Ice", disponible: true },
+        { nombre: "Strawberry Mint", disponible: true },
+        { nombre: "Watermelon Mint", disponible: true }
     ] },
     { id: 3, categoria: 'vapes', activo: true, orden: 3, agotado: false, nombre: "Waka Titan 30K",  modelo: "30000 Puffs", precio: 200, img: "img/vapes/waka_titan_30k.webp",   sabores: [
         { nombre: "Fresh Mint", disponible: true },
