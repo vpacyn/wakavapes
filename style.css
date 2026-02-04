@@ -3493,3 +3493,4 @@ footer {
     .btn-whatsapp { bottom: calc(18px + env(safe-area-inset-bottom)); }
     .floating-cart-panel { bottom: calc(90px + env(safe-area-inset-bottom)); }
 }
+
