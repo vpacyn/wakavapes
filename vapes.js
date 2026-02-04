@@ -1,6 +1,6 @@
 let listaProductos = [
     // ========== PRODUCTOS WAKA ACTIVOS (PRIMEROS) ==========
-    { id: 1, categoria: 'vapes', activo: true, orden: 1, agotado: true, nombre: "Waka DM 15K",  modelo: "15000 Puffs", precio: 160, img: "img/vapes/waka_15k.webp",   sabores: [
+    { id: 1, categoria: 'vapes', activo: true, orden: 1, agotado: false, nombre: "Waka DM 15K",  modelo: "15000 Puffs", precio: 160, img: "img/vapes/waka_15k.webp",   sabores: [
         { nombre: "Fresh Mint", disponible: true },
         { nombre: "Peach Blue Raspberry", disponible: true },
         { nombre: "Cherry Berry", disponible: true },
