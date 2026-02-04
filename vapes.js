@@ -1,6 +1,6 @@
 let listaProductos = [
     // ========== PRODUCTOS WAKA ACTIVOS (PRIMEROS) ==========
-    { id: 1, categoria: 'vapes', activo: true, orden: 1, agotado: false, nombre: "Waka DM 15K",  modelo: "15000 Puffs", precio: 160, img: "img/vapes/waka_15k.webp",   sabores: [
+    { id: 1, categoria: 'vapes', activo: true, orden: 1, agotado: true, nombre: "Waka DM 15K",  modelo: "15000 Puffs", precio: 160, img: "img/vapes/waka_15k.webp",   sabores: [
         { nombre: "Fresh Mint", disponible: true },
         { nombre: "Peach Blue Raspberry", disponible: true },
         { nombre: "Cherry Berry", disponible: true },
@@ -15,7 +15,7 @@ let listaProductos = [
         { nombre: "Watermelon Kiwi", disponible: true },
         { nombre: "Mojito Mint", disponible: true }
     ] },
-    { id: 2, categoria: 'vapes', activo: true, orden: 2, agotado: false, nombre: "Waka Slim 12K",  modelo: "12000 Puffs", precio: 145, img: "img/vapes/waka_slim_12k.webp",   sabores: [
+    { id: 2, categoria: 'vapes', activo: true, orden: 2, agotado: true, nombre: "Waka Slim 12K",  modelo: "12000 Puffs", precio: 145, img: "img/vapes/waka_slim_12k.webp",   sabores: [
         { nombre: "Cool Mint", disponible: true },
         { nombre: "Grape Mint", disponible: true },
         { nombre: "Peach Ice", disponible: true },
