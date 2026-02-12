@@ -186,21 +186,10 @@ let listaProductos = [
         { nombre: "Clear", disponible: true }
     ] },
     { id: 12, categoria: 'vapes', activo: true, orden: 12, agotado: false, nombre: "Halo SYNIX 30K",     modelo: "30000 Puffs", precio: 105, img: "img/vapes/halo_30k.webp",       sabores: [
-        { nombre: "Black Cherry Ice", disponible: true },
-        { nombre: "Blueberry Mint Ice", disponible: true },
-        { nombre: "Cherry Cola", disponible: true },
-        { nombre: "Clear Ice", disponible: true },
-        { nombre: "Grape Ice", disponible: true },
-        { nombre: "Juicy Peach Ice", disponible: true },
-        { nombre: "Peach Mango Watermelon Ice", disponible: true },
-        { nombre: "Pineapple Coconut Ice", disponible: true },
-        { nombre: "Spearmint", disponible: true },
-        { nombre: "Strawberry Banana Ice", disponible: true },
-        { nombre: "Strawberry Mango Ice", disponible: true },
-        { nombre: "Triple Apple Ice", disponible: true },
-        { nombre: "Triple Berries Ice", disponible: true },
+        { nombre: "Strawberry Kiwi", disponible: true },
         { nombre: "Watermelon Ice", disponible: true },
-        { nombre: "White Gummy Ice", disponible: true }
+        { nombre: "Mexican Mango", disponible: true },
+        { nombre: "Miami Mint", disponible: true }
     ] },
     { id: 13, categoria: 'vapes', activo: true, orden: 13, agotado: false, nombre: "Fuman Spirit 8K",    modelo: "8000 Puffs", precio: 25, img: "img/vapes/fuman_spirit_8k.webp", sabores: [
         { nombre: "Wild Berries", disponible: true },
