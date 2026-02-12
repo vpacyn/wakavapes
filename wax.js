@@ -9,7 +9,6 @@ const listaProductosWax = [
     { id: 103, categoria: 'wax', activo: true, orden: 3, agotado: false, nombre: "Cookies 2G",  modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/cookies_2g.jpeg", sabores: [] },
     { id: 104, categoria: 'wax', activo: true, orden: 4, agotado: false, nombre: "Luigi 2G",  modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/luigi_2g.jpeg", sabores: [] },
     { id: 105, categoria: 'wax', activo: true, orden: 5, agotado: false, nombre: "Packman 2G",  modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/packman_2g.jpeg", sabores: [] },
-    { id: 106, categoria: 'wax', activo: true, orden: 6, agotado: false, nombre: "Pack woods 2G",  modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/packwoods_2g.jpeg", sabores: [] },
     { id: 107, categoria: 'wax', activo: true, orden: 7, agotado: false, nombre: "Big Chief",  modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/bigchief.webp", sabores: [] },
     { id: 108, categoria: 'wax', activo: true, orden: 8, agotado: false, nombre: "Muhameds 3.5g",  modelo: "3 Gramos", precio: "COTIZAR", img: "img/wax/muhameds.webp", sabores: [] },
     { id: 109, categoria: 'wax', activo: true, orden: 9, agotado: false, nombre: "Rick and Morty 2G",  modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/rick_and_morty.webp", sabores: [] },
@@ -24,5 +23,7 @@ const listaProductosWax = [
     { id: 117, categoria: 'wax', activo: false, orden: 17, agotado: false, nombre: "Wax Nuevo 17",  modelo: "1 Gramo", precio: 200, img: "img/wax/wax_17.webp", sabores: [] },
     { id: 118, categoria: 'wax', activo: false, orden: 18, agotado: false, nombre: "Wax Nuevo 18",  modelo: "1 Gramo", precio: 200, img: "img/wax/wax_18.webp", sabores: [] },
     { id: 119, categoria: 'wax', activo: false, orden: 19, agotado: false, nombre: "Wax Nuevo 19",  modelo: "1 Gramo", precio: 200, img: "img/wax/wax_19.webp", sabores: [] },
-    { id: 120, categoria: 'wax', activo: false, orden: 20, agotado: false, nombre: "Wax Nuevo 20",  modelo: "1 Gramo", precio: 200, img: "img/wax/wax_20.webp", sabores: [] }
+    { id: 120, categoria: 'wax', activo: false, orden: 20, agotado: false, nombre: "Wax Nuevo 20",  modelo: "1 Gramo", precio: 200, img: "img/wax/wax_20.webp", sabores: [] },
+    { id: 106, categoria: 'wax', activo: false, orden: 6, agotado: false, nombre: "Pack woods 2G",  modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/packwoods_2g.jpeg", sabores: [] },
+
 ];
