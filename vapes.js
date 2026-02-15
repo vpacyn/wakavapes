@@ -170,7 +170,7 @@ let listaProductos = [
         { nombre: "Dragon Stranana", disponible: true },
         { nombre: "Red Bom", disponible: true }
     ] },
-    { id: 10, categoria: 'vapes', activo: true, orden: 10, agotado: false, nombre: "Flamingo 30K",       modelo: "30000 Puffs", precio: 70, img: "img/vapes/flamingo_30k.webp",   sabores: [
+    { id: 10, categoria: 'vapes', activo: false, orden: 10, agotado: false, nombre: "Flamingo 30K",       modelo: "30000 Puffs", precio: 70, img: "img/vapes/flamingo_30k.webp",   sabores: [
         { nombre: "Banana Coconut", disponible: true },
         { nombre: "Blue Raspberry Magic Cotton", disponible: true }
     ] },
