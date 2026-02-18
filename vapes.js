@@ -15,7 +15,7 @@ let listaProductos = [
         { nombre: "Watermelon Kiwi", disponible: true },
         { nombre: "Mojito Mint", disponible: true }
     ] },
-    { id: 2, categoria: 'vapes', activo: true, orden: 2, agotado: true, nombre: "Waka Slim 12K",  modelo: "12000 Puffs", precio: 145, img: "img/vapes/waka_slim_12k.webp",   sabores: [
+    { id: 2, categoria: 'vapes', activo: true, orden: 2, agotado: false, nombre: "Waka Slim 12K",  modelo: "12000 Puffs", precio: 145, img: "img/vapes/waka_slim_12k.webp",   sabores: [
         { nombre: "Cool Mint", disponible: true },
         { nombre: "Grape Mint", disponible: true },
         { nombre: "Peach Ice", disponible: true },
@@ -40,7 +40,7 @@ let listaProductos = [
         { nombre: "Banana Berry Ice", disponible: true },
         { nombre: "Guava Raspberry Ice", disponible: true }
     ] },
-    { id: 4, categoria: 'vapes', activo: true, orden: 4, agotado: true, nombre: "Waka Blade 33K",  modelo: "33000 Puffs", precio: 210, img: "img/vapes/waka_blade_33k.webp", sabores: [
+    { id: 4, categoria: 'vapes', activo: true, orden: 4, agotado: false, nombre: "Waka Blade 33K",  modelo: "33000 Puffs", precio: 210, img: "img/vapes/waka_blade_33k.webp", sabores: [
         { nombre: "Blue Razz Ice", disponible: true },
         { nombre: "Watermelon Ice", disponible: true },
         { nombre: "Strawberry Banana", disponible: true },
