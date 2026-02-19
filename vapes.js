@@ -356,7 +356,7 @@ let listaProductos = [
         { nombre: "Soul Mint", disponible: true }
     ] },
     // ========== PRODUCTOS WAKA DESACTIVADOS (SIN IMAGEN REAL) ==========
-    { id: 31, categoria: 'vapes', activo: false, orden: 31, agotado: false, nombre: "Waka soPro PA10000",  modelo: "10000 Puffs", precio: 180, img: "img/vapes/wakasopro.webp",   sabores: [
+    { id: 31, categoria: 'vapes', activo: false, orden: 31, agotado: false, nombre: "ijoy 10k",  modelo: "10000 Puffs", precio: 35, img: "img/vapes/ijoy_10k.webp",   sabores: [
         { nombre: "Orange Lime", disponible: true },
         { nombre: "Grape Apple", disponible: true },
         { nombre: "Berry Watermelon", disponible: true },
