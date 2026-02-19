@@ -159,7 +159,7 @@ let listaProductos = [
         { nombre: "Clear", disponible: true },
         { nombre: "Hawaii Punch", disponible: true }
     ] },
-    { id: 8, categoria: 'vapes', activo: true, orden: 8, agotado: false, nombre: "Elux Cyberover",     modelo: "18000 Puffs", precio: 65, img: "img/vapes/elux_18k.webp",       sabores: [
+    { id: 8, categoria: 'vapes', activo: true, orden: 8, agotado: false, nombre: "Elux Cyberover",     modelo: "18000 Puffs", precio: 75, img: "img/vapes/elux_18k.webp",       sabores: [
         { nombre: "Confusion", disponible: true }
     ] },
     { id: 9, categoria: 'vapes', activo: true, orden: 9, agotado: false, nombre: "Fire Rose 25K",      modelo: "25000 Puffs", precio: 45, img: "img/vapes/fire_rose_25k.webp",   sabores: [
@@ -170,9 +170,13 @@ let listaProductos = [
         { nombre: "Dragon Stranana", disponible: true },
         { nombre: "Red Bom", disponible: true }
     ] },
-    { id: 10, categoria: 'vapes', activo: false, orden: 10, agotado: false, nombre: "Flamingo 30K",       modelo: "30000 Puffs", precio: 70, img: "img/vapes/flamingo_30k.webp",   sabores: [
+    { id: 10, categoria: 'vapes', activo: true, orden: 10, agotado: false, nombre: "Flamingo 30K",       modelo: "30000 Puffs", precio: 70, img: "img/vapes/flamingo_30k.webp",   sabores: [
         { nombre: "Banana Coconut", disponible: true },
-        { nombre: "Blue Raspberry Magic Cotton", disponible: true }
+        { nombre: "Blue Raspberry Magic Cotton", disponible: true },
+        { nombre: "Strawberry banana ", disponible: true },
+        { nombre: "Watermelon", disponible: true },
+         { nombre: "Mamba", disponible: true },
+
     ] },
     { id: 11, categoria: 'vapes', activo: true, orden: 11, agotado: false, nombre: "Frozeen 7K",         modelo: "7000 Puffs", precio: 20, img: "img/vapes/frozeen_7k.webp",    sabores: [
         { nombre: "Lush Ice", disponible: true },
