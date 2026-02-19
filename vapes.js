@@ -355,7 +355,7 @@ let listaProductos = [
         { nombre: "Green Apple", disponible: true },
         { nombre: "Soul Mint", disponible: true }
     ] },
-    // ========== PRODUCTOS WAKA DESACTIVADOS (SIN IMAGEN REAL) ==========
+   
     { id: 31, categoria: 'vapes', activo: false, orden: 31, agotado: false, nombre: "ijoy 10k",  modelo: "10000 Puffs", precio: 35, img: "img/vapes/ijoy_10k.webp",   sabores: [
         { nombre: "Mixto", disponible: true },
         { nombre: "Grape Apple", disponible: false },
@@ -375,21 +375,21 @@ let listaProductos = [
         { nombre: "Peach Apricot", disponible: false },
         { nombre: "Classic Tobacco", disponible: false }
     ] },
-    { id: 32, categoria: 'vapes', activo: false, orden: 32, agotado: false, nombre: "Waka soPro DM8000i", modelo: "8000 Puffs", precio: 180, img: "img/vapes/wakadm8000.webp", sabores: [
-        { nombre: "Strawberry Watermelon Bubblegum", disponible: true },
-        { nombre: "Tropical Mango", disponible: true },
-        { nombre: "Strawberry Peach", disponible: true },
-        { nombre: "Strawberry Mango", disponible: true },
-        { nombre: "Blueberry Watermelon", disponible: true },
-        { nombre: "Passion Fruit", disponible: true },
-        { nombre: "Blackcurrant Berry", disponible: true },
-        { nombre: "Watermelon Chill", disponible: true },
-        { nombre: "Mango Peach Ice", disponible: true },
-        { nombre: "Peach Apricot", disponible: true },
-        { nombre: "Cool Mint", disponible: true },
-        { nombre: "Mango Orange Pineapple", disponible: true },
-        { nombre: "Strawberry Apple", disponible: true },
-        { nombre: "Strawberry Ice", disponible: true }
+    { id: 32, categoria: 'vapes', activo: true, orden: 32, agotado: false, nombre: "Tyson 2.0 7k", modelo: "7000 Puffs", precio: 180, img: "img/vapes/tyson_7k_2.0.webp", sabores: [
+        { nombre: "Cherry Berry", disponible: true },
+        { nombre: "Lush Lime", disponible: true },
+        { nombre: "Pineapple Melon", disponible: true },
+        { nombre: "Apple Peach", disponible: true },
+        { nombre: "Watermelon Gummies", disponible: true },
+        { nombre: "Strawberry Shortcake", disponible: true },
+        { nombre: "Grape Razz", disponible: true },
+        { nombre: "Frozen Grape", disponible: true },
+        { nombre: "Strawberry Watermelon", disponible: true },
+        { nombre: "Watermelon Bubblegum", disponible: true },
+        { nombre: "Frozen Blueberry", disponible: true },
+        { nombre: "Menthol", disponible: true },
+        { nombre: "Coconut", disponible: true },
+        { nombre: "Pineapple mangone", disponible: true }
     ] },
     { id: 33, categoria: 'vapes', activo: false, orden: 33, agotado: false, nombre: "Waka sMatch MB6000", modelo: "6000 Puffs", precio: 150, img: "img/vapes/wakamb6000.webp", sabores: [
         { nombre: "Passion Fruit", disponible: true },
@@ -406,6 +406,7 @@ let listaProductos = [
         { nombre: "Lychee Melon", disponible: true },
         { nombre: "Tropical Mango", disponible: true }
     ] },
+     // ========== PRODUCTOS WAKA DESACTIVADOS (SIN IMAGEN REAL) ==========
     { id: 34, categoria: 'vapes', activo: false, orden: 34, agotado: false, nombre: "Waka Slam 7000",     modelo: "7000 Puffs", precio: 200, img: "img/vapes/wakaslam.webp",   sabores: [
         { nombre: "Lush Ice", disponible: true },
         { nombre: "Blueberry Watermelon", disponible: true },
