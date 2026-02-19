@@ -6,7 +6,7 @@ const listaProductosWax = [
     // ========== PRODUCTOS WAX ACTIVOS ==========
     { id: 101, categoria: 'wax', activo: true, orden: 1, agotado: false, nombre: "Ace Ultra 2G",  modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/ace_ultra_2g.jpeg", sabores: [] },
     { id: 102, categoria: 'wax', activo: true, orden: 2, agotado: false, nombre: "Ace Ultra X Packman 2G",  modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/ace_ultra_x_packman_2g.jpeg", sabores: [] },
-    { id: 103, categoria: 'wax', activo: true, orden: 3, agotado: false, nombre: "Cookies 2G",  modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/cookies_2g.jpeg", sabores: [] },
+    { id: 103, categoria: 'wax', activo: false, orden: 3, agotado: false, nombre: "Cookies 2G",  modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/cookies_2g.jpeg", sabores: [] },
     { id: 104, categoria: 'wax', activo: true, orden: 4, agotado: false, nombre: "Luigi 2G",  modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/luigi_2g.jpeg", sabores: [] },
     { id: 105, categoria: 'wax', activo: true, orden: 5, agotado: false, nombre: "Packman 2G",  modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/packman_2g.jpeg", sabores: [] },
     { id: 107, categoria: 'wax', activo: true, orden: 7, agotado: false, nombre: "Big Chief",  modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/bigchief.webp", sabores: [] },
