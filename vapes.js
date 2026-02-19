@@ -391,20 +391,19 @@ let listaProductos = [
         { nombre: "Coconut", disponible: true },
         { nombre: "Pineapple mangone", disponible: true }
     ] },
-    { id: 33, categoria: 'vapes', activo: false, orden: 33, agotado: false, nombre: "Waka sMatch MB6000", modelo: "6000 Puffs", precio: 150, img: "img/vapes/wakamb6000.webp", sabores: [
-        { nombre: "Passion Fruit", disponible: true },
-        { nombre: "Mango Peach Ice", disponible: true },
-        { nombre: "Iced Orange Citrus", disponible: true },
-        { nombre: "Blackcurrant Apple", disponible: true },
-        { nombre: "Strawberry Burst", disponible: true },
-        { nombre: "Mango Orange Pineapple", disponible: true },
-        { nombre: "Strawberry Apple", disponible: true },
-        { nombre: "Peach Apricot", disponible: true },
-        { nombre: "Watermelon Chill", disponible: true },
-        { nombre: "Strawberry Peach", disponible: true },
-        { nombre: "Blueberry Watermelon", disponible: true },
-        { nombre: "Lychee Melon", disponible: true },
-        { nombre: "Tropical Mango", disponible: true }
+    { id: 33, categoria: 'vapes', activo: false, orden: 33, agotado: false, nombre: "Core 6k", modelo: "6000 Puffs", precio: 150, img: "img/vapes/wakamb6000.webp", sabores: [
+        { nombre: "Strawberry Raspberry Cherry Ice", disponible: true },
+        { nombre: "Strawberry Bubblegum", disponible: true },
+        { nombre: "Pacific Cooler", disponible: true },
+        { nombre: "Mint Berry", disponible: true },
+        { nombre: "Summer Drink", disponible: true },
+        { nombre: "Fabilicious", disponible: true },
+        { nombre: "Peach Strawberry", disponible: true },
+        { nombre: "Mexican Mango", disponible: true },
+        { nombre: "Kiwi Dragon Berry Ice", disponible: true },
+        { nombre: "Blue Razz Pomo", disponible: true },
+        { nombre: "Strawberry Mint", disponible: true },
+        { nombre: "Strawberry Kiwi", disponible: true }
     ] },
      // ========== PRODUCTOS WAKA DESACTIVADOS (SIN IMAGEN REAL) ==========
     { id: 34, categoria: 'vapes', activo: false, orden: 34, agotado: false, nombre: "Waka Slam 7000",     modelo: "7000 Puffs", precio: 200, img: "img/vapes/wakaslam.webp",   sabores: [
