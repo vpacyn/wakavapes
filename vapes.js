@@ -380,7 +380,7 @@ let listaProductos = [
         { nombre: "Peach Apricot", disponible: false },
         { nombre: "Classic Tobacco", disponible: false }
     ] },
-    { id: 32, categoria: 'vapes', activo: true, orden: 32, agotado: false, nombre: "Tyson 2.0 7k", modelo: "7000 Puffs", precio: 180, img: "img/vapes/tyson_7k_2.0.webp", sabores: [
+    { id: 32, categoria: 'vapes', activo: true, orden: 32, agotado: false, nombre: "Tyson 2.0 7k", modelo: "7000 Puffs", precio: 40, img: "img/vapes/tyson_7k_2.0.webp", sabores: [
         { nombre: "Cherry Berry", disponible: true },
         { nombre: "Lush Lime", disponible: true },
         { nombre: "Pineapple Melon", disponible: true },
