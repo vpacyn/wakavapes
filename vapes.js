@@ -48,7 +48,8 @@ let listaProductos = [
         { nombre: "Cool Mint", disponible: true },
         { nombre: "Strawberry Kiwi", disponible: true },
         { nombre: "Peach Mango", disponible: true },
-        { nombre: "Rainbow Candy", disponible: true }
+        { nombre: "Rainbow Candy", disponible: true },
+        { nombre: "Miami Mint", disponible: true },
     ] },
     { id: 5, categoria: 'vapes', activo: true, orden: 5, agotado: false, nombre: "Waka Burst 36K",  modelo: "36000 Puffs", precio: 220, img: "img/vapes/waka_burst_36k.webp",   sabores: [
         { nombre: "Blue Razz Ice", disponible: true },
