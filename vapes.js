@@ -593,7 +593,7 @@ let listaProductos = [
         { nombre: "Sabor 4", disponible: true }
     ] }
 ,
-    { id: 56, categoria: 'vapes', activo: true, orden: 51, agotado: false, nombre: "Geek Bar 50k", modelo: "50000 Puffs", precio: 245, img: "img/vapes/geek_bar_50k_new.webp", sabores: [
+    { id: 56, categoria: 'vapes', activo: true, orden: 51, agotado: false, nombre: "Geek Bar 50k", modelo: "50000 Puffs", precio: 245, img: "img/vapes/geek_bar_50k.webp", sabores: [
         { nombre: "Watermelon BubbleGum", disponible: true },
         { nombre: "Grape Ice", disponible: true },
         { nombre: "Strawberry Ice", disponible: true },
