@@ -396,7 +396,7 @@ let listaProductos = [
         { nombre: "Coconut", disponible: true },
         { nombre: "Pineapple mangone", disponible: true }
     ] },
-    { id: 33, categoria: 'vapes', activo: false, orden: 33, agotado: false, nombre: "Core 6k", modelo: "6000 Puffs", precio: 45, img: "img/vapes/wakamb6000.webp", sabores: [
+    { id: 33, categoria: 'vapes', activo: false, orden: 33, agotado: false, nombre: "Core 6k", modelo: "6000 Puffs", precio: 45, img: "img/vapes/core_6k.webp", sabores: [
         { nombre: "Strawberry Raspberry Cherry Ice", disponible: true },
         { nombre: "Strawberry Bubblegum", disponible: true },
         { nombre: "Pacific Cooler", disponible: true },
