@@ -40,7 +40,7 @@ let listaProductos = [
         { nombre: "Banana Berry Ice", disponible: true },
         { nombre: "Guava Raspberry Ice", disponible: true }
     ] },
-    { id: 4, categoria: 'vapes', activo: true, orden: 4, agotado: false, nombre: "Waka Blade 33K",  modelo: "33000 Puffs", precio: 210, img: "img/vapes/waka_blade_33k.webp", sabores: [
+    { id: 4, categoria: 'vapes', activo: true, orden: 4, agotado: true, nombre: "Waka Blade 33K",  modelo: "33000 Puffs", precio: 210, img: "img/vapes/waka_blade_33k.webp", sabores: [
         { nombre: "Blue Razz Ice", disponible: true },
         { nombre: "Watermelon Ice", disponible: true },
         { nombre: "Strawberry Banana", disponible: true },
@@ -70,7 +70,7 @@ let listaProductos = [
         { nombre: "Mexico Mango", disponible: true },
         { nombre: "Danonino Creamy", disponible: true }
     ] },
-    { id: 51, categoria: 'vapes', activo: true, orden: 6, agotado: false, nombre: "Waka Icon 50K",  modelo: "50000 Puffs", precio: 245, img: "img/vapes/waka_50k.webp",   sabores: [
+    { id: 51, categoria: 'vapes', activo: true, orden: 6, agotado: true, nombre: "Waka Icon 50K",  modelo: "50000 Puffs", precio: 245, img: "img/vapes/waka_50k.webp",   sabores: [
         { nombre: "Kiwi Dragon Berry", disponible: true },
         { nombre: "Strawberry Guava", disponible: true },
         { nombre: "Peach Mango Watermelon", disponible: true },
@@ -311,7 +311,7 @@ let listaProductos = [
         { nombre: "Peach Strawberry", disponible: true },
         { nombre: "Blueberry Blue", disponible: true }
     ] },
-    { id: 27, categoria: 'vapes', activo: true, orden: 27, agotado: false, nombre: "True Story 15K",     modelo: "15000 Puffs", precio: 50, img: "img/vapes/true_history_20k.webp",  sabores: [
+    { id: 27, categoria: 'vapes', activo: true, orden: 27, agotado: true, nombre: "True Story 15K",     modelo: "15000 Puffs", precio: 50, img: "img/vapes/true_history_20k.webp",  sabores: [
         { nombre: "Grape Encounter", disponible: true },
         { nombre: "Leawles Mint", disponible: true },
         { nombre: "Peachy Heart", disponible: true },
