@@ -592,4 +592,20 @@ let listaProductos = [
         { nombre: "Sabor 3", disponible: true },
         { nombre: "Sabor 4", disponible: true }
     ] }
+,
+    { id: 56, categoria: 'vapes', activo: true, orden: 51, agotado: false, nombre: "Geek Bar 50k", modelo: "50000 Puffs", precio: 245, img: "img/vapes/geek_bar_50k_new.webp", sabores: [
+        { nombre: "Watermelon BubbleGum", disponible: true },
+        { nombre: "Grape Ice", disponible: true },
+        { nombre: "Strawberry Ice", disponible: true },
+        { nombre: "Mexico Mango", disponible: true },
+        { nombre: "Cool Mint", disponible: true },
+        { nombre: "Peach & Watermelon", disponible: true },
+        { nombre: "Sour Apple Ice", disponible: true },
+        { nombre: "Peach & Berries", disponible: true },
+        { nombre: "Grape & Raspberry", disponible: true },
+        { nombre: "Double Apple", disponible: true },
+        { nombre: "Blueberry Raspberry", disponible: true },
+        { nombre: "Mixed Berries", disponible: true },
+        { nombre: "Sour Candy", disponible: true }
+    ] }
 ];
