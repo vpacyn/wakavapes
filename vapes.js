@@ -522,7 +522,7 @@ let listaProductos = [
         { nombre: "Juicy Grape", disponible: true },
         { nombre: "Strawberry Lychee", disponible: true }
     ] },
-    { id: 42, categoria: 'vapes', activo: true, orden: 42, agotado: false, nombre: "Fire Boost 12K",  modelo: "12000 Puffs", precio: 45, img: "img/vapes/fire_boost_12k.webp",   sabores: [
+    { id: 42, categoria: 'vapes', activo: true, orden: 42, agotado: false, nombre: "Fire Boost 12K",  modelo: "12000 Puffs", precio: 18, img: "img/vapes/fire_boost_12k.webp",   sabores: [
         { nombre: "Yummy Bear", disponible: true },
         { nombre: "Nana Taffy Ice", disponible: true },
         { nombre: "Prickly Pear Peach", disponible: true },
