@@ -1,6 +1,6 @@
 let listaProductos = [
     // ========== PRODUCTOS WAKA ACTIVOS (PRIMEROS) ==========
-    { id: 1, categoria: 'vapes', activo: true, orden: 1, agotado: false, nombre: "Waka DM 15K",  modelo: "15000 Puffs", precio: 160, img: "img/vapes/waka_15k.webp",   sabores: [
+    { id: 1, categoria: 'vapes', activo: true, orden: 1, agotado: true, nombre: "Waka DM 15K",  modelo: "15000 Puffs", precio: 160, img: "img/vapes/waka_15k.webp",   sabores: [
         { nombre: "Fresh Mint", disponible: true },
         { nombre: "Peach Blue Raspberry", disponible: true },
         { nombre: "Cherry Berry", disponible: true },
@@ -40,7 +40,7 @@ let listaProductos = [
         { nombre: "Banana Berry Ice", disponible: true },
         { nombre: "Guava Raspberry Ice", disponible: true }
     ] },
-    { id: 4, categoria: 'vapes', activo: true, orden: 4, agotado: true, nombre: "Waka Blade 33K",  modelo: "33000 Puffs", precio: 210, img: "img/vapes/waka_blade_33k.webp", sabores: [
+    { id: 4, categoria: 'vapes', activo: true, orden: 4, agotado: false, nombre: "Waka Blade 33K",  modelo: "33000 Puffs", precio: 210, img: "img/vapes/waka_blade_33k.webp", sabores: [
         { nombre: "Blue Razz Ice", disponible: true },
         { nombre: "Watermelon Ice", disponible: true },
         { nombre: "Strawberry Banana", disponible: true },
@@ -70,7 +70,7 @@ let listaProductos = [
         { nombre: "Mexico Mango", disponible: true },
         { nombre: "Danonino Creamy", disponible: true }
     ] },
-    { id: 51, categoria: 'vapes', activo: true, orden: 6, agotado: true, nombre: "Waka Icon 50K",  modelo: "50000 Puffs", precio: 245, img: "img/vapes/waka_50k.webp",   sabores: [
+    { id: 51, categoria: 'vapes', activo: true, orden: 6, agotado: false, nombre: "Waka Icon 50K",  modelo: "50000 Puffs", precio: 245, img: "img/vapes/waka_50k.webp",   sabores: [
         { nombre: "Kiwi Dragon Berry", disponible: true },
         { nombre: "Strawberry Guava", disponible: true },
         { nombre: "Peach Mango Watermelon", disponible: true },
@@ -281,7 +281,7 @@ let listaProductos = [
         { nombre: "Double Apple", disponible: true },
         { nombre: "Mango Peach", disponible: true }
     ] },
-    { id: 24, categoria: 'vapes', activo: true, orden: 24, agotado: false, nombre: "Jooyo 10K",          modelo: "10000 Puffs", precio: 30, img: "img/vapes/jooyo_10k.webp",      sabores: [
+    { id: 24, categoria: 'vapes', activo: true, orden: 24, agotado: true, nombre: "Jooyo 10K",          modelo: "10000 Puffs", precio: 30, img: "img/vapes/jooyo_10k.webp",      sabores: [
         { nombre: "Mojito", disponible: true },
         { nombre: "Watermelon Ice", disponible: true },
         { nombre: "Kiwi Passion Fruit Guava", disponible: true },
@@ -470,7 +470,7 @@ let listaProductos = [
         { nombre: "Black Ice", disponible: true },
         { nombre: "Lush Ice", disponible: true }
     ] },
-    { id: 38, categoria: 'vapes', activo: true, orden: 38, agotado: false, nombre: "Waka Go 10K",  modelo: "10000 Puffs", precio: 135, img: "img/vapes/waka_go_10k.webp",   sabores: [
+    { id: 38, categoria: 'vapes', activo: true, orden: 38, agotado: true, nombre: "Waka Go 10K",  modelo: "10000 Puffs", precio: 135, img: "img/vapes/waka_go_10k.webp",   sabores: [
         { nombre: "Mr Peach", disponible: true },
         { nombre: "Lychee Burst", disponible: true },
         { nombre: "Piña colada", disponible: true },
