@@ -59,7 +59,7 @@ let listaProductos = [
         { nombre: "Passion Fruit", disponible: true },
         
     ] },
-    { id: 5, categoria: 'vapes', activo: true, orden: 5, agotado: false, nombre: "Waka Burst 36K",  modelo: "36000 Puffs", precio: 220, img: "img/vapes/waka_burst_36k.webp",   sabores: [
+    { id: 5, categoria: 'vapes', activo: true, orden: 5, agotado: true, nombre: "Waka Burst 36K",  modelo: "36000 Puffs", precio: 220, img: "img/vapes/waka_burst_36k.webp",   sabores: [
         { nombre: "Blue Razz Ice", disponible: true },
         { nombre: "Watermelon Ice", disponible: true },
         { nombre: "Strawberry Banana", disponible: true },
