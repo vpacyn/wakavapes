@@ -15,7 +15,7 @@ let listaProductos = [
         { nombre: "Watermelon Kiwi", disponible: true },
         { nombre: "Mojito Mint", disponible: true }
     ] },
-    { id: 2, categoria: 'vapes', activo: true, orden: 2, agotado: false, nombre: "Waka Slim 12K",  modelo: "12000 Puffs", precio: 145, img: "img/vapes/waka_slim_12k.webp",   sabores: [
+    { id: 2, categoria: 'vapes', activo: true, orden: 2, agotado: true, nombre: "Waka Slim 12K",  modelo: "12000 Puffs", precio: 145, img: "img/vapes/waka_slim_12k.webp",   sabores: [
         { nombre: "Cool Mint", disponible: true },
         { nombre: "Grape Mint", disponible: true },
         { nombre: "Peach Ice", disponible: true },
@@ -255,7 +255,7 @@ let listaProductos = [
         { nombre: "Watermelon Chill", disponible: true },
         { nombre: "Cherry Bomb", disponible: true }
     ] },
-    { id: 19, categoria: 'vapes', activo: true, orden: 19, agotado: false, nombre: "RifBar 15K",         modelo: "15000 Puffs", precio: 75, img: "img/vapes/rifbar_15k.webp",     sabores: [
+    { id: 19, categoria: 'vapes', activo: true, orden: 19, agotado: true, nombre: "RifBar 15K",         modelo: "15000 Puffs", precio: 75, img: "img/vapes/rifbar_15k.webp",     sabores: [
         { nombre: "Kiwi Passion Fruit Guava", disponible: true },
         { nombre: "Lush Ice", disponible: true },
         { nombre: "Blue Razz", disponible: true },
@@ -348,7 +348,7 @@ let listaProductos = [
         { nombre: "Caloe Juice", disponible: true },
         { nombre: "Fantasia Fume", disponible: true }
     ] },
-    { id: 29, categoria: 'vapes', activo: true, orden: 29, agotado: false, nombre: "RifBar Astro 7.5K",  modelo: "7500 Puffs", precio: 32, img: "img/vapes/rifbar_astro_7.5k.webp",   sabores: [
+    { id: 29, categoria: 'vapes', activo: true, orden: 29, agotado: true, nombre: "RifBar Astro 7.5K",  modelo: "7500 Puffs", precio: 32, img: "img/vapes/rifbar_astro_7.5k.webp",   sabores: [
         { nombre: "Mint Ice", disponible: true },
         { nombre: "Strazz", disponible: true },
         { nombre: "Double Apple", disponible: true },
