@@ -633,5 +633,13 @@ let listaProductos = [
         { nombre: "Cucumber Grapefruit", disponible: true },
         { nombre: "Clear", disponible: true },
         { nombre: "Passion fruit mango", disponible: true }
+    ] },
+    { id: 58, categoria: 'vapes', activo: true, orden: 53, agotado: false, nombre: "Elfbar Pi9000", modelo: "9000 Puffs", precio: 45, img: "img/vapes/elf_pi_9000.jpeg", sabores: [
+        { nombre: "Berry Raspberry", disponible: true },
+        { nombre: "Strawberry Ice", disponible: true },
+        { nombre: "Lemon Mint", disponible: true },
+        { nombre: "Grape Raspberry", disponible: true },
+        { nombre: "Strawberry Ice Cream", disponible: true },
+        { nombre: "Cola Ice", disponible: true }
     ] }
 ];
