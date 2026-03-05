@@ -615,5 +615,23 @@ let listaProductos = [
         { nombre: "Blueberry Raspberry", disponible: true },
         { nombre: "Mixed Berries", disponible: true },
         { nombre: "Sour Candy", disponible: true }
+    ] },
+    { id: 57, categoria: 'vapes', activo: true, orden: 52, agotado: false, nombre: "Maskking Jumbo 40K", modelo: "40000 Puffs", precio: 230, img: "img/vapes/maskking_40k.webp", sabores: [
+        { nombre: "Espreso velvet", disponible: true },
+        { nombre: "Coffe gum blis", disponible: true },
+        { nombre: "Miami Mint", disponible: true },
+        { nombre: "Grape Strom", disponible: true },
+        { nombre: "Apple zing", disponible: true },
+        { nombre: "Gold Tabacco", disponible: true },
+        { nombre: "Black cherry Peach", disponible: true },
+        { nombre: "Strawberry Kiwi", disponible: true },
+        { nombre: "Mixed Berries", disponible: true },
+        { nombre: "Vainilla Ice Cream", disponible: true },
+        { nombre: "Strawberry Watermelon", disponible: true },
+        { nombre: "Zesty Grapefruit", disponible: true },
+        { nombre: "Apple Pear Melody", disponible: true },
+        { nombre: "Cucumber Grapefruit", disponible: true },
+        { nombre: "Clear", disponible: true },
+        { nombre: "Passion fruit mango", disponible: true }
     ] }
 ];
