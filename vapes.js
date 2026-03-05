@@ -301,7 +301,7 @@ let listaProductos = [
         { nombre: "Cherry Ice", disponible: true },
         { nombre: "Mango Peach Pineapple", disponible: true }
     ] },
-    { id: 25, categoria: 'vapes', activo: false, orden: 25, agotado: true, nombre: "Flonq Max 10K",      modelo: "10000 Puffs", precio: 45, img: "img/vapes/flonq_max_10k.webp",   sabores: [
+    { id: 25, categoria: 'vapes', activo: true, orden: 25, agotado: false, nombre: "Flonq Max 10K",      modelo: "10000 Puffs", precio: 45, img: "img/vapes/flonq_max_10k.webp",   sabores: [
         { nombre: "Cherry Peach Lemonade", disponible: true },
         { nombre: "Watermelon Ice", disponible: true },
         { nombre: "Blue Lemonade", disponible: true },
