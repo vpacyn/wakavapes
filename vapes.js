@@ -225,7 +225,7 @@ let listaProductos = [
         { nombre: "Watermelon Ice", disponible: true },
         { nombre: "Sour Lush Gummy", disponible: true }
     ] },
-    { id: 15, categoria: 'vapes', activo: true, orden: 15, agotado: false, nombre: "iPlay Box Pro",      modelo: "15000 Puffs", precio: 165, img: "img/vapes/iplay_boxpro_15k.webp",      sabores: [
+    { id: 15, categoria: 'vapes', activo: true, orden: 15, agotado: true, nombre: "iPlay Box Pro",      modelo: "15000 Puffs", precio: 165, img: "img/vapes/iplay_boxpro_15k.webp",      sabores: [
         { nombre: "Cherry Cranberry", disponible: true },
         { nombre: "Coco Strawberry", disponible: true },
         { nombre: "Cool Mint", disponible: true },
@@ -516,7 +516,7 @@ let listaProductos = [
         { nombre: "Apple Mango Pear", disponible: true },
         { nombre: "Mango Peach Pineapple", disponible: true }
     ] },
-    { id: 41, categoria: 'vapes', activo: true, orden: 41, agotado: false, nombre: "iPlay Burst 45K",  modelo: "45000 Puffs", precio: 185, img: "img/vapes/iplay_burst_45k.webp",   sabores: [
+    { id: 41, categoria: 'vapes', activo: true, orden: 41, agotado: true, nombre: "iPlay Burst 45K",  modelo: "45000 Puffs", precio: 185, img: "img/vapes/iplay_burst_45k.webp",   sabores: [
         { nombre: "Raspberry Watermelon", disponible: true },
         { nombre: "Cool Mint", disponible: true },
         { nombre: "Pineapple Mango", disponible: true },
