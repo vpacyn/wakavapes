@@ -593,7 +593,7 @@ let listaProductos = [
         { nombre: "Sabores Mixtos", disponible: true }
         
     ] },
-    { id: 48, categoria: 'vapes', activo: false, orden: 48, agotado: false, nombre: "Vape Nuevo 48",  modelo: "10000 Puffs", precio: 300, img: "img/vapes/vape_48.webp",   sabores: [
+    { id: 48, categoria: 'vapes', activo: false, orden: 48, agotado: false, nombre: "Waka 45k",  modelo: "10000 Puffs", precio: 300, img: "img/vapes/vape_48.webp",   sabores: [
         { nombre: "Sabor 1", disponible: true },
         { nombre: "Sabor 2", disponible: true },
         { nombre: "Sabor 3", disponible: true },
