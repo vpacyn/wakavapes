@@ -558,24 +558,28 @@ let listaProductos = [
         { nombre: "Watermelon Bubblegum", disponible: true }
     ] },
     // ========== BORRADORES (PLANTILLAS SIN DATOS REALES) ==========
-    { id: 44, categoria: 'vapes', activo: true, orden: 44, agotado: false, nombre: "Ijoy Uranus",  modelo: "40000 Puffs", precio: 145, img: "img/vapes/ijoy_uranus_40k.webp",   sabores: [
+    { id: 44, categoria: 'vapes', activo: true, orden: 44, agotado: false, nombre: "Ijoy Uranus 40k",  modelo: "40000 Puffs", precio: 145, img: "img/vapes/ijoy_uranus_40k.webp",   sabores: [
         { nombre: "Pink Lemonade", disponible: true },
         { nombre: "Juicy Peach ", disponible: true },
         { nombre: "Sour Apple", disponible: true },
         { nombre: "Omg Pop", disponible: true },
-        { nombre: "Mexico Mango", disponible: true }
+        { nombre: "Mexico Mango", disponible: true },
+        { nombre: "Sabores mixtos", disponible: true }
+
     ] },
-    { id: 45, categoria: 'vapes', activo: false, orden: 45, agotado: false, nombre: "Vape Nuevo 45",  modelo: "10000 Puffs", precio: 300, img: "img/vapes/vape_45.webp",   sabores: [
-        { nombre: "Sabor 1", disponible: true },
-        { nombre: "Sabor 2", disponible: true },
-        { nombre: "Sabor 3", disponible: true },
-        { nombre: "Sabor 4", disponible: true }
+    { id: 45, categoria: 'vapes', activo: true, orden: 45, agotado: false, nombre: "Ijoy Bar 8k",  modelo: "8000 Puffs", precio: 32, img: "img/vapes/ijoy_ic_8k.webp",   sabores: [
+        { nombre: "Peach Blueberry", disponible: true },
+        { nombre: "Pomelo Pear Grape", disponible: true },
+        { nombre: "Peach Lemon", disponible: true },
+        { nombre: "Blue Razz Ice", disponible: true },
+        { nombre: "Sabores mixtos", disponible: true }
     ] },
-    { id: 46, categoria: 'vapes', activo: false, orden: 46, agotado: false, nombre: "Vape Nuevo 46",  modelo: "10000 Puffs", precio: 300, img: "img/vapes/vape_46.webp",   sabores: [
-        { nombre: "Sabor 1", disponible: true },
-        { nombre: "Sabor 2", disponible: true },
-        { nombre: "Sabor 3", disponible: true },
-        { nombre: "Sabor 4", disponible: true }
+    { id: 46, categoria: 'vapes', activo: false, orden: 46, agotado: false, nombre: "Snoopy Smoke 15k",  modelo: "15000 Puffs", precio: 80, img: "img/vapes/snoopy_smoke_15k.webp",   sabores: [
+        { nombre: "Kool Mint", disponible: true },
+        { nombre: "Mexico Mango", disponible: true },
+        { nombre: "Blueberry Mint", disponible: true },
+        { nombre: "Eneegy Juice", disponible: true },
+        { nombre: "Watermelon", disponible: true }
     ] },
     { id: 47, categoria: 'vapes', activo: false, orden: 47, agotado: false, nombre: "Vape Nuevo 47",  modelo: "10000 Puffs", precio: 300, img: "img/vapes/vape_47.webp",   sabores: [
         { nombre: "Sabor 1", disponible: true },
