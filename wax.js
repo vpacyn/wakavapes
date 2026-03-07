@@ -11,7 +11,9 @@ const listaProductosWax = [
     { id: 105, categoria: 'wax', activo: true, orden: 5, agotado: true, nombre: "Packman 2G",  modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/packman_2g.jpeg", sabores: [] },
     { id: 107, categoria: 'wax', activo: true, orden: 7, agotado: false, nombre: "Big Chief",  modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/bigchief.webp", sabores: [] },
     { id: 108, categoria: 'wax', activo: true, orden: 8, agotado: false, nombre: "Muhameds 3.5g",  modelo: "3 Gramos", precio: "COTIZAR", img: "img/wax/muhameds.webp", sabores: [] },
+    { id: 109, categoria: 'wax', activo: true, orden: 9, agotado: false, nombre: "Whole Melt",  modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/rick_and_morty.webp", sabores: [] },
     { id: 109, categoria: 'wax', activo: true, orden: 9, agotado: false, nombre: "Rick and Morty 2G",  modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/rick_and_morty.webp", sabores: [] },
+    { id: 109, categoria: 'wax', activo: true, orden: 9, agotado: false, nombre: "R Morty 2G",  modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/rick_and_morty.webp", sabores: [] },
    // ========== PRODUCTOS WAX INACTIVOS ==========
     { id: 110, categoria: 'wax', activo: false, orden: 10, agotado: false, nombre: "Wax Badder 1G",  modelo: "1 Gramo", precio: 175, img: "img/wax/wax_10.webp", sabores: [] },
     { id: 111, categoria: 'wax', activo: false, orden: 11, agotado: false, nombre: "Wax Pull & Snap 1G",  modelo: "1 Gramo", precio: 155, img: "img/wax/wax_11.webp", sabores: [] },

@@ -558,11 +558,12 @@ let listaProductos = [
         { nombre: "Watermelon Bubblegum", disponible: true }
     ] },
     // ========== BORRADORES (PLANTILLAS SIN DATOS REALES) ==========
-    { id: 44, categoria: 'vapes', activo: false, orden: 44, agotado: false, nombre: "Vape Nuevo 44",  modelo: "10000 Puffs", precio: 300, img: "img/vapes/vape_44.webp",   sabores: [
-        { nombre: "Sabor 1", disponible: true },
-        { nombre: "Sabor 2", disponible: true },
-        { nombre: "Sabor 3", disponible: true },
-        { nombre: "Sabor 4", disponible: true }
+    { id: 44, categoria: 'vapes', activo: false, orden: 44, agotado: false, nombre: "Ijoy Uranus",  modelo: "40000 Puffs", precio: 145, img: "img/ijoy_uranus_40k.webp",   sabores: [
+        { nombre: "Pink Lemonade", disponible: true },
+        { nombre: "Juicy Peach ", disponible: true },
+        { nombre: "Sour Apple", disponible: true },
+        { nombre: "Omg Pop", disponible: true },
+        { nombre: "Mexico Mango", disponible: true }
     ] },
     { id: 45, categoria: 'vapes', activo: false, orden: 45, agotado: false, nombre: "Vape Nuevo 45",  modelo: "10000 Puffs", precio: 300, img: "img/vapes/vape_45.webp",   sabores: [
         { nombre: "Sabor 1", disponible: true },
