@@ -581,7 +581,7 @@ let listaProductos = [
         { nombre: "Eneegy Juice", disponible: true },
         { nombre: "Watermelon", disponible: true }
     ] },
-    { id: 47, categoria: 'vapes', activo: false, orden: 47, agotado: false, nombre: "Vape Nuevo 47",  modelo: "10000 Puffs", precio: 300, img: "img/vapes/vape_47.webp",   sabores: [
+    { id: 47, categoria: 'vapes', activo: false, orden: 47, agotado: false, nombre: "Flask 4999",  modelo: "5000 Puffs", precio: 300, img: "img/vapes/flask_5k.webp",   sabores: [
         { nombre: "Sabor 1", disponible: true },
         { nombre: "Sabor 2", disponible: true },
         { nombre: "Sabor 3", disponible: true },
