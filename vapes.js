@@ -581,7 +581,7 @@ let listaProductos = [
         { nombre: "Eneegy Juice", disponible: true },
         { nombre: "Watermelon", disponible: true }
     ] },
-    { id: 47, categoria: 'vapes', activo: false, orden: 47, agotado: false, nombre: "Flask 4999",  modelo: "5000 Puffs", precio: 30, img: "img/vapes/flask_5k.webp",   sabores: [
+    { id: 47, categoria: 'vapes', activo: true, orden: 47, agotado: false, nombre: "Flask 4999",  modelo: "5000 Puffs", precio: 30, img: "img/vapes/flask_5k.webp",   sabores: [
         { nombre: "Rainbow Burst", disponible: true },
         { nombre: "Espresso Coffee", disponible: true },
         { nombre: "Energy Drink", disponible: true },
