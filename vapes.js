@@ -581,11 +581,16 @@ let listaProductos = [
         { nombre: "Eneegy Juice", disponible: true },
         { nombre: "Watermelon", disponible: true }
     ] },
-    { id: 47, categoria: 'vapes', activo: false, orden: 47, agotado: false, nombre: "Flask 4999",  modelo: "5000 Puffs", precio: 300, img: "img/vapes/flask_5k.webp",   sabores: [
-        { nombre: "Sabor 1", disponible: true },
-        { nombre: "Sabor 2", disponible: true },
-        { nombre: "Sabor 3", disponible: true },
-        { nombre: "Sabor 4", disponible: true }
+    { id: 47, categoria: 'vapes', activo: false, orden: 47, agotado: false, nombre: "Flask 4999",  modelo: "5000 Puffs", precio: 30, img: "img/vapes/flask_5k.webp",   sabores: [
+        { nombre: "Rainbow Burst", disponible: true },
+        { nombre: "Espresso Coffee", disponible: true },
+        { nombre: "Energy Drink", disponible: true },
+        { nombre: "Frozen Apple Berry", disponible: true },
+        { nombre: "Blueberry Ice", disponible: true },
+        { nombre: "Vodka", disponible: true },
+        { nombre: "Strawberry Watermelon Ice", disponible: true,},
+        { nombre: "Gummy Ice", disponible: true }
+        
     ] },
     { id: 48, categoria: 'vapes', activo: false, orden: 48, agotado: false, nombre: "Vape Nuevo 48",  modelo: "10000 Puffs", precio: 300, img: "img/vapes/vape_48.webp",   sabores: [
         { nombre: "Sabor 1", disponible: true },
