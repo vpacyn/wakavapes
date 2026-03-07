@@ -589,7 +589,8 @@ let listaProductos = [
         { nombre: "Blueberry Ice", disponible: true },
         { nombre: "Vodka", disponible: true },
         { nombre: "Strawberry Watermelon Ice", disponible: true,},
-        { nombre: "Gummy Ice", disponible: true }
+        { nombre: "Gummy Ice", disponible: true },
+        { nombre: "Sabores Mixtos", disponible: true }
         
     ] },
     { id: 48, categoria: 'vapes', activo: false, orden: 48, agotado: false, nombre: "Vape Nuevo 48",  modelo: "10000 Puffs", precio: 300, img: "img/vapes/vape_48.webp",   sabores: [
