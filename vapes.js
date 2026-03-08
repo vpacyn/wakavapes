@@ -120,7 +120,7 @@ let listaProductos = [
         { nombre: "Mango Blaze", disponible: true },
         { nombre: "Mint Chill", disponible: true }
     ] },
-    { id: 54, categoria: 'vapes', activo: true, orden: 9, agotado: false, nombre: "Fasta 35K",  modelo: "35000 Puffs", precio: 135, img: "img/vapes/fasta_35k.webp",   sabores: [
+    { id: 54, categoria: 'vapes', activo: true, orden: 9, agotado: true, nombre: "Fasta 35K",  modelo: "35000 Puffs", precio: 135, img: "img/vapes/fasta_35k.webp",   sabores: [
         { nombre: "Fcuking Fab Soda", disponible: true },
         { nombre: "Matcha Frappuchino", disponible: true },
         { nombre: "Frozen Mexico Mango", disponible: true },
@@ -215,7 +215,7 @@ let listaProductos = [
         { nombre: "Cherry Lime", disponible: true },
         { nombre: "Blueberry Raspberry", disponible: true }
     ] },
-    { id: 14, categoria: 'vapes', activo: true, orden: 14, agotado: true, nombre: "Hand Shake 15K",     modelo: "15000 Puffs", precio: 55, img: "img/vapes/hand_shake_15k.webp", sabores: [
+    { id: 14, categoria: 'vapes', activo: true, orden: 14, agotado: false, nombre: "Hand Shake 15K",     modelo: "15000 Puffs", precio: 55, img: "img/vapes/hand_shake_15k.webp", sabores: [
         { nombre: "Blue Razz", disponible: true },
         { nombre: "Miami Mint", disponible: true },
         { nombre: "Apple Gummies", disponible: true },
@@ -309,7 +309,7 @@ let listaProductos = [
         { nombre: "Yummy Bear", disponible: true },
         { nombre: "Strawberry Ice Cream", disponible: true }
     ] },
-    { id: 26, categoria: 'vapes', activo: true, orden: 26, agotado: false, nombre: "Elf Bar TE 30K",     modelo: "30000 Puffs", precio: 175, img: "img/vapes/elfar_te_30k.webp",     sabores: [
+    { id: 26, categoria: 'vapes', activo: true, orden: 26, agotado: true, nombre: "Elf Bar TE 30K",     modelo: "30000 Puffs", precio: 175, img: "img/vapes/elfar_te_30k.webp",     sabores: [
         { nombre: "Cool Mint", disponible: true },
         { nombre: "Banana Coco Ice", disponible: true },
         { nombre: "Miami Mint", disponible: true },
@@ -516,7 +516,7 @@ let listaProductos = [
         { nombre: "Apple Mango Pear", disponible: true },
         { nombre: "Mango Peach Pineapple", disponible: true }
     ] },
-    { id: 41, categoria: 'vapes', activo: true, orden: 41, agotado: true, nombre: "iPlay Burst 45K",  modelo: "45000 Puffs", precio: 185, img: "img/vapes/iplay_burst_45k.webp",   sabores: [
+    { id: 41, categoria: 'vapes', activo: true, orden: 41, agotado: false, nombre: "iPlay Burst 45K",  modelo: "45000 Puffs", precio: 185, img: "img/vapes/iplay_burst_45k.webp",   sabores: [
         { nombre: "Raspberry Watermelon", disponible: true },
         { nombre: "Cool Mint", disponible: true },
         { nombre: "Pineapple Mango", disponible: true },
