@@ -579,7 +579,7 @@ let listaProductos = [
         { nombre: "Mexico Mango", disponible: true },
         { nombre: "Blueberry Mint", disponible: true },
         { nombre: "Eneegy Juice", disponible: true },
-        { nombre: "Watermelon", disponible: true }
+        { nombre: "Watermelon", disponible: false }
     ] },
     { id: 47, categoria: 'vapes', activo: true, orden: 47, agotado: false, nombre: "Flask 4999",  modelo: "5000 Puffs", precio: 30, img: "img/vapes/flask_5k.webp",   sabores: [
         { nombre: "Rainbow Burst", disponible: true },
