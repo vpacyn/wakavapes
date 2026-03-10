@@ -78,7 +78,7 @@ let listaProductos = [
         { nombre: "Mexico Mango", disponible: true },
         { nombre: "Danonino Creamy", disponible: true }
     ] },
-    { id: 51, categoria: 'vapes', activo: true, orden: 6, agotado: false, nombre: "Waka Icon 50K",  modelo: "50000 Puffs", precio: 245, img: "img/vapes/waka_50k.webp",   sabores: [
+    { id: 51, categoria: 'vapes', activo: true, orden: 6, agotado: true, nombre: "Waka Icon 50K",  modelo: "50000 Puffs", precio: 245, img: "img/vapes/waka_50k.webp",   sabores: [
         { nombre: "Kiwi Dragon Berry", disponible: true },
         { nombre: "Strawberry Guava", disponible: true },
         { nombre: "Peach Mango Watermelon", disponible: true },
