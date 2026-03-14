@@ -593,17 +593,20 @@ let listaProductos = [
         { nombre: "Sabores Mixtos", disponible: true }
         
     ] },
-    { id: 48, categoria: 'vapes', activo: false, orden: 48, agotado: false, nombre: "Waka 45k",  modelo: "10000 Puffs", precio: 300, img: "img/vapes/vape_48.webp",   sabores: [
+    { id: 48, categoria: 'vapes', activo: false, orden: 48, agotado: false, nombre: "Waka 45k",  modelo: "45000 Puffs", precio: 240, img: "img/vapes/vape_48.webp",   sabores: [
         { nombre: "Sabor 1", disponible: true },
         { nombre: "Sabor 2", disponible: true },
         { nombre: "Sabor 3", disponible: true },
         { nombre: "Sabor 4", disponible: true }
     ] },
-    { id: 49, categoria: 'vapes', activo: false, orden: 49, agotado: false, nombre: "Vape Nuevo 49",  modelo: "10000 Puffs", precio: 300, img: "img/vapes/vape_49.webp",   sabores: [
-        { nombre: "Sabor 1", disponible: true },
-        { nombre: "Sabor 2", disponible: true },
-        { nombre: "Sabor 3", disponible: true },
-        { nombre: "Sabor 4", disponible: true }
+    { id: 49, categoria: 'vapes', activo: true, orden: 49, agotado: false, nombre: "Novo Bar AL9000",  modelo: "9000 Puffs", precio: 37, img: "img/vapes/novo_bar_9k.webp",   sabores: [
+        { nombre: "Watermelon Ice", disponible: true },
+        { nombre: "Blackberry Razz", disponible: true },
+        { nombre: "Orange Peach", disponible: true },
+        { nombre: "Razz Banana", disponible: true },
+        { nombre: "Straw Watermelon", disponible: true },
+        { nombre: "Strawberry Kiwi", disponible: true }
+
     ] },
     { id: 50, categoria: 'vapes', activo: false, orden: 50, agotado: false, nombre: "Vape Nuevo 50",  modelo: "10000 Puffs", precio: 300, img: "img/vapes/vape_50.webp",   sabores: [
         { nombre: "Sabor 1", disponible: true },
