@@ -574,7 +574,7 @@ let listaProductos = [
         { nombre: "Blue Razz Ice", disponible: true },
         { nombre: "Sabores mixtos", disponible: true }
     ] },
-    { id: 46, categoria: 'vapes', activo: true, orden: 46, agotado: false, nombre: "Snoopy Smoke 15k",  modelo: "15000 Puffs", precio: 80, img: "img/vapes/snoopy_smoke_15k.webp",   sabores: [
+    { id: 46, categoria: 'vapes', activo: true, orden: 46, agotado: true, nombre: "Snoopy Smoke 15k",  modelo: "15000 Puffs", precio: 80, img: "img/vapes/snoopy_smoke_15k.webp",   sabores: [
         { nombre: "Kool Mint", disponible: true },
         { nombre: "Mexico Mango", disponible: true },
         { nombre: "Blueberry Mint", disponible: true },
