@@ -41,13 +41,13 @@ let listaProductos = [
         { nombre: "Guava Raspberry Ice", disponible: true }
     ] },
     { id: 4, categoria: 'vapes', activo: true, orden: 4, agotado: false, nombre: "Waka Blade 33K",  modelo: "33000 Puffs", precio: 210, img: "img/vapes/waka_blade_33k.webp", sabores: [
-        { nombre: "Skittles", disponible: true },
+        { nombre: "Skittles", disponible: false },
         { nombre: "Strawberry Mint", disponible: false},
         { nombre: "Blueberry Mint", disponible: false },
-        { nombre: "Fresh Mint", disponible: true },
+        { nombre: "Fresh Mint", disponible: false },
         { nombre: "Green Apple", disponible: false },
         { nombre: "Peach Up", disponible: true },
-        { nombre: "Peach Mint", disponible: true },
+        { nombre: "Peach Mint", disponible: false },
         { nombre: "Watermenlon Chill", disponible: true },
         { nombre: "Blue Razz", disponible: true },
         { nombre: "Cherry Peach", disponible: false },
