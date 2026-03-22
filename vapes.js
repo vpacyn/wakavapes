@@ -93,19 +93,19 @@ let listaProductos = [
     ] },
     { id: 52, categoria: 'vapes', activo: true, orden: 7, agotado: false, nombre: "Waka 25K",  modelo: "25000 Puffs", precio: 185, img: "img/vapes/waka_25k.webp",   sabores: [
         { nombre: "Blue Razz Blackberry", disponible: false },
-        { nombre: "Triple Mango", disponible: true },
-        { nombre: "Strawberry Banana", disponible: true },
-        { nombre: "Sea Salt Lemon", disponible: true },
-        { nombre: "Cranberry Grape", disponible: true },
+        { nombre: "Triple Mango", disponible: false },
+        { nombre: "Strawberry Banana", disponible: false },
+        { nombre: "Sea Salt Lemon", disponible: false },
+        { nombre: "Cranberry Grape", disponible: false },
         { nombre: "Triple Berry", disponible: true },
-        { nombre: "Sour Fruit Gummy", disponible: true },
-        { nombre: "Kiwi Passion Guava", disponible: true },
+        { nombre: "Sour Fruit Gummy", disponible: false },
+        { nombre: "Kiwi Passion Guava", disponible: false },
         { nombre: "Dark Cherry", disponible: true },
         { nombre: "Strawberry Kiwi", disponible: true },
         { nombre: "Fresh Mint", disponible: true },
-        { nombre: "Strawberry Raspberry", disponible: true },
-        { nombre: "Sour Apple", disponible: true },
-        { nombre: "Cappuccino", disponible: true },
+        { nombre: "Strawberry Raspberry", disponible: false },
+        { nombre: "Sour Apple", disponible: false },
+        { nombre: "Cappuccino", disponible: false },
         { nombre: "Blueberry Raspberry", disponible: false },
         { nombre: "Watermelon Chill", disponible: false }
     ] },
@@ -290,7 +290,7 @@ let listaProductos = [
         { nombre: "Double Apple", disponible: true },
         { nombre: "Mango Peach", disponible: true }
     ] },
-    { id: 24, categoria: 'vapes', activo: true, orden: 24, agotado: true, nombre: "Jooyo 10K",          modelo: "10000 Puffs", precio: 30, img: "img/vapes/jooyo_10k.webp",      sabores: [
+    { id: 24, categoria: 'vapes', activo: true, orden: 24, agotado: false, nombre: "Jooyo 10K",          modelo: "10000 Puffs", precio: 30, img: "img/vapes/jooyo_10k.webp",      sabores: [
         { nombre: "Mojito", disponible: true },
         { nombre: "Watermelon Ice", disponible: true },
         { nombre: "Kiwi Passion Fruit Guava", disponible: true },
@@ -595,10 +595,15 @@ let listaProductos = [
         
     ] },
     { id: 48, categoria: 'vapes', activo: false, orden: 48, agotado: false, nombre: "Waka 45k",  modelo: "45000 Puffs", precio: 240, img: "img/vapes/vape_48.webp",   sabores: [
-        { nombre: "Sabor 1", disponible: true },
-        { nombre: "Sabor 2", disponible: true },
-        { nombre: "Sabor 3", disponible: true },
-        { nombre: "Sabor 4", disponible: true }
+        { nombre: "Strawberry Watermelon", disponible: true },
+        { nombre: "Passion Fruit Orange", disponible: true },
+        { nombre: "Menthol", disponible: true },
+        { nombre: "Black Cherry", disponible: true },
+        { nombre: "Mixed Berries", disponible: true },
+        { nombre: "Grape Candy", disponible: true },
+        { nombre: "Sour Apple", disponible: true },
+        { nombre: "Strawberry Kiwi", disponible: true },
+        { nombre: "Blue Raspberry", disponible: true }
     ] },
     { id: 49, categoria: 'vapes', activo: true, orden: 49, agotado: false, nombre: "Novo Bar AL9000",  modelo: "9000 Puffs", precio: 37, img: "img/vapes/novo_bar_9k.webp",   sabores: [
         { nombre: "Watermelon Ice", disponible: true },
