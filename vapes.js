@@ -579,18 +579,19 @@ let listaProductos = [
 
     // ========== PRODUCTOS DESACTIVADOS ==========
 
-    { id: 6, categoria: 'vapes', activo: false, orden: 6, agotado: false, nombre: "Caliburn IronFist 18K", modelo: "18000 Puffs", precio: 30, img: "img/vapes/calibur_18k.webp", sabores: [
-        { nombre: "Grape Ice", disponible: true },
-        { nombre: "Miami Mint", disponible: true },
-        { nombre: "Double Apple", disponible: true },
-        { nombre: "Dragon Fruit Berry", disponible: true },
-        { nombre: "Strawberry Kiwi", disponible: true },
-        { nombre: "Mango Honeydew", disponible: true },
-        { nombre: "White Gummy", disponible: true },
-        { nombre: "Blue Razz", disponible: true },
-        { nombre: "Peach Watermelon", disponible: true },
-        { nombre: "Mixed Berries", disponible: true },
-        { nombre: "Crazy Berry", disponible: true }
+    { id: 6, categoria: 'vapes', activo: false, orden: 6, agotado: false, nombre: "Lost Mary Mixer+", modelo: "30000 Puffs", precio: 165, img: "img/vapes/lost_mary_mixer+_30k.webp", sabores: [
+        { nombre: "Blue Razz Ice", disponible: true },
+        { nombre: "Mango Strawberry Ice", disponible: true },
+        { nombre: "Red Raspberry Strawberry ", disponible: true },
+        { nombre: "Raspberry Pineapple ", disponible: true },
+        { nombre: "Apple Grape", disponible: true },
+        { nombre: "Aloe Grape Sour Apple", disponible: true },
+        { nombre: "Watermelon B-Pop", disponible: true },  
+        { nombre: "Miami Chill", disponible: true },
+        { nombre: "Watermelon Ice", disponible: true },
+        { nombre: "Grapefruit Lemon Lime", disponible: true }, 
+        { nombre: "Mix Mint", disponible: true },
+        { nombre: "Banana Cherry Ice", disponible: true }
     ] },
     { id: 18, categoria: 'vapes', activo: false, orden: 18, agotado: true, nombre: "Solaris 25K",       modelo: "25000 Puffs", precio: 75, img: "img/vapes/solaris_25k.webp",    sabores: [
         { nombre: "Blue Razz", disponible: true },
