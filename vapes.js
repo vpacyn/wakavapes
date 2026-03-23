@@ -594,15 +594,22 @@ let listaProductos = [
 
      // ========== PRODUCTOS DESACTIVADOS ==========
 
-    { id: 18, categoria: 'vapes', activo: false, orden: 18, agotado: true, nombre: "Dominion 16K",       modelo: "16000 Puffs", precio: 85, img: "img/vapes/dominion_16k.webp",    sabores: [
-        { nombre: "x", disponible: true },
-        { nombre: "x", disponible: true },
-        { nombre: "x", disponible: true },
-        { nombre: "x", disponible: true },
-        { nombre: "x", disponible: true },
-        { nombre: "x", disponible: true },
-        { nombre: "x", disponible: true },
-        { nombre: "Cherry Bomb", disponible: true }
+    { id: 18, categoria: 'vapes', activo: true, orden: 18, agotado: true, nombre: "Dominion 16K", modelo: "16000 Puffs", precio: 85, img: "img/vapes/dominion_16k.webp",    sabores: [
+        { nombre: "Watermelon Blow Pop", disponible: true },
+        { nombre: "Watermelon Icy", disponible: true },
+        { nombre: "Cherrry Lemon ", disponible: true },
+        { nombre: "Peach Mango Watermelon ", disponible: true },
+        { nombre: "Fcuking Awesome", disponible: true },
+        { nombre: "Sour Blue Apple ", disponible: true },
+        { nombre: "Pink Burst", disponible: true },
+        { nombre: "Strawberry Watermelon ", disponible: true },
+        { nombre: "Blueberry Raspberry ", disponible: true },
+        { nombre: "Cool Mint", disponible: true },
+        { nombre: "Purple Rain", disponible: true },
+        { nombre: "Strawberry Kiwi", disponible: true },
+        { nombre: "Grape Mint ", disponible: true },
+        { nombre: "Orange Lime", disponible: true },
+        { nombre: "Raspberry Grape", disponible: true }
     ] },
     { id: 22, categoria: 'vapes', activo: false, orden: 22, agotado: false, nombre: "Starx 20K",          modelo: "20000 Puffs", precio: 55, img: "img/vapes/starx_20k.webp",      sabores: [
         { nombre: "Triple Berry", disponible: true }
