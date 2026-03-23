@@ -594,7 +594,7 @@ let listaProductos = [
 
    
 
-    { id: 18, categoria: 'vapes', activo: true, orden: 18, agotado: true, nombre: "Dominion 16K", modelo: "16000 Puffs", precio: 85, img: "img/vapes/dominion_16k.webp",    sabores: [
+    { id: 18, categoria: 'vapes', activo: true, orden: 18, agotado: false, nombre: "Dominion 16K", modelo: "16000 Puffs", precio: 85, img: "img/vapes/dominion_16k.webp",    sabores: [
         { nombre: "Watermelon Blow Pop", disponible: true },
         { nombre: "Watermelon Icy", disponible: true },
         { nombre: "Cherrry Lemon ", disponible: true },
