@@ -592,7 +592,7 @@ let listaProductos = [
         { nombre: "Banana Cherry Ice", disponible: true }
     ] },
 
-     // ========== PRODUCTOS DESACTIVADOS ==========
+   
 
     { id: 18, categoria: 'vapes', activo: true, orden: 18, agotado: true, nombre: "Dominion 16K", modelo: "16000 Puffs", precio: 85, img: "img/vapes/dominion_16k.webp",    sabores: [
         { nombre: "Watermelon Blow Pop", disponible: true },
@@ -611,6 +611,10 @@ let listaProductos = [
         { nombre: "Orange Lime", disponible: true },
         { nombre: "Raspberry Grape", disponible: true }
     ] },
+
+     // ========== PRODUCTOS DESACTIVADOS ==========
+
+
     { id: 22, categoria: 'vapes', activo: false, orden: 22, agotado: false, nombre: "Starx 20K",          modelo: "20000 Puffs", precio: 55, img: "img/vapes/starx_20k.webp",      sabores: [
         { nombre: "Triple Berry", disponible: true }
     ] },
