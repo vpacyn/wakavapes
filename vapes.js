@@ -579,7 +579,7 @@ let listaProductos = [
 
     // ========== PRODUCTOS DESACTIVADOS ==========
 
-    { id: 6, categoria: 'vapes', activo: false, orden: 6, agotado: false, nombre: "Lost Mary Mixer+", modelo: "30000 Puffs", precio: 165, img: "img/vapes/lost_mary_mixer+_30k.webp", sabores: [
+    { id: 6, categoria: 'vapes', activo: true, orden: 6, agotado: false, nombre: "Lost Mary Mixer+", modelo: "30000 Puffs", precio: 165, img: "img/vapes/lost_mary_mixer+_30k.webp", sabores: [
         { nombre: "Blue Razz Ice", disponible: true },
         { nombre: "Mango Strawberry Ice", disponible: true },
         { nombre: "Red Raspberry Strawberry ", disponible: true },
