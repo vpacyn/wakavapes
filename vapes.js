@@ -612,30 +612,23 @@ let listaProductos = [
         { nombre: "Raspberry Grape", disponible: true }
     ] },
 
-     // ========== PRODUCTOS DESACTIVADOS ==========
 
-
-    { id: 22, categoria: 'vapes', activo: false, orden: 22, agotado: false, nombre: "Starx 20K",          modelo: "20000 Puffs", precio: 55, img: "img/vapes/starx_20k.webp",      sabores: [
-        { nombre: "Triple Berry", disponible: true }
+    { id: 22, categoria: 'vapes', activo: true, orden: 22, agotado: false, nombre: "Instabar BE40k", modelo: "40000 Puffs", precio: 99, img: "img/vapes/insta_bar_be_40k.webp",      sabores: [
+        { nombre: "Sakura Ice", disponible: true },
+        { nombre: "Sour Apple Ice", disponible: true },
+        { nombre: "Lemon Lime", disponible: true },
+        { nombre: "Cherry Cola", disponible: true }
     ] },
-    { id: 31, categoria: 'vapes', activo: false, orden: 31, agotado: false, nombre: "ijoy 10k",  modelo: "10000 Puffs", precio: 35, img: "img/vapes/ijoy_10k.webp",   sabores: [
-        { nombre: "Mixto", disponible: true },
-        { nombre: "Grape Apple", disponible: false },
-        { nombre: "Berry Watermelon", disponible: false },
-        { nombre: "Lemon Lime", disponible: false },
-        { nombre: "Triple Berry", disponible: false },
-        { nombre: "Strawberry Mango", disponible: false },
-        { nombre: "Cool Mint", disponible: false },
-        { nombre: "Strawberry Burst", disponible: false },
-        { nombre: "Cherry Lemon", disponible: false },
-        { nombre: "Blueberry Raspberry", disponible: false },
-        { nombre: "Mr. Blue", disponible: false },
-        { nombre: "Grape Ice", disponible: false },
-        { nombre: "Apple Watermelon", disponible: false },
-        { nombre: "Green Grape", disponible: false },
-        { nombre: "Blue Raz", disponible: false },
-        { nombre: "Peach Apricot", disponible: false },
-        { nombre: "Classic Tobacco", disponible: false }
+
+      // ========== PRODUCTOS DESACTIVADOS ==========
+
+    { id: 31, categoria: 'vapes', activo: true, orden: 31, agotado: false, nombre: "Rodman 9.1k",  modelo: "9100 Puffs", precio: 45, img: "img/vapes/rodman_9k.webp",   sabores: [
+        { nombre: "Juicy Grape ", disponible: true },
+        { nombre: "Lush ice", disponible: true },
+        { nombre: "Pineapple banana", disponible: true },
+        { nombre: "Strawberry Passion", disponible: true },
+        { nombre: "Acai berry", disponible: true },
+        { nombre: "Blue razz", disponible: true }
     ] },
     { id: 34, categoria: 'vapes', activo: false, orden: 34, agotado: false, nombre: "Waka Slam 7000",     modelo: "7000 Puffs", precio: 200, img: "img/vapes/wakaslam.webp",   sabores: [
         { nombre: "Lush Ice", disponible: true },
