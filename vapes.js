@@ -93,7 +93,7 @@ let listaProductos = [
         { nombre: "Cool Mint", disponible: true }
     ] },
     { id: 52, categoria: 'vapes', activo: true, orden: 7, agotado: false, nombre: "Waka 25K",  modelo: "25000 Puffs", precio: 185, img: "img/vapes/waka_25k.webp",   sabores: [
-        { nombre: "Blue Razz Blackberry", disponible: false },
+        { nombre: "Blue Razz Blackberry", disponible: true },
         { nombre: "Triple Mango", disponible: false },
         { nombre: "Strawberry Banana", disponible: false },
         { nombre: "Sea Salt Lemon", disponible: false },
@@ -107,8 +107,8 @@ let listaProductos = [
         { nombre: "Strawberry Raspberry", disponible: false },
         { nombre: "Sour Apple", disponible: false },
         { nombre: "Cappuccino", disponible: false },
-        { nombre: "Blueberry Raspberry", disponible: false },
-        { nombre: "Watermelon Chill", disponible: false }
+        { nombre: "Blueberry Raspberry", disponible: true },
+        { nombre: "Watermelon Chill", disponible: true }
     ] },
     { id: 53, categoria: 'vapes', activo: true, orden: 8, agotado: true, nombre: "NEXA x Wonder 40K",  modelo: "40000 Puffs", precio: 195, img: "img/vapes/nexa_40k.webp",   sabores: [
         { nombre: "Monster Claw", disponible: true },
