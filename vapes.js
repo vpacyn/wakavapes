@@ -231,7 +231,7 @@ let listaProductos = [
         { nombre: "Strawnana", disponible: true },
         { nombre: "Pink Whip Cream", disponible: true }
     ] },
-    { id: 17, categoria: 'vapes', activo: true, orden: 17, agotado: false, nombre: "Ronaldinho 15K",     modelo: "15000 Puffs", precio: 35, img: "img/vapes/ronaldinho10_15k.webp", sabores: [
+    { id: 17, categoria: 'vapes', activo: true, orden: 17, agotado: true, nombre: "Ronaldinho 15K",     modelo: "15000 Puffs", precio: 35, img: "img/vapes/ronaldinho10_15k.webp", sabores: [
         { nombre: "Cool Mint", disponible: true },
         { nombre: "Grape Ice", disponible: true },
         { nombre: "Strawberry Kiwi", disponible: true }
@@ -577,7 +577,7 @@ let listaProductos = [
         { nombre: "Cola Ice", disponible: true }
     ] },
 
-    { id: 6, categoria: 'vapes', activo: true, orden: 6, agotado: false, nombre: "Lost Mary Mixer+", modelo: "30000 Puffs", precio: 165, img: "img/vapes/lost_mary_mixer+_30k.webp", sabores: [
+    { id: 6, categoria: 'vapes', activo: true, orden: 6, agotado: false, nombre: "Lost Mary Mixer+ 30k", modelo: "30000 Puffs", precio: 165, img: "img/vapes/lost_mary_mixer+_30k.webp", sabores: [
         { nombre: "Blue Razz Ice", disponible: true },
         { nombre: "Mango Strawberry Ice", disponible: true },
         { nombre: "Red Raspberry Strawberry ", disponible: true },
@@ -594,10 +594,14 @@ let listaProductos = [
 
      // ========== PRODUCTOS DESACTIVADOS ==========
 
-    { id: 18, categoria: 'vapes', activo: false, orden: 18, agotado: true, nombre: "Solaris 25K",       modelo: "25000 Puffs", precio: 75, img: "img/vapes/solaris_25k.webp",    sabores: [
-        { nombre: "Blue Razz", disponible: true },
-        { nombre: "Blue Cotton Candy", disponible: true },
-        { nombre: "Watermelon Chill", disponible: true },
+    { id: 18, categoria: 'vapes', activo: false, orden: 18, agotado: true, nombre: "Dominion 16K",       modelo: "16000 Puffs", precio: 85, img: "img/vapes/dominion_16k.webp",    sabores: [
+        { nombre: "x", disponible: true },
+        { nombre: "x", disponible: true },
+        { nombre: "x", disponible: true },
+        { nombre: "x", disponible: true },
+        { nombre: "x", disponible: true },
+        { nombre: "x", disponible: true },
+        { nombre: "x", disponible: true },
         { nombre: "Cherry Bomb", disponible: true }
     ] },
     { id: 22, categoria: 'vapes', activo: false, orden: 22, agotado: false, nombre: "Starx 20K",          modelo: "20000 Puffs", precio: 55, img: "img/vapes/starx_20k.webp",      sabores: [
