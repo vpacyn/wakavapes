@@ -577,8 +577,6 @@ let listaProductos = [
         { nombre: "Cola Ice", disponible: true }
     ] },
 
-    // ========== PRODUCTOS DESACTIVADOS ==========
-
     { id: 6, categoria: 'vapes', activo: true, orden: 6, agotado: false, nombre: "Lost Mary Mixer+", modelo: "30000 Puffs", precio: 165, img: "img/vapes/lost_mary_mixer+_30k.webp", sabores: [
         { nombre: "Blue Razz Ice", disponible: true },
         { nombre: "Mango Strawberry Ice", disponible: true },
@@ -593,6 +591,9 @@ let listaProductos = [
         { nombre: "Mix Mint", disponible: true },
         { nombre: "Banana Cherry Ice", disponible: true }
     ] },
+
+     // ========== PRODUCTOS DESACTIVADOS ==========
+
     { id: 18, categoria: 'vapes', activo: false, orden: 18, agotado: true, nombre: "Solaris 25K",       modelo: "25000 Puffs", precio: 75, img: "img/vapes/solaris_25k.webp",    sabores: [
         { nombre: "Blue Razz", disponible: true },
         { nombre: "Blue Cotton Candy", disponible: true },
