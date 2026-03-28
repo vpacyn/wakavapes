@@ -643,7 +643,7 @@ let listaProductos = [
         { nombre: "Blueberry Cherry Cranberry", disponible: true },
         { nombre: "Guava Passion Kiwi", disponible: true }
     ] },
-    { id: 36, categoria: 'vapes', activo: true, orden: 36, agotado: true, nombre: "Maskking Extre 100K",  modelo: "100000 Puffs", precio: 260, img: "img/vapes/maskking_100k.webp",   sabores: [
+    { id: 36, categoria: 'vapes', activo: true, orden: 36, agotado: false, nombre: "Maskking Extre 100K",  modelo: "100000 Puffs", precio: 260, img: "img/vapes/maskking_100k.webp",   sabores: [
         { nombre: "Banana Taffi Freeze", disponible: true },
         { nombre: "Wild Cherry Slush", disponible: true },
         { nombre: "Fruity Cool Strawberry", disponible: true },
