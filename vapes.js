@@ -643,11 +643,21 @@ let listaProductos = [
         { nombre: "Blueberry Cherry Cranberry", disponible: true },
         { nombre: "Guava Passion Kiwi", disponible: true }
     ] },
-    { id: 36, categoria: 'vapes', activo: false, orden: 36, agotado: true, nombre: "Maskking Turboo 10K",  modelo: "10000 Puffs", precio: 50, img: "img/vapes/masking_turboo_10k.webp",   sabores: [
-        { nombre: "Sabor 1", disponible: true },
-        { nombre: "Sabor 2", disponible: true },
-        { nombre: "Sabor 3", disponible: true },
-        { nombre: "Sabor 4", disponible: true }
+    { id: 36, categoria: 'vapes', activo: true, orden: 36, agotado: true, nombre: "Maskking Extre 100K",  modelo: "100000 Puffs", precio: 260, img: "img/vapes/maskking_100k.webp",   sabores: [
+        { nombre: "Banana Taffi Freeze", disponible: true },
+        { nombre: "Wild Cherry Slush", disponible: true },
+        { nombre: "Fruity Cool Strawberry", disponible: true },
+        { nombre: "Mexico Mango", disponible: true },
+        { nombre: "Watermelon Ice", disponible: true },
+        { nombre: "Sour Apple Ice", disponible: true },
+        { nombre: "Frozen Piña Colada", disponible: true },
+        { nombre: "Miami Mint", disponible: true },
+        { nombre: "Strawberry B-Burst", disponible: true },
+        { nombre: "Strawberry Watermelon", disponible: true },
+        { nombre: "Blue Razz Ice", disponible: true },
+        { nombre: "Grape Slush", disponible: true },
+        { nombre: "Juicy Peach Ice", disponible: true }
+
     ] },
     { id: 48, categoria: 'vapes', activo: false, orden: 48, agotado: false, nombre: "Waka 45k",  modelo: "45000 Puffs", precio: 240, img: "img/vapes/vape_48.webp",   sabores: [
         { nombre: "Strawberry Watermelon", disponible: true },
