@@ -61,7 +61,7 @@ let listaProductos = [
         { nombre: "Kiwi Dragon Fruit", disponible: false },
         { nombre: "Passion Fruit", disponible: false },
     ] },
-    { id: 5, categoria: 'vapes', activo: true, orden: 5, agotado: true, nombre: "Waka Burst 36K",  modelo: "36000 Puffs", precio: 220, img: "img/vapes/waka_burst_36k.webp",   sabores: [
+    { id: 5, categoria: 'vapes', activo: true, orden: 5, agotado: false, nombre: "Waka Burst 36K",  modelo: "36000 Puffs", precio: 220, img: "img/vapes/waka_burst_36k.webp",   sabores: [
         { nombre: "Blue Razz Ice", disponible: true },
         { nombre: "Watermelon Ice", disponible: true },
         { nombre: "Strawberry Banana", disponible: true },
@@ -132,7 +132,7 @@ let listaProductos = [
         { nombre: "Sour Apple", disponible: true },
         { nombre: "Meta Moon Soda", disponible: true }
     ] },
-    { id: 55, categoria: 'vapes', activo: true, orden: 10, agotado: true, nombre: "Lost Mary 35K",  modelo: "35000 Puffs", precio: 155, img: "img/vapes/lost_mary_35k.webp",   sabores: [
+    { id: 55, categoria: 'vapes', activo: true, orden: 10, agotado: false, nombre: "Lost Mary 35K",  modelo: "35000 Puffs", precio: 155, img: "img/vapes/lost_mary_35k.webp",   sabores: [
         { nombre: "Tigers Blood", disponible: true },
         { nombre: "White Gami", disponible: true },
         { nombre: "Pineapple Lime", disponible: true },
