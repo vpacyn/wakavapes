@@ -441,7 +441,7 @@ let listaProductos = [
         { nombre: "Cinnamon Mint", disponible: true },
         { nombre: "Mango Peach Watermelon", disponible: true }
     ] },
-    { id: 40, categoria: 'vapes', activo: true, orden: 40, agotado: false, nombre: "Fly 1800",  modelo: "1800 Puffs", precio: 20, img: "img/vapes/fly_1.8k.webp",   sabores: [
+    { id: 40, categoria: 'vapes', activo: false, orden: 40, agotado: false, nombre: "Fly 1800",  modelo: "1800 Puffs", precio: 20, img: "img/vapes/fly_1.8k.webp",   sabores: [
         { nombre: "Cinnamon Mint", disponible: true },
         { nombre: "Strawberry Watermelon Bubblegum", disponible: true },
         { nombre: "Pineapple Coconut", disponible: true },
