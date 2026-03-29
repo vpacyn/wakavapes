@@ -659,7 +659,7 @@ let listaProductos = [
 
     // ========== PRODUCTOS DESACTIVADOS ==========
 
-    { id: 40, categoria: 'vapes', activo: false, orden: 57, agotado: false, nombre: "Waka Pro 30k", modelo: "30000 Puffs", precio: 200, img: "img/vapes/waka_new_30k.webp", sabores: [
+    { id: 40, categoria: 'vapes', activo: true, orden: 57, agotado: false, nombre: "Waka Pro 30k", modelo: "30000 Puffs", precio: 200, img: "img/vapes/waka_new_30k.webp", sabores: [
         { nombre: "Strawberry Watermelon", disponible: true },
         { nombre: "Cherry Watermelon Mint", disponible: true },
         { nombre: "Fresh Mint", disponible: true },
