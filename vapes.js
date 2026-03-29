@@ -659,17 +659,23 @@ let listaProductos = [
 
     // ========== PRODUCTOS DESACTIVADOS ==========
 
-    { id: 40, categoria: 'vapes', activo: false, orden: 57, agotado: false, nombre: "Fly 1800", modelo: "1800 Puffs", precio: 20, img: "img/vapes/fly_1.8k.webp", sabores: [
-        { nombre: "Cinnamon Mint", disponible: true },
-        { nombre: "Strawberry Watermelon Bubblegum", disponible: true },
-        { nombre: "Pineapple Coconut", disponible: true },
-        { nombre: "Grape Ice", disponible: true },
-        { nombre: "Blue Razz Lemonade", disponible: true },
-        { nombre: "Kiwi Strawberry", disponible: true },
-        { nombre: "Apple Mango Pear", disponible: true },
-        { nombre: "Mango Peach Pineapple", disponible: true }
+    { id: 40, categoria: 'vapes', activo: false, orden: 57, agotado: false, nombre: "Waka Pro 30k", modelo: "30000 Puffs", precio: 200, img: "img/vapes/waka_new_30k.webp", sabores: [
+        { nombre: "Strawberry Watermelon", disponible: true },
+        { nombre: "Cherry Watermelon Mint", disponible: true },
+        { nombre: "Fresh Mint", disponible: true },
+        { nombre: "Strawberry Grape", disponible: true },
+        { nombre: "Peach Blue Raspberry", disponible: true },
+        { nombre: "Strawberry Kiwi", disponible: true },
+        { nombre: "Blueberry Splash", disponible: true },
+        { nombre: "Strawberry Mint", disponible: true },
+        { nombre: "Miami Mint", disponible: true },
+        { nombre: "Coco Strawberry", disponible: true },
+        { nombre: "Peach Mango Watermelon", disponible: true },
+        { nombre: "Blueberry Mint", disponible: true },
+        { nombre: "Strawberry Burst", disponible: true }
+        
     ] },
-    { id: 48, categoria: 'vapes', activo: false, orden: 58, agotado: false, nombre: "Waka 45k", modelo: "45000 Puffs", precio: 240, img: "img/vapes/vape_48.webp", sabores: [
+    { id: 48, categoria: 'vapes', activo: false, orden: 58, agotado: false, nombre: "Waka 45k", modelo: "45000 Puffs", precio: 240, img: "img/vapes/waka_45k.webp", sabores: [
         { nombre: "Strawberry Watermelon", disponible: true },
         { nombre: "Passion Fruit Orange", disponible: true },
         { nombre: "Menthol", disponible: true },
