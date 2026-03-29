@@ -630,7 +630,7 @@ let listaProductos = [
         { nombre: "Acai berry", disponible: true },
         { nombre: "Blue razz", disponible: true }
     ] },
-    { id: 34, categoria: 'vapes', activo: false, orden: 34, agotado: false, nombre: "Death Row 7000",     modelo: "7000 Puffs", precio: 25, img: "img/vapes/death_row_7k.webp",   sabores: [
+    { id: 34, categoria: 'vapes', activo: true, orden: 34, agotado: false, nombre: "Death Row 7000",     modelo: "7000 Puffs", precio: 25, img: "img/vapes/death_row_7k.webp",   sabores: [
         { nombre: "Apple Ice", disponible: true },
         { nombre: "Banana Ice", disponible: true },
         { nombre: "Black Ice", disponible: true },
