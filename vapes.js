@@ -630,18 +630,28 @@ let listaProductos = [
         { nombre: "Acai berry", disponible: true },
         { nombre: "Blue razz", disponible: true }
     ] },
-    { id: 34, categoria: 'vapes', activo: false, orden: 34, agotado: false, nombre: "Waka Slam 7000",     modelo: "7000 Puffs", precio: 200, img: "img/vapes/wakaslam.webp",   sabores: [
-        { nombre: "Lush Ice", disponible: true },
-        { nombre: "Blueberry Watermelon", disponible: true },
-        { nombre: "Strawberry Mango", disponible: true },
-        { nombre: "Raspberry Apple", disponible: true },
-        { nombre: "Red Apple", disponible: true },
-        { nombre: "Lemon Mint", disponible: true },
-        { nombre: "Strawberry Peach", disponible: true },
+    { id: 34, categoria: 'vapes', activo: false, orden: 34, agotado: false, nombre: "Death Row 7000",     modelo: "7000 Puffs", precio: 200, img: "img/vapes/wakaslam.webp",   sabores: [
+        { nombre: "Apple Ice", disponible: true },
+        { nombre: "Banana Ice", disponible: true },
+        { nombre: "Black Ice", disponible: true },
+        { nombre: "Blue Berry Mint", disponible: true },
+        { nombre: "Blue Razz", disponible: true },
+        { nombre: "Candy", disponible: true },
+        { nombre: "Clear", disponible: true },
+        { nombre: "Cherry Ice", disponible: true },
+        { nombre: "Fruit Punch", disponible: true },
+        { nombre: "Luscious Watermelon", disponible: true },
+        { nombre: "Mango Lychee", disponible: true },
+        { nombre: "Mint", disponible: true },
         { nombre: "Mixed Berry", disponible: true },
-        { nombre: "Mango Peach", disponible: true },
-        { nombre: "Blueberry Cherry Cranberry", disponible: true },
-        { nombre: "Guava Passion Kiwi", disponible: true }
+        { nombre: "Mixed Fruit", disponible: true },
+        { nombre: "Peach Grape", disponible: true },
+        { nombre: "Peach Ice", disponible: true },
+        { nombre: "Pine Apple Jam", disponible: true },
+        { nombre: "Rainbow Pop", disponible: true },
+        { nombre: "Strawberry Watermelon", disponible: true },
+        { nombre: "Tabacco", disponible: true }
+       
     ] },
     { id: 36, categoria: 'vapes', activo: true, orden: 36, agotado: false, nombre: "Maskking Extre 100K",  modelo: "100000 Puffs", precio: 260, img: "img/vapes/maskking_100k.webp",   sabores: [
         { nombre: "Banana Taffi Freeze", disponible: true },
