@@ -620,7 +620,7 @@ let listaProductos = [
         { nombre: "Cherry Cola", disponible: true }
     ] },
 
-      // ========== PRODUCTOS DESACTIVADOS ==========
+     
 
     { id: 31, categoria: 'vapes', activo: true, orden: 31, agotado: false, nombre: "Rodman 9.1k",  modelo: "9100 Puffs", precio: 45, img: "img/vapes/rodman_9k.webp",   sabores: [
         { nombre: "Juicy Grape ", disponible: true },
@@ -688,3 +688,4 @@ let listaProductos = [
     ] }
 
 ];
+ // ========== PRODUCTOS DESACTIVADOS ==========
