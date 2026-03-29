@@ -686,11 +686,17 @@ let listaProductos = [
         { nombre: "Strawberry Kiwi", disponible: true },
         { nombre: "Blue Raspberry", disponible: true }
     ] },
-    { id: 50, categoria: 'vapes', activo: false, orden: 59, agotado: false, nombre: "Vape Nuevo 50", modelo: "10000 Puffs", precio: 300, img: "img/vapes/vape_50.webp", sabores: [
-        { nombre: "Sabor 1", disponible: true },
-        { nombre: "Sabor 2", disponible: true },
-        { nombre: "Sabor 3", disponible: true },
-        { nombre: "Sabor 4", disponible: true }
+    { id: 50, categoria: 'vapes', activo: true, orden: 59, agotado: false, nombre: "Lost Vape 7.5k", modelo: "7500 Puffs", precio: 25, img: "img/vapes/lost_vape_7.5k.webp", sabores: [
+        { nombre: "Blue Mint", disponible: true },
+        { nombre: "Watermelon Cream", disponible: true },
+        { nombre: "Strawberry Kiwi", disponible: true },
+        { nombre: "Blueberry Raspberry", disponible: true },
+        { nombre: "Pineapple Peach", disponible: true },
+        { nombre: "Triple Berries", disponible: true },
+        { nombre: "Summer Peach", disponible: true },
+        { nombre: "Pop", disponible: true },
+        { nombre: "Peach Mix", disponible: true },
+        { nombre: "Cherry Berries", disponible: true }
     ] },
 
     // ========== NUEVO PLACEHOLDER ==========
