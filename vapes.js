@@ -229,7 +229,7 @@ let listaProductos = [
         { nombre: "Sour Apple", disponible: true },
         { nombre: "Meta Moon Soda", disponible: true }
     ] },
-    { id: 55, categoria: 'vapes', activo: true, orden: 17, agotado: false, nombre: "Lost Mary 35K", modelo: "35000 Puffs", precio: 155, img: "img/vapes/lost_mary_35k.webp", sabores: [
+    { id: 55, categoria: 'vapes', activo: false, orden: 17, agotado: false, nombre: "Lost Mary 35K", modelo: "35000 Puffs", precio: 155, img: "img/vapes/lost_mary_35k.webp", sabores: [
         { nombre: "Tigers Blood", disponible: true },
         { nombre: "White Gami", disponible: true },
         { nombre: "Pineapple Lime", disponible: true },
