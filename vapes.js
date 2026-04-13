@@ -336,7 +336,7 @@ let listaProductos = [
         { nombre: "Watermelon Ice", disponible: true },
         { nombre: "Sour Lush Gummy", disponible: true }
     ] },
-    { id: 19, categoria: 'vapes', activo: true, orden: 30, agotado: true, nombre: "RifBar 15K", modelo: "15000 Puffs", precio: 75, img: "img/vapes/rifbar_15k.webp", sabores: [
+    { id: 19, categoria: 'vapes', activo: true, orden: 30, agotado: false, nombre: "RifBar 15K", modelo: "15000 Puffs", precio: 75, img: "img/vapes/rifbar_15k.webp", sabores: [
         { nombre: "Kiwi Passion Fruit Guava", disponible: true },
         { nombre: "Lush Ice", disponible: true },
         { nombre: "Blue Razz", disponible: true },
