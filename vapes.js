@@ -213,7 +213,7 @@ let listaProductos = [
         { nombre: "Mango Blaze", disponible: true },
         { nombre: "Mint Chill", disponible: true }
     ] },
-    { id: 22, categoria: 'vapes', activo: true, orden: 15, agotado: false, nombre: "Instabar BE40k", modelo: "40000 Puffs", precio: 99, img: "img/vapes/insta_bar_be_40k.webp", sabores: [
+    { id: 22, categoria: 'vapes', activo: false, orden: 15, agotado: false, nombre: "Instabar BE40k", modelo: "40000 Puffs", precio: 99, img: "img/vapes/insta_bar_be_40k.webp", sabores: [
         { nombre: "Sakura Ice", disponible: true },
         { nombre: "Sour Apple Ice", disponible: true },
         { nombre: "Lemon Lime", disponible: true },
@@ -423,7 +423,7 @@ let listaProductos = [
         { nombre: "Straw Watermelon", disponible: true },
         { nombre: "Strawberry Kiwi", disponible: true }
     ] },
-    { id: 58, categoria: 'vapes', activo: true, orden: 38, agotado: false, nombre: "Elfbar Pi9000", modelo: "9000 Puffs", precio: 45, img: "img/vapes/elf_pi_9000.jpeg", sabores: [
+    { id: 58, categoria: 'vapes', activo: true, orden: 38, agotado: true, nombre: "Elf bar Pi9000", modelo: "9000 Puffs", precio: 45, img: "img/vapes/elf_pi_9000.jpeg", sabores: [
         { nombre: "Berry Raspberry", disponible: true },
         { nombre: "Strawberry Ice", disponible: true },
         { nombre: "Lemon Mint", disponible: true },
