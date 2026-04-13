@@ -309,9 +309,7 @@ let listaProductos = [
         { nombre: "Orange Lime", disponible: true },
         { nombre: "Raspberry Grape", disponible: true }
     ] },
-    { id: 1, categoria: 'vapes', activo: true, orden: 26, agotado: false, nombre: "Waka DM 15K", modelo: "15000 Puffs", precio: 160, img: "img/vapes/waka_15k.webp", sabores: [
-        // (ya incluido arriba en sección Waka — duplicado de referencia)
-    ] },
+
     { id: 15, categoria: 'vapes', activo: true, orden: 27, agotado: true, nombre: "iPlay Box Pro", modelo: "15000 Puffs", precio: 165, img: "img/vapes/iplay_boxpro_15k.webp", sabores: [
         { nombre: "Cherry Cranberry", disponible: true },
         { nombre: "Coco Strawberry", disponible: true },
