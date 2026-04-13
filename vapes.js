@@ -32,7 +32,7 @@ let listaProductos = [
         { nombre: "Blueberry Mint", disponible: true },
         { nombre: "Cool Mint", disponible: true }
     ] },
-    { id: 5, categoria: 'vapes', activo: true, orden: 3, agotado: false, nombre: "Waka Burst 36K", modelo: "36000 Puffs", precio: 220, img: "img/vapes/waka_burst_36k.webp", sabores: [
+    { id: 5, categoria: 'vapes', activo: true, orden: 3, agotado: false, nombre: "Waka Burst 36K", modelo: "36000 Puffs", precio: 235, img: "img/vapes/waka_burst_36k.webp", sabores: [
         { nombre: "Blue Razz Ice", disponible: true },
         { nombre: "Watermelon Ice", disponible: true },
         { nombre: "Strawberry Banana", disponible: true },
@@ -51,7 +51,7 @@ let listaProductos = [
         { nombre: "Mexico Mango", disponible: true },
         { nombre: "Danonino Creamy", disponible: true }
     ] },
-    { id: 4, categoria: 'vapes', activo: true, orden: 4, agotado: false, nombre: "Waka Blade 33K", modelo: "33000 Puffs", precio: 210, img: "img/vapes/waka_blade_33k.webp", sabores: [
+    { id: 4, categoria: 'vapes', activo: true, orden: 4, agotado: false, nombre: "Waka Blade 33K", modelo: "33000 Puffs", precio: 225, img: "img/vapes/waka_blade_33k.webp", sabores: [
         { nombre: "Skittles", disponible: false },
         { nombre: "Lychee Ice", disponible: true },
         { nombre: "Peach", disponible: true },
@@ -70,7 +70,7 @@ let listaProductos = [
         { nombre: "Kiwi Dragon Fruit", disponible: false },
         { nombre: "Passion Fruit", disponible: false }
     ] },
-    { id: 3, categoria: 'vapes', activo: true, orden: 5, agotado: false, nombre: "Waka Titan 30K", modelo: "30000 Puffs", precio: 200, img: "img/vapes/waka_titan_30k.webp", sabores: [
+    { id: 3, categoria: 'vapes', activo: true, orden: 5, agotado: false, nombre: "Waka Titan 30K", modelo: "30000 Puffs", precio: 215, img: "img/vapes/waka_titan_30k.webp", sabores: [
         { nombre: "Fresh Mint", disponible: true },
         { nombre: "Watermelon Ice", disponible: true },
         { nombre: "Peach Blue Raspberry Ice", disponible: true },
@@ -83,7 +83,7 @@ let listaProductos = [
         { nombre: "Banana Berry Ice", disponible: true },
         { nombre: "Guava Raspberry Ice", disponible: true }
     ] },
-    { id: 52, categoria: 'vapes', activo: true, orden: 6, agotado: false, nombre: "Waka 25K", modelo: "25000 Puffs", precio: 185, img: "img/vapes/waka_25k.webp", sabores: [
+    { id: 52, categoria: 'vapes', activo: true, orden: 6, agotado: false, nombre: "Waka 25K", modelo: "25000 Puffs", precio: 195, img: "img/vapes/waka_25k.webp", sabores: [
         { nombre: "Blue Razz Blackberry", disponible: true },
         { nombre: "Triple Mango", disponible: false },
         { nombre: "Strawberry Banana", disponible: false },
@@ -101,7 +101,7 @@ let listaProductos = [
         { nombre: "Blueberry Raspberry", disponible: true },
         { nombre: "Watermelon Chill", disponible: true }
     ] },
-    { id: 1, categoria: 'vapes', activo: true, orden: 7, agotado: false, nombre: "Waka DM 15K", modelo: "15000 Puffs", precio: 160, img: "img/vapes/waka_15k.webp", sabores: [
+    { id: 1, categoria: 'vapes', activo: true, orden: 7, agotado: false, nombre: "Waka DM 15K", modelo: "15000 Puffs", precio: 175, img: "img/vapes/waka_15k.webp", sabores: [
         { nombre: "Fresh Mint", disponible: true },
         { nombre: "Peach Blue Raspberry", disponible: true },
         { nombre: "Cherry Berry", disponible: true },
@@ -659,7 +659,7 @@ let listaProductos = [
 
     // ========== PRODUCTOS DESACTIVADOS ==========
 
-    { id: 40, categoria: 'vapes', activo: true, orden: 57, agotado: false, nombre: "Waka Pro 30k", modelo: "30000 Puffs", precio: 200, img: "img/vapes/waka_new_30k.webp", sabores: [
+    { id: 40, categoria: 'vapes', activo: true, orden: 57, agotado: false, nombre: "Waka Pro 30k", modelo: "30000 Puffs", precio: 215, img: "img/vapes/waka_new_30k.webp", sabores: [
         { nombre: "Strawberry Watermelon", disponible: true },
         { nombre: "Cherry Watermelon Mint", disponible: true },
         { nombre: "Fresh Mint", disponible: true },
