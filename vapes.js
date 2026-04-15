@@ -32,7 +32,7 @@ let listaProductos = [
         { nombre: "Blueberry Mint", disponible: true },
         { nombre: "Cool Mint", disponible: true }
     ] },
-    { id: 5, categoria: 'vapes', activo: true, orden: 3, agotado: false, nombre: "Waka Burst 36K", modelo: "36000 Puffs", precio: 235, img: "img/vapes/waka_burst_36k.webp", sabores: [
+    { id: 5, categoria: 'vapes', activo: true, orden: 3, agotado: true, nombre: "Waka Burst 36K", modelo: "36000 Puffs", precio: 235, img: "img/vapes/waka_burst_36k.webp", sabores: [
         { nombre: "Blue Razz Ice", disponible: true },
         { nombre: "Watermelon Ice", disponible: true },
         { nombre: "Strawberry Banana", disponible: true },
