@@ -51,7 +51,7 @@ let listaProductos = [
         { nombre: "Mexico Mango", disponible: true },
         { nombre: "Danonino Creamy", disponible: true }
     ] },
-    { id: 4, categoria: 'vapes', activo: true, orden: 4, agotado: false, nombre: "Waka Blade 33K", modelo: "33000 Puffs", precio: 225, img: "img/vapes/waka_blade_33k.webp", sabores: [
+    { id: 4, categoria: 'vapes', activo: true, orden: 4, agotado: true, nombre: "Waka Blade 33K", modelo: "33000 Puffs", precio: 225, img: "img/vapes/waka_blade_33k.webp", sabores: [
         { nombre: "Skittles", disponible: false },
         { nombre: "Lychee Ice", disponible: true },
         { nombre: "Peach", disponible: true },
