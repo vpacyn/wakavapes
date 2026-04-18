@@ -326,7 +326,7 @@ let listaProductos = [
         { nombre: "Grape Ice", disponible: true },
         { nombre: "Strawberry Kiwi", disponible: true }
     ] },
-    { id: 14, categoria: 'vapes', activo: true, orden: 29, agotado: false, nombre: "Hand Shake 15K", modelo: "15000 Puffs", precio: 55, img: "img/vapes/hand_shake_15k.webp", sabores: [
+    { id: 14, categoria: 'vapes', activo: true, orden: 29, agotado: true, nombre: "Hand Shake 15K", modelo: "15000 Puffs", precio: 55, img: "img/vapes/hand_shake_15k.webp", sabores: [
         { nombre: "Blue Razz", disponible: true },
         { nombre: "Miami Mint", disponible: true },
         { nombre: "Apple Gummies", disponible: true },
