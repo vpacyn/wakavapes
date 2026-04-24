@@ -101,7 +101,7 @@ let listaProductos = [
         { nombre: "Blueberry Raspberry", disponible: true },
         { nombre: "Watermelon Chill", disponible: true }
     ] },
-    { id: 1, categoria: 'vapes', activo: true, orden: 7, agotado: false, nombre: "Waka DM 15K", modelo: "15000 Puffs", precio: 175, img: "img/vapes/waka_15k.webp", sabores: [
+    { id: 1, categoria: 'vapes', activo: true, orden: 7, agotado: true, nombre: "Waka DM 15K", modelo: "15000 Puffs", precio: 175, img: "img/vapes/waka_15k.webp", sabores: [
         { nombre: "Fresh Mint", disponible: true },
         { nombre: "Peach Blue Raspberry", disponible: true },
         { nombre: "Cherry Berry", disponible: true },
