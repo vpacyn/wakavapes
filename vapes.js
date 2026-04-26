@@ -175,7 +175,7 @@ let listaProductos = [
         { nombre: "Juicy Grape", disponible: true },
         { nombre: "Strawberry Lychee", disponible: true }
     ] },
-    { id: 57, categoria: 'vapes', activo: true, orden: 12, agotado: false, nombre: "Maskking Jumbo 40K", modelo: "40000 Puffs", precio: 230, img: "img/vapes/maskking_40k.webp", sabores: [
+    { id: 57, categoria: 'vapes', activo: true, orden: 12, agotado: true, nombre: "Maskking Jumbo 40K", modelo: "40000 Puffs", precio: 230, img: "img/vapes/maskking_40k.webp", sabores: [
         { nombre: "Espreso velvet", disponible: true },
         { nombre: "Coffe gum blis", disponible: true },
         { nombre: "Miami Mint", disponible: true },
@@ -326,7 +326,7 @@ let listaProductos = [
         { nombre: "Grape Ice", disponible: true },
         { nombre: "Strawberry Kiwi", disponible: true }
     ] },
-    { id: 14, categoria: 'vapes', activo: true, orden: 29, agotado: true, nombre: "Hand Shake 15K", modelo: "15000 Puffs", precio: 55, img: "img/vapes/hand_shake_15k.webp", sabores: [
+    { id: 14, categoria: 'vapes', activo: false, orden: 29, agotado: true, nombre: "Hand Shake 15K", modelo: "15000 Puffs", precio: 55, img: "img/vapes/hand_shake_15k.webp", sabores: [
         { nombre: "Blue Razz", disponible: true },
         { nombre: "Miami Mint", disponible: true },
         { nombre: "Apple Gummies", disponible: true },
