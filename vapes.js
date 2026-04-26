@@ -381,7 +381,7 @@ let listaProductos = [
         { nombre: "Caloe Juice", disponible: true },
         { nombre: "Fantasia Fume", disponible: true }
     ] },
-    { id: 42, categoria: 'vapes', activo: true, orden: 34, agotado: false, nombre: "Fire Boost 12K", modelo: "12000 Puffs", precio: 18, img: "img/vapes/fire_boost_12k.webp", sabores: [
+    { id: 42, categoria: 'vapes', activo: false, orden: 34, agotado: false, nombre: "Fire Boost 12K", modelo: "12000 Puffs", precio: 18, img: "img/vapes/fire_boost_12k.webp", sabores: [
         { nombre: "Yummy Bear", disponible: true },
         { nombre: "Nana Taffy Ice", disponible: true },
         { nombre: "Prickly Pear Peach", disponible: true },
@@ -393,7 +393,7 @@ let listaProductos = [
         { nombre: "Melon Berry Ice", disponible: true },
         { nombre: "Black Ice", disponible: true }
     ] },
-    { id: 25, categoria: 'vapes', activo: true, orden: 35, agotado: false, nombre: "Flonq Max 10K", modelo: "10000 Puffs", precio: 45, img: "img/vapes/flonq_max_10k.webp", sabores: [
+    { id: 25, categoria: 'vapes', activo: true, orden: 35, agotado: true, nombre: "Flonq Max 10K", modelo: "10000 Puffs", precio: 45, img: "img/vapes/flonq_max_10k.webp", sabores: [
         { nombre: "Cherry Peach Lemonade", disponible: true },
         { nombre: "Watermelon Ice", disponible: true },
         { nombre: "Blue Lemonade", disponible: true },
