@@ -261,7 +261,7 @@ let listaProductos = [
         { nombre: "Watermelon", disponible: true },
         { nombre: "Mamba", disponible: true }
     ] },
-    { id: 12, categoria: 'vapes', activo: true, orden: 20, agotado: true, nombre: "Halo SYNIX 30K", modelo: "30000 Puffs", precio: 105, img: "img/vapes/halo_30k.webp", sabores: [
+    { id: 12, categoria: 'vapes', activo: true, orden: 20, agotado: false, nombre: "Halo SYNIX 30K", modelo: "30000 Puffs", precio: 105, img: "img/vapes/halo_30k.webp", sabores: [
         { nombre: "Strawberry Kiwi", disponible: true },
         { nombre: "Watermelon Ice", disponible: true },
         { nombre: "Mexican Mango", disponible: true },
