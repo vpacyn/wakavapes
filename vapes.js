@@ -655,7 +655,7 @@ let listaProductos = [
         { nombre: "Blue razz", disponible: true }
     ] },
 
-    // ========== PRODUCTOS DESACTIVADOS ==========
+   
 
     { id: 40, categoria: 'vapes', activo: true, orden: 57, agotado: false, nombre: "Waka Pro 30k", modelo: "30000 Puffs", precio: 215, img: "img/vapes/waka_new_30k.webp", sabores: [
         { nombre: "Strawberry Watermelon", disponible: true },
@@ -699,8 +699,17 @@ let listaProductos = [
 
     // ========== NUEVO PLACEHOLDER ==========
 
-    { id: 59, categoria: 'vapes', activo: false, orden: 60, agotado: false, nombre: "Nuevo Vape", modelo: "0 Puffs", precio: 0, img: "img/vapes/nuevo_vape.webp", sabores: [
-        { nombre: "Sabor 1", disponible: true }
+    { id: 59, categoria: 'vapes', activo: true, orden: 60, agotado: false, nombre: "Waka Optimus 100k", modelo: "100000 Puffs", precio: 295, img: "img/vapes/waka_100k.webp", sabores: [
+        { nombre: "Cool Mint", disponible: true },
+        { nombre: "Strawberry Kiwi", disponible: true },
+        { nombre: "Mr Peach", disponible: true },
+        { nombre: "Fresh Mint", disponible: true },
+        { nombre: "Strawberry", disponible: true },
+        { nombre: "Strawberry Grape", disponible: true },
+        { nombre: "Watermelon", disponible: true },
+        { nombre: "Grape Mint", disponible: true },
+        { nombre: "Peach Blue Raspberry", disponible: true }
+
     ] }
 
 ];

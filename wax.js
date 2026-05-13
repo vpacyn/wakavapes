@@ -12,7 +12,7 @@ const listaProductosWax = [
     { id: 106, categoria: 'wax', activo: false, orden: 6, agotado: false, nombre: "Pack woods 2G",  modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/packwoods_2g.jpeg", sabores: [] },
     { id: 107, categoria: 'wax', activo: true, orden: 7, agotado: false, nombre: "Big Chief",  modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/bigchief.webp", sabores: [] },
     { id: 108, categoria: 'wax', activo: true, orden: 8, agotado: false, nombre: "Muhameds 3.5g",  modelo: "3 Gramos", precio: "COTIZAR", img: "img/wax/muhameds.webp", sabores: [] },
-    { id: 110, categoria: 'wax', activo: false, orden: 9, agotado: false, nombre: "Whole Melt",  modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/rick_and_morty.webp", sabores: [] },
+    { id: 110, categoria: 'wax', activo: true, orden: 9, agotado: false, nombre: "Muhameds X Cookies",  modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/cookies_x_muhameds.webp", sabores: [] },
     { id: 111, categoria: 'wax', activo: true, orden: 9, agotado: false, nombre: "Rick and Morty 2G", modelo: "2 Gramos", precio: "COTIZAR", img: "img/wax/rick_and_morty.webp", sabores: [] },
     
     // ========== PRODUCTOS WAX INACTIVOS ==========
