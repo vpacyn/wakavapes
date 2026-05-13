@@ -710,6 +710,29 @@ let listaProductos = [
         { nombre: "Grape Mint", disponible: true },
         { nombre: "Peach Blue Raspberry", disponible: true }
 
+    ] },
+    
+    { id: 60, categoria: 'vapes', activo: true, orden: 61, agotado: false, nombre: "EBCREATE BC PRO 2026", modelo: "40000 Puffs", precio: 135, img: "img/vapes/ebcreate_bc_pro_40k.webp", sabores: [
+        { nombre: "Pink Lemonade", disponible: true },
+        { nombre: "Strawberry Kiwi", disponible: true },
+        { nombre: "Blue Razz Ice", disponible: true },
+        { nombre: "Strawberry Rasphberry Frost", disponible: true },
+        { nombre: "Triple Berry", disponible: true },
+        { nombre: "Watermelon Peach Frost", disponible: true },
+        { nombre: "Golden Berry", disponible: true },
+        { nombre: "Aurora Berries", disponible: true },
+        { nombre: "Sour Fcking Fab", disponible: true },
+        { nombre: "Pineapple POM", disponible: true },
+        { nombre: "Clear", disponible: true },
+        { nombre: "Toasted Pineapple", disponible: true },
+        { nombre: "Raspberry Mallo", disponible: true },
+        { nombre: "Tropical Baja", disponible: true },
+        { nombre: "Blackberry Grape", disponible: true },
+        { nombre: "Winter Mint", disponible: true },
+        { nombre: "Black Mint", disponible: true },
+        { nombre: "Strawberry Blend", disponible: true },
+        { nombre: "Sour Apple Ice", disponible: true },
+        { nombre: "Watermelon ice", disponible: true }
     ] }
 
 ];
