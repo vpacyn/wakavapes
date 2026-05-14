@@ -71,14 +71,14 @@ let listaProductos = [
         { nombre: "Passion Fruit", disponible: false }
     ] },
     { id: 3, categoria: 'vapes', activo: true, orden: 5, agotado: false, nombre: "Waka Titan 30K", modelo: "30000 Puffs", precio: 215, img: "img/vapes/waka_titan_30k.webp", sabores: [
-        { nombre: "Fresh Mint", disponible: true },
-        { nombre: "Watermelon Ice", disponible: true },
-        { nombre: "Peach Blue Raspberry Ice", disponible: true },
-        { nombre: "Sour Blueberry Raspberry Ice", disponible: true },
-        { nombre: "Strawberry Kiwi Ice", disponible: true },
-        { nombre: "Strawberry Mango Ice", disponible: true },
-        { nombre: "Juicy Grape Ice", disponible: true },
-        { nombre: "Cool Mint", disponible: true },
+        { nombre: "Fresh Mint", disponible: false },
+        { nombre: "Watermelon Ice", disponible: false },
+        { nombre: "Peach Blue Raspberry Ice", disponible: false },
+        { nombre: "Sour Blueberry Raspberry Ice", disponible: false },
+        { nombre: "Strawberry Kiwi Ice", disponible: false },
+        { nombre: "Strawberry Mango Ice", disponible: false },
+        { nombre: "Juicy Grape Ice", disponible: false },
+        { nombre: "Cool Mint", disponible: false },
         { nombre: "Cherry Soda Ice", disponible: true },
         { nombre: "Banana Berry Ice", disponible: true },
         { nombre: "Guava Raspberry Ice", disponible: true }
@@ -657,7 +657,7 @@ let listaProductos = [
 
    
 
-    { id: 40, categoria: 'vapes', activo: true, orden: 57, agotado: false, nombre: "Waka Pro 30k", modelo: "30000 Puffs", precio: 215, img: "img/vapes/waka_new_30k.webp", sabores: [
+    { id: 40, categoria: 'vapes', activo: true, orden: 57, agotado: true, nombre: "Waka Pro 30k", modelo: "30000 Puffs", precio: 215, img: "img/vapes/waka_new_30k.webp", sabores: [
         { nombre: "Strawberry Watermelon", disponible: true },
         { nombre: "Cherry Watermelon Mint", disponible: true },
         { nombre: "Fresh Mint", disponible: true },
