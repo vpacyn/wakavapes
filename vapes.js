@@ -83,7 +83,7 @@ let listaProductos = [
         { nombre: "Banana Berry Ice", disponible: true },
         { nombre: "Guava Raspberry Ice", disponible: true }
     ] },
-    { id: 52, categoria: 'vapes', activo: true, orden: 6, agotado: false, nombre: "Waka 25K", modelo: "25000 Puffs", precio: 195, img: "img/vapes/waka_25k.webp", sabores: [
+    { id: 52, categoria: 'vapes', activo: true, orden: 6, agotado: true, nombre: "Waka 25K", modelo: "25000 Puffs", precio: 195, img: "img/vapes/waka_25k.webp", sabores: [
         { nombre: "Blue Razz Blackberry", disponible: true },
         { nombre: "Triple Mango", disponible: false },
         { nombre: "Strawberry Banana", disponible: false },
@@ -193,7 +193,7 @@ let listaProductos = [
         { nombre: "Clear", disponible: true },
         { nombre: "Passion fruit mango", disponible: true }
     ] },
-    { id: 44, categoria: 'vapes', activo: true, orden: 13, agotado: false, nombre: "Ijoy Uranus 40k", modelo: "40000 Puffs", precio: 145, img: "img/vapes/ijoy_uranus_40k.webp", sabores: [
+    { id: 44, categoria: 'vapes', activo: true, orden: 13, agotado: true, nombre: "Ijoy Uranus 40k", modelo: "40000 Puffs", precio: 145, img: "img/vapes/ijoy_uranus_40k.webp", sabores: [
         { nombre: "Pink Lemonade", disponible: true },
         { nombre: "Juicy Peach ", disponible: true },
         { nombre: "Sour Apple", disponible: true },
@@ -444,7 +444,7 @@ let listaProductos = [
         { nombre: "Double Apple", disponible: true },
         { nombre: "Mango Peach", disponible: true }
     ] },
-    { id: 16, categoria: 'vapes', activo: true, orden: 40, agotado: false, nombre: "Pillow Talk", modelo: "8500 Puffs", precio: 38, img: "img/vapes/pillow_talk_8.5k.webp", sabores: [
+    { id: 16, categoria: 'vapes', activo: true, orden: 40, agotado: true, nombre: "Pillow Talk", modelo: "8500 Puffs", precio: 38, img: "img/vapes/pillow_talk_8.5k.webp", sabores: [
         { nombre: "Tango Mango", disponible: true },
         { nombre: "Toffee Nut", disponible: true },
         { nombre: "Peach Mango Pineapple", disponible: true },
