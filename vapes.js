@@ -735,7 +735,7 @@ let listaProductos = [
         { nombre: "Watermelon ice", disponible: true }
     ] },
 
- { id: 61, categoria: 'vapes', activo: false, orden: 61, agotado: false, nombre: "Nexa Ultra 50k", modelo: "50000 Puffs", precio: 140, img: "img/vapes/nexa50k.webp", sabores: [
+ { id: 61, categoria: 'vapes', activo: false, orden: 62, agotado: false, nombre: "Nexa Ultra 50k", modelo: "50000 Puffs", precio: 135, img: "img/vapes/nexa_50k.webp", sabores: [
         { nombre: "White Gummy Ice", disponible: true },
         { nombre: "Sour Apple Ice", disponible: true },
         { nombre: "Watermelon Ice", disponible: true },
@@ -749,6 +749,27 @@ let listaProductos = [
         { nombre: "Strawberry Banana", disponible: true },
         { nombre: "Triple Berry", disponible: true },
         { nombre: "Cool Mint", disponible: true },
-]}
+]},
+ 
+{ id: 62, categoria: 'vapes', activo: false, orden: 63, agotado: false, nombre: "Extre Bar 40k", modelo: "40000 Puffs", precio: 135, img: "img/vapes/extre_40k.webp", sabores: [
+        { nombre: "Pink & Blue ", disponible: true },
+        { nombre: "Miami Mint", disponible: true },
+        { nombre: "Cool Mint", disponible: true },
+        { nombre: "Sour Straws", disponible: true },
+        { nombre: "Sour Apple Ice ", disponible: true },
+        { nombre: "Banana Taffy Freeze", disponible: true },
+        { nombre: "Blue Razz Ice", disponible: true },
+        { nombre: "Watermelon Ice", disponible: true },
+        { nombre: "Blue Ranch Burst", disponible: true },
+        { nombre: "Strawberry Watermelon", disponible: true },
+        { nombre: "BlackBerry B-Burst", disponible: true },
+        { nombre: "Strawberry B-Burst", disponible: true },
+        { nombre: "Miami Mint", disponible: true },
+        { nombre: "Sour Fcuking Fab", disponible: true },
+        { nombre: "Sour Mango Pineapple", disponible: true },
+        { nombre: "Strawberry Kiwi Ice", disponible: true },
 
-];
+
+]},
+
+]
