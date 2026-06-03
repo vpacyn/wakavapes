@@ -791,5 +791,20 @@ let listaProductos = [
 
 
 ]},
+{ id: 64, categoria: 'vapes', activo: false, orden: 65, agotado: false, nombre: "Waka Jupiter 50k", modelo: "50000 Puffs", precio: 250, img: "img/vapes/waka_jupiter_50k.webp", sabores: [
+        { nombre: "Greape Gummy", disponible: true },
+        { nombre: "Blueberry Rasphberry", disponible: true },
+        { nombre: "Fresh Mint", disponible: true },
+        { nombre: "Blue Razz Blackberry", disponible: true },
+        { nombre: "Cranberry Grape", disponible: true },
+        { nombre: "Watermelon Chill ", disponible: true },
+        { nombre: "Dark Cherry", disponible: true },
+        { nombre: "Triple Berry", disponible: true },
+        { nombre: "Strawberry Raspberry", disponible: true },
+        { nombre: "Cranberry Lemon", disponible: true },
+        { nombre: "Sour Watermelon Peach", disponible: true },
+]},
+
+
 
 ]
