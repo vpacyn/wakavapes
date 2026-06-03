@@ -771,5 +771,25 @@ let listaProductos = [
 
 
 ]},
+{ id: 63, categoria: 'vapes', activo: false, orden: 64, agotado: false, nombre: "Elux Astra 50k", modelo: "50000 Puffs", precio: 140, img: "img/vapes/elux_50k.webp", sabores: [
+        { nombre: "Mixed Fruit ", disponible: true },
+        { nombre: "Juicy Peach", disponible: true },
+        { nombre: "Miami Mint", disponible: true },
+        { nombre: "Pink Lemonade", disponible: true },
+        { nombre: "Strawnana", disponible: true },
+        { nombre: "Watermelon Ice ", disponible: true },
+        { nombre: "Tiger Blood", disponible: true },
+        { nombre: "Gummy Bear ", disponible: true },
+        { nombre: "Strawberry Ice", disponible: true },
+        { nombre: "Crazy Berry", disponible: true },
+        { nombre: "Strawberry ice", disponible: true },
+        { nombre: "Tobacco", disponible: true },
+        { nombre: "Blue Razz ice", disponible: true },
+        { nombre: "Sour Fcuking Fab", disponible: true },
+        { nombre: "Sour Mango Pineapple", disponible: true },
+        { nombre: "Strawberry Kiwi Ice", disponible: true },
+
+
+]},
 
 ]
