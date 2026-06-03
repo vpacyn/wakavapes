@@ -336,7 +336,7 @@ let listaProductos = [
         { nombre: "Watermelon Ice", disponible: true },
         { nombre: "Sour Lush Gummy", disponible: true }
     ] },
-    { id: 19, categoria: 'vapes', activo: true, orden: 30, agotado: false, nombre: "RifBar 15K", modelo: "15000 Puffs", precio: 75, img: "img/vapes/rifbar_15k.webp", sabores: [
+    { id: 19, categoria: 'vapes', activo: true, orden: 30, agotado: true, nombre: "RifBar 15K", modelo: "15000 Puffs", precio: 75, img: "img/vapes/rifbar_15k.webp", sabores: [
         { nombre: "Kiwi Passion Fruit Guava", disponible: true },
         { nombre: "Lush Ice", disponible: true },
         { nombre: "Blue Razz", disponible: true },
@@ -733,6 +733,22 @@ let listaProductos = [
         { nombre: "Strawberry Blend", disponible: true },
         { nombre: "Sour Apple Ice", disponible: true },
         { nombre: "Watermelon ice", disponible: true }
-    ] }
+    ] },
+
+ { id: 61, categoria: 'vapes', activo: false, orden: 61, agotado: false, nombre: "Nexa Ultra 50k", modelo: "50000 Puffs", precio: 140, img: "img/vapes/nexa50k.webp", sabores: [
+        { nombre: "White Gummy Ice", disponible: true },
+        { nombre: "Sour Apple Ice", disponible: true },
+        { nombre: "Watermelon Ice", disponible: true },
+        { nombre: "Fcuking FAB", disponible: true },
+        { nombre: "Strawberry Colada", disponible: true },
+        { nombre: "Guava Pinneaple Shake", disponible: true },
+        { nombre: "Cool Mint", disponible: true },
+        { nombre: "Winter Green ", disponible: true },
+        { nombre: "Georgia Peach Ice", disponible: true },
+        { nombre: "Sour Watermelon", disponible: true },
+        { nombre: "Strawberry Banana", disponible: true },
+        { nombre: "Triple Berry", disponible: true },
+        { nombre: "Cool Mint", disponible: true },
+]}
 
 ];
