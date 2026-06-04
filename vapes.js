@@ -798,7 +798,7 @@ let listaProductos = [
 
     // ══════════════════════════════════════════════════
     //  IDs LIBRES — disponibles para nuevos productos
-    //  6 | 14 | 17 | 26 | 27 | 46 | 58
+    //  6 (usado)| 14 | 17 | 26 | 27 | 46 | 58
     // ══════════════════════════════════════════════════
 
     // — Borradores para rellenar (últimos 2 IDs activos: 63 y 64) —
