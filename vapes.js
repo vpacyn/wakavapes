@@ -2,7 +2,7 @@ let listaProductos = [
 
     // ========== WAKA (primero, de mayor a menor puffs) ==========
 
-    { id: 36, categoria: 'vapes', activo: true, orden: 1, agotado: false, nombre: "Maskking Extre 100K", modelo: "100000 Puffs", precio: 260, img: "img/vapes/maskking_100k.webp", sabores: [
+    { id: 36, categoria: 'vapes', activo: true, orden: 1, agotado: true, nombre: "Maskking Extre 100K", modelo: "100000 Puffs", precio: 260, img: "img/vapes/maskking_100k.webp", sabores: [
         { nombre: "Banana Taffi Freeze", disponible: true },
         { nombre: "Wild Cherry Slush", disponible: true },
         { nombre: "Fruity Cool Strawberry", disponible: true },
@@ -146,7 +146,7 @@ let listaProductos = [
 
     // ========== RESTO DE PRODUCTOS (de mayor a menor puffs) ==========
 
-    { id: 56, categoria: 'vapes', activo: true, orden: 10, agotado: false, nombre: "Geek Bar 50k", modelo: "50000 Puffs", precio: 245, img: "img/vapes/geek_bar_50k.webp", sabores: [
+    { id: 56, categoria: 'vapes', activo: true, orden: 10, agotado: true, nombre: "Geek Bar 50k", modelo: "50000 Puffs", precio: 245, img: "img/vapes/geek_bar_50k.webp", sabores: [
         { nombre: "Watermelon BubbleGum", disponible: true },
         { nombre: "Grape Ice", disponible: true },
         { nombre: "Strawberry Ice", disponible: true },
@@ -261,7 +261,7 @@ let listaProductos = [
         { nombre: "Watermelon", disponible: true },
         { nombre: "Mamba", disponible: true }
     ] },
-    { id: 12, categoria: 'vapes', activo: true, orden: 20, agotado: false, nombre: "Halo SYNIX 30K", modelo: "30000 Puffs", precio: 105, img: "img/vapes/halo_30k.webp", sabores: [
+    { id: 12, categoria: 'vapes', activo: true, orden: 20, agotado: false, nombre: "Halo SYNIX 30K", modelo: "30000 Puffs", precio: 95, img: "img/vapes/halo_30k.webp", sabores: [
         { nombre: "Strawberry Kiwi", disponible: true },
         { nombre: "Watermelon Ice", disponible: true },
         { nombre: "Mexican Mango", disponible: true },
@@ -285,11 +285,11 @@ let listaProductos = [
         { nombre: "Dragon Stranana", disponible: true },
         { nombre: "Red Bom", disponible: true }
     ] },
-    { id: 20, categoria: 'vapes', activo: true, orden: 23, agotado: false, nombre: "Velocity 25K", modelo: "25000 Puffs", precio: 45, img: "img/vapes/velocity_25k.webp", sabores: [
+    { id: 20, categoria: 'vapes', activo: true, orden: 23, agotado: true, nombre: "Velocity 25K", modelo: "25000 Puffs", precio: 45, img: "img/vapes/velocity_25k.webp", sabores: [
         { nombre: "Strawberry Kiwi", disponible: true },
         { nombre: "Blue Cotton Candy", disponible: true }
     ] },
-    { id: 8, categoria: 'vapes', activo: true, orden: 24, agotado: false, nombre: "Elux Cyberover", modelo: "18000 Puffs", precio: 75, img: "img/vapes/elux_18k.webp", sabores: [
+    { id: 8, categoria: 'vapes', activo: true, orden: 24, agotado: true, nombre: "Elux Cyberover", modelo: "18000 Puffs", precio: 75, img: "img/vapes/elux_18k.webp", sabores: [
         { nombre: "Confusion", disponible: true }
     ] },
     { id: 18, categoria: 'vapes', activo: true, orden: 25, agotado: false, nombre: "Dominion 16K", modelo: "16000 Puffs", precio: 85, img: "img/vapes/dominion_16k.webp", sabores: [
@@ -431,7 +431,7 @@ let listaProductos = [
         { nombre: "Strawberry Ice Cream", disponible: true },
         { nombre: "Cola Ice", disponible: true }
     ] },
-    { id: 23, categoria: 'vapes', activo: true, orden: 39, agotado: false, nombre: "Bugatti 9K", modelo: "9000 Puffs", precio: 45, img: "img/vapes/buggati_6k.webp", sabores: [
+    { id: 23, categoria: 'vapes', activo: true, orden: 39, agotado: true, nombre: "Bugatti 9K", modelo: "9000 Puffs", precio: 45, img: "img/vapes/buggati_6k.webp", sabores: [
         { nombre: "Mint Ice", disponible: true },
         { nombre: "Black Ice", disponible: true },
         { nombre: "Coffee", disponible: true },
@@ -771,7 +771,7 @@ let listaProductos = [
 
 
 ]},
-{ id: 63, categoria: 'vapes', activo: false, orden: 64, agotado: false, nombre: "Elux Astra 50k", modelo: "50000 Puffs", precio: 140, img: "img/vapes/elux_50k.webp", sabores: [
+{ id: 63, categoria: 'vapes', activo: true  , orden: 64, agotado: false, nombre: "Elux Astra 50k", modelo: "50000 Puffs", precio: 140, img: "img/vapes/elux_50k.webp", sabores: [
         { nombre: "Mixed Fruit ", disponible: true },
         { nombre: "Juicy Peach", disponible: true },
         { nombre: "Miami Mint", disponible: true },
@@ -791,7 +791,7 @@ let listaProductos = [
 
 
 ]},
-{ id: 64, categoria: 'vapes', activo: false, orden: 65, agotado: false, nombre: "Waka Jupiter 50k", modelo: "50000 Puffs", precio: 250, img: "img/vapes/waka_jupiter_50k.webp", sabores: [
+{ id: 64, categoria: 'vapes', activo: true , orden: 65, agotado: false, nombre: "Waka Jupiter 50k", modelo: "50000 Puffs", precio: 250, img: "img/vapes/waka_jupiter_50k.webp", sabores: [
         { nombre: "Greape Gummy", disponible: true },
         { nombre: "Blueberry Rasphberry", disponible: true },
         { nombre: "Fresh Mint", disponible: true },
