@@ -751,7 +751,7 @@ let listaProductos = [
         { nombre: "Blue Raspberry", disponible: true }
     ]},
 
-    { id: 61, categoria: 'vapes', activo: false, orden: 56, agotado: false, nombre: "Nexa Ultra 50k", modelo: "50000 Puffs", precio: 135, img: "img/vapes/nexa_ultra_50k.webp", sabores: [
+    { id: 61, categoria: 'vapes', activo: true, orden: 56, agotado: false, nombre: "Nexa Ultra 50k", modelo: "50000 Puffs", precio: 135, img: "img/vapes/nexa_ultra_50k.webp", sabores: [
         { nombre: "White Gummy Ice", disponible: true },
         { nombre: "Sour Apple Ice", disponible: true },
         { nombre: "Watermelon Ice", disponible: true },
