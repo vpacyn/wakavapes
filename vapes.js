@@ -16,7 +16,7 @@ let listaProductos = [
         { nombre: "Peach Blue Raspberry", disponible: true }
     ]},
 
-    { id: 64, categoria: 'vapes', activo: false, orden: 2, agotado: false, nombre: "Waka Jupiter 50k", modelo: "50000 Puffs", precio: 250, img: "img/vapes/waka_jupiter_50k.webp", sabores: [
+    { id: 64, categoria: 'vapes', activo: true, orden: 2, agotado: false, nombre: "Waka Jupiter 50k", modelo: "50000 Puffs", precio: 250, img: "img/vapes/waka_jupiter_50k.webp", sabores: [
         { nombre: "Greape Gummy", disponible: true },
         { nombre: "Blueberry Rasphberry", disponible: true },
         { nombre: "Fresh Mint", disponible: true },
@@ -766,7 +766,7 @@ let listaProductos = [
         { nombre: "Triple Berry", disponible: true }
     ]},
 
-    { id: 62, categoria: 'vapes', activo: false, orden: 57, agotado: false, nombre: "Extre Bar 40k", modelo: "40000 Puffs", precio: 135, img: "img/vapes/extre_40k.webp", sabores: [
+    { id: 62, categoria: 'vapes', activo: true, orden: 57, agotado: false, nombre: "Extre Bar 40k", modelo: "40000 Puffs", precio: 135, img: "img/vapes/extrebar_40k.webp", sabores: [
         { nombre: "Pink & Blue", disponible: true },
         { nombre: "Miami Mint", disponible: true },
         { nombre: "Cool Mint", disponible: true },
@@ -783,7 +783,7 @@ let listaProductos = [
         { nombre: "Sour Mango Pineapple", disponible: true },
         { nombre: "Strawberry Kiwi Ice", disponible: true }
     ]},
-     { id: 6, categoria: 'vapes', activo: false, orden: 58, agotado: false, nombre: "Waka Blast 50k", modelo: "50000 Puffs", precio: 250, img: "img/vapes/waka_blast_50k.webp", sabores: [
+     { id: 6, categoria: 'vapes', activo: true, orden: 58, agotado: false, nombre: "Waka Blast 50k", modelo: "50000 Puffs", precio: 250, img: "img/vapes/waka_blast_50k.webp", sabores: [
         { nombre: "Strawberry Kiwi", disponible: true },
         { nombre: "Mango Peach Watermelon", disponible: true },
         { nombre: "Blueberry Raspberry", disponible: true },
