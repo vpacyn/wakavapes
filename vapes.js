@@ -4,7 +4,7 @@ let listaProductos = [
     //  WAKA — de mayor a menor puffs
     // ══════════════════════════════════════════════════
 
-    { id: 59, categoria: 'vapes', activo: true, orden: 1, agotado: false, nombre: "Waka Optimus 100k", modelo: "100000 Puffs", precio: 295, img: "img/vapes/waka_100k.webp", sabores: [
+    { id: 59, categoria: 'vapes', activo: true, orden: 1, agotado: true, nombre: "Waka Optimus 100k", modelo: "100000 Puffs", precio: 295, img: "img/vapes/waka_100k.webp", sabores: [
         { nombre: "Cool Mint", disponible: true },
         { nombre: "Strawberry Kiwi", disponible: true },
         { nombre: "Mr Peach", disponible: true },
@@ -16,7 +16,7 @@ let listaProductos = [
         { nombre: "Peach Blue Raspberry", disponible: true }
     ]},
 
-    { id: 64, categoria: 'vapes', activo: true, orden: 2, agotado: false, nombre: "Waka Jupiter 50k", modelo: "50000 Puffs", precio: 250, img: "img/vapes/waka_jupiter_50k.webp", sabores: [
+    { id: 64, categoria: 'vapes', activo: true, orden: 2, agotado: true, nombre: "Waka Jupiter 50k", modelo: "50000 Puffs", precio: 250, img: "img/vapes/waka_jupiter_50k.webp", sabores: [
         { nombre: "Greape Gummy", disponible: true },
         { nombre: "Blueberry Rasphberry", disponible: true },
         { nombre: "Fresh Mint", disponible: true },
@@ -636,7 +636,7 @@ let listaProductos = [
         { nombre: "Mango Peach Watermelon", disponible: true }
     ]},
 
-    { id: 37, categoria: 'vapes', activo: true, orden: 47, agotado: false, nombre: "Death Row 5K", modelo: "5000 Puffs", precio: 20, img: "img/vapes/death_row_5k.webp", sabores: [
+    { id: 37, categoria: 'vapes', activo: true, orden: 47, agotado: true, nombre: "Death Row 5K", modelo: "5000 Puffs", precio: 20, img: "img/vapes/death_row_5k.webp", sabores: [
         { nombre: "Blue Razz", disponible: true },
         { nombre: "Mango Grape", disponible: true },
         { nombre: "Cherry Ice", disponible: true },
