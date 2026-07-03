@@ -501,7 +501,7 @@ let listaProductos = [
         { nombre: "Cherry Berries", disponible: true }
     ]},
 
-    { id: 32, categoria: 'vapes', activo: true, orden: 37, agotado: false, nombre: "Tyson 2.0 7k", modelo: "7000 Puffs", precio: 40, img: "img/vapes/tyson_7k_2.0.webp", sabores: [
+    { id: 32, categoria: 'vapes', activo: false, orden: 37, agotado: false, nombre: "Tyson 2.0 7k", modelo: "7000 Puffs", precio: 40, img: "img/vapes/tyson_7k_2.0.webp", sabores: [
         { nombre: "Cherry Berry", disponible: true },
         { nombre: "Lush Lime", disponible: true },
         { nombre: "Pineapple Melon", disponible: true },
@@ -589,7 +589,7 @@ let listaProductos = [
         { nombre: "Soul Mint", disponible: true }
     ]},
 
-    { id: 33, categoria: 'vapes', activo: true, orden: 43, agotado: false, nombre: "Core 6k", modelo: "6000 Puffs", precio: 45, img: "img/vapes/core_6k.webp", sabores: [
+    { id: 33, categoria: 'vapes', activo: true, orden: 43, agotado: true, nombre: "Core 6k", modelo: "6000 Puffs", precio: 45, img: "img/vapes/core_6k.webp", sabores: [
         { nombre: "Strawberry Raspberry Cherry Ice", disponible: true },
         { nombre: "Strawberry Bubblegum", disponible: true },
         { nombre: "Pacific Cooler", disponible: true },
@@ -624,7 +624,7 @@ let listaProductos = [
         { nombre: "Cherry Cola", disponible: true }
     ]},
 
-    { id: 39, categoria: 'vapes', activo: true, orden: 46, agotado: false, nombre: "Fly Jumbo 5K", modelo: "5000 Puffs", precio: 40, img: "img/vapes/Fly_jumbo_5k.webp", sabores: [
+    { id: 39, categoria: 'vapes', activo: false, orden: 46, agotado: true, nombre: "Fly Jumbo 5K", modelo: "5000 Puffs", precio: 40, img: "img/vapes/Fly_jumbo_5k.webp", sabores: [
         { nombre: "Mixed Berries", disponible: true },
         { nombre: "Lush Ice", disponible: true },
         { nombre: "Blueberry Ice", disponible: true },
@@ -662,7 +662,7 @@ let listaProductos = [
         { nombre: "Lush Ice", disponible: true }
     ]},
 
-    { id: 47, categoria: 'vapes', activo: true, orden: 48, agotado: false, nombre: "Flask 4999", modelo: "5000 Puffs", precio: 30, img: "img/vapes/flask_5k.webp", sabores: [
+    { id: 47, categoria: 'vapes', activo: false, orden: 48, agotado: true, nombre: "Flask 4999", modelo: "5000 Puffs", precio: 30, img: "img/vapes/flask_5k.webp", sabores: [
         { nombre: "Rainbow Burst", disponible: true },
         { nombre: "Espresso Coffee", disponible: true },
         { nombre: "Energy Drink", disponible: true },
@@ -814,4 +814,13 @@ let listaProductos = [
         { nombre: "Sabor 2", disponible: true },
     ]},
 
+    { id: 67, categoria: 'vapes', activo: false, orden: 60, agotado: false, nombre: "NOMBRE DEL PRODUCTO", modelo: "XXXXX Puffs", precio: 0, img: "img/vapes/imagen.webp", sabores: [
+        { nombre: "Sabor 1", disponible: true },
+        { nombre: "Sabor 2", disponible: true },
+    ]},
+
+    { id: 68, categoria: 'vapes', activo: false, orden: 61, agotado: false, nombre: "NOMBRE DEL PRODUCTO", modelo: "XXXXX Puffs", precio: 0, img: "img/vapes/imagen.webp", sabores: [
+        { nombre: "Sabor 1", disponible: true },
+        { nombre: "Sabor 2", disponible: true },
+    ]},
 ]
