@@ -823,7 +823,7 @@ let listaProductos = [
         { nombre: "Triple Melon Mint", disponible: true }
     ]},
 
-    { id: 67, categoria: 'vapes', activo: true, orden: 60, agotado: false, nombre: "NKD MAX 4.5k", modelo: "4500 Puffs", precio: 13, img: "img/vapes/nkd_max_4.5k.jpeg", sabores: [
+    { id: 67, categoria: 'vapes', activo: true, orden: 60, agotado: false, nombre: "NDKMAX 4.5k", modelo: "4500 Puffs", precio: 13, img: "img/vapes/ndk_max_4.5k.jpeg", sabores: [
         { nombre: "Cherry Lemon", disponible: true },
         { nombre: "Sour Apple", disponible: true },
         { nombre: "Peach Mango", disponible: true },
