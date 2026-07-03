@@ -841,7 +841,7 @@ let listaProductos = [
         { nombre: "Slaaming Sour Gummy", disponible: true },
         { nombre: "Lemon Lime Soda", disponible: true },
         { nombre: "Froot Licious", disponible: true },
-        { nombre: "Bussin Banana", disponible: true },
+        { nombre: "Bussin Banana.", disponible: true },
 
     ]},
 ]
