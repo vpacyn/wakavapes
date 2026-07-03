@@ -804,7 +804,7 @@ let listaProductos = [
     // — Borradores para rellenar (últimos 2 IDs activos: 63 y 64) —
     // Siguiente orden disponible: 58 en adelante
 
-    { id: 65, categoria: 'vapes', activo: false, orden: 58, agotado: false, nombre: "GEEK USA PULSE 40k", modelo: "40000 Puffs", precio: 99, img: "img/vapes/geek_usa_40k.jpeg", sabores: [
+    { id: 65, categoria: 'vapes', activo: true, orden: 58, agotado: false, nombre: "GEEK USA PULSE 40k", modelo: "40000 Puffs", precio: 99, img: "img/vapes/geek_usa_40k.jpeg", sabores: [
         { nombre: "Watermelon Ice", disponible: true },
         { nombre: "Peach Mango Watermelon", disponible: true },
         { nombre: "Sour Mango Pineapple", disponible: true },
@@ -816,14 +816,14 @@ let listaProductos = [
 
     ]},
 
-    { id: 66, categoria: 'vapes', activo: false, orden: 59, agotado: false, nombre: "METEOR 70k", modelo: "70000 Puffs", precio: 115, img: "img/vapes/meteor_70k.jpeg", sabores: [
+    { id: 66, categoria: 'vapes', activo: true, orden: 59, agotado: false, nombre: "METEOR 70k", modelo: "70000 Puffs", precio: 115, img: "img/vapes/meteor_70k.jpeg", sabores: [
         { nombre: "Sour Apple", disponible: true },
         { nombre: "Kiwi Guava Passion Fruit", disponible: true },
         { nombre: "Strawberry Kiwi", disponible: true },
         { nombre: "Triple Melon Mint", disponible: true }
     ]},
 
-    { id: 67, categoria: 'vapes', activo: false, orden: 60, agotado: false, nombre: "NKD MAX 4.5k", modelo: "4500 Puffs", precio: 13, img: "img/vapes/nkd_max_4.5k.jpeg", sabores: [
+    { id: 67, categoria: 'vapes', activo: true, orden: 60, agotado: false, nombre: "NKD MAX 4.5k", modelo: "4500 Puffs", precio: 13, img: "img/vapes/nkd_max_4.5k.jpeg", sabores: [
         { nombre: "Cherry Lemon", disponible: true },
         { nombre: "Sour Apple", disponible: true },
         { nombre: "Peach Mango", disponible: true },
@@ -833,7 +833,7 @@ let listaProductos = [
         { nombre: "Blue Lemium", disponible: true },
     ]},
 
-    { id: 68, categoria: 'vapes', activo: false, orden: 61, agotado: false, nombre: "Flavors BEATS 50k", modelo: "50000 Puffs", precio: 99, img: "img/vapes/flavor_beast_50k.jpeg", sabores: [
+    { id: 68, categoria: 'vapes', activo: true, orden: 61, agotado: false, nombre: "Flavors BEATS 50k", modelo: "50000 Puffs", precio: 99, img: "img/vapes/flavor_beast_50k.jpeg", sabores: [
         { nombre: "Orange Soda", disponible: true },
         { nombre: "Wekeend Watermelon", disponible: true },
         { nombre: "Packin Peach Berry", disponible: true },
