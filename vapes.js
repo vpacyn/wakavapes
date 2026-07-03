@@ -674,7 +674,7 @@ let listaProductos = [
         { nombre: "Sabores Mixtos", disponible: true }
     ]},
 
-    { id: 13, categoria: 'vapes', activo: true, orden: 49, agotado: false, nombre: "Fuman Spirit 8K", modelo: "8000 Puffs", precio: 25, img: "img/vapes/fuman_spirit_8k.webp", sabores: [
+    { id: 13, categoria: 'vapes', activo: false, orden: 49, agotado: true, nombre: "Fuman Spirit 8K", modelo: "8000 Puffs", precio: 25, img: "img/vapes/fuman_spirit_8k.webp", sabores: [
         { nombre: "Wild Berries", disponible: true },
         { nombre: "Sweet Watermelon", disponible: true },
         { nombre: "Strawberry Mango Lime", disponible: true },
@@ -766,7 +766,7 @@ let listaProductos = [
         { nombre: "Triple Berry", disponible: true }
     ]},
 
-    { id: 62, categoria: 'vapes', activo: true, orden: 57, agotado: false, nombre: "Extre Bar 40k", modelo: "40000 Puffs", precio: 135, img: "img/vapes/extrebar_40k.webp", sabores: [
+    { id: 62, categoria: 'vapes', activo: true, orden: 57, agotado: false, nombre: "Extre Bar 40k", modelo: "40000 Puffs", precio: 125, img: "img/vapes/extrebar_40k.webp", sabores: [
         { nombre: "Pink & Blue", disponible: true },
         { nombre: "Miami Mint", disponible: true },
         { nombre: "Cool Mint", disponible: true },
