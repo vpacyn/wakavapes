@@ -844,4 +844,38 @@ let listaProductos = [
         { nombre: "Bussin Banana.", disponible: true },
 
     ]},
+     { id: 69, categoria: 'vapes', activo: true, orden: 62, agotado: false, nombre: "Suonon 50k", modelo: "50000 Puffs", precio: 99, img: "img/vapes/flavor_beast_50k.jpeg", sabores: [
+        { nombre: "Miami Mint", disponible: true },
+        { nombre: "Blue Razz Ice", disponible: true },
+        { nombre: "Fcking Fab", disponible: true },
+        { nombre: "Berry Crush", disponible: true },
+        { nombre: "Sour Chill Apple", disponible: true },
+        { nombre: "Dragon Melon", disponible: true },
+        { nombre: "Freezy Pina Colada", disponible: true },
+        { nombre: "Black Berry FAB", disponible: true },
+        { nombre: "Watermelon Ice", disponible: true },
+        { nombre: "The Mighty Peach", disponible: true },
+        { nombre: "Blue Watermelon", disponible: true },
+        { nombre: "The Mighty Straw", disponible: true },
+        { nombre: "The Mighty Grape", disponible: true },
+        { nombre: "B Burst", disponible: true },
+        { nombre: "The Mighty Mango", disponible: true },
+        { nombre: "Freezy Banana", disponible: true },
+
+    ]},
+
+     { id: 70, categoria: 'vapes', activo: true, orden: 63, agotado: false, nombre: "Tomoro 35k", modelo: "35000 Puffs", precio: 95, img: "img/vapes/flavor_beast_50k.jpeg", sabores: [
+        { nombre: "Mexico Mango", disponible: true },
+        { nombre: "Blue Razz Ice", disponible: true },
+        { nombre: "Strawberry Banana", disponible: true },
+        { nombre: "Meta Moon", disponible: true },
+        { nombre: "Watermelon Smash", disponible: true },
+        { nombre: "Miami Mint", disponible: true },
+        { nombre: "Sour Apple Ice", disponible: true },
+        { nombre: "B-POP", disponible: true },
+        { nombre: "Juicy Peach", disponible: true },
+        { nombre: "Sour Fcking Fab", disponible: true },
+
+    ]},
 ]
+
