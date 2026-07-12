@@ -57,6 +57,31 @@ p, label, input, button, span, div, select, textarea, a {
    2. PALETA DE COLORES Y VARIABLES (SISTEMA DE DISEÑO)
    ========================================================================== */
 :root {
+    /* ══════════════════════════════════════════════════════
+       SISTEMA DE CAPAS (Z-INDEX) — EDITA SOLO AQUÍ
+       Cada capa vive en su propio "piso". Si algo se encima
+       mal, ajusta la variable, NUNCA pongas números sueltos.
+       ┌─────────────────────────────────────────┐
+       │ --z-toast    4000  avisos (siempre top) │
+       │ --z-alerta   3000  alertas / prompts    │
+       │ --z-modal    2000  modal de producto    │
+       │ --z-panel    1100  panel carrito        │
+       │ --z-flotante 1000  botones flotantes    │
+       │ --z-dropdown  900  resultados búsqueda  │
+       │ --z-header    800  ticker + navbar      │
+       │ --z-sticky    500  headers pegajosos    │
+       │ --z-contenido   1  contenido normal     │
+       └─────────────────────────────────────────┘ */
+    --z-contenido: 1;
+    --z-sticky: 500;
+    --z-header: 800;
+    --z-dropdown: 900;
+    --z-flotante: 1000;
+    --z-panel: 1100;
+    --z-modal: 2000;
+    --z-alerta: 3000;
+    --z-toast: 4000;
+
     --gold-primary: #D4AF37;
     --gold-light: #F9E79F;
     --gold-dark: #AA771C;
@@ -141,7 +166,7 @@ body.modal-open { overflow: hidden; padding-right: 0px; height: 100vh; }
      backdrop-filter: blur(20px) saturate(160%);
      -webkit-backdrop-filter: blur(20px) saturate(160%);
      border-bottom: 1px solid rgba(80, 80, 80, 0.3);
-     z-index: 800;
+     z-index: var(--z-header);
      display: flex; justify-content: center; align-items: center;
      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
 }
@@ -193,7 +218,7 @@ nav {
     position: fixed; top: 35px; left: 0; width: 100%;
     background: rgba(45, 45, 45, 0.95);
     border-bottom: 1px solid rgba(80, 80, 80, 0.3);
-    z-index: 2200; padding: 15px 25px;
+    z-index: var(--z-header); padding: 15px 25px;
     backdrop-filter: blur(32px) saturate(180%);
     -webkit-backdrop-filter: blur(32px) saturate(180%);
     box-shadow: 0 2px 16px rgba(0,0,0,0.3);
@@ -240,7 +265,7 @@ nav:hover { background: rgba(55, 55, 55, 0.98); }
 .lista-resultados {
     display: none; position: absolute; top: 55px; left: 0; width: 100%;
     background: rgba(35, 35, 35, 0.98); border: 1px solid rgba(100, 100, 100, 0.3);
-    border-radius: 15px; z-index: 3000; max-height: 400px; overflow-y: auto;
+    border-radius: 15px; z-index: var(--z-dropdown); max-height: 400px; overflow-y: auto;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     animation: slideDown 0.2s ease-out; contain: layout style;
     will-change: transform, opacity;
@@ -352,7 +377,7 @@ nav:hover { background: rgba(55, 55, 55, 0.98); }
     backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
     color: #e0e0e0;
     box-shadow: 0 8px 24px rgba(0,0,0,0.4), 0 0 12px rgba(200, 200, 200, 0.15), inset 0 1px 0 rgba(255,255,255,0.1);
-    cursor: pointer; z-index: 3500;
+    cursor: pointer; z-index: var(--z-flotante);
     transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border 0.25s ease;
 }
 .btn-floating-top:hover {
@@ -699,7 +724,7 @@ header.site-header {
 }
 
 .carrito-header-sticky {
-    position: sticky; top: 110px; z-index: 100;
+    position: sticky; top: 110px; z-index: var(--z-sticky);
     background: linear-gradient(180deg, #1a1a1a 0%, #151515 100%);
     padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; margin-bottom: 15px;
@@ -751,7 +776,7 @@ header.site-header {
    8. MODAL DE PRODUCTO
    ========================================================================== */
 .modal {
-    display: none !important; position: fixed !important; z-index: 6000 !important; inset: 0 !important;
+    display: none !important; position: fixed !important; z-index: var(--z-modal) !important; inset: 0 !important;
     width: 100vw !important; height: 100vh !important;
     background: linear-gradient(135deg, rgba(30, 30, 35, 0.75) 0%, rgba(20, 20, 25, 0.8) 50%, rgba(30, 30, 35, 0.75) 100%);
     display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -1093,8 +1118,8 @@ footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px so
     .slogan { font-size: 0.8rem; letter-spacing: 4px; }
     .floating-cart-panel { right: 10px; left: 10px; bottom: 88px; max-height: 68vh; }
     .floating-cart-list { max-height: 180px; }
-    .btn-whatsapp { width: 62px; height: 62px; }
-    .btn-whatsapp i { font-size: 1.7rem; }
+    .btn-whatsapp { width: 52px; height: 52px; }
+    .btn-whatsapp i { font-size: 1.45rem; }
     .footer-compra-sticky { padding: 14px 16px; }
     .total-final #total-precio { font-size: 1.5rem; }
     .boton-pedir { padding: 11px 20px; font-size: 0.9rem; }
@@ -1122,7 +1147,7 @@ footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px so
     .btn-quitar-carrito { padding: 10px 16px; font-size: 0.82rem; gap: 5px; border-radius: 30px; }
     .btn-quitar-carrito i { font-size: 0.95rem; }
     .boton-whatsapp-modal { padding: 10px 16px; font-size: 0.82rem; gap: 5px; border-radius: 30px; }
-    .btn-whatsapp { width: 58px; height: 58px; right: 14px; bottom: 14px; }
+    .btn-whatsapp { width: 52px; height: 52px; right: 14px; bottom: 14px; }
     .btn-whatsapp i { font-size: 1.5rem; }
     .boton-pedir { padding: 10px 14px; font-size: 0.85rem; }
     .floating-cart-panel { right: 8px; left: 8px; bottom: 82px; max-height: 62vh; }
@@ -1179,8 +1204,8 @@ footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px so
     .controles-carrito-card .qty-number { font-size: 0.9rem; min-width: 24px; }
     .precio-card { font-size: 1.2rem; }
     .btn-agregar-card { padding: 7px 12px; font-size: 0.85rem; }
-    .btn-whatsapp { width: 54px; height: 54px; right: 12px; bottom: 12px; }
-    .btn-whatsapp i { font-size: 1.4rem; }
+    .btn-whatsapp { width: 50px; height: 50px; right: 12px; bottom: 12px; }
+    .btn-whatsapp i { font-size: 1.35rem; }
     .floating-cart-panel { right: 6px; left: 6px; bottom: 78px; max-height: 58vh; }
     .floating-cart-list { max-height: 120px; }
     .floating-cart-item { padding: 8px; gap: 8px; }
@@ -1265,15 +1290,15 @@ footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px so
     .boton-pedir { padding: 8px 12px; font-size: 0.75rem; min-width: 110px; }
     .btn-quitar-carrito { padding: 8px 12px; font-size: 0.75rem; min-width: 110px; }
     .boton-whatsapp-modal { padding: 8px 12px; font-size: 0.75rem; min-width: 110px; }
-    .btn-whatsapp { width: 50px; height: 50px; right: 10px; bottom: 10px; }
-    .btn-whatsapp i { font-size: 1.3rem; }
+    .btn-whatsapp { width: 48px; height: 48px; right: 10px; bottom: 10px; }
+    .btn-whatsapp i { font-size: 1.25rem; }
     .floating-cart-panel { right: 4px; left: 4px; bottom: 72px; max-height: 55vh; }
     .floating-cart-list { max-height: 100px; }
 }
 
 /* Floating WhatsApp Button and Panel */
 .toast {
-    display: none; position: fixed; top: 95px; right: 18px; z-index: 4000;
+    display: none; position: fixed; top: 95px; right: 18px; z-index: var(--z-toast);
     background: linear-gradient(145deg, #2d2d2d 0%, #252525 100%); color: #fff; border: 1px solid rgba(100, 100, 100, 0.35);
     padding: 10px 14px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.5);
     align-items: center; gap: 8px; min-width: 220px;
@@ -1282,7 +1307,7 @@ footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px so
 .toast .toast-content { display:flex; align-items:center; gap:10px; }
 @keyframes toastIn { from { transform: translateY(-10px) translateX(10px); opacity: 0; } to { transform: translateY(0) translateX(0); opacity: 1; } }
 
-.success-alert { position: fixed; right: 18px; top: 110px; z-index: 9500; display: none; pointer-events: none; }
+.success-alert { position: fixed; right: 18px; top: 110px; z-index: var(--z-toast); display: none; pointer-events: none; }
 .success-alert .success-card {
     display: flex; align-items: center; gap:12px;
     background: linear-gradient(180deg, rgba(37,211,102,0.12), rgba(37,211,102,0.07));
@@ -1319,11 +1344,11 @@ footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px so
     .success-alert .success-text { font-size: 0.75rem; }
 }
 
-.custom-alert-overlay { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; z-index: 99999; background: rgba(0,0,0,0.6); }
+.custom-alert-overlay { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; z-index: var(--z-alerta); background: rgba(0,0,0,0.6); }
 .custom-alert-box {
     background: linear-gradient(180deg, #2a2a2a 0%, #1e1e1e 100%); border: 1px solid rgba(100, 100, 100, 0.4);
     padding: 24px; width: 90%; max-width: 420px; border-radius: 16px; display: flex; gap:14px; flex-direction: column; align-items: center;
-    z-index: 100000; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    z-index: var(--z-contenido); box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
 .custom-alert-box .alert-icon { background: rgba(180,180,180,0.12); color: #b0b0b0; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.8rem; border: 1px solid rgba(180,180,180,0.25); }
 .custom-alert-box h3 { margin:0; color: #d4d4d4; font-size: 1.1rem; letter-spacing: 1px; }
@@ -1331,33 +1356,119 @@ footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px so
 .btn-alert { background: linear-gradient(135deg, #888888 0%, #6a6a6a 100%); color:#ffffff; padding:12px 28px; border-radius:12px; border:none; font-weight:700; cursor:pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(150, 150, 150, 0.25); }
 .btn-alert:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(150, 150, 150, 0.35); }
 
+/* ── BOTÓN FLOTANTE CARRITO (encima del WhatsApp) ─────────────────────
+   Misma silueta circular que el WhatsApp original, pero en oscuro/neutro
+   para no competir visualmente. Lleva el badge de cantidad. */
+.btn-carrito-flotante {
+    position: fixed;
+    right: 18px;
+    bottom: 94px; /* Justo encima del botón WA (18 + 64 + 12) */
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(40, 40, 40, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: var(--z-flotante);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+.btn-carrito-flotante i {
+    font-size: 1.5rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .btn-carrito-flotante:hover {
+        transform: translateY(-2px);
+        background: rgba(55, 55, 55, 0.96);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    }
+}
+
+.btn-carrito-flotante:active {
+    transform: scale(0.94);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Badge de cantidad sobre el botón carrito flotante */
+.badge-flotante-carrito {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--rojo-alerta);
+    color: white;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 900;
+    padding: 0 5px;
+    box-sizing: border-box;
+    border: 2px solid #1f1f1f;
+    box-shadow: 0 2px 6px rgba(192, 57, 43, 0.5);
+    z-index: 10;
+}
+
+/* ── BOTÓN WHATSAPP FLOTANTE — MINIMALISTA ─────────────────────────────
+   Solo contacto. Sin animación de pulso ni halo exagerado.
+   Presencia limpia, sin gritar. */
 .btn-whatsapp {
-    position: fixed; right: 18px; bottom: 18px; background: linear-gradient(135deg, #25d366 0%, #128c7e 50%, #075e54 100%);
-    color: #fff; border: none; width: 64px; height: 64px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 8px 32px rgba(37, 211, 102, 0.5), 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.3), 0 0 20px rgba(37, 211, 102, 0.4);
-    cursor: pointer; z-index: 4100; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    animation: whatsappPulse 2.5s ease-in-out infinite; -webkit-tap-highlight-color: transparent; outline: none;
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #25d366;
+    border: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: var(--z-flotante);
+    box-shadow: 0 3px 12px rgba(37, 211, 102, 0.35),
+                0 2px 6px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
 }
 
-@keyframes whatsappPulse {
-    0%, 100% { box-shadow: 0 8px 32px rgba(37, 211, 102, 0.5), 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.3), 0 0 20px rgba(37, 211, 102, 0.4); }
-    50% { box-shadow: 0 8px 40px rgba(37, 211, 102, 0.7), 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.3), 0 0 35px rgba(37, 211, 102, 0.6); }
+@media (hover: hover) and (pointer: fine) {
+    .btn-whatsapp:hover {
+        transform: translateY(-2px);
+        background: #20c05a;
+        box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45),
+                    0 3px 8px rgba(0, 0, 0, 0.3);
+    }
 }
 
-.btn-whatsapp:hover {
-    transform: translateY(-4px) scale(1.08);
-    box-shadow: 0 12px 40px rgba(37, 211, 102, 0.6), 0 6px 20px rgba(0, 0, 0, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.4), 0 0 40px rgba(37, 211, 102, 0.5);
-    animation: none;
+.btn-whatsapp:active {
+    transform: scale(0.94);
+    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
 }
-.btn-whatsapp:active { transform: translateY(0) scale(0.98); }
-.btn-whatsapp i { font-size: 1.8rem; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
-.whatsapp-badge {
-    position: absolute; top: -4px; right: -4px; background: var(--rojo-alerta); color: white;
-    min-width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 50%;
-    font-size: 0.75rem; padding: 0 6px; box-sizing: border-box; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    border: 2px solid #075e54; box-shadow: 0 3px 8px rgba(192, 57, 43, 0.6), 0 0 12px rgba(192, 57, 43, 0.4); z-index: 10;
+
+.btn-whatsapp i {
+    font-size: 1.6rem;
+    color: white;
 }
+
+/* Badge ya no existe en el botón WA — clase vacía por si queda alguna referencia */
+.whatsapp-badge { display: none; }
 
 .floating-cart-panel .fc-input { width: 100%; padding: 10px 12px; margin-bottom: 8px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.04); color: #fff; border-radius: 8px; font-size: 0.9rem; }
 
@@ -1366,7 +1477,7 @@ footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px so
     background: rgba(20, 20, 20, 0.65); border: 1px solid rgba(255, 255, 255, 0.18);
     backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-    border-radius: 20px; display: flex; flex-direction: column; overflow: hidden; z-index: 4050;
+    border-radius: 20px; display: flex; flex-direction: column; overflow: hidden; z-index: var(--z-panel);
     transform: translateY(16px) scale(0.96); opacity: 0;
     transition: transform 320ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 320ms ease;
 }
@@ -1473,7 +1584,7 @@ footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px so
     background: linear-gradient(145deg, #2d5a3d 0%, #25d366 35%, #1db954 65%, #128c4a 100%); color: #fff; border: none;
     padding: 18px 48px; border-radius: 50px; font-weight: 900; font-size: 1.15rem;
     box-shadow: 0 8px 32px rgba(37, 211, 102, 0.45), 0 4px 16px rgba(0, 0, 0, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.25), inset 0 -2px 6px rgba(0, 0, 0, 0.15), 0 0 0 3px rgba(37, 211, 102, 0.15);
-    cursor: pointer; z-index: 3500; transition: box-shadow 0.3s ease, filter 0.3s ease;
+    cursor: pointer; z-index: var(--z-flotante); transition: box-shadow 0.3s ease, filter 0.3s ease;
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4); letter-spacing: 1px; text-transform: uppercase;
     -webkit-tap-highlight-color: transparent; touch-action: manipulation; overflow: hidden; width: auto; max-width: calc(100% - 40px);
 }
@@ -1508,7 +1619,7 @@ footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px so
 
 .carrito-header {
     display:flex; justify-content:space-between; align-items:center; gap:12px;
-    position: sticky; top: 90px; background: rgba(10,10,10,0.6); padding: 12px 18px; border-radius: 12px; z-index: 1500;
+    position: sticky; top: 90px; background: rgba(10,10,10,0.6); padding: 12px 18px; border-radius: 12px; z-index: var(--z-sticky);
     border: 1px solid rgba(212,175,55,0.08); backdrop-filter: blur(8px);
 }
 .carrito-header .titulo-seccion-grid { text-align:left; color:#D4AF37; margin:0; font-size:1.4rem; }
@@ -1599,5 +1710,361 @@ footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px so
 @supports (padding: env(safe-area-inset-bottom)) {
     body { padding-bottom: env(safe-area-inset-bottom); }
     .btn-whatsapp { bottom: calc(18px + env(safe-area-inset-bottom)); }
-    .floating-cart-panel { bottom: calc(90px + env(safe-area-inset-bottom)); }
+    .btn-carrito-flotante { bottom: calc(94px + env(safe-area-inset-bottom)); }
+    .floating-cart-panel { bottom: calc(160px + env(safe-area-inset-bottom)); }
+}
+/* ══════════════════════════════════════════════════════════════════════════
+   ✨ SISTEMA DE ANIMACIONES PROFESIONALES (WAKA MOTION)
+   ──────────────────────────────────────────────────────────────────────────
+   Todo el movimiento del sitio vive aquí, organizado y con un solo
+   propósito por animación. Para desactivar una, comenta su bloque.
+   Respeta "reducir movimiento" del sistema del usuario automáticamente.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ── A. ENTRADA ORQUESTADA DEL LANDING ──────────────────────────────
+   El logo, título, separador y slogan entran en cascada (stagger).
+   Se siente intencional, como apertura de marca. */
+.landing-logo,
+.landing-titulo,
+.landing-separador,
+.landing-slogan,
+.trust-bar {
+    opacity: 0;
+    animation: wakaEntrada 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.landing-logo      { animation-delay: 0.05s; }
+.landing-titulo    { animation-delay: 0.18s; }
+.landing-separador { animation-delay: 0.30s; }
+.landing-slogan    { animation-delay: 0.40s; }
+.trust-bar         { animation-delay: 0.52s; }
+
+@keyframes wakaEntrada {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* El logo mantiene su flotación DESPUÉS de entrar (dos animaciones encadenadas) */
+.landing-logo {
+    animation: wakaEntrada 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards,
+               floatLogo 3.5s ease-in-out 0.8s infinite;
+}
+
+/* ── B. SEPARADOR CON BRILLO DORADO (shimmer) ───────────────────────
+   Firma visual de la marca: una luz dorada recorre el separador. */
+.landing-separador {
+    position: relative;
+    width: 80px;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.55), transparent);
+    overflow: hidden;
+}
+.landing-separador::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(249, 231, 159, 0.9), transparent);
+    transform: translateX(-110%);
+    animation: shimmerOro 3.2s ease-in-out 1.2s infinite;
+}
+@keyframes shimmerOro {
+    0%   { transform: translateX(-110%); }
+    55%  { transform: translateX(110%); }
+    100% { transform: translateX(110%); }
+}
+
+/* ── C. REVELADO AL HACER SCROLL (.reveal) ──────────────────────────
+   Los bloques promocionales aparecen suavemente al entrar en pantalla.
+   El JS (IntersectionObserver en index.html) agrega .reveal-visible.
+   USO: agrega class="reveal" a cualquier elemento que quieras animar.
+   Variantes: .reveal-left / .reveal-right (entran desde los lados). */
+.reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+.reveal-left  { transform: translateX(-40px); }
+.reveal-right { transform: translateX(40px); }
+.reveal.reveal-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* ── D. TARJETAS CON GLOW DORADO AL HOVER ───────────────────────────
+   Refuerza la identidad premium: borde y halo dorado sutil. */
+@media (hover: hover) and (pointer: fine) {
+    .tarjeta-producto:hover {
+        border-color: rgba(212, 175, 55, 0.45);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5),
+                    0 0 24px rgba(212, 175, 55, 0.10);
+    }
+    .tarjeta-producto:hover .info-card h3 {
+        color: var(--gold-light);
+        transition: color 0.3s ease;
+    }
+}
+
+/* Brillo diagonal que cruza la imagen del producto al hover */
+.img-wrapper::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.09) 50%, transparent 65%);
+    transform: translateX(-120%);
+    transition: transform 0.7s ease;
+    pointer-events: none;
+    z-index: var(--z-contenido);
+}
+.tarjeta-producto:hover .img-wrapper::after,
+.landing-card:hover .landing-card-image::after {
+    transform: translateX(120%);
+}
+.landing-card-image::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.10) 50%, transparent 65%);
+    transform: translateX(-120%);
+    transition: transform 0.7s ease;
+    pointer-events: none;
+}
+
+/* ── E. BOTONES PROMO CON RELLENO ANIMADO ───────────────────────────
+   El botón se "llena" de blanco desde la izquierda, más elegante
+   que el cambio de color instantáneo. */
+.promo-btn {
+    position: relative;
+    overflow: hidden;
+    z-index: var(--z-contenido);
+    transition: color 0.35s ease, box-shadow 0.35s ease, transform 0.25s ease;
+}
+.promo-btn::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: #ffffff;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: -1;
+}
+.promo-btn:hover::before { transform: scaleX(1); }
+.promo-btn:hover {
+    color: #000;
+    box-shadow: 0 8px 26px rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+.promo-btn:active { transform: translateY(0) scale(0.98); }
+
+/* ── F. IMÁGENES DE PROMO CON ZOOM SUAVE ────────────────────────── */
+.promo-image { position: relative; }
+.promo-image img { transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+.promo-block:hover .promo-image img { transform: scale(1.05); }
+
+/* ── G. TÍTULO DEL FOOTER CON DEGRADADO DORADO ANIMADO ────────────── */
+.footer-logo {
+    background: linear-gradient(90deg, #ffffff 0%, var(--gold-light) 45%, #ffffff 55%, #ffffff 100%);
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: brilloTexto 6s linear infinite;
+}
+@keyframes brilloTexto {
+    0%   { background-position: 250% 0; }
+    100% { background-position: -50% 0; }
+}
+
+/* ── H. MICRO-DETALLES ─────────────────────────────────────────────
+   Pequeños toques que suman sensación de calidad. */
+
+/* Ícono de trust-bar rebota sutil al pasar el mouse */
+.trust-bar__item:hover i { animation: iconoSalta 0.45s ease; }
+@keyframes iconoSalta {
+    0%, 100% { transform: translateY(0); }
+    45%      { transform: translateY(-4px) scale(1.12); }
+}
+
+/* La flecha de las tarjetas landing "respira" invitando al click */
+.landing-card-arrow { animation: flechaInvita 2.4s ease-in-out infinite; }
+@keyframes flechaInvita {
+    0%, 100% { transform: translateX(0); opacity: 0.75; }
+    50%      { transform: translateX(6px); opacity: 1; }
+}
+.landing-card:hover .landing-card-arrow { animation: none; }
+
+/* Chips de sabor: pop al seleccionar */
+.chip-variante.activo { animation: chipPop 0.28s cubic-bezier(0.34, 1.56, 0.64, 1); }
+@keyframes chipPop {
+    0%   { transform: scale(0.92); }
+    60%  { transform: scale(1.08); }
+    100% { transform: scale(1.03); }
+}
+
+/* haloWhats eliminado — botón WhatsApp ahora es minimalista */
+
+/* ── I. ACCESIBILIDAD: RESPETAR "REDUCIR MOVIMIENTO" ────────────────
+   Si el usuario tiene activada la reducción de movimiento en su
+   sistema, TODAS las animaciones se desactivan con elegancia. */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .reveal { opacity: 1; transform: none; }
+    .landing-logo, .landing-titulo, .landing-separador,
+    .landing-slogan, .trust-bar { opacity: 1; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   🎠 CARRUSEL INFINITO DE RECOMENDADOS
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* Ocultar scrollbar nativo pero mantener funcionalidad de scroll */
+.grid-recomendados {
+    /* Sobreescribir el padding que empujaba el snap */
+    padding: 8px 0 14px 0;
+    scroll-snap-type: none; /* Desactivar snap para que el loop infinito sea suave */
+    cursor: grab;
+}
+.grid-recomendados:active { cursor: grabbing; }
+
+/* Tarjeta rediseñada: un poco más ancha y con mejor jerarquía visual */
+.card-recomendada {
+    min-width: 150px;
+    max-width: 150px;
+    flex-shrink: 0;
+    background: linear-gradient(145deg, #2d2d2d 0%, #212121 100%);
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid rgba(100, 100, 100, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+                border-color 0.28s ease,
+                box-shadow 0.28s ease;
+    scroll-snap-align: none; /* Quitar snap individual */
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .card-recomendada:hover {
+        transform: translateY(-7px) scale(1.04);
+        border-color: rgba(212, 175, 55, 0.45);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45),
+                    0 0 18px rgba(212, 175, 55, 0.10);
+    }
+    .card-recomendada:hover .rec-nombre {
+        color: var(--gold-light);
+        transition: color 0.25s ease;
+    }
+}
+
+@media (hover: none) {
+    .card-recomendada:active {
+        transform: scale(0.96);
+        opacity: 0.85;
+        transition: all 0.1s ease;
+    }
+}
+
+.card-recomendada img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .card-recomendada:hover img { transform: scale(1.07); }
+}
+
+.card-recomendada div {
+    padding: 10px 10px 12px;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(40,40,40,0) 0%, rgba(25,25,25,0.9) 100%);
+}
+
+.rec-nombre {
+    font-size: 0.78rem;
+    color: #ccc;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 4px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: color 0.25s ease;
+}
+
+.rec-precio {
+    font-size: 0.95rem;
+    color: #d4d4d4;
+    font-weight: 800;
+}
+
+/* Flechas del carrusel mejoradas */
+.recom-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(10, 10, 10, 0.82);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    color: #fff;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+    cursor: pointer;
+    z-index: 30;
+    transition: transform 0.18s ease,
+                box-shadow 0.18s ease,
+                border-color 0.18s ease,
+                background 0.18s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .recom-arrow:hover {
+        transform: translateY(-50%) scale(1.12);
+        background: rgba(20, 20, 20, 0.95);
+        border-color: rgba(212, 175, 55, 0.6);
+        box-shadow: 0 6px 22px rgba(0,0,0,0.7),
+                    0 0 12px rgba(212, 175, 55, 0.18);
+    }
+}
+
+.recom-arrow:active {
+    transform: translateY(-50%) scale(0.9);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    opacity: 0.85;
+}
+
+.recom-arrow i { font-size: 1rem; }
+
+/* Gradientes de fade en los bordes para indicar continuidad */
+.grid-recomendados-wrapper::before,
+.grid-recomendados-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 48px;
+    pointer-events: none;
+    z-index: 20;
+}
+.grid-recomendados-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(37, 37, 37, 0.85), transparent);
+}
+.grid-recomendados-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(37, 37, 37, 0.85), transparent);
 }

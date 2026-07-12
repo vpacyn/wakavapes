@@ -300,10 +300,15 @@
         </div>
     </div>
 
-    <!-- Floating WhatsApp Button -->
-    <button id="whatsapp-floating" class="btn-whatsapp" onclick="toggleFloatingCart()" aria-label="Abrir carrito">
+    <!-- Botón flotante CARRITO (arriba) — abre el panel del carrito -->
+    <button id="btn-carrito-flotante" class="btn-carrito-flotante" onclick="toggleFloatingCart()" aria-label="Abrir carrito">
+        <i class="ph ph-shopping-cart"></i>
+        <span id="whatsapp-badge" class="badge-flotante-carrito">0</span>
+    </button>
+
+    <!-- Botón flotante WHATSAPP (abajo) — contacto directo, sin carrito -->
+    <button id="whatsapp-floating" class="btn-whatsapp" onclick="contactarWhatsApp()" aria-label="Contactar por WhatsApp">
         <i class="ph ph-whatsapp-logo"></i>
-        <span id="whatsapp-badge" class="whatsapp-badge">0</span>
     </button>
 
     <!-- Floating cart panel -->
@@ -1313,38 +1318,124 @@
             botonAgregar.classList.remove('btn-quitar-carrito');
             botonAgregar.classList.add('boton-pedir');
 
-            // Recomendados (excluir productos agotados)
-            const recomendados = listaProductos.filter(p => p.categoria === productoActual.categoria && p.id !== productoActual.id && p.activo && !p.agotado).slice(0, 5);
+            // ── RECOMENDADOS CON SCROLL INFINITO Y SHUFFLE ────────────────
+            // Cada vez que se abre un producto, se baraja aleatoriamente
+            // la lista de vapes disponibles → sensación siempre fresca.
             const gridRecom = document.getElementById('grid-recomendados');
+            const wrapper   = document.querySelector('.grid-recomendados-wrapper');
+
+            // 1. Pool: todos los vapes activos, no agotados, excepto el actual
+            const pool = listaProductos.filter(
+                p => p.categoria === 'vapes' && p.id !== productoActual.id && p.activo && !p.agotado
+            );
+
+            // 2. Shuffle Fisher-Yates
+            function shuffleArray(arr) {
+                const a = [...arr];
+                for (let i = a.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [a[i], a[j]] = [a[j], a[i]];
+                }
+                return a;
+            }
+
+            // 3. Construir el carrusel infinito:
+            //    duplicamos la lista barajada 3 veces para que el loop
+            //    tenga siempre tarjetas a izquierda y derecha del punto medio.
+            const shuffled = shuffleArray(pool);
+            const infiniteList = pool.length > 0
+                ? [...shuffled, ...shuffleArray(pool), ...shuffleArray(pool)]
+                : [];
+
+            // 4. Renderizar tarjetas
             gridRecom.innerHTML = '';
-            recomendados.forEach(rec => {
+            infiniteList.forEach(rec => {
                 const card = document.createElement('div');
                 card.className = 'card-recomendada';
-                card.onclick = function() { window.scrollTo({ top: 0, behavior: 'smooth' }); abrirModal(rec.id); };
-                card.innerHTML = `<img src="${rec.img}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/iconos/wakavapes_icono.webp'"><div><p class="rec-nombre">${rec.nombre}</p><p class="rec-precio">${formatearDinero(rec.precio)}</p></div>`;
+                card.onclick = function() {
+                    // Al hacer click: abrir el modal del producto recomendado
+                    // El scroll al top queda dentro de abrirModal
+                    const modalBody = document.querySelector('.modal-body');
+                    if (modalBody) modalBody.scrollTop = 0;
+                    abrirModal(rec.id);
+                };
+                card.innerHTML = `
+                    <img src="${rec.img}" loading="lazy" decoding="async"
+                         onerror="this.onerror=null;this.src='img/iconos/wakavapes_icono.webp'"
+                         alt="${rec.nombre}">
+                    <div>
+                        <p class="rec-nombre">${rec.nombre}</p>
+                        <p class="rec-precio">${formatearDinero(rec.precio)}</p>
+                    </div>`;
                 gridRecom.appendChild(card);
             });
-            // Añadir flechas flotantes para scroll táctil en recomendaciones
-            const wrapper = document.querySelector('.grid-recomendados-wrapper');
-            // Eliminar flechas previas si existen
-            ['.recom-arrow-left','.recom-arrow-right'].forEach(s => { const e = wrapper.querySelector(s); if (e) e.remove(); });
+
+            // 5. Arrancar en el tercio central (bloque 2 de 3) para poder
+            //    scrollear hacia ambos lados sin llegar a un extremo rápido
+            if (pool.length > 0) {
+                const cardW = 150 + 15; // min-width + gap
+                const startOffset = Math.floor(shuffled.length) * cardW;
+                // Sin animación para que el usuario no note el reposicionamiento
+                gridRecom.scrollLeft = startOffset;
+            }
+
+            // 6. Lógica de scroll infinito: cuando se acerca al borde,
+            //    saltar silenciosamente al bloque central equivalente
+            function setupInfiniteScroll(grid, totalItems) {
+                if (totalItems === 0) return;
+                const cardW = 150 + 15;
+                const blockW = totalItems * cardW;
+
+                // Limpiar listener anterior si existe
+                if (grid._infiniteHandler) {
+                    grid.removeEventListener('scroll', grid._infiniteHandler);
+                }
+
+                grid._infiniteHandler = function() {
+                    const sl = grid.scrollLeft;
+                    // Si se pasa del bloque 3 → volver al bloque 2
+                    if (sl >= blockW * 2 - 10) {
+                        grid.scrollLeft = sl - blockW;
+                    }
+                    // Si sube por encima del bloque 1 → avanzar al bloque 2
+                    if (sl <= 10) {
+                        grid.scrollLeft = sl + blockW;
+                    }
+                };
+                grid.addEventListener('scroll', grid._infiniteHandler, { passive: true });
+            }
+
+            setupInfiniteScroll(gridRecom, shuffled.length);
+
+            // 7. Flechas flotantes (quitar las viejas primero)
+            ['.recom-arrow-left', '.recom-arrow-right'].forEach(sel => {
+                const el = wrapper.querySelector(sel);
+                if (el) el.remove();
+            });
+
+            const SCROLL_STEP = 165; // px por click de flecha
+
             const left = document.createElement('button');
             left.className = 'recom-arrow recom-arrow-left';
+            left.setAttribute('aria-label', 'Anterior');
             left.innerHTML = '<i class="ph ph-caret-left"></i>';
             left.onclick = (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                gridRecom.scrollTo({ left: gridRecom.scrollLeft - 220, behavior: 'smooth' });
+                e.preventDefault(); e.stopPropagation();
+                gridRecom.scrollBy({ left: -SCROLL_STEP, behavior: 'smooth' });
             };
+
             const right = document.createElement('button');
             right.className = 'recom-arrow recom-arrow-right';
+            right.setAttribute('aria-label', 'Siguiente');
             right.innerHTML = '<i class="ph ph-caret-right"></i>';
             right.onclick = (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                gridRecom.scrollTo({ left: gridRecom.scrollLeft + 220, behavior: 'smooth' });
+                e.preventDefault(); e.stopPropagation();
+                gridRecom.scrollBy({ left: SCROLL_STEP, behavior: 'smooth' });
             };
-            wrapper.appendChild(left); wrapper.appendChild(right);
+
+            wrapper.appendChild(left);
+            wrapper.appendChild(right);
+            // ── FIN RECOMENDADOS ───────────────────────────────────────────
 
             const modalEl = document.getElementById('modal-pedido');
             modalEl.style.display = 'flex';
@@ -1385,7 +1476,7 @@
         
         function scrollRecomendados(direction) {
             const container = document.getElementById('grid-recomendados');
-            container.scrollBy({ left: direction * 200, behavior: 'smooth' });
+            container.scrollBy({ left: direction * 165, behavior: 'smooth' });
         }
 
         // --- UTILS ---
@@ -1729,8 +1820,8 @@
             panel.setAttribute('aria-hidden','true');
             // esperar la animación y ocultar
             setTimeout(() => { panel.style.display = 'none'; }, 220);
-            // devolver foco al botón whatsapp
-            const btn = document.getElementById('whatsapp-floating');
+            // devolver foco al botón de carrito flotante
+            const btn = document.getElementById('btn-carrito-flotante');
             if (btn) btn.focus();
         }
 
@@ -2002,6 +2093,14 @@
             } finally {
                 _pendingAction = null;
             }
+        }
+
+        // ── CONTACTO DIRECTO POR WHATSAPP ──────────────────────────────
+        // El botón verde (abajo) no abre el carrito, solo redirige al proveedor
+        // con un mensaje de contacto. Edita el mensaje aquí si lo necesitas.
+        function contactarWhatsApp() {
+            const mensaje = 'Hola, quiero mas informacion, me gustaria contactar a alguien.';
+            window.open('https://wa.me/' + WHATSAPP_PHONE + '?text=' + encodeURIComponent(mensaje), '_blank');
         }
 
         window.onload = function() { cargarCarritoDelStorage(); iniciarTicker(); renderizarMenuInicio(); actualizarBadgeCarrito(); };
