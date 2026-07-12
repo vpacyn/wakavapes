@@ -844,7 +844,7 @@ let listaProductos = [
         { nombre: "Bussin Banana.", disponible: true },
 
     ]},
-     { id: 69, categoria: 'vapes', activo: true, orden: 62, agotado: false, nombre: "Suonon 50k", modelo: "50000 Puffs", precio: 99, img: "img/vapes/flavor_beast_50k.jpeg", sabores: [
+     { id: 69, categoria: 'vapes', activo: true, orden: 62, agotado: false, nombre: "Suonon 50k", modelo: "50000 Puffs", precio: 99, img: "img/vapes/suonon_50k.jpeg", sabores: [
         { nombre: "Miami Mint", disponible: true },
         { nombre: "Blue Razz Ice", disponible: true },
         { nombre: "Fcking Fab", disponible: true },
@@ -864,7 +864,7 @@ let listaProductos = [
 
     ]},
 
-     { id: 70, categoria: 'vapes', activo: true, orden: 63, agotado: false, nombre: "Tomoro 35k", modelo: "35000 Puffs", precio: 95, img: "img/vapes/flavor_beast_50k.jpeg", sabores: [
+     { id: 70, categoria: 'vapes', activo: true, orden: 63, agotado: false, nombre: "Tomoro 35k", modelo: "35000 Puffs", precio: 95, img: "img/vapes/tomoro_30kjpeg", sabores: [
         { nombre: "Mexico Mango", disponible: true },
         { nombre: "Blue Razz Ice", disponible: true },
         { nombre: "Strawberry Banana", disponible: true },
