@@ -864,7 +864,7 @@ let listaProductos = [
 
     ]},
 
-     { id: 70, categoria: 'vapes', activo: true, orden: 63, agotado: false, nombre: "Tomoro 35k", modelo: "35000 Puffs", precio: 95, img: "img/vapes/tomoro_30kjpeg", sabores: [
+     { id: 70, categoria: 'vapes', activo: true, orden: 63, agotado: false, nombre: "Tomoro 35k", modelo: "35000 Puffs", precio: 95, img: "img/vapes/tomoro_30k.jpeg", sabores: [
         { nombre: "Mexico Mango", disponible: true },
         { nombre: "Blue Razz Ice", disponible: true },
         { nombre: "Strawberry Banana", disponible: true },
