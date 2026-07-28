@@ -7,17 +7,37 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Fuente principal de lujo para encabezados y títulos */
-    font-family: 'Cinzel', serif;
     /* Elimina el cuadro azul al tocar elementos en móviles */
     -webkit-tap-highlight-color: transparent;
-    outline: none;
 }
 
-/* Optimización de rendimiento para imágenes */
+/* Fuente base de lectura. Se aplica UNA vez en <body> y todo lo demás la
+   hereda. No va en el selector universal (*) porque eso rompe la herencia
+   y obliga al navegador a recalcular la fuente en cada elemento. */
+body {
+    font-family: 'Lato', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Fuente decorativa SOLO en títulos */
+h1, h2, h3, h4, h5, h6,
+.landing-titulo,
+.titulo-seccion-grid {
+    font-family: 'Cinzel', serif;
+}
+
+/* Los controles de formulario no heredan la fuente por defecto */
+input, button, select, textarea {
+    font-family: inherit;
+}
+
+/* Evita saltos de layout (CLS). Antes había contain-intrinsic-size: 200px 200px,
+   que le decía al navegador que TODA imagen medía 200x200 antes de cargar. */
 img {
-    content-visibility: auto;
-    contain-intrinsic-size: 200px 200px;
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Optimización táctil para mejor INP en botones y elementos interactivos */
@@ -25,12 +45,16 @@ button, a, input, select, textarea, [role="button"], [onclick] {
     touch-action: manipulation;
 }
 
-/* Fuente secundaria para lectura cómoda y moderna (Textos largos) */
-p, label, input, button, span, div, select, textarea, a {
-    font-family: 'Lato', sans-serif;
-    text-decoration: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+a { text-decoration: none; }
+
+/* Respeta a quien pidió menos movimiento en su sistema operativo */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 ::-webkit-scrollbar {
@@ -82,10 +106,16 @@ p, label, input, button, span, div, select, textarea, a {
     --z-alerta: 3000;
     --z-toast: 4000;
 
-    --gold-primary: #D4AF37;
-    --gold-light: #F9E79F;
-    --gold-dark: #AA771C;
-    --gold-gradient: linear-gradient(135deg, #AA771C 0%, #D4AF37 50%, #F9E79F 100%);
+    /* ══════════════════════════════════════════════════════
+       PALETA DE ACENTO — PLATA / GRIS
+       Este es el color de la marca. Si algún día quieres cambiar
+       el acento del sitio entero, cambia SOLO estas 4 líneas.
+       RGB de --plata-primary = 184, 184, 184
+       ══════════════════════════════════════════════════════ */
+    --plata-primary: #b8b8b8;
+    --plata-light: #e0e0e0;
+    --plata-dark: #6a6a6a;
+    --plata-gradient: linear-gradient(135deg, #6a6a6a 0%, #b8b8b8 50%, #e0e0e0 100%);
     --black-bg: #050505;
     --card-bg: #111111;
     --rojo-alerta: #c0392b;
@@ -94,8 +124,8 @@ p, label, input, button, span, div, select, textarea, a {
     --transicion-lenta: 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     --transicion-rapida: 0.2s ease-in-out;
     --glass-bg: rgba(15, 15, 15, 0.75);
-    --glass-border: 1px solid rgba(212, 175, 55, 0.25);
-    --glass-border-hover: 1px solid rgba(212, 175, 55, 0.6);
+    --glass-border: 1px solid rgba(184, 184, 184, 0.25);
+    --glass-border-hover: 1px solid rgba(184, 184, 184, 0.6);
     --glass-blur: blur(16px);
     --glass-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.8);
     --space-1: 4px;
@@ -109,7 +139,7 @@ p, label, input, button, span, div, select, textarea, a {
     --radius-md: 14px;
     --radius-lg: 20px;
     --radius-pill: 50px;
-    --focus-ring: 0 0 0 3px rgba(212, 175, 55, 0.45);
+    --focus-ring: 0 0 0 3px rgba(184, 184, 184, 0.45);
 }
 
 /* ==========================================================================
@@ -119,7 +149,7 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 [tabindex]:focus-visible {
-    outline: 2px solid var(--gold-primary);
+    outline: 2px solid var(--plata-primary);
     outline-offset: 2px;
     box-shadow: var(--focus-ring);
     border-radius: var(--radius-sm);
@@ -132,7 +162,7 @@ input:focus-visible,
 .cerrar-flotante-fab:focus-visible {
     outline: none;
     border-radius: 50%;
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.55);
+    box-shadow: 0 0 0 3px rgba(184, 184, 184, 0.55);
 }
 
 /* ==========================================================================
@@ -294,9 +324,9 @@ nav:hover { background: rgba(55, 55, 55, 0.98); }
 }
 
 .badge-cotizar-busqueda {
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
-    color: #D4AF37; padding: 4px 8px; border-radius: 10px; font-size: 0.55rem; font-weight: 700;
-    letter-spacing: 0.5px; text-transform: uppercase; border: 1px solid rgba(212, 175, 55, 0.4);
+    background: linear-gradient(135deg, rgba(184, 184, 184, 0.2), rgba(184, 184, 184, 0.1));
+    color: #b8b8b8; padding: 4px 8px; border-radius: 10px; font-size: 0.55rem; font-weight: 700;
+    letter-spacing: 0.5px; text-transform: uppercase; border: 1px solid rgba(184, 184, 184, 0.4);
     white-space: nowrap; flex-shrink: 0;
 }
 
@@ -307,9 +337,9 @@ nav:hover { background: rgba(55, 55, 55, 0.98); }
 .producto-resaltado { animation: resaltarProducto 2s ease-out; position: relative; z-index: 10; }
 
 @keyframes resaltarProducto {
-    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
-    20% { transform: scale(1.03); box-shadow: 0 0 30px 10px rgba(212, 175, 55, 0.5), 0 0 60px 20px rgba(212, 175, 55, 0.3); }
-    40% { transform: scale(1.02); box-shadow: 0 0 25px 8px rgba(212, 175, 55, 0.4), 0 0 50px 15px rgba(212, 175, 55, 0.2); }
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(184, 184, 184, 0.7); }
+    20% { transform: scale(1.03); box-shadow: 0 0 30px 10px rgba(184, 184, 184, 0.5), 0 0 60px 20px rgba(184, 184, 184, 0.3); }
+    40% { transform: scale(1.02); box-shadow: 0 0 25px 8px rgba(184, 184, 184, 0.4), 0 0 50px 15px rgba(184, 184, 184, 0.2); }
     100% { transform: scale(1); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
 }
 
@@ -394,11 +424,11 @@ nav:hover { background: rgba(55, 55, 55, 0.98); }
     padding: 10px 18px; border-radius: 14px; font-weight: 800; letter-spacing: 0.5px;
     backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
     cursor: pointer; z-index: 40; transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    box-shadow: 0 10px 24px rgba(0,0,0,0.35), 0 0 16px rgba(212,175,55,0.16);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.35), 0 0 16px rgba(184,184,184,0.16);
 }
 .cta-publicidad:hover {
     background: rgba(255,255,255,0.08); transform: translateX(-50%) translateY(-2px);
-    box-shadow: 0 14px 32px rgba(0,0,0,0.45), 0 0 18px rgba(212,175,55,0.2);
+    box-shadow: 0 14px 32px rgba(0,0,0,0.45), 0 0 18px rgba(184,184,184,0.2);
 }
 
 /* ==========================================================================
@@ -438,8 +468,8 @@ nav:hover { background: rgba(55, 55, 55, 0.98); }
 }
 
 .landing-card:hover, .landing-card:focus-visible {
-    transform: translateY(-8px) scale(1.02); border-color: rgba(212, 175, 55, 0.55);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 24px rgba(212, 175, 55, 0.12);
+    transform: translateY(-8px) scale(1.02); border-color: rgba(184, 184, 184, 0.55);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 24px rgba(184, 184, 184, 0.12);
 }
 
 .landing-card-image { position: absolute; top: 0; left: 0; width: 100%; height: 70%; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #1a1a1a; }
@@ -497,14 +527,14 @@ nav:hover { background: rgba(55, 55, 55, 0.98); }
 
 .trust-bar__item {
     display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-4);
-    background: rgba(45, 45, 45, 0.6); border: 1px solid rgba(212, 175, 55, 0.18);
+    background: rgba(45, 45, 45, 0.6); border: 1px solid rgba(184, 184, 184, 0.18);
     border-radius: var(--radius-pill); color: #ddd; font-size: 0.78rem; font-family: 'Lato', sans-serif;
     letter-spacing: 0.5px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
     transition: border-color 0.25s ease, transform 0.25s ease;
 }
 
-.trust-bar__item i { color: var(--gold-primary); font-size: 1.05rem; }
-.trust-bar__item:hover { border-color: rgba(212, 175, 55, 0.5); transform: translateY(-2px); }
+.trust-bar__item i { color: var(--plata-primary); font-size: 1.05rem; }
+.trust-bar__item:hover { border-color: rgba(184, 184, 184, 0.5); transform: translateY(-2px); }
 
 @media (max-width: 600px) {
     .trust-bar { gap: var(--space-2); margin: var(--space-2) auto; }
@@ -513,8 +543,8 @@ nav:hover { background: rgba(55, 55, 55, 0.98); }
 
 .badge-mayoreo {
     display: inline-flex; align-items: center; gap: 4px;
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.18), rgba(212, 175, 55, 0.06));
-    color: var(--gold-primary); border: 1px solid rgba(212, 175, 55, 0.35);
+    background: linear-gradient(135deg, rgba(184, 184, 184, 0.18), rgba(184, 184, 184, 0.06));
+    color: var(--plata-primary); border: 1px solid rgba(184, 184, 184, 0.35);
     font-size: 0.62rem; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;
     padding: 3px 9px; border-radius: var(--radius-pill);
 }
@@ -617,7 +647,7 @@ header.site-header {
     backdrop-filter: blur(5px); transition: 0.3s; text-transform: uppercase; letter-spacing: 1px;
 }
 
-.tarjeta-categoria:hover .btn-entrar { background: var(--gold-primary); color: black; border-color: var(--gold-primary); box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); }
+.tarjeta-categoria:hover .btn-entrar { background: var(--plata-primary); color: black; border-color: var(--plata-primary); box-shadow: 0 0 20px rgba(184, 184, 184, 0.5); }
 
 .btn-rojo { background: var(--rojo-alerta); border: none; }
 .btn-rojo:hover { background: #a93226 !important; color: white !important; }
@@ -762,9 +792,9 @@ header.site-header {
 .precio-card { color: #d4d4d4; font-size: 1.5rem; font-weight: 800; text-shadow: none; line-height: 1.1; }
 
 .precio-card.cotizar-precio, .cotizar-precio {
-    color: #D4AF37; font-size: 0.85rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
-    padding: 6px 12px; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.3);
+    color: #b8b8b8; font-size: 0.85rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    background: linear-gradient(135deg, rgba(184, 184, 184, 0.15), rgba(184, 184, 184, 0.05));
+    padding: 6px 12px; border-radius: 8px; border: 1px solid rgba(184, 184, 184, 0.3);
 }
 
 .texto-ver-detalles {
@@ -886,7 +916,7 @@ header.site-header {
     backdrop-filter: blur(16px) saturate(160%); -webkit-backdrop-filter: blur(16px) saturate(160%);
     color: #fff; width: 40px; height: 40px; font-size: 1.1rem; cursor: pointer; border-radius: 12px;
     transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1); border: 1px solid rgba(255,255,255,0.16); font-weight: 700;
-    box-shadow: 0 10px 28px rgba(0,0,0,0.32), 0 0 0 1px rgba(212,175,55,0.12), inset 0 1px 0 rgba(255,255,255,0.22);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.32), 0 0 0 1px rgba(184,184,184,0.12), inset 0 1px 0 rgba(255,255,255,0.22);
     text-shadow: 0 1px 2px rgba(0,0,0,0.35); -webkit-tap-highlight-color: transparent; touch-action: manipulation;
 }
 
@@ -894,7 +924,7 @@ header.site-header {
     .btn-cant:hover {
         background: linear-gradient(140deg, rgba(255,255,255,0.16), rgba(255,255,255,0.08));
         border-color: rgba(255,255,255,0.28); transform: translateY(-3px) scale(1.08);
-        box-shadow: 0 12px 32px rgba(0,0,0,0.34), 0 0 0 1px rgba(212,175,55,0.22), inset 0 1px 0 rgba(255,255,255,0.24);
+        box-shadow: 0 12px 32px rgba(0,0,0,0.34), 0 0 0 1px rgba(184,184,184,0.22), inset 0 1px 0 rgba(255,255,255,0.24);
         color: #fff;
     }
 }
@@ -1055,7 +1085,7 @@ header.site-header {
 .espacio-final { height: 100px; }
 footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px solid #222; text-align: center; }
 .footer-logo { color: #ffffff; font-weight: 900; font-size: 2.5rem; letter-spacing: 5px; margin-bottom: 10px; font-family: 'Cinzel', serif; }
-.footer-tagline { color: var(--gold-primary); font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 14px; font-family: 'Lato', sans-serif; text-transform: uppercase; }
+.footer-tagline { color: var(--plata-primary); font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 14px; font-family: 'Lato', sans-serif; text-transform: uppercase; }
 .copyright { color: #ffffff; }
 .footer-small { font-size: 0.75rem; color: #444; margin-top: 10px; }
 
@@ -1569,11 +1599,11 @@ footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px so
     .btn-primary:hover::before { width: 300px; height: 300px; }
     .btn-primary:hover {
         transform: translateY(-3px); filter: brightness(1.1);
-        box-shadow: 0 8px 24px rgba(212, 175, 55, 0.35), 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.25);
+        box-shadow: 0 8px 24px rgba(184, 184, 184, 0.35), 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.25);
     }
 }
 
-.btn-primary:active { transform: translateY(0) scale(0.98); box-shadow: 0 3px 12px rgba(212, 175, 55, 0.3); }
+.btn-primary:active { transform: translateY(0) scale(0.98); box-shadow: 0 3px 12px rgba(184, 184, 184, 0.3); }
 
 .btn-secondary { background: transparent; color: #ddd; padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.03); cursor: pointer; transition: all 0.2s ease; }
 .btn-secondary:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.10); }
@@ -1620,9 +1650,9 @@ footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px so
 .carrito-header {
     display:flex; justify-content:space-between; align-items:center; gap:12px;
     position: sticky; top: 90px; background: rgba(10,10,10,0.6); padding: 12px 18px; border-radius: 12px; z-index: var(--z-sticky);
-    border: 1px solid rgba(212,175,55,0.08); backdrop-filter: blur(8px);
+    border: 1px solid rgba(184,184,184,0.08); backdrop-filter: blur(8px);
 }
-.carrito-header .titulo-seccion-grid { text-align:left; color:#D4AF37; margin:0; font-size:1.4rem; }
+.carrito-header .titulo-seccion-grid { text-align:left; color:#b8b8b8; margin:0; font-size:1.4rem; }
 
 .recom-arrow {
     position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.7); border: none; color: #fff;
@@ -1640,12 +1670,12 @@ footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px so
 .grid-recomendados { padding: 12px 40px; scroll-snap-type: x mandatory; }
 .card-recomendada { scroll-snap-align: start; }
 
-.btn-agregar-simple { background: linear-gradient(135deg, #D4AF37, #B8960F); color: #050505; padding: 8px 10px; border-radius: 8px; border: 2px solid #D4AF37; cursor: pointer; flex: 1; font-weight: 700; transition: all 0.3s ease; }
-.btn-agregar-simple:hover { background: linear-gradient(135deg, #FFD700, #D4AF37); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(212, 175, 55, 0.3); }
+.btn-agregar-simple { background: linear-gradient(135deg, #b8b8b8, #8a8a8a); color: #050505; padding: 8px 10px; border-radius: 8px; border: 2px solid #b8b8b8; cursor: pointer; flex: 1; font-weight: 700; transition: all 0.3s ease; }
+.btn-agregar-simple:hover { background: linear-gradient(135deg, #d4d4d4, #b8b8b8); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(184, 184, 184, 0.3); }
 .btn-agregar-simple:active { transform: translateY(0); }
 
-.btn-cant-mini { background: linear-gradient(135deg, #D4AF37, #B8960F); color: #050505; border: none; border-radius: 6px; width: 28px; height: 28px; font-weight: 700; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; }
-.btn-cant-mini:hover { background: linear-gradient(135deg, #FFD700, #D4AF37); transform: scale(1.08); }
+.btn-cant-mini { background: linear-gradient(135deg, #b8b8b8, #8a8a8a); color: #050505; border: none; border-radius: 6px; width: 28px; height: 28px; font-weight: 700; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; }
+.btn-cant-mini:hover { background: linear-gradient(135deg, #d4d4d4, #b8b8b8); transform: scale(1.08); }
 .btn-cant-mini:active { transform: scale(0.95); }
 
 .boton-whatsapp-modal {
@@ -1702,9 +1732,9 @@ footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px so
 
 .whatsapp-badge.pulse { animation: wpPulse 0.9s ease-in-out; }
 @keyframes wpPulse {
-    0% { transform: scale(1); box-shadow: 0 0 0 rgba(212,175,55,0); }
-    50% { transform: scale(1.35); box-shadow: 0 6px 18px rgba(212,175,55,0.28); }
-    100% { transform: scale(1); box-shadow: 0 0 0 rgba(212,175,55,0); }
+    0% { transform: scale(1); box-shadow: 0 0 0 rgba(184,184,184,0); }
+    50% { transform: scale(1.35); box-shadow: 0 6px 18px rgba(184,184,184,0.28); }
+    100% { transform: scale(1); box-shadow: 0 0 0 rgba(184,184,184,0); }
 }
 
 @supports (padding: env(safe-area-inset-bottom)) {
@@ -1754,7 +1784,7 @@ footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px so
 .landing-separador {
     position: relative;
     width: 80px;
-    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.55), transparent);
+    background: linear-gradient(90deg, transparent, rgba(184, 184, 184, 0.55), transparent);
     overflow: hidden;
 }
 .landing-separador::after {
@@ -1793,12 +1823,12 @@ footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px so
    Refuerza la identidad premium: borde y halo dorado sutil. */
 @media (hover: hover) and (pointer: fine) {
     .tarjeta-producto:hover {
-        border-color: rgba(212, 175, 55, 0.45);
+        border-color: rgba(184, 184, 184, 0.45);
         box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5),
-                    0 0 24px rgba(212, 175, 55, 0.10);
+                    0 0 24px rgba(184, 184, 184, 0.10);
     }
     .tarjeta-producto:hover .info-card h3 {
-        color: var(--gold-light);
+        color: var(--plata-light);
         transition: color 0.3s ease;
     }
 }
@@ -1859,7 +1889,7 @@ footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px so
 
 /* ── G. TÍTULO DEL FOOTER CON DEGRADADO DORADO ANIMADO ────────────── */
 .footer-logo {
-    background: linear-gradient(90deg, #ffffff 0%, var(--gold-light) 45%, #ffffff 55%, #ffffff 100%);
+    background: linear-gradient(90deg, #ffffff 0%, var(--plata-light) 45%, #ffffff 55%, #ffffff 100%);
     background-size: 250% 100%;
     -webkit-background-clip: text;
     background-clip: text;
@@ -1948,12 +1978,12 @@ footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px so
 @media (hover: hover) and (pointer: fine) {
     .card-recomendada:hover {
         transform: translateY(-7px) scale(1.04);
-        border-color: rgba(212, 175, 55, 0.45);
+        border-color: rgba(184, 184, 184, 0.45);
         box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45),
-                    0 0 18px rgba(212, 175, 55, 0.10);
+                    0 0 18px rgba(184, 184, 184, 0.10);
     }
     .card-recomendada:hover .rec-nombre {
-        color: var(--gold-light);
+        color: var(--plata-light);
         transition: color 0.25s ease;
     }
 }
@@ -2008,7 +2038,7 @@ footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px so
     top: 50%;
     transform: translateY(-50%);
     background: rgba(10, 10, 10, 0.82);
-    border: 1px solid rgba(212, 175, 55, 0.25);
+    border: 1px solid rgba(184, 184, 184, 0.25);
     color: #fff;
     width: 38px;
     height: 38px;
@@ -2035,9 +2065,9 @@ footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px so
     .recom-arrow:hover {
         transform: translateY(-50%) scale(1.12);
         background: rgba(20, 20, 20, 0.95);
-        border-color: rgba(212, 175, 55, 0.6);
+        border-color: rgba(184, 184, 184, 0.6);
         box-shadow: 0 6px 22px rgba(0,0,0,0.7),
-                    0 0 12px rgba(212, 175, 55, 0.18);
+                    0 0 12px rgba(184, 184, 184, 0.18);
     }
 }
 
