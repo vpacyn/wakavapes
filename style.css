@@ -399,8 +399,18 @@ nav:hover { background: rgba(55, 55, 55, 0.98); }
 
 .btn-inicio:active { background: rgba(80, 80, 80, 0.6); color: #ffffff; box-shadow: 0 0 20px rgba(0,0,0,0.3); transform: scale(0.95); }
 
+/* ── BOTÓN SUBIR ARRIBA ────────────────────────────────────────────────
+   Es el 3er piso de la torre de botones flotantes. La torre queda así:
+       WhatsApp   -> bottom 18px  + 56px de alto = ocupa de 18 a 74
+       Carrito    -> bottom 94px  + 56px de alto = ocupa de 94 a 150
+       Subir      -> bottom 162px + 42px de alto = ocupa de 162 a 204
+   Antes estaba en bottom: 110px con 48px de alto (ocupaba de 110 a 158),
+   o sea justo ENCIMA del carrito. Por eso se encimaban.
+   El right es 25px y no 18px para que su centro quede alineado con los
+   otros dos, que son más anchos:  18 + (56 - 42) / 2 = 25.
+   ────────────────────────────────────────────────────────────────────── */
 .btn-floating-top {
-    position: fixed; right: 18px; bottom: 110px; width: 48px; height: 48px; border-radius: 50%;
+    position: fixed; right: 25px; bottom: 162px; width: 42px; height: 42px; border-radius: 50%;
     display: none; align-items: center; justify-content: center;
     background: linear-gradient(145deg, rgba(200, 200, 200, 0.15), rgba(120, 120, 120, 0.1));
     border: 1px solid rgba(200, 200, 200, 0.35);
@@ -416,7 +426,7 @@ nav:hover { background: rgba(55, 55, 55, 0.98); }
     background: linear-gradient(145deg, rgba(220, 220, 220, 0.2), rgba(150, 150, 150, 0.15));
     border-color: rgba(230, 230, 230, 0.5); color: #ffffff;
 }
-.btn-floating-top i { font-size: 1.3rem; font-weight: bold; }
+.btn-floating-top i { font-size: 1.1rem; font-weight: bold; }
 
 .cta-publicidad {
     position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%);
@@ -1322,6 +1332,9 @@ footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px so
     .boton-whatsapp-modal { padding: 8px 12px; font-size: 0.75rem; min-width: 110px; }
     .btn-whatsapp { width: 48px; height: 48px; right: 10px; bottom: 10px; }
     .btn-whatsapp i { font-size: 1.25rem; }
+    /* La torre se compacta: el botón de subir se hace aún más chico */
+    .btn-floating-top { width: 38px; height: 38px; right: 27px; bottom: 156px; }
+    .btn-floating-top i { font-size: 1rem; }
     .floating-cart-panel { right: 4px; left: 4px; bottom: 72px; max-height: 55vh; }
     .floating-cart-list { max-height: 100px; }
 }
@@ -1741,6 +1754,7 @@ footer { margin-top: 0; padding: 60px 20px; background: #000; border-top: 1px so
     body { padding-bottom: env(safe-area-inset-bottom); }
     .btn-whatsapp { bottom: calc(18px + env(safe-area-inset-bottom)); }
     .btn-carrito-flotante { bottom: calc(94px + env(safe-area-inset-bottom)); }
+    .btn-floating-top { bottom: calc(162px + env(safe-area-inset-bottom)); }
     .floating-cart-panel { bottom: calc(160px + env(safe-area-inset-bottom)); }
 }
 /* ══════════════════════════════════════════════════════════════════════════
