@@ -936,5 +936,21 @@ let listaProductos = [
         
         
     ]},
+
+    { id: 76, categoria: 'vapes', activo: true, orden: 69, agotado: false, nombre: "Luffbar 40k", modelo: "40000 Puffs", precio: 90, img: "img/vapes/luffbar_40k.webp", sabores: [
+        { nombre: "Fruity Cool Strawberry", disponible: true },
+        { nombre: "White Gummy", disponible: true },
+        { nombre: "Straw B-Pop", disponible: true },
+        { nombre: "Sour Apple Ice", disponible: true },
+        { nombre: "Alaska Grape Ice", disponible: true },
+        { nombre: "Strawberry Burst", disponible: true },
+        { nombre: "Peach Ice", disponible: true },
+        { nombre: "Fruity cool dragonfruit",disponible: true },
+        { nombre: "Straw Nana", disponible: true },
+        { nombre: "Alaska Watermelon Ice", disponible: true },
+        
+        
+        
+    ]},
 ]
 
