@@ -877,7 +877,7 @@ let listaProductos = [
         { nombre: "Sour Fcking Fab", disponible: true },
 
     ]},
-         { id: 71, categoria: 'vapes', activo: true, orden: 64, agotado: false, nombre: "Lost Angel 50k", modelo: "50000 Puffs", precio: 65, img: "img/vapes/Lost_angel_50k.webp", sabores: [
+         { id: 71, categoria: 'vapes', activo: true, orden: 64, agotado: false, nombre: "Lost Angel 50k", modelo: "50000 Puffs", precio: 125, img: "img/vapes/Lost_angel_50k.webp", sabores: [
         { nombre: "ICE MINTZ", disponible: true },
         { nombre: "TROPICAL BOOM", disponible: true },
         { nombre: "FCUKING FAB", disponible: true },
