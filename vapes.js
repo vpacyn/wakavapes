@@ -892,5 +892,49 @@ let listaProductos = [
         { nombre: "BERRY BLIZZ", disponible: true },
 
     ]},
+     { id: 72, categoria: 'vapes', activo: true, orden: 65, agotado: false, nombre: "Aura Vape 40k", modelo: "40000 Puffs", precio: 99, img: "img/vapes/aura_vape_40k.webp", sabores: [
+        { nombre: "Blue Razz Ice", disponible: true },
+        { nombre: "Blackberry B-BRUST", disponible: true },
+        { nombre: "Peach Perfect Slush", disponible: true },
+        { nombre: "Strawberry Kiwi", disponible: true },
+        { nombre: "Sour Apple", disponible: true },
+        { nombre: "Miami Mint", disponible: true },
+        { nombre: "Cola Slush", disponible: true },
+        { nombre: "Sour Mango Pineapple", disponible: true },
+
+    ]},
+     { id: 73, categoria: 'vapes', activo: true, orden: 66, agotado: false, nombre: "Geek Bar Somax", modelo: "80000 Puffs", precio: 250, img: "img/vapes/geek_somax_80k.webp", sabores: [
+        { nombre: "Miami Mint", disponible: true },
+        { nombre: "México Mango", disponible: true },
+        { nombre: "Fcuking Fab", disponible: true },
+        { nombre: "Strawberry Watermelon", disponible: true },
+        { nombre: "Pina Colada Ice", disponible: true },
+        { nombre: "Watermelon Ice", disponible: true },
+        { nombre: "Mixed Berry", disponible: true },
+        { nombre: "Blue Razz Ice", disponible: true },
+      
+        
+    ]},
+     { id: 74, categoria: 'vapes', activo: true, orden: 67, agotado: false, nombre: "Mk jumbo II", modelo: "50000 Puffs", precio: 25, img: "img/vapes/mk_jumbo_50k.webp", sabores: [
+        { nombre: "Pure Tobacco", disponible: true },
+        
+        
+    ]},
+
+     { id: 75, categoria: 'vapes', activo: true, orden: 68, agotado: false, nombre: "Rifbar 40k", modelo: "40000 Puffs", precio: 125, img: "img/vapes/rifbar_40k.webp", sabores: [
+        { nombre: "Blue Razz Ice", disponible: true },
+        { nombre: "Miami Mint", disponible: true },
+        { nombre: "Blackberry Pop", disponible: true },
+        { nombre: "White Gummy", disponible: true },
+        { nombre: "Dragon Fruit Lemonade", disponible: true },
+        { nombre: "Pineapple Lime", disponible: true },
+        { nombre: "Blackberry Mint", disponible: true },
+        { nombre: "Blueberry Pink Lemonade", disponible: true },
+        { nombre: "Triple Berry Ice", disponible: true },
+        { nombre: "Sour Apple Ice", disponible: true },
+        { nombre: "Peach Mango Pineapple", disponible: true },
+        
+        
+    ]},
 ]
 
