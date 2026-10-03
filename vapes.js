@@ -877,5 +877,20 @@ let listaProductos = [
         { nombre: "Sour Fcking Fab", disponible: true },
 
     ]},
+         { id: 71, categoria: 'vapes', activo: true, orden: 64, agotado: false, nombre: "Lost Angel 50k", modelo: "50000 Puffs", precio: 65, img: "img/vapes/tomoro_30k.jpeg", sabores: [
+        { nombre: "ICE MINTZ", disponible: true },
+        { nombre: "TROPICAL BOOM", disponible: true },
+        { nombre: "FCUKING FAB", disponible: true },
+        { nombre: "FRAPPE", disponible: true },
+        { nombre: "BLACKBERRY B-POP", disponible: true },
+        { nombre: "STRAWBERRY ICE", disponible: true },
+        { nombre: "WATERMELON ICE", disponible: true },
+        { nombre: "BLUEBERRY WATERMELON", disponible: true },
+        { nombre: "STRAWBERRY BANANA", disponible: true },
+        { nombre: "MIAMI MINT", disponible: true },
+        { nombre: "BLUE RAZZ ICE", disponible: true },
+        { nombre: "BERRY BLIZZ", disponible: true },
+
+    ]},
 ]
 
