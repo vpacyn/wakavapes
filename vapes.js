@@ -948,9 +948,41 @@ let listaProductos = [
         { nombre: "Fruity cool dragonfruit",disponible: true },
         { nombre: "Straw Nana", disponible: true },
         { nombre: "Alaska Watermelon Ice", disponible: true },
-        
-        
-        
+    ]},
+
+    { id: 77, categoria: 'vapes', activo: true, orden: 70, agotado: false, nombre: "fume pro 30k", modelo: "30000 Puffs", precio: 75, img: "img/vapes/fume_pro_30k.webp", sabores: [
+        { nombre: "Dubai Chocolate", disponible: true },
+        { nombre: "White Grape", disponible: true },
+        { nombre: "Black Ice", disponible: true },
+        { nombre: "Cherries Starzz", disponible: true },
+        { nombre: "Triple Berry Ice", disponible: true },
+        { nombre: "Baja Splash", disponible: true },
+        { nombre: "Pinneaple Paradise", disponible: true },
+        { nombre: "Fcuking Fab",disponible: true },
+        { nombre: "Lush Ice", disponible: true },
+        { nombre: "Mango Tango", disponible: true },
+        { nombre: "Watermelon Wave", disponible: true },
+        { nombre: "Texas Citrus Rush", disponible: true },
+        { nombre: "Sour Apple", disponible: true },
+        { nombre: "Peach Ice", disponible: true },
+    ]},
+
+    { id: 78, categoria: 'vapes', activo: true, orden: 71, agotado: false, nombre: "Nexa Ultra II 50k", modelo: "50000 Puffs", precio: 135, img: "img/vapes/nexa_ultra2_50k.webp", sabores: [
+        { nombre: "Miami Mint", disponible: true },
+        { nombre: "Lemon Frozen", disponible: true },
+        { nombre: "Sour Apple Ice", disponible: true },
+        { nombre: "Blue Razz Ice", disponible: true },
+        { nombre: "White Gummy", disponible: true },
+        { nombre: "Strawberry Banana", disponible: true },
+        { nombre: "Georgia Peach Ice",disponible: true },
+        { nombre: "Strawberry Ice", disponible: true },
+        { nombre: "Strawberry Mango", disponible: true },
+        { nombre: "Strawberry Colada", disponible: true },
+        { nombre: "Blueberry Watermelon", disponible: true },
+        { nombre: "BP", disponible: true },
+        { nombre: "Black Cherry", disponible: true },
+        { nombre: "Fcuking Fab", disponible: true },
     ]},
 ]
+
 
